@@ -1,9 +1,12 @@
 import React from 'react';
 
 export default React.createClass({
+  getImageUrl() {
+    return this.props.imageUrl;
+  },
   render: function() {
     return <div className="critique">
-      I am a Critique Area!
-    </div>;
+        <img src={this.getImageUrl()}></img>
+      </div>;
   }
-})
+});

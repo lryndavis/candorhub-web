@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   renderIntoDocument,
   scryRenderedDOMComponentsWithClass,
+  scryRenderedDOMComponentsWithTag,
   Simulate
 } from 'react-addons-test-utils';
 import Critique from '../../../src/components/body/Critique';
@@ -14,8 +15,7 @@ describe('Critique', () => {
     const component = renderIntoDocument(
       <Critique />
     );
-    const critique = scryRenderedDOMComponentsWithClass(component, "critique");
-    expect(critique[0].textContent).to.contain('Critique');
+    const critique = scryRenderedDOMComponentsWithTag(component, 'img');
+    expect(critique.length).to.equal(1);
   });
-
 });
