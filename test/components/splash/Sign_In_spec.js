@@ -6,16 +6,28 @@ import {
   scryRenderedDOMComponentsWithTag,
   Simulate
 } from 'react-addons-test-utils';
-import Sign_In from '../../../src/components/splash/Sign_In';
+import {SignIn} from '../../../src/components/splash/SignIn';
 import {expect} from 'chai';
 
 describe("Sign In", () => {
   it('renders a sign-in button', () => {
     const component = renderIntoDocument(
-      <Sign_In />
+      <SignIn />
     );
-    const button = scryRenderedDOMComponentsWithTag(component, 'button');
-    expect(button.length).to.equal(1);
-    expect(button[0].textContent).to.equal("Sign In");
+    const link = scryRenderedDOMComponentsWithClass(component, 'signInLink');
+    expect(link.length).to.equal(1);
+    expect(link[0].textContent).to.equal("Sign In");
+  });
+
+  it('invokes a callback function when the link is clicked', () => {
+    let signedIn = false;
+    const signIn = () => signedIn = true;
+
+    const component = renderIntoDocument(
+      <SignIn signIn={signIn} />
+    );
+    const link = scryRenderedDOMComponentsWithClass(component, 'signInLink');
+    Simulate.click(link[0]);
+    expect(signedIn).to.be.true;
   });
 });
