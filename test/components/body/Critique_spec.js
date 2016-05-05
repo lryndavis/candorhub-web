@@ -11,12 +11,33 @@ import {expect} from 'chai';
 
 describe('Critique', () => {
 
-  it('is a React component that has props', () => {
+  it('displays an image from a url from an image prop', () => {
+    const image = {
+      url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
+      title: 'Airplane Lolcat',
+      description: 'This kitty thinks it is an airplane!'
+    };
     const component = renderIntoDocument(
-      <Critique imageUrl="http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg"/>
+      <Critique image={image}/>
     );
-    const critique = scryRenderedDOMComponentsWithTag(component, "img");
-    expect(critique[0].hasAttribute('src')).to.be.true;
+    const critiqueImage = scryRenderedDOMComponentsWithTag(component, "img");
+    expect(critiqueImage[0].hasAttribute('src')).to.be.true;
+    expect(critiqueImage[0].hasAttribute('alt')).to.be.true;
   });
+
+  it('displays a title and description from an image prop', () => {
+    const image = {
+      url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
+      title: 'Airplane Lolcat',
+      description: 'This kitty thinks it is an airplane!'
+    };
+    const component = renderIntoDocument(
+      <Critique image={image}/>
+    );
+    const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "critiqueImageTitle");
+    const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "critiqueImageDescription");
+    expect(critiqueImageTitle[0].textContent).to.equal("Airplane Lolcat");
+    expect(critiqueImageDescription[0].textContent).to.equal("This kitty thinks it is an airplane!");
+  })
 
 });

@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import Critique from './components/body/Critique'
 
 //dummy data for use until API is set up
-const imageUrl = 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg';
+const image = {
+  url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
+  title: 'Airplane Lolcat',
+  description: 'This kitty thinks it is an airplane!'
+};
 
 ReactDOM.render(
-  <Critique imageUrl={imageUrl} />,
+  <Critique image={image} />,
   document.getElementById('app')
 );
