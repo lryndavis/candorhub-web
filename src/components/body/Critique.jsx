@@ -1,23 +1,29 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as actionCreators from '../../action_creators';
 
-export default React.createClass({
-  getImageUrl() {
-    return this.props.image.get('url') || [];
-  },
+import CritiqueNotSignedIn from './CritiqueNotSignedIn';
+import CritiqueImage from './CritiqueImage';
 
-  getImageTitle() {
-    return this.props.image.get('title') || [];
-  },
-
-  getImageDescription() {
-    return this.props.image.get('description') || [];
-  },
+export const Critique = React.createClass({
 
   render: function() {
-    return <div className="critique">
-        <img className="critiqueImage" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
-        <h1 className="critiqueImageTitle">{this.getImageTitle()}</h1>
-        <p className="critiqueImageDescription">{this.getImageDescription()}</p>
+    return <div>
+        { this.props.signedIn ?
+          <CritiqueImage image={this.props.image} /> :
+          <CritiqueNotSignedIn />
+        }
       </div>;
-  }
+    }
 });
+
+function mapStateToProps(state) {
+  return {
+    signedIn: state.get('signedIn')
+  };
+}
+
+export const CritiqueContainer = connect(
+  mapStateToProps,
+  actionCreators
+)(Critique);

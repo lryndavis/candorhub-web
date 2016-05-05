@@ -4,3 +4,10 @@ export function setState(state) {
     state
   };
 }
+
+export function signIn(state) {
+  return {
+    type: 'SignIn',
+    state
+  };
+}
