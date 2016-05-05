@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Critique from './components/body/Critique'
+import {Router, Route, hashHistory} from 'react-router';
 
-//dummy data for use until API is set up
-const image = {
-  url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
-  title: 'Airplane Lolcat',
-  description: 'This kitty thinks it is an airplane!'
-};
+import App from './components/App';
+import Critique from './components/body/Critique';
+import Sign_In from './components/splash/Sign_In';
+
+//Routing table
+const routes = <Route component={App}>
+    <Route path="/" component={Sign_In} />
+    <Route path="/critique" component={Critique} />
+</Route>;
 
 ReactDOM.render(
-  <Critique image={image} />,
+  <Router history={hashHistory}>{routes}</Router>,
   document.getElementById('app')
 );
