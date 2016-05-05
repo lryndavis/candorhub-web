@@ -6,17 +6,18 @@ import {
   scryRenderedDOMComponentsWithTag,
   Simulate
 } from 'react-addons-test-utils';
+import {Map} from 'immutable';
 import Critique from '../../../src/components/body/Critique';
 import {expect} from 'chai';
 
 describe('Critique', () => {
 
   it('displays an image from a url from an image prop', () => {
-    const image = {
+    const image = Map({
       url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
       title: 'Airplane Lolcat',
       description: 'This kitty thinks it is an airplane!'
-    };
+    });
     const component = renderIntoDocument(
       <Critique image={image}/>
     );
@@ -26,11 +27,11 @@ describe('Critique', () => {
   });
 
   it('displays a title and description from an image prop', () => {
-    const image = {
+    const image = Map({
       url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
       title: 'Airplane Lolcat',
       description: 'This kitty thinks it is an airplane!'
-    };
+    });
     const component = renderIntoDocument(
       <Critique image={image}/>
     );
