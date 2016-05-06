@@ -2,15 +2,15 @@ import React from 'react';
 
 export default React.createClass({
   getImageUrl() {
-    return this.props.image.get('url') || [];
+    return this.props.image.url || [];
   },
 
   getImageTitle() {
-    return this.props.image.get('title') || [];
+    return this.props.image.title || [];
   },
 
   getImageDescription() {
-    return this.props.image.get('description') || [];
+    return this.props.image.description || [];
   },
 
   render: function() {
