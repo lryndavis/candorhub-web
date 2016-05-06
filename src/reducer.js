@@ -18,8 +18,8 @@ function signIn(state) {
   return state.set('signedIn', true);
 }
 
-function setImageToCritique(state, response) {
-  return state.set('imageForCritique', response.images[0]);
+function setImageToCritique(state, responseJSON) {
+  return state.set('imageForCritique', responseJSON.images[0]);
 }
 
 export default function(state = initialState, action) {
@@ -29,7 +29,7 @@ export default function(state = initialState, action) {
     case 'SIGN_IN':
       return signIn(state);
     case 'SET_IMAGE_TO_CRITIQUE':
-      return setImageToCritique(state, action.response);
+      return setImageToCritique(state, action.responseJSON);
     }
   return state;
 }
