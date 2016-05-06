@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import {Map} from 'immutable';
 
 import reducer from './reducer';
 
@@ -10,7 +12,7 @@ import App from './components/App';
 import {CritiqueContainer} from './components/body/Critique';
 import {SignInContainer} from './components/splash/SignIn';
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 //Routing table
 const routes = <Route component={App}>

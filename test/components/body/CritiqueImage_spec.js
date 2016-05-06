@@ -13,11 +13,11 @@ import {expect} from 'chai';
 describe('CritiqueImage', () => {
 
   it('displays an image from a url from an image prop', () => {
-    const image = Map({
+    const image = {
       url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
       title: 'Airplane Lolcat',
       description: 'This kitty thinks it is an airplane!'
-    });
+    };
     const component = renderIntoDocument(
       <CritiqueImage image={image}/>
     );
@@ -27,11 +27,11 @@ describe('CritiqueImage', () => {
   });
 
   it('displays a title and description from an image prop', () => {
-    const image = Map({
+    const image = {
       url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
       title: 'Airplane Lolcat',
       description: 'This kitty thinks it is an airplane!'
-    });
+    };
     const component = renderIntoDocument(
       <CritiqueImage image={image}/>
     );

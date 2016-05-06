@@ -27,8 +27,6 @@ describe('reducer', () => {
       })
     };
     const nextState = reducer(undefined, action);
-    expect(nextState).to.equal(fromJS({
-      signedIn: true
-    }));
+    expect(nextState.get('signedIn')).to.be.true;
   });
 });

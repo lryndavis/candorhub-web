@@ -1,31 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../action_creators';
+import $ from 'jquery';
 
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
 
-import $ from 'jquery';
-
 export const Critique = React.createClass({
 
-  getRandomImageFromServer: function() {
-    $.ajax({
-      url: this.props.randomImageEndpoint,
-      dataType: 'json',
-      cache: false,
-      success: function(data) {
-        console.log(data.images[0]);
-        this.props.setState({imageForCritique: data.images[0]});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.randomImageEndpoint, status, err.toString());
-      }.bind(this)
-    });
-  },
-
   componentDidMount: function() {
-    this.getRandomImageFromServer();
+    this.props.getRandomImageFromServer();
   },
 
   render: function() {
