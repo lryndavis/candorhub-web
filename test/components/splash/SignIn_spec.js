@@ -9,7 +9,7 @@ import {
 import {SignIn} from '../../../src/components/splash/SignIn';
 import {expect} from 'chai';
 
-describe("Sign In", () => {
+describe("SignIn", () => {
   it('renders a sign-in button', () => {
     const component = renderIntoDocument(
       <SignIn />
