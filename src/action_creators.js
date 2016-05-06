@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 const randomImageEndpoint = "http://candorhub-api.herokuapp.com/v1/images?count=1";
 
 export function setState(state) {
@@ -14,21 +16,18 @@ export function signIn(state) {
   };
 }
 
-export function setImageToCritique(state, response) {
+export function setImageToCritique(state, responseJSON) {
   return {
     type: "SET_IMAGE_TO_CRITIQUE",
     state,
-    response
+    responseJSON
   };
 }
 
 export function getRandomImageFromServer(state) {
   return function (dispatch) {
     return fetch(randomImageEndpoint)
-    .then(function(response) {
-      return response.json()
-    }).then(function(image) {
-      dispatch(setImageToCritique(state, image))
-    });
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
   }
 }
