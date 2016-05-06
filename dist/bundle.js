@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2588df3b01754be00671"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fee67eddf1c30c56bae9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8175,6 +8175,8 @@
 
 	var _SignIn = __webpack_require__(350);
 
+	var _Splash = __webpack_require__(351);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var store = (0, _redux.createStore)(_reducer2.default);
@@ -8183,8 +8185,7 @@
 	var routes = _react2.default.createElement(
 	  _reactRouter.Route,
 	  { component: _App2.default },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _SignIn.SignInContainer }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: SignUp }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Splash.Splash }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/critique', component: _Critique.CritiqueContainer })
 	);
 
@@ -41235,6 +41236,162 @@
 	var SignInContainer = exports.SignInContainer = (0, _reactRedux.connect)(mapStateToProps, actionCreators)(SignIn);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(342); if (makeExportsHot(module, __webpack_require__(146))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SignIn.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 351 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Splash = undefined;
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(327);
+
+	var _action_creators = __webpack_require__(347);
+
+	var actionCreators = _interopRequireWildcard(_action_creators);
+
+	var _SignIn = __webpack_require__(350);
+
+	var _SignUp = __webpack_require__(352);
+
+	var _SignUp2 = _interopRequireDefault(_SignUp);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Splash = exports.Splash = _react2.default.createClass({
+	  displayName: 'Splash',
+
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'CANDORHUB or something'
+	      ),
+	      _react2.default.createElement(_SignUp2.default, null),
+	      _react2.default.createElement(_SignIn.SignInContainer, null)
+	    );
+	  }
+	});
+
+	function mapStateToProps(state) {
+	  return {
+	    signedIn: state.get('signedIn')
+	  };
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(342); if (makeExportsHot(module, __webpack_require__(146))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Splash.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 352 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(327);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'SignUp',
+
+	  getInitialState: function getInitialState() {
+	    return { value: '' };
+	  },
+
+	  handleChange: function handleChange() {
+	    this.setState({ value: event.target.value });
+	  },
+
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'sign-up-form' },
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'This may or may not be a form'
+	      ),
+	      _react2.default.createElement(
+	        'label',
+	        null,
+	        'Username:'
+	      ),
+	      _react2.default.createElement('input', { type: 'text',
+	        name: 'username',
+	        placeholder: 'Username',
+	        value: this.state.value,
+	        onChange: this.handleChange
+	      }),
+	      _react2.default.createElement(
+	        'label',
+	        null,
+	        'Email:'
+	      ),
+	      _react2.default.createElement('input', { type: 'text',
+	        name: 'email',
+	        placeholder: 'Email',
+	        value: this.state.value,
+	        onChange: this.handleChange
+	      }),
+	      _react2.default.createElement(
+	        'label',
+	        null,
+	        'Password:'
+	      ),
+	      _react2.default.createElement('input', { type: 'text',
+	        name: 'password',
+	        value: this.state.value,
+	        onChange: this.handleChange
+	      }),
+	      _react2.default.createElement(
+	        'label',
+	        null,
+	        'Confirm Password:'
+	      ),
+	      _react2.default.createElement('input', { type: 'text',
+	        name: 'confirm-password',
+	        value: this.state.value,
+	        onChange: this.handleChange
+	      }),
+	      _react2.default.createElement(
+	        'button',
+	        { type: 'submit' },
+	        'Submit'
+	      )
+	    );
+	  }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(342); if (makeExportsHot(module, __webpack_require__(146))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SignUp.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }
