@@ -5,6 +5,7 @@ import $ from 'jquery';
 
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
+import CommentForm from './CommentForm';
 
 export const Critique = React.createClass({
 
