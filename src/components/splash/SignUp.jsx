@@ -17,10 +17,22 @@ export default React.createClass({
   handlePasswordConfirmChange: function(e) {
     this.setState({passwordConfirm: e.target.value});
   },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var username = this.state.username.trim();
+    var email = this.state.email.trim();
+    var password = this.state.password.trim();
+    var passwordConfirm = this.state.passwordConfirm.trim();
+    if (!username || !email || !password || !passwordConfirm) {
+      return;
+    }
+    //server request
+    this.setState({username: '', email: '', password: '', passwordConfirm: ''});
+  },
 
   render: function() {
     return (
-      <form className="signUpForm">
+      <form className="signUpForm" onSubmit={this.handleSubmit}>
         <p>This may or may not be a form</p>
         <input type="text"
           placeholder="Your Username"

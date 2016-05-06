@@ -4,13 +4,15 @@ import * as actionCreators from '../../action_creators';
 
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
+import CommentForm from './CommentForm';
 
 export const Critique = React.createClass({
 
   render: function() {
     return <div>
         { this.props.signedIn ?
-          <CritiqueImage image={this.props.image} /> :
+          <CritiqueImage image={this.props.image} />
+        :
           <CritiqueNotSignedIn />
         }
       </div>;
