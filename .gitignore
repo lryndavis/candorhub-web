@@ -1,2 +1,13 @@
 node_modules/
+bundle.js
 .DS_Store/
+*~
+*.pyc
+static
+.grunt
+coverage/
+.module-cache
+*.gem
+.vscode
+*.log*
+
