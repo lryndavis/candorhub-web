@@ -14,7 +14,7 @@ export const Critique = React.createClass({
   },
 
   render: function() {
-    return <div>
+    return <div className="critique">
         { this.props.signedIn ?
           <div>
             <CommentFormContainer />
