@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
-import CommentForm from './CommentForm';
+import { CommentFormContainer } from './CommentForm';
 
 export const Critique = React.createClass({
 
@@ -16,7 +16,10 @@ export const Critique = React.createClass({
   render: function() {
     return <div>
         { this.props.signedIn ?
-          <CritiqueImage image={this.props.imageForCritique} /> :
+          <div>
+            <CommentFormContainer />
+            <CritiqueImage image={this.props.imageForCritique} />
+          </div> :
           <CritiqueNotSignedIn />
         }
       </div>;

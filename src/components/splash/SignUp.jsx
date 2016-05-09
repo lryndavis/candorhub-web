@@ -34,7 +34,7 @@ export default React.createClass({
   render: function() {
     return (
       <form className="signUpForm" onSubmit={this.handleSubmit}>
-        <p>This may or may not be a form</p>
+        <p>Join Candorhub</p>
         <input type="text"
           placeholder="Your Username"
           value={this.state.username}
