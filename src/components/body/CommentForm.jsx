@@ -11,15 +11,11 @@ import CritiqueImage from './CritiqueImage';
 
 const offensiveWordThreshold = 4;
 
-
 export const CommentForm = React.createClass ({
 
   getInitialState: function() {
     return {username: '', firstResponse: '', secondResponse: '', thirdResponse: '',
     firstResponseIsValid: "no", secondResponseIsValid: "no", thirdResponseIsValid: "no"};
-  },
-  handleUserChange: function(e) {
-    this.setState({user: e.target.value});
   },
   handleFirstResponseChange: function(e) {
     this.setState({firstResponse: e.target.value});
@@ -29,32 +25,42 @@ export const CommentForm = React.createClass ({
       if (!doesNotUseOffensiveLanguage(e.target.value)) {
         this.setState({firstResponseIsValid: "offensive word"});
       } else if (!usedConstructiveLanguage(e.target.value)) {
-        this.setState({firstResponseIsValid: "not positive enough"});
+        this.setState({firstResponseIsValid: "This may not be useful commentary."});
       } else if (!isCorrectLength(e.target.value)) {
         this.setState({firstResponseIsValid: "wrong length"});
       }
-      // this.setState({firstResponseIsValid: false});
     }
   },
-  // handleSecondResponseChange: function(e) {
-  //   this.setState({secondResponse: e.target.value});
-  //   if (isValidComment(e.target.value)) {
-  //     this.setState({secondResponseIsValid: true});
-  //   } else {
-  //     this.setState({secondResponseIsValid: false});
-  //   }
-  // },
-  // handleThirdResponseChange: function(e) {
-  //   this.setState({thirdResponse: e.target.value});
-  //   if (isValidComment(e.target.value)) {
-  //     this.setState({thirdResponseIsValid: true});
-  //   } else {
-  //     this.setState({thirdResponseIsValid: false});
-  //   }
-  // },
+  handleSecondResponseChange: function(e) {
+    this.setState({secondResponse: e.target.value});
+    if (isValidComment(e.target.value)) {
+      this.setState({secondResponseIsValid: "yes"});
+    } else {
+      if (!doesNotUseOffensiveLanguage(e.target.value)) {
+        this.setState({secondResponseIsValid: "offensive word"});
+      } else if (!usedConstructiveLanguage(e.target.value)) {
+        this.setState({secondResponseIsValid: "This may not be useful commentary."});
+      } else if (!isCorrectLength(e.target.value)) {
+        this.setState({secondResponseIsValid: "wrong length"});
+      }
+    }
+  },
+  handleThirdResponseChange: function(e) {
+    this.setState({thirdResponse: e.target.value});
+    if (isValidComment(e.target.value)) {
+      this.setState({thirdResponseIsValid: "yes"});
+    } else {
+      if (!doesNotUseOffensiveLanguage(e.target.value)) {
+        this.setState({thirdResponseIsValid: "offensive word"});
+      } else if (!usedConstructiveLanguage(e.target.value)) {
+        this.setState({thirdResponseIsValid: "This may not be useful commentary."});
+      } else if (!isCorrectLength(e.target.value)) {
+        this.setState({thirdResponseIsValid: "wrong length"});
+      }
+    }
+  },
   handleSubmit: function(e) {
     e.preventDefault();
-    var username = this.state.username.trim();
     var firstResponse = this.state.firstResponse;
     var secondResponse = this.state.secondResponse;
     var thirdResponse = this.state.thirdResponse;
@@ -69,13 +75,7 @@ export const CommentForm = React.createClass ({
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
           <h1>Your Daily Candor</h1>
-          <p>Username:</p>
-          <input type="text"
-            placeholder="Your username"
-            value={this.state.user}
-            onChange={this.handleUserChange}
-            />
-          <p>What is this? </p>
+          <p>What is this art?</p>
           <input type="text"
             placeholder="What"
             value={this.state.firstResponse}
@@ -116,7 +116,7 @@ function doesNotUseOffensiveLanguage(commentText) {
 }
 
 function usedConstructiveLanguage(commentText) {
-  return analyze(commentText).comparative > -1;
+  return analyze(commentText).comparative > -0.5;
 }
 
 function isCorrectLength(commentText) {
