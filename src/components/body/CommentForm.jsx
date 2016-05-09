@@ -106,8 +106,6 @@ function doesNotUseOffensiveLanguage(commentText) {
   var noPunctuation = commentText.replace(/[^a-zA-Z ]+/g, ' ').replace('/ {2,}/',' '),
       tokens = noPunctuation.toLowerCase().split(" ");
   for (var i = 0; i < tokens.length; i++) {
-    console.log(tokens[i]);
-    console.log(negativity(tokens[i]).score);
     if (negativity(tokens[i]).score >= offensiveWordThreshold) {
       return false;
     }
