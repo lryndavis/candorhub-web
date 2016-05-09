@@ -18,7 +18,7 @@ export const Critique = React.createClass({
   },
 
   render: function() {
-    return <div>
+    return <div className="critique">
         { this.props.signedIn ?
           <div className="container">
             <div className="col-md-8 image-info-container">
