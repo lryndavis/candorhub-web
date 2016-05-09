@@ -9,11 +9,14 @@ import Critique from './Critique';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
 
+const offensiveWordThreshold = 4;
+
+
 export const CommentForm = React.createClass ({
 
   getInitialState: function() {
     return {username: '', firstResponse: '', secondResponse: '', thirdResponse: '',
-    firstResponseIsValid: false, secondResponseIsValid: false, thirdResponseIsValid: false};
+    firstResponseIsValid: "no", secondResponseIsValid: "no", thirdResponseIsValid: "no"};
   },
   handleUserChange: function(e) {
     this.setState({user: e.target.value});
@@ -21,27 +24,34 @@ export const CommentForm = React.createClass ({
   handleFirstResponseChange: function(e) {
     this.setState({firstResponse: e.target.value});
     if (isValidComment(e.target.value)) {
-      this.setState({firstResponseIsValid: true});
+      this.setState({firstResponseIsValid: "yes"});
     } else {
-      this.setState({firstResponseIsValid: false});
+      if (!doesNotUseOffensiveLanguage(e.target.value)) {
+        this.setState({firstResponseIsValid: "offensive word"});
+      } else if (!usedConstructiveLanguage(e.target.value)) {
+        this.setState({firstResponseIsValid: "not positive enough"});
+      } else if (!isCorrectLength(e.target.value)) {
+        this.setState({firstResponseIsValid: "wrong length"});
+      }
+      // this.setState({firstResponseIsValid: false});
     }
   },
-  handleSecondResponseChange: function(e) {
-    this.setState({secondResponse: e.target.value});
-    if (isValidComment(e.target.value)) {
-      this.setState({secondResponseIsValid: true});
-    } else {
-      this.setState({secondResponseIsValid: false});
-    }
-  },
-  handleThirdResponseChange: function(e) {
-    this.setState({thirdResponse: e.target.value});
-    if (isValidComment(e.target.value)) {
-      this.setState({thirdResponseIsValid: true});
-    } else {
-      this.setState({thirdResponseIsValid: false});
-    }
-  },
+  // handleSecondResponseChange: function(e) {
+  //   this.setState({secondResponse: e.target.value});
+  //   if (isValidComment(e.target.value)) {
+  //     this.setState({secondResponseIsValid: true});
+  //   } else {
+  //     this.setState({secondResponseIsValid: false});
+  //   }
+  // },
+  // handleThirdResponseChange: function(e) {
+  //   this.setState({thirdResponse: e.target.value});
+  //   if (isValidComment(e.target.value)) {
+  //     this.setState({thirdResponseIsValid: true});
+  //   } else {
+  //     this.setState({thirdResponseIsValid: false});
+  //   }
+  // },
   handleSubmit: function(e) {
     e.preventDefault();
     var username = this.state.username.trim();
@@ -71,7 +81,7 @@ export const CommentForm = React.createClass ({
             value={this.state.firstResponse}
             onChange={this.handleFirstResponseChange}
             />
-          <p>Valid Comment? {this.state.firstResponseIsValid.toString()}</p>
+          <p>Valid Comment? {this.state.firstResponseIsValid}</p>
           <p>How do you feel about it?</p>
           <input type="text"
             placeholder="What"
@@ -93,11 +103,20 @@ export const CommentForm = React.createClass ({
 });
 
 function doesNotUseOffensiveLanguage(commentText) {
-  return negativity(commentText).score < 3;
+  var noPunctuation = commentText.replace(/[^a-zA-Z ]+/g, ' ').replace('/ {2,}/',' '),
+      tokens = noPunctuation.toLowerCase().split(" ");
+  for (var i = 0; i < tokens.length; i++) {
+    console.log(tokens[i]);
+    console.log(negativity(tokens[i]).score);
+    if (negativity(tokens[i]).score >= offensiveWordThreshold) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function usedConstructiveLanguage(commentText) {
-  return analyze(commentText).comparative > -0.5;
+  return analyze(commentText).comparative > -1;
 }
 
 function isCorrectLength(commentText) {
