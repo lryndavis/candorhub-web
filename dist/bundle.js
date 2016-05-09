@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "297a5cba72ebb93b8811"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ec10bac7b172a629151d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8183,9 +8183,9 @@
 
 	var _Critique = __webpack_require__(449);
 
-	var _SignIn = __webpack_require__(456);
+	var _SignIn = __webpack_require__(459);
 
-	var _Splash = __webpack_require__(457);
+	var _Splash = __webpack_require__(460);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -60365,8 +60365,6 @@
 
 	var _CommentForm = __webpack_require__(455);
 
-	var _CommentForm2 = _interopRequireDefault(_CommentForm);
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -60383,7 +60381,12 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      this.props.signedIn ? _react2.default.createElement(_CritiqueImage2.default, { image: this.props.imageForCritique }) : _react2.default.createElement(_CritiqueNotSignedIn2.default, null)
+	      this.props.signedIn ? _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_CommentForm.CommentFormContainer, null),
+	        _react2.default.createElement(_CritiqueImage2.default, { image: this.props.imageForCritique })
+	      ) : _react2.default.createElement(_CritiqueNotSignedIn2.default, null)
 	    );
 	  }
 	});
@@ -61011,6 +61014,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.CommentFormContainer = exports.CommentForm = undefined;
 
 	var _react = __webpack_require__(146);
 
@@ -61018,35 +61022,81 @@
 
 	var _reactRedux = __webpack_require__(327);
 
+	var _action_creators = __webpack_require__(450);
+
+	var actionCreators = _interopRequireWildcard(_action_creators);
+
+	var _jquery = __webpack_require__(343);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _Sentimental = __webpack_require__(456);
+
+	var _Critique = __webpack_require__(449);
+
+	var _Critique2 = _interopRequireDefault(_Critique);
+
+	var _CritiqueNotSignedIn = __webpack_require__(453);
+
+	var _CritiqueNotSignedIn2 = _interopRequireDefault(_CritiqueNotSignedIn);
+
+	var _CritiqueImage = __webpack_require__(454);
+
+	var _CritiqueImage2 = _interopRequireDefault(_CritiqueImage);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = _react2.default.createClass({
+	var CommentForm = exports.CommentForm = _react2.default.createClass({
 	  displayName: 'CommentForm',
 
+
 	  getInitialState: function getInitialState() {
-	    return { username: '', firstResponse: '', secondResponse: '', thirdResponse: '' };
+	    return { username: '', firstResponse: '', secondResponse: '', thirdResponse: '',
+	      firstResponseIsValid: false, secondResponseIsValid: false, thirdResponseIsValid: false };
 	  },
 	  handleUserChange: function handleUserChange(e) {
 	    this.setState({ user: e.target.value });
 	  },
 	  handleFirstResponseChange: function handleFirstResponseChange(e) {
 	    this.setState({ firstResponse: e.target.value });
+	    // this.setState({firstResponseIsValid: true});
+	    if (doesNotUseOffensiveLanguage(e.target.value)) {
+	      this.setState({ firstResponseIsValid: true });
+	    } else {
+	      this.setState({ firstResponseIsValid: false });
+	    }
 	  },
 	  handleSecondResponseChange: function handleSecondResponseChange(e) {
 	    this.setState({ secondResponse: e.target.value });
+	    this.setState({ secondResponseIsValid: true });
 	  },
 	  handleThirdResponseChange: function handleThirdResponseChange(e) {
 	    this.setState({ thirdResponse: e.target.value });
+	    this.setState({ secondResponseIsValid: true });
+	  },
+	  handleSubmit: function handleSubmit(e) {
+	    e.preventDefault();
+	    var username = this.state.username.trim();
+	    var firstResponse = this.state.firstResponse;
+	    var secondResponse = this.state.secondResponse;
+	    var thirdResponse = this.state.thirdResponse;
+	    if (!username || !firstResponse || !secondResponse || !thirdResponse) {
+	      return;
+	    }
+	    //server request
+	    this.setState({ username: '', firstResponse: '', password: '', passwordConfirm: '' });
 	  },
 
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'form',
-	      { className: 'commentForm' },
+	      { className: 'commentForm', onSubmit: this.handleSubmit },
 	      _react2.default.createElement(
 	        'h1',
 	        null,
-	        'This may or may not be a critique form'
+	        'Your Daily Candor'
 	      ),
 	      _react2.default.createElement(
 	        'p',
@@ -61061,7 +61111,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'This may be a question?'
+	        'What is this? '
 	      ),
 	      _react2.default.createElement('input', { type: 'text',
 	        placeholder: 'What',
@@ -61071,7 +61121,13 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'This may be a question?'
+	        'Valid Comment? ',
+	        this.state.firstResponseIsValid.toString()
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'How do you feel about it?'
 	      ),
 	      _react2.default.createElement('input', { type: 'text',
 	        placeholder: 'What',
@@ -61081,23 +61137,163 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'This may be a question?'
+	        'Valid Comment? ',
+	        this.state.secondResponseIsValid.toString()
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Is Everything OK?'
 	      ),
 	      _react2.default.createElement('input', { type: 'text',
-	        placeholder: 'What',
+	        placeholder: 'No',
 	        value: this.state.thirdResponse,
 	        onChange: this.handleThirdResponseChange
 	      }),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Valid Comment? ',
+	        this.state.thirdResponseIsValid.toString()
+	      ),
 	      _react2.default.createElement('input', { type: 'submit', value: 'Post' })
 	    );
 	  }
 	});
+
+	function doesNotUseOffensiveLanguage(commentText) {
+	  return negativity(commentText).score < 3;
+	}
+
+	function usedConstructiveLanguage(commentText) {
+	  return analyze(commentText).comparative > -0.5;
+	}
+
+	function isCorrectLength(commentText) {
+	  return commentText.trim().length >= 100 && commentText.trim().length <= 300;
+	}
+
+	function mapStateToProps(state) {
+	  return {
+	    signedIn: state.get('signedIn'),
+	    imageForCritique: state.get('imageForCritique')
+	  };
+	}
+
+	var CommentFormContainer = exports.CommentFormContainer = (0, _reactRedux.connect)(mapStateToProps, actionCreators)(CommentForm);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(344); if (makeExportsHot(module, __webpack_require__(146))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "CommentForm.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
 /* 456 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var analyze = __webpack_require__(457).analyze,
+	    negativity = __webpack_require__(457).negativity,
+	    positivity = __webpack_require__(457).positivity;
+
+	module.exports = {
+	  analyze    : analyze,
+	  negativity : negativity,
+	  positivity : positivity
+	};
+
+
+/***/ },
+/* 457 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var afinn = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../wordLists/afinn.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+
+	// Calculates the negative sentiment of a sentence
+	// -------------------------------------------------- //
+
+	function negativity (phrase) {
+	  var addPush = function(t, score){
+	    hits -= score;
+	    words.push(t);
+	  };
+	    
+	  var noPunctuation = phrase.replace(/[^a-zA-Z ]+/g, ' ').replace('/ {2,}/',' '),
+	      tokens = noPunctuation.toLowerCase().split(" "),
+	      hits   = 0,
+	      words  = [];
+
+	  tokens.forEach(function(t) {
+	    if (afinn.hasOwnProperty(t)) {
+	      if (afinn[t] < 0){
+	        addPush(t, afinn[t]);
+	      }
+	    }
+	  });
+
+	  return {
+	    score       : hits,
+	    comparative : hits / tokens.length,
+	    words       : words
+	  };
+	}
+
+
+	// Calculates the positive sentiment  of a sentence
+	// -------------------------------------------------- //
+
+	function positivity (phrase) {
+	  var addPush = function(t, score){
+	    hits += score;
+	    words.push(t);
+	  };
+
+	  var noPunctuation = phrase.replace(/[^a-zA-Z ]+/g, ' ').replace('/ {2,}/',' '),
+	      tokens = noPunctuation.toLowerCase().split(" "),
+	      hits   = 0,
+	      words  = [];
+
+	  tokens.forEach(function(t) {
+	    if (afinn.hasOwnProperty(t)) {
+	      if (afinn[t] > 0){
+	        addPush(t, afinn[t]);
+	      }
+	    }
+	  });
+
+	  return {
+	    score : hits,
+	    comparative : hits / tokens.length,
+	    words : words
+	  };
+	}
+
+
+	// Calculates overall sentiment
+	// -------------------------------------------------- //
+
+	function analyze (phrase) {
+
+	  var pos = positivity(phrase),
+	      neg = negativity(phrase);
+
+	  return {
+	    score       : pos.score - neg.score,
+	    comparative : pos.comparative - neg.comparative,
+	    positive    : pos,
+	    negative    : neg
+	  };
+	}
+
+
+	module.exports = {
+	  analyze    : analyze,
+	  negativity : negativity,
+	  positivity : positivity
+	};
+
+
+/***/ },
+/* 458 */,
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61160,7 +61356,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 457 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61182,9 +61378,9 @@
 
 	var actionCreators = _interopRequireWildcard(_action_creators);
 
-	var _SignIn = __webpack_require__(456);
+	var _SignIn = __webpack_require__(459);
 
-	var _SignUp = __webpack_require__(458);
+	var _SignUp = __webpack_require__(461);
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
@@ -61221,7 +61417,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 458 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61278,7 +61474,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'This may or may not be a form'
+	        'Join Candorhub'
 	      ),
 	      _react2.default.createElement('input', { type: 'text',
 	        placeholder: 'Your Username',

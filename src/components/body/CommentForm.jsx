@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../action_creators';
 import $ from 'jquery';
+import { Sentimental } from 'Sentimental';
+import { positivity, negativity, analyze } from 'Sentimental';
 
 import Critique from './Critique';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
@@ -18,15 +20,27 @@ export const CommentForm = React.createClass ({
   },
   handleFirstResponseChange: function(e) {
     this.setState({firstResponse: e.target.value});
-    this.setState({firstResponseIsValid: true});
+    if (isValidComment(e.target.value)) {
+      this.setState({firstResponseIsValid: true});
+    } else {
+      this.setState({firstResponseIsValid: false});
+    }
   },
   handleSecondResponseChange: function(e) {
     this.setState({secondResponse: e.target.value});
-    this.setState({secondResponseIsValid: true});
+    if (isValidComment(e.target.value)) {
+      this.setState({secondResponseIsValid: true});
+    } else {
+      this.setState({secondResponseIsValid: false});
+    }
   },
   handleThirdResponseChange: function(e) {
     this.setState({thirdResponse: e.target.value});
-    this.setState({secondResponseIsValid: true});
+    if (isValidComment(e.target.value)) {
+      this.setState({thirdResponseIsValid: true});
+    } else {
+      this.setState({thirdResponseIsValid: false});
+    }
   },
   handleSubmit: function(e) {
     e.preventDefault();
@@ -77,6 +91,22 @@ export const CommentForm = React.createClass ({
     );
   }
 });
+
+function doesNotUseOffensiveLanguage(commentText) {
+  return negativity(commentText).score < 3;
+}
+
+function usedConstructiveLanguage(commentText) {
+  return analyze(commentText).comparative > -0.5;
+}
+
+function isCorrectLength(commentText) {
+  return (commentText.trim().length >= 10 && commentText.trim().length <= 100);
+}
+
+function isValidComment(commentText) {
+  return doesNotUseOffensiveLanguage(commentText) && usedConstructiveLanguage(commentText) && isCorrectLength(commentText);
+}
 
 function mapStateToProps(state) {
   return {
