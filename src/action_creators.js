@@ -1,7 +1,9 @@
 import fetch from 'isomorphic-fetch';
 
-const randomImageEndpoint = "http://candorhub-api.herokuapp.com/v1/images?count=1";
-const submitCommentEndpoint = "http://candorhub-api.herokuapp.com/v1/comments";
+const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
+const randomImageEndpoint = apiRoot + "images?count=1";
+const submitCommentEndpoint = apiRoot + "comments";
+const getQuestionsEndpoint = apiRoot + "questions?count=3"; 
 
 export function setState(state) {
   return {
@@ -18,6 +20,7 @@ export function signIn(state) {
 }
 
 export function commentSubmitted(state, responseJSON) {
+  console.log('COMMENT_SUBMITTED');
   return {
     type: 'COMMENT_SUBMITTED',
     state,
@@ -26,7 +29,6 @@ export function commentSubmitted(state, responseJSON) {
 }
 
 export function postSubmitComment(state, body) {
-  console.log(JSON.stringify(body));
   return function (dispatch) {
     return fetch(submitCommentEndpoint, {
       method: 'POST',
@@ -55,4 +57,20 @@ export function getRandomImageFromServer(state) {
     .then(response => response.json())
     .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
   }
+}
+
+export function setQuestionsForComment(state, responseJSON) {
+  return {
+    type: 'SET_QUESTIONS_FOR_COMMENT',
+    state,
+    responseJSON
+  } 
+}
+
+export function getQuestionsForComment(state) {
+  return function (dispatch) {
+    return fetch(getQuestionsEndpoint)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setQuestionsForComment(state, responseJSON)));
+  } 
 }

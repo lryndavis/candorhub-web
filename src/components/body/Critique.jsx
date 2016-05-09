@@ -17,7 +17,7 @@ export const Critique = React.createClass({
     return <div>
         { this.props.signedIn ?
           <div>
-            <CommentFormContainer />
+            <CommentFormContainer questionsForComment={this.props.questionsForComment} />
             <CritiqueImage image={this.props.imageForCritique} />
           </div> :
           <CritiqueNotSignedIn />
@@ -29,7 +29,8 @@ export const Critique = React.createClass({
 function mapStateToProps(state) {
   return {
     signedIn: state.get('signedIn'),
-    imageForCritique: state.get('imageForCritique')
+    imageForCritique: state.get('imageForCritique'),
+    questionsForComment: state.get('questionsForComment')
   };
 }
 

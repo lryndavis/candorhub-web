@@ -7,7 +7,17 @@ const initialState = Map({
     title: '',
     url: '',
     description: ''
-  }
+  },
+  questionsForComment: [{
+    id: 0,
+    body: ''
+  }, {
+    id: 0,
+    body: ''
+  }, {
+    id: 0,
+    body: ''
+  }]
 });
 
 function setState(state, newState) {
@@ -20,6 +30,11 @@ function signIn(state) {
 
 function setImageToCritique(state, responseJSON) {
   return state.set('imageForCritique', responseJSON.images[0]);
+}
+
+function setQuestionsForComment(state, responseJSON) {
+  console.log(responseJSON);
+  return state.set('questionsForComment', responseJSON.questions);
 }
 
 function commentSubmitted(state, responseJSON) {
@@ -36,6 +51,8 @@ export default function(state = initialState, action) {
       return setImageToCritique(state, action.responseJSON);
     case 'COMMENT_SUBMITTED':
       return commentSubmitted(state, action.responseJSON);
+    case 'SET_QUESTIONS_FOR_COMMENT':
+      return setQuestionsForComment(state, action.responseJSON);
     }
   return state;
 }

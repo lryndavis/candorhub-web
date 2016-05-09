@@ -17,6 +17,11 @@ export const CommentForm = React.createClass ({
     return {username: '', firstResponse: '', secondResponse: '', thirdResponse: '',
     firstResponseIsValid: "no", secondResponseIsValid: "no", thirdResponseIsValid: "no"};
   },
+
+  componentDidMount: function() {
+    this.props.getQuestionsForComment(this.props.state);
+  },
+
   handleFirstResponseChange: function(e) {
     this.setState({firstResponse: e.target.value});
     if (isValidComment(e.target.value)) {
@@ -71,13 +76,13 @@ export const CommentForm = React.createClass ({
     var body = {
       "image_id": 1,
       "comments": [{
-          "question_id": 1,
+          "question_id": this.props.questionsForComment[0].id,
           "body": firstResponse.toString()
         }, {
-          "question_id": 1,
+          "question_id": this.props.questionsForComment[1].id,
           "body": secondResponse.toString()
         }, {
-          "question_id": 1,
+          "question_id": this.props.questionsForComment[2].id,
           "body": thirdResponse.toString()
         }]
       };
@@ -88,21 +93,21 @@ export const CommentForm = React.createClass ({
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
           <h1>Your Daily Candor</h1>
-          <p>What is this art?</p>
+          <p>{this.props.firstQuestion.body}</p>
           <input type="text"
             placeholder="What"
             value={this.state.firstResponse}
             onChange={this.handleFirstResponseChange}
             />
           <p>Valid Comment? {this.state.firstResponseIsValid}</p>
-          <p>How do you feel about it?</p>
+          <p>{this.props.secondQuestion.body}</p>
           <input type="text"
             placeholder="What"
             value={this.state.secondResponse}
             onChange={this.handleSecondResponseChange}
             />
           <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
-          <p>Is Everything OK?</p>
+          <p>{this.props.thirdQuestion.body}</p>
           <input type="text"
             placeholder="No"
             value={this.state.thirdResponse}
@@ -144,6 +149,9 @@ function mapStateToProps(state) {
   return {
     signedIn: state.get('signedIn'),
     imageForCritique: state.get('imageForCritique'),
+    firstQuestion: state.get('questionsForComment')[0],
+    secondQuestion: state.get('questionsForComment')[1],
+    thirdQuestion: state.get('questionsForComment')[2],
     state: state
   };
 }
