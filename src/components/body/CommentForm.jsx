@@ -64,11 +64,24 @@ export const CommentForm = React.createClass ({
     var firstResponse = this.state.firstResponse;
     var secondResponse = this.state.secondResponse;
     var thirdResponse = this.state.thirdResponse;
-    if (!username || !firstResponse || !secondResponse || !thirdResponse) {
+    if (!firstResponse || !secondResponse || !thirdResponse) {
       return;
     }
     //server request
-    this.setState({username: '', firstResponse: '', password: '', passwordConfirm: ''});
+    var body = {
+      "image_id": 1,
+      "comments": [{
+          "question_id": 1,
+          "body": firstResponse.toString()
+        }, {
+          "question_id": 1,
+          "body": secondResponse.toString()
+        }, {
+          "question_id": 1,
+          "body": thirdResponse.toString()
+        }]
+      };
+    this.props.postSubmitComment(this.props.state, body);
   },
 
   render: function() {
@@ -130,7 +143,8 @@ function isValidComment(commentText) {
 function mapStateToProps(state) {
   return {
     signedIn: state.get('signedIn'),
-    imageForCritique: state.get('imageForCritique')
+    imageForCritique: state.get('imageForCritique'),
+    state: state
   };
 }
 

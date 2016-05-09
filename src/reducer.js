@@ -22,6 +22,10 @@ function setImageToCritique(state, responseJSON) {
   return state.set('imageForCritique', responseJSON.images[0]);
 }
 
+function commentSubmitted(state, responseJSON) {
+  return state.set('commentSubmitted', true);
+}
+
 export default function(state = initialState, action) {
   switch (action.type) {
     case 'SET_STATE':
@@ -30,6 +34,8 @@ export default function(state = initialState, action) {
       return signIn(state);
     case 'SET_IMAGE_TO_CRITIQUE':
       return setImageToCritique(state, action.responseJSON);
+    case 'COMMENT_SUBMITTED':
+      return commentSubmitted(state, action.responseJSON);
     }
   return state;
 }
