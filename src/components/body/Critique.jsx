@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import { SideBarContainer } from './Sidebar';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
 import { CommentFormContainer } from './CommentForm';

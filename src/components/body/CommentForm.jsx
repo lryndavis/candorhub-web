@@ -110,7 +110,7 @@ export const CommentForm = React.createClass ({
             /><br />
             <br />
           <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
-          <input type="submit" value="Post" />
+          <input type="submit" value="Post" className="submit-button"/>
       </form>
     );
   }

@@ -65,7 +65,7 @@ export default React.createClass({
             onChange={this.handlePasswordConfirmChange}
             /><br />
             <br />
-        <input type="submit" value="Post" />
+        <input className="sign-up-button" type="submit" value="Post" />
       </form>
     );
   }
