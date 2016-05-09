@@ -20,7 +20,7 @@ export const Critique = React.createClass({
           <CritiqueNotSignedIn />
         }
       </div>;
-    }
+  }
 });
 
 function mapStateToProps(state) {
