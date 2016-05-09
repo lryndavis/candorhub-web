@@ -8,6 +8,8 @@ import {Map} from 'immutable';
 
 import reducer from './reducer';
 
+import styles from './stylesheets/main.scss';
+
 import App from './components/App';
 import {CritiqueContainer} from './components/body/Critique';
 import {SignInContainer} from './components/splash/SignIn';

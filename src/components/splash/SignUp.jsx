@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+
 export default React.createClass({
   getInitialState: function() {
     return {username: '', email: '', password: '', passwordConfirm: ''};

@@ -9,7 +9,7 @@ export const Splash = React.createClass({
 
   render: function() {
     return <div>
-      <h1>CANDORHUB or something</h1>
+      <h1>candorhub</h1>
       <SignUp />
       <SignInContainer />
       </div>;
