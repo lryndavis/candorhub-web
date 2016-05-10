@@ -19,6 +19,11 @@ export const CommentForm = React.createClass ({
     return {username: '', firstResponse: '', secondResponse: '', thirdResponse: '',
     firstResponseIsValid: "no", secondResponseIsValid: "no", thirdResponseIsValid: "no"};
   },
+
+  componentDidMount: function() {
+    this.props.getQuestionsForComment(this.props.state);
+  },
+
   handleFirstResponseChange: function(e) {
     this.setState({firstResponse: e.target.value});
     if (isValidComment(e.target.value)) {
@@ -66,30 +71,43 @@ export const CommentForm = React.createClass ({
     var firstResponse = this.state.firstResponse;
     var secondResponse = this.state.secondResponse;
     var thirdResponse = this.state.thirdResponse;
-    if (!username || !firstResponse || !secondResponse || !thirdResponse) {
+    if (!firstResponse || !secondResponse || !thirdResponse) {
       return;
     }
     //server request
-    this.setState({username: '', firstResponse: '', password: '', passwordConfirm: ''});
+    var body = {
+      "image_id": this.props.imageForCritique.id,
+      "comments": [{
+          "question_id": this.props.questionsForComment[0].id,
+          "body": firstResponse.toString()
+        }, {
+          "question_id": this.props.questionsForComment[1].id,
+          "body": secondResponse.toString()
+        }, {
+          "question_id": this.props.questionsForComment[2].id,
+          "body": thirdResponse.toString()
+        }]
+      };
+    this.props.postSubmitComment(this.props.state, body);
   },
 
   render: function() {
-    return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-          <h1>Your Daily Candor</h1>
-
-          <p>What is this art?</p>
-          <TextField
-            hintText="Your Critique"
-            value={this.state.firstResponse}
-            onChange={this.handleFirstResponseChange}
-            fullWidth={true}
-            multiLine={true}
-          /><br />
-          <br />
-          <p>Valid Comment? {this.state.firstResponseIsValid}</p>
-
-          <p>How do you feel about it?</p>
+    return (<div>
+      {
+        this.props.showForm ? 
+          <form className="commentForm" onSubmit={this.handleSubmit}>
+            <h1>Your Daily Candor</h1>
+            <p>{this.props.firstQuestion.body}</p>
+            <TextField
+              hintText="Your Critique"
+              value={this.state.firstResponse}
+              onChange={this.handleFirstResponseChange}
+              fullWidth={true}
+              multiLine={true}
+            /><br />
+            <br />
+            <p>Valid Comment? {this.state.firstResponseIsValid}</p>
+            <p>{this.props.secondQuestion.body}</p>
             <TextField
               hintText="Your Critique"
               value={this.state.secondResponse}
@@ -98,9 +116,8 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-          <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
-
-          <p>Is Everything OK?</p>
+            <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
+            <p>{this.props.thirdQuestion.body}</p>
             <TextField
               hintText="Your Critique"
               value={this.state.thirdResponse}
@@ -109,9 +126,12 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-          <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
-          <input type="submit" value="Post" className="submit-button"/>
-      </form>
+            <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
+            <input type="submit" value="Post" className="submit-button"/>
+          </form> :
+          <div></div>
+      }
+      </div>
     );
   }
 });
@@ -142,7 +162,13 @@ function isValidComment(commentText) {
 function mapStateToProps(state) {
   return {
     signedIn: state.get('signedIn'),
-    imageForCritique: state.get('imageForCritique')
+    imageForCritique: state.get('imageForCritique'),
+    firstQuestion: state.get('questionsForComment')[0],
+    secondQuestion: state.get('questionsForComment')[1],
+    thirdQuestion: state.get('questionsForComment')[2],
+    showForm: state.get('showCommentForm'),
+    displayComments: state.get('displayComments'),
+    state: state
   };
 }
 

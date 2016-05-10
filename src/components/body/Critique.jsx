@@ -26,7 +26,7 @@ export const Critique = React.createClass({
             </div>
             <div className="col-md-4 comment-form-cona">
               <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <CommentFormContainer />
+                <CommentFormContainer questionsForComment={this.props.questionsForComment} />
               </MuiThemeProvider>
             </div>
           </div> :
@@ -40,7 +40,8 @@ export const Critique = React.createClass({
 function mapStateToProps(state) {
   return {
     signedIn: state.get('signedIn'),
-    imageForCritique: state.get('imageForCritique')
+    imageForCritique: state.get('imageForCritique'),
+    questionsForComment: state.get('questionsForComment')
   };
 }
 
