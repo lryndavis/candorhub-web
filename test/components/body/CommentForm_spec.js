@@ -22,7 +22,7 @@ const testQuestion = {
   body: ''
 };
 
-describe("Comment Form", () => {
+describe("CommentForm", () => {
   it('renders three comment input areas', () => {
     let showCommentForm = true;
     let tree = sd.shallowRender(<CommentFormTest

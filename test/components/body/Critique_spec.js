@@ -46,5 +46,6 @@ describe("Critique", () => {
       imageForCritique={testImage} />);
     expect(tree.subTree("CritiqueImage")).to.be.ok;
     expect(tree.subTree("CritiqueImage").props.image).to.equal(testImage);
+    expect(tree.subTree("Connect(CommentForm)")).to.be.ok;
   });
 });

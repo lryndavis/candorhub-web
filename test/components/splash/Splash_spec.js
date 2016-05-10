@@ -27,18 +27,6 @@ describe('Splash', () => {
   });
 
   it('renders a SignInContainer component', () => {
-      expect(tree.subTree("SignInContainer")).to.be.ok;
+      expect(tree.subTree("Connect(SignIn)")).to.be.ok;
   });
-
-  // it('renders a SignIn component', () => {
-  //   let tree = sd.shallowRender(<Splash />);
-  //   expect(tree.subTree("SignInContainer")).to.be.ok;
-  // });
-  // it('renders a sign up form', () => {
-  //   const component = renderIntoDocument(
-  //     <SignUp />
-  //   );
-  //   const paragraph = scryRenderedDOMComponentsWithTag(component, "p");
-  //   expect(paragraph[0].textContent).to.contain('Join Candorhub')
-  // });
 });
