@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import { SideBarContainer } from './Sidebar';
+import Sidebar from './Sidebar';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
 import { CommentFormContainer } from './CommentForm';
@@ -17,11 +17,15 @@ export const Critique = React.createClass({
     this.props.getRandomImageFromServer();
   },
 
+
   render: function() {
     return <div className="critique">
         { this.props.signedIn ?
           <div className="container">
             <div className="col-md-8 image-info-container">
+              <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <Sidebar />
+              </MuiThemeProvider>
               <CritiqueImage image={this.props.imageForCritique} />
             </div>
             <div className="col-md-4 comment-form-container">
