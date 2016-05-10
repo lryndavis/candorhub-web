@@ -1,21 +1,21 @@
 import React from 'react';
-import Comments from './Comments';
 
 export default React.createClass({
 
   render: function() {
-    let questions = this.props.imageForCritique.questions;
-    var questionNodes = questions.map(function(question) {
-      return (
-        <h2 key={question.id}>
-          {question.body}
-          <Comments question={question} />
-        </h2>
+    let comments = this.props.question.comments;
+    var commentList = comments.map(function(comment){
+    return (
+      <div className="individual-comment-box">
+        <p key={comment.id}>
+          {comment.body}
+        </p>
+      </div>
       );
     });
     return (
-      <div className="question-list">
-        {questionNodes}
+      <div className="comment-list">
+        {commentList}
       </div>
     );
   }

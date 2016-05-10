@@ -10,7 +10,7 @@ import Sidebar from './Sidebar';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
 import { CommentFormContainer } from './CommentForm';
-import CommentBox from './CommentBox';
+
 
 export const Critique = React.createClass({
 
