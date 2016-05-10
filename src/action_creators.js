@@ -4,6 +4,7 @@ const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3"; 
+const uploadImageEndpoint = "";
 
 export function setState(state) {
   return {
@@ -91,4 +92,14 @@ export function getQuestionsForComment(state) {
     .then(response => response.json())
     .then(responseJSON => dispatch(setQuestionsForComment(state, responseJSON)));
   } 
+}
+
+export function startFileUpload(image) {
+  return function (dispatch) {
+    return fetch(uploadImageEndpoint, {
+      method: 'POST'
+    })
+    .then(response => response.json())
+    .then(responseJSON => dispatch(uploadImageToServer(state, responseJSON))); 
+  }
 }

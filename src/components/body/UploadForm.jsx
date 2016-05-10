@@ -32,13 +32,13 @@ export const UploadForm = React.createClass({
     const title = this.state.title;
     const description = this.state.description;
     const image = this.state.files[0];
-    this.props.startFileUpload(title, description, image);
+    this.props.startFileUpload(image);
     console.log(title, image, description);
   },
 
   render() {
     return (
-      <form className='signUpForm' onSubmit={this.handleSubmit}>
+      <form className='uploadForm' onSubmit={this.handleSubmit}>
           <Dropzone onDrop={this.onDrop}>
             <div>Select a file to upload</div>
           </Dropzone> 
