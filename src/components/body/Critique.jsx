@@ -24,7 +24,7 @@ export const Critique = React.createClass({
             <div className="col-md-8 image-info-container">
               <CritiqueImage image={this.props.imageForCritique} />
             </div>
-            <div className="col-md-4 comment-form-cona">
+            <div className="col-md-4 comment-form-container">
               <MuiThemeProvider muiTheme={getMuiTheme()}>
                 <CommentFormContainer questionsForComment={this.props.questionsForComment} />
               </MuiThemeProvider>
@@ -39,9 +39,9 @@ export const Critique = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.get('signedIn'),
-    imageForCritique: state.get('imageForCritique'),
-    questionsForComment: state.get('questionsForComment')
+    signedIn: state.signedIn,
+    imageForCritique: state.imageForCritique,
+    questionsForComment: state.questionsForComment
   };
 }
 

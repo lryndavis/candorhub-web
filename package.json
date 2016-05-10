@@ -36,10 +36,14 @@
     "presets": [
       "es2015",
       "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
     ]
   },
   "dependencies": {
     "Sentimental": "^1.0.1",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "css-loader": "^0.23.1",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
