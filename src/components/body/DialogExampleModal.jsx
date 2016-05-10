@@ -3,24 +3,23 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
-export default class DialogExampleModal extends React.Component {
-
-
-
-export const UploadForm = React.createClass ({
+/**
+ * A modal dialog can only be closed by selecting one of the actions.
+ */
+export default class UploadFormModalTest extends React.Component {
   state = {
     open: false,
-  },
+  };
 
   handleOpen = () => {
     this.setState({open: true});
-  },
+  };
 
   handleClose = () => {
     this.setState({open: false});
-  },
+  };
 
-  render : function() {
+  render() {
     const actions = [
       <FlatButton
         label="Cancel"
@@ -50,4 +49,3 @@ export const UploadForm = React.createClass ({
     );
   }
 }
-});
