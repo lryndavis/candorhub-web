@@ -1,33 +1,52 @@
 import React from 'react';
 // import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+import {FlatButton, RaisedButton, TextField} from 'material-ui';
+import Dropzone from 'react-dropzone';
+import * as actions from '../../../src/action_creators'
+import {connect} from 'react-redux';
 
 //Change class names to suit styling for this page....
-
-export default React.createClass({
-  getInitialState: function() {
-    return {imageURL: '', title: '', desc: ''};
+export const UploadForm = React.createClass({
+  getInitialState() {
+    return {imageURL: '', title: '', desc: '', files: []};
   },
-  handleImageURLChange: function(e) {
+
+  handleImageURLChange(e) {
     this.setState({image: e.target.value});
   },
-  handleTitleChange: function(e) {
+
+  handleTitleChange(e) {
     this.setState({title: e.target.value});
   },
-  handleDescChange: function(e) {
+
+  handleDescChange(e) {
     this.setState({desc: e.target.value});
   },
-  render : function() {
+
+  onDrop(files) {
+    this.setState({files: files})
+  },
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const title = this.state.title;
+    const description = this.state.description;
+    const image = this.state.files[0];
+    this.props.startFileUpload(image);
+    console.log(title, image, description);
+  },
+
+  render() {
     return (
-      <form className='signUpForm'>
-          <TextField
-            hintText="Image URL dropzone zone"
-            value={this.state.imageURL}
-            onChange={this.handleImageURLChange}
-            /><br />
-            <br />
+      <form className='uploadForm' onSubmit={this.handleSubmit}>
+          <Dropzone onDrop={this.onDrop}>
+            <div>Select a file to upload</div>
+          </Dropzone> 
+          {this.state.files.length > 0 ? <div>
+            {this.state.files.map((file) => <img src={file.preview} />)}</div>
+          : null }
+          <br />
+          <br />
           <TextField
             hintText="Title"
             value={this.state.title}
@@ -40,7 +59,19 @@ export default React.createClass({
             onChange={this.handleDescChange}
             /><br />
             <br />
+          <input type="submit" class="submit-button" />
       </form>
     )
   }
 });
+
+function mapStateToProps(state) {
+  return {
+    uploadProgress: state.uploadProgress
+  }
+}
+
+export const UploadFormContainer = connect(
+  mapStateToProps,
+  actions
+)(UploadForm);
