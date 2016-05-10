@@ -2,16 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../action_creators';
 import $ from 'jquery';
-import { Sentimental } from 'Sentimental';
-import { positivity, negativity, analyze } from 'Sentimental';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+
+import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength, isValidComment} from '../../lib/CommentValidation';
 
 import Critique from './Critique';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
-
-const offensiveWordThreshold = 4;
 
 export const CommentForm = React.createClass ({
 
@@ -31,7 +29,7 @@ export const CommentForm = React.createClass ({
     } else {
       if (!doesNotUseOffensiveLanguage(e.target.value)) {
         this.setState({firstResponseIsValid: "offensive word"});
-      } else if (!usedConstructiveLanguage(e.target.value)) {
+      } else if (!usesConstructiveLanguage(e.target.value)) {
         this.setState({firstResponseIsValid: "This may not be useful commentary."});
       } else if (!isCorrectLength(e.target.value)) {
         this.setState({firstResponseIsValid: "wrong length"});
@@ -45,7 +43,7 @@ export const CommentForm = React.createClass ({
     } else {
       if (!doesNotUseOffensiveLanguage(e.target.value)) {
         this.setState({secondResponseIsValid: "offensive word"});
-      } else if (!usedConstructiveLanguage(e.target.value)) {
+      } else if (!usesConstructiveLanguage(e.target.value)) {
         this.setState({secondResponseIsValid: "This may not be useful commentary."});
       } else if (!isCorrectLength(e.target.value)) {
         this.setState({secondResponseIsValid: "wrong length"});
@@ -59,7 +57,7 @@ export const CommentForm = React.createClass ({
     } else {
       if (!doesNotUseOffensiveLanguage(e.target.value)) {
         this.setState({thirdResponseIsValid: "offensive word"});
-      } else if (!usedConstructiveLanguage(e.target.value)) {
+      } else if (!usesConstructiveLanguage(e.target.value)) {
         this.setState({thirdResponseIsValid: "This may not be useful commentary."});
       } else if (!isCorrectLength(e.target.value)) {
         this.setState({thirdResponseIsValid: "wrong length"});
@@ -135,29 +133,6 @@ export const CommentForm = React.createClass ({
     );
   }
 });
-
-function doesNotUseOffensiveLanguage(commentText) {
-  var noPunctuation = commentText.replace(/[^a-zA-Z ]+/g, ' ').replace('/ {2,}/',' '),
-      tokens = noPunctuation.toLowerCase().split(" ");
-  for (var i = 0; i < tokens.length; i++) {
-    if (negativity(tokens[i]).score >= offensiveWordThreshold) {
-      return false;
-    }
-  }
-  return true;
-}
-
-function usedConstructiveLanguage(commentText) {
-  return analyze(commentText).comparative > -0.5;
-}
-
-function isCorrectLength(commentText) {
-  return (commentText.trim().length >= 10 && commentText.trim().length <= 100);
-}
-
-function isValidComment(commentText) {
-  return doesNotUseOffensiveLanguage(commentText) && usedConstructiveLanguage(commentText) && isCorrectLength(commentText);
-}
 
 function mapStateToProps(state) {
   return {
