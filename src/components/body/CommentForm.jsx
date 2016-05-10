@@ -10,6 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Critique from './Critique';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
+import CommentBox from './CommentBox';
 
 const offensiveWordThreshold = 4;
 
@@ -129,7 +130,9 @@ export const CommentForm = React.createClass ({
             <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
             <input type="submit" value="Post" className="submit-button"/>
           </form> :
-          <div></div>
+          <div>
+            <CommentBox imageForCritique={this.props.imageForCritique}/>
+          </div>
       }
       </div>
     );
