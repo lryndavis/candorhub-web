@@ -1,7 +1,6 @@
-import {Map} from 'immutable';
 import $ from 'jquery';
 
-const initialState = Map({
+const initialState = {
   signedIn: false,
   showCommentForm: true,
   displayComments: false,
@@ -20,35 +19,34 @@ const initialState = Map({
     id: 0,
     body: ''
   }]
-});
+};
 
 function setState(state, newState) {
   return state.merge(newState);
 }
 
 function signIn(state) {
-  return state.set('signedIn', true);
+  return { ...state, signedIn: true};
 }
 
 function setImageToCritique(state, responseJSON) {
-  return state.set('imageForCritique', responseJSON.images[0]);
+  return { ...state, imageForCritique: responseJSON.images[0]};
 }
 
 function setQuestionsForComment(state, responseJSON) {
-  console.log(responseJSON);
-  return state.set('questionsForComment', responseJSON.questions);
+  return { ...state, questionsForComment: responseJSON.questions};
 }
 
 function commentSubmitted(state, responseJSON) {
-  return state.set('commentSubmitted', true);
+  return { ...state, commentSubmitted: true}
 }
 
 function hideForm(state) {
-  return state.set('showCommentForm', false);
+  return { ...state, showCommentForm: false};
 }
 
 function displayComments(state) {
-  return state.set('displayComments', true);
+  return { ...state, displayComments: true};
 }
 
 export default function(state = initialState, action) {

@@ -94,7 +94,7 @@ export const CommentForm = React.createClass ({
   render: function() {
     return (<div>
       {
-        this.props.showForm ? 
+        this.props.showForm ?
           <form className="commentForm" onSubmit={this.handleSubmit}>
             <h1>Your Daily Candor</h1>
             <p>{this.props.firstQuestion.body}</p>
@@ -161,13 +161,13 @@ function isValidComment(commentText) {
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.get('signedIn'),
-    imageForCritique: state.get('imageForCritique'),
-    firstQuestion: state.get('questionsForComment')[0],
-    secondQuestion: state.get('questionsForComment')[1],
-    thirdQuestion: state.get('questionsForComment')[2],
-    showForm: state.get('showCommentForm'),
-    displayComments: state.get('displayComments'),
+    signedIn: state.signedIn,
+    imageForCritique: state.imageForCritique,
+    firstQuestion: state.questionsForComment[0],
+    secondQuestion: state.questionsForComment[1],
+    thirdQuestion: state.questionsForComment[2],
+    showForm: state.showCommentForm,
+    displayComments: state.displayComments,
     state: state
   };
 }
