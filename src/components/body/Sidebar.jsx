@@ -1,9 +1,18 @@
 import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
+
+const contentClearStyles = {
+  marginLeft: 250,
+  marginTop: 10,
+};
+
+const imageDehazeStyles = {
+  marginRight: 800,
+  marginTop: -300,
+};
 
 export default class Sidebar extends React.Component {
 
@@ -18,18 +27,17 @@ export default class Sidebar extends React.Component {
 
   handleClose() { this.setState({open: false}); }
 
-
   render() {
     return (
       <div>
-        <ImageDehaze onClick={this.handleToggle} class="image-dehaze"/>
+        <ImageDehaze style={imageDehazeStyles} onClick={this.handleToggle} />
         <Drawer
           docked={false}
           width={300}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
           >
-          <ContentClear onClick={this.handleClose}/>
+          <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
           <MenuItem a href="/">Home</MenuItem>
           <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
         </Drawer>

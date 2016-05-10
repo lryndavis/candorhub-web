@@ -18,8 +18,6 @@ export const Critique = React.createClass({
   },
 
 
-
-
   render: function() {
     return <div className="critique">
         { this.props.signedIn ?
