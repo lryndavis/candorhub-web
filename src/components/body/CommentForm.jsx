@@ -4,6 +4,8 @@ import * as actionCreators from '../../action_creators';
 import $ from 'jquery';
 import { Sentimental } from 'Sentimental';
 import { positivity, negativity, analyze } from 'Sentimental';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import Critique from './Critique';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
@@ -94,32 +96,40 @@ export const CommentForm = React.createClass ({
       {
         this.props.showForm ? 
           <form className="commentForm" onSubmit={this.handleSubmit}>
-          <h1>Your Daily Candor</h1>
-          <p>{this.props.firstQuestion.body}</p>
-          <input type="text"
-            placeholder="What"
-            value={this.state.firstResponse}
-            onChange={this.handleFirstResponseChange}
-            />
-          <p>Valid Comment? {this.state.firstResponseIsValid}</p>
-          <p>{this.props.secondQuestion.body}</p>
-          <input type="text"
-            placeholder="What"
-            value={this.state.secondResponse}
-            onChange={this.handleSecondResponseChange}
-            />
-          <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
-          <p>{this.props.thirdQuestion.body}</p>
-          <input type="text"
-            placeholder="No"
-            value={this.state.thirdResponse}
-            onChange={this.handleThirdResponseChange}
-            />
-          <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
-          <input type="submit" value="Post" />
-        </form> :
-        <div className="commentList">
-        </div>
+            <h1>Your Daily Candor</h1>
+            <p>{this.props.firstQuestion.body}</p>
+            <TextField
+              hintText="Your Critique"
+              value={this.state.firstResponse}
+              onChange={this.handleFirstResponseChange}
+              fullWidth={true}
+              multiLine={true}
+            /><br />
+            <br />
+            <p>Valid Comment? {this.state.firstResponseIsValid}</p>
+            <p>{this.props.secondQuestion.body}</p>
+            <TextField
+              hintText="Your Critique"
+              value={this.state.secondResponse}
+              onChange={this.handleSecondResponseChange}
+              fullWidth={true}
+              multiLine={true}
+            /><br />
+            <br />
+            <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
+            <p>{this.props.thirdQuestion.body}</p>
+            <TextField
+              hintText="Your Critique"
+              value={this.state.thirdResponse}
+              onChange={this.handleThirdResponseChange}
+              fullWidth={true}
+              multiLine={true}
+            /><br />
+            <br />
+            <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
+            <input type="submit" value="Post" className="submit-button"/>
+          </form> :
+          <div></div>
       }
       </div>
     );
@@ -130,8 +140,6 @@ function doesNotUseOffensiveLanguage(commentText) {
   var noPunctuation = commentText.replace(/[^a-zA-Z ]+/g, ' ').replace('/ {2,}/',' '),
       tokens = noPunctuation.toLowerCase().split(" ");
   for (var i = 0; i < tokens.length; i++) {
-    console.log(tokens[i]);
-    console.log(negativity(tokens[i]).score);
     if (negativity(tokens[i]).score >= offensiveWordThreshold) {
       return false;
     }

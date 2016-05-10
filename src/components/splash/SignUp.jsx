@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import TextField from 'material-ui/TextField';
+
 
 
 export default React.createClass({
@@ -35,27 +37,35 @@ export default React.createClass({
     return (
       <form className="signUpForm" onSubmit={this.handleSubmit}>
         <p>Join Candorhub</p>
-        <input type="text"
-          placeholder="Your Username"
-          value={this.state.username}
-          onChange={this.handleUsernameChange}
-          />
-        <input type="text"
-          placeholder="Your Email"
-          value={this.state.email}
-          onChange={this.handleEmailChange}
-          />
-        <input type="test"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={this.handlePasswordChange}
-          />
-        <input type="test"
-          placeholder="Confirm Password"
-          value={this.state.passwordConfirm}
-          onChange={this.handlePasswordConfirmChange}
-          />
-        <input type="submit" value="Post" />
+          <TextField
+            hintText="Your Username"
+            value={this.state.username}
+            onChange={this.handleUsernameChange}
+            /><br />
+            <br />
+          <TextField
+            hintText="Your Email"
+            value={this.state.email}
+            onChange={this.handleEmailChange}
+            /><br />
+            <br />
+          <TextField
+            hintText="Your Password"
+            floatingLabelText="Password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handlePasswordChange}
+            /><br />
+            <br />
+          <TextField
+            hintText="Confirm Password"
+            floatingLabelText="Confirm Password"
+            type="password"
+            value={this.state.passwordConfirm}
+            onChange={this.handlePasswordConfirmChange}
+            /><br />
+            <br />
+        <input className="sign-up-button" type="submit" value="Post" />
       </form>
     );
   }

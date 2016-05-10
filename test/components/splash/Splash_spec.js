@@ -18,6 +18,6 @@ describe('Splash', () => {
       <SignUp />
     );
     const paragraph = scryRenderedDOMComponentsWithTag(component, "p");
-    expect(paragraph[0].textContent).to.contain('This may or may not be a form')
+    expect(paragraph[0].textContent).to.contain('Join Candorhub')
   });
 });

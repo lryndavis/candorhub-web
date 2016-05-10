@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ec10bac7b172a629151d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "78d0982f5fc5c7e3828f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8181,11 +8181,11 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _Critique = __webpack_require__(449);
+	var _Critique = __webpack_require__(450);
 
-	var _SignIn = __webpack_require__(459);
+	var _SignIn = __webpack_require__(460);
 
-	var _Splash = __webpack_require__(460);
+	var _Splash = __webpack_require__(461);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50893,7 +50893,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,400italic,700);", ""]);
 
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Cardo';\n  font-weight: 100;\n  text-align: center; }\n\nh1, h2 {\n  font-family: 'Montserrat'; }\n", ""]);
+	exports.push([module.id, "* {\n  font-family: 'Cardo';\n  font-weight: 100; }\n\nh1, h2 {\n  font-family: 'Montserrat'; }\n\n.critiqueImage {\n  width: 95%; }\n\n.image-info-container {\n  text-align: center; }\n\nheader {\n  text-align: center; }\n", ""]);
 
 	// exports
 
@@ -51234,7 +51234,7 @@
 
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
-	var _reactTapEventPlugin = __webpack_require__(443);
+	var _reactTapEventPlugin = __webpack_require__(444);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
@@ -51362,7 +51362,7 @@
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _typography = __webpack_require__(442);
+	var _typography = __webpack_require__(443);
 
 	var _typography2 = _interopRequireDefault(_typography);
 
@@ -57378,13 +57378,21 @@
 	      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
 	      , tablet = /tablet/i.test(ua)
 	      , mobile = !tablet && /[^-]mobi/i.test(ua)
+	      , xbox = /xbox/i.test(ua)
 	      , result
 
-	    if (/opera|opr/i.test(ua)) {
+	    if (/opera|opr|opios/i.test(ua)) {
 	      result = {
 	        name: 'Opera'
 	      , opera: t
-	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (/coast/i.test(ua)) {
+	      result = {
+	        name: 'Opera Coast'
+	        , coast: t
+	        , version: versionIdentifier || getFirstMatch(/(?:coast)[\s\/](\d+(\.\d+)?)/i)
 	      }
 	    }
 	    else if (/yabrowser/i.test(ua)) {
@@ -57399,6 +57407,41 @@
 	          name: 'UC Browser'
 	        , ucbrowser: t
 	        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/mxios/i.test(ua)) {
+	      result = {
+	        name: 'Maxthon'
+	        , maxthon: t
+	        , version: getFirstMatch(/(?:mxios)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/epiphany/i.test(ua)) {
+	      result = {
+	        name: 'Epiphany'
+	        , epiphany: t
+	        , version: getFirstMatch(/(?:epiphany)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/puffin/i.test(ua)) {
+	      result = {
+	        name: 'Puffin'
+	        , puffin: t
+	        , version: getFirstMatch(/(?:puffin)[\s\/](\d+(?:\.\d+)?)/i)
+	      }
+	    }
+	    else if (/sleipnir/i.test(ua)) {
+	      result = {
+	        name: 'Sleipnir'
+	        , sleipnir: t
+	        , version: getFirstMatch(/(?:sleipnir)[\s\/](\d+(?:\.\d+)+)/i)
+	      }
+	    }
+	    else if (/k-meleon/i.test(ua)) {
+	      result = {
+	        name: 'K-Meleon'
+	        , kMeleon: t
+	        , version: getFirstMatch(/(?:k-meleon)[\s\/](\d+(?:\.\d+)+)/i)
 	      }
 	    }
 	    else if (windowsphone) {
@@ -57436,27 +57479,11 @@
 	      , version: edgeVersion
 	      }
 	    }
-		else if (/vivaldi/i.test(ua)) {
-			result = {
-				name: 'Vivaldi'
-				, vivaldi: t
-				, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
-			}
-		}
-	    else if (/chrome|crios|crmo/i.test(ua)) {
+	    else if (/vivaldi/i.test(ua)) {
 	      result = {
-	        name: 'Chrome'
-	      , chrome: t
-	      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (iosdevice) {
-	      result = {
-	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
-	      }
-	      // WTF: version is not part of user agent in web apps
-	      if (versionIdentifier) {
-	        result.version = versionIdentifier
+	        name: 'Vivaldi'
+	        , vivaldi: t
+	        , version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
 	      }
 	    }
 	    else if (sailfish) {
@@ -57473,11 +57500,11 @@
 	      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
 	      }
 	    }
-	    else if (/firefox|iceweasel/i.test(ua)) {
+	    else if (/firefox|iceweasel|fxios/i.test(ua)) {
 	      result = {
 	        name: 'Firefox'
 	      , firefox: t
-	      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+	      , version: getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.\d+)?)/i)
 	      }
 	      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
 	        result.firefoxos = t
@@ -57488,12 +57515,6 @@
 	        name: 'Amazon Silk'
 	      , silk: t
 	      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
-	      }
-	    }
-	    else if (android) {
-	      result = {
-	        name: 'Android'
-	      , version: versionIdentifier
 	      }
 	    }
 	    else if (/phantom/i.test(ua)) {
@@ -57539,11 +57560,35 @@
 	        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
 	      }
 	    }
-	    else if (/safari/i.test(ua)) {
+	    else if (/chrome|crios|crmo/i.test(ua)) {
+	      result = {
+	        name: 'Chrome'
+	        , chrome: t
+	        , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+	      }
+	    }
+	    else if (android) {
+	      result = {
+	        name: 'Android'
+	        , version: versionIdentifier
+	      }
+	    }
+	    else if (/safari|applewebkit/i.test(ua)) {
 	      result = {
 	        name: 'Safari'
 	      , safari: t
-	      , version: versionIdentifier
+	      }
+	      if (versionIdentifier) {
+	        result.version = versionIdentifier
+	      }
+	    }
+	    else if (iosdevice) {
+	      result = {
+	        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+	      }
+	      // WTF: version is not part of user agent in web apps
+	      if (versionIdentifier) {
+	        result.version = versionIdentifier
 	      }
 	    }
 	    else if(/googlebot/i.test(ua)) {
@@ -57562,8 +57607,13 @@
 
 	    // set webkit or gecko flag for browsers based on these engines
 	    if (!result.msedge && /(apple)?webkit/i.test(ua)) {
-	      result.name = result.name || "Webkit"
-	      result.webkit = t
+	      if (/(apple)?webkit\/537\.36/i.test(ua)) {
+	        result.name = result.name || "Blink"
+	        result.blink = t
+	      } else {
+	        result.name = result.name || "Webkit"
+	        result.webkit = t
+	      }
 	      if (!result.version && versionIdentifier) {
 	        result.version = versionIdentifier
 	      }
@@ -57579,10 +57629,12 @@
 	    } else if (iosdevice) {
 	      result[iosdevice] = t
 	      result.ios = t
-	    } else if (windows) {
-	      result.windows = t
 	    } else if (mac) {
 	      result.mac = t
+	    } else if (xbox) {
+	      result.xbox = t
+	    } else if (windows) {
+	      result.windows = t
 	    } else if (linux) {
 	      result.linux = t
 	    }
@@ -57611,9 +57663,24 @@
 
 	    // device type extraction
 	    var osMajorVersion = osVersion.split('.')[0];
-	    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+	    if (
+	         tablet
+	      || nexusTablet
+	      || iosdevice == 'ipad'
+	      || (android && (osMajorVersion == 3 || (osMajorVersion >= 4 && !mobile)))
+	      || result.silk
+	    ) {
 	      result.tablet = t
-	    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || nexusMobile || result.blackberry || result.webos || result.bada) {
+	    } else if (
+	         mobile
+	      || iosdevice == 'iphone'
+	      || iosdevice == 'ipod'
+	      || android
+	      || nexusMobile
+	      || result.blackberry
+	      || result.webos
+	      || result.bada
+	    ) {
 	      result.mobile = t
 	    }
 
@@ -57622,7 +57689,7 @@
 	    if (result.msedge ||
 	        (result.msie && result.version >= 10) ||
 	        (result.yandexbrowser && result.version >= 15) ||
-			(result.vivaldi && result.version >= 1.0) ||
+			    (result.vivaldi && result.version >= 1.0) ||
 	        (result.chrome && result.version >= 20) ||
 	        (result.firefox && result.version >= 20.0) ||
 	        (result.safari && result.version >= 6) ||
@@ -58425,7 +58492,7 @@
 	 * @memberOf _
 	 * @category Util
 	 * @param {...(Function|Function[])} [funcs] Functions to invoke.
-	 * @returns {Function} Returns the new function.
+	 * @returns {Function} Returns the new composite function.
 	 * @see _.flow
 	 * @example
 	 *
@@ -58713,8 +58780,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var isArguments = __webpack_require__(411),
-	    isArray = __webpack_require__(419),
-	    isArrayLikeObject = __webpack_require__(412);
+	    isArray = __webpack_require__(419);
 
 	/**
 	 * Checks if `value` is a flattenable `arguments` object or array.
@@ -58724,7 +58790,7 @@
 	 * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
 	 */
 	function isFlattenable(value) {
-	  return isArrayLikeObject(value) && (isArray(value) || isArguments(value));
+	  return isArray(value) || isArguments(value);
 	}
 
 	module.exports = isFlattenable;
@@ -58892,7 +58958,7 @@
 	 *
 	 * @private
 	 * @param {string} key The key of the property to get.
-	 * @returns {Function} Returns the new function.
+	 * @returns {Function} Returns the new accessor function.
 	 */
 	function baseProperty(key) {
 	  return function(object) {
@@ -59544,10 +59610,10 @@
 	 * `floor`, `forEach`, `forEachRight`, `forIn`, `forInRight`, `forOwn`,
 	 * `forOwnRight`, `get`, `gt`, `gte`, `has`, `hasIn`, `head`, `identity`,
 	 * `includes`, `indexOf`, `inRange`, `invoke`, `isArguments`, `isArray`,
-	 * `isArrayBuffer`, `isArrayLike`, `isArrayLikeObject`, `isBoolean`, `isBuffer`,
-	 * `isDate`, `isElement`, `isEmpty`, `isEqual`, `isEqualWith`, `isError`,
-	 * `isFinite`, `isFunction`, `isInteger`, `isLength`, `isMap`, `isMatch`,
-	 * `isMatchWith`, `isNaN`, `isNative`, `isNil`, `isNull`, `isNumber`,
+	 * `isArrayBuffer`, `isArrayLike`, `isArrayLikeObject`, `isBoolean`,
+	 * `isBuffer`, `isDate`, `isElement`, `isEmpty`, `isEqual`, `isEqualWith`,
+	 * `isError`, `isFinite`, `isFunction`, `isInteger`, `isLength`, `isMap`,
+	 * `isMatch`, `isMatchWith`, `isNaN`, `isNative`, `isNil`, `isNull`, `isNumber`,
 	 * `isObject`, `isObjectLike`, `isPlainObject`, `isRegExp`, `isSafeInteger`,
 	 * `isSet`, `isString`, `isUndefined`, `isTypedArray`, `isWeakMap`, `isWeakSet`,
 	 * `join`, `kebabCase`, `last`, `lastIndexOf`, `lowerCase`, `lowerFirst`,
@@ -59556,9 +59622,9 @@
 	 * `pop`, `random`, `reduce`, `reduceRight`, `repeat`, `result`, `round`,
 	 * `runInContext`, `sample`, `shift`, `size`, `snakeCase`, `some`, `sortedIndex`,
 	 * `sortedIndexBy`, `sortedLastIndex`, `sortedLastIndexBy`, `startCase`,
-	 * `startsWith`, `subtract`, `sum`, `sumBy`, `template`, `times`, `toInteger`,
-	 * `toJSON`, `toLength`, `toLower`, `toNumber`, `toSafeInteger`, `toString`,
-	 * `toUpper`, `trim`, `trimEnd`, `trimStart`, `truncate`, `unescape`,
+	 * `startsWith`, `subtract`, `sum`, `sumBy`, `template`, `times`, `toFinite`,
+	 * `toInteger`, `toJSON`, `toLength`, `toLower`, `toNumber`, `toSafeInteger`,
+	 * `toString`, `toUpper`, `trim`, `trimEnd`, `trimStart`, `truncate`, `unescape`,
 	 * `uniqueId`, `upperCase`, `upperFirst`, `value`, and `words`
 	 *
 	 * @name _
@@ -59763,11 +59829,7 @@
 /* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toNumber = __webpack_require__(440);
-
-	/** Used as references for various `Number` constants. */
-	var INFINITY = 1 / 0,
-	    MAX_INTEGER = 1.7976931348623157e+308;
+	var toFinite = __webpack_require__(440);
 
 	/**
 	 * Converts `value` to an integer.
@@ -59783,7 +59845,7 @@
 	 * @returns {number} Returns the converted integer.
 	 * @example
 	 *
-	 * _.toInteger(3);
+	 * _.toInteger(3.2);
 	 * // => 3
 	 *
 	 * _.toInteger(Number.MIN_VALUE);
@@ -59792,20 +59854,14 @@
 	 * _.toInteger(Infinity);
 	 * // => 1.7976931348623157e+308
 	 *
-	 * _.toInteger('3');
+	 * _.toInteger('3.2');
 	 * // => 3
 	 */
 	function toInteger(value) {
-	  if (!value) {
-	    return value === 0 ? value : 0;
-	  }
-	  value = toNumber(value);
-	  if (value === INFINITY || value === -INFINITY) {
-	    var sign = (value < 0 ? -1 : 1);
-	    return sign * MAX_INTEGER;
-	  }
-	  var remainder = value % 1;
-	  return value === value ? (remainder ? value - remainder : value) : 0;
+	  var result = toFinite(value),
+	      remainder = result % 1;
+
+	  return result === result ? (remainder ? result - remainder : result) : 0;
 	}
 
 	module.exports = toInteger;
@@ -59815,9 +59871,57 @@
 /* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var toNumber = __webpack_require__(441);
+
+	/** Used as references for various `Number` constants. */
+	var INFINITY = 1 / 0,
+	    MAX_INTEGER = 1.7976931348623157e+308;
+
+	/**
+	 * Converts `value` to a finite number.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.12.0
+	 * @category Lang
+	 * @param {*} value The value to convert.
+	 * @returns {number} Returns the converted number.
+	 * @example
+	 *
+	 * _.toFinite(3.2);
+	 * // => 3.2
+	 *
+	 * _.toFinite(Number.MIN_VALUE);
+	 * // => 5e-324
+	 *
+	 * _.toFinite(Infinity);
+	 * // => 1.7976931348623157e+308
+	 *
+	 * _.toFinite('3.2');
+	 * // => 3.2
+	 */
+	function toFinite(value) {
+	  if (!value) {
+	    return value === 0 ? value : 0;
+	  }
+	  value = toNumber(value);
+	  if (value === INFINITY || value === -INFINITY) {
+	    var sign = (value < 0 ? -1 : 1);
+	    return sign * MAX_INTEGER;
+	  }
+	  return value === value ? value : 0;
+	}
+
+	module.exports = toFinite;
+
+
+/***/ },
+/* 441 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var isFunction = __webpack_require__(416),
 	    isObject = __webpack_require__(406),
-	    isSymbol = __webpack_require__(441);
+	    isSymbol = __webpack_require__(442);
 
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -59848,8 +59952,8 @@
 	 * @returns {number} Returns the number.
 	 * @example
 	 *
-	 * _.toNumber(3);
-	 * // => 3
+	 * _.toNumber(3.2);
+	 * // => 3.2
 	 *
 	 * _.toNumber(Number.MIN_VALUE);
 	 * // => 5e-324
@@ -59857,8 +59961,8 @@
 	 * _.toNumber(Infinity);
 	 * // => Infinity
 	 *
-	 * _.toNumber('3');
-	 * // => 3
+	 * _.toNumber('3.2');
+	 * // => 3.2
 	 */
 	function toNumber(value) {
 	  if (typeof value == 'number') {
@@ -59885,7 +59989,7 @@
 
 
 /***/ },
-/* 441 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isObjectLike = __webpack_require__(418);
@@ -59930,7 +60034,7 @@
 
 
 /***/ },
-/* 442 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59966,11 +60070,11 @@
 	exports.default = new Typography();
 
 /***/ },
-/* 443 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(444);
-	var defaultClickRejectionStrategy = __webpack_require__(445);
+	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(445);
+	var defaultClickRejectionStrategy = __webpack_require__(446);
 
 	var alreadyInjected = false;
 
@@ -59992,14 +60096,14 @@
 	  alreadyInjected = true;
 
 	  __webpack_require__(102).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(446)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(447)(shouldRejectClick)
 	  });
 	};
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ },
-/* 444 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -60054,7 +60158,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ },
-/* 445 */
+/* 446 */
 /***/ function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -60065,7 +60169,7 @@
 
 
 /***/ },
-/* 446 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -60093,10 +60197,10 @@
 	var EventPluginUtils = __webpack_require__(103);
 	var EventPropagators = __webpack_require__(166);
 	var SyntheticUIEvent = __webpack_require__(178);
-	var TouchEventUtils = __webpack_require__(447);
+	var TouchEventUtils = __webpack_require__(448);
 	var ViewportMetrics = __webpack_require__(109);
 
-	var keyOf = __webpack_require__(448);
+	var keyOf = __webpack_require__(449);
 	var topLevelTypes = EventConstants.topLevelTypes;
 
 	var isStartish = EventPluginUtils.isStartish;
@@ -60241,7 +60345,7 @@
 
 
 /***/ },
-/* 447 */
+/* 448 */
 /***/ function(module, exports) {
 
 	/**
@@ -60289,7 +60393,7 @@
 
 
 /***/ },
-/* 448 */
+/* 449 */
 /***/ function(module, exports) {
 
 	/**
@@ -60329,7 +60433,7 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 449 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -60347,7 +60451,7 @@
 
 	var _reactRedux = __webpack_require__(327);
 
-	var _action_creators = __webpack_require__(450);
+	var _action_creators = __webpack_require__(451);
 
 	var actionCreators = _interopRequireWildcard(_action_creators);
 
@@ -60355,15 +60459,15 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _CritiqueNotSignedIn = __webpack_require__(453);
+	var _CritiqueNotSignedIn = __webpack_require__(454);
 
 	var _CritiqueNotSignedIn2 = _interopRequireDefault(_CritiqueNotSignedIn);
 
-	var _CritiqueImage = __webpack_require__(454);
+	var _CritiqueImage = __webpack_require__(455);
 
 	var _CritiqueImage2 = _interopRequireDefault(_CritiqueImage);
 
-	var _CommentForm = __webpack_require__(455);
+	var _CommentForm = __webpack_require__(456);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -60383,9 +60487,17 @@
 	      null,
 	      this.props.signedIn ? _react2.default.createElement(
 	        'div',
-	        null,
-	        _react2.default.createElement(_CommentForm.CommentFormContainer, null),
-	        _react2.default.createElement(_CritiqueImage2.default, { image: this.props.imageForCritique })
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-8 image-info-container' },
+	          _react2.default.createElement(_CritiqueImage2.default, { image: this.props.imageForCritique })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-4 comment-form-cona' },
+	          _react2.default.createElement(_CommentForm.CommentFormContainer, null)
+	        )
 	      ) : _react2.default.createElement(_CritiqueNotSignedIn2.default, null)
 	    );
 	  }
@@ -60404,7 +60516,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 450 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -60419,7 +60531,7 @@
 	exports.setImageToCritique = setImageToCritique;
 	exports.getRandomImageFromServer = getRandomImageFromServer;
 
-	var _isomorphicFetch = __webpack_require__(451);
+	var _isomorphicFetch = __webpack_require__(452);
 
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
@@ -60463,19 +60575,19 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 451 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(452);
+	__webpack_require__(453);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 452 */
+/* 453 */
 /***/ function(module, exports) {
 
 	(function(self) {
@@ -60914,7 +61026,7 @@
 
 
 /***/ },
-/* 453 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -60951,7 +61063,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 454 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61004,7 +61116,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 455 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61022,7 +61134,7 @@
 
 	var _reactRedux = __webpack_require__(327);
 
-	var _action_creators = __webpack_require__(450);
+	var _action_creators = __webpack_require__(451);
 
 	var actionCreators = _interopRequireWildcard(_action_creators);
 
@@ -61030,17 +61142,17 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _Sentimental = __webpack_require__(456);
+	var _Sentimental = __webpack_require__(457);
 
-	var _Critique = __webpack_require__(449);
+	var _Critique = __webpack_require__(450);
 
 	var _Critique2 = _interopRequireDefault(_Critique);
 
-	var _CritiqueNotSignedIn = __webpack_require__(453);
+	var _CritiqueNotSignedIn = __webpack_require__(454);
 
 	var _CritiqueNotSignedIn2 = _interopRequireDefault(_CritiqueNotSignedIn);
 
-	var _CritiqueImage = __webpack_require__(454);
+	var _CritiqueImage = __webpack_require__(455);
 
 	var _CritiqueImage2 = _interopRequireDefault(_CritiqueImage);
 
@@ -61048,37 +61160,60 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var offensiveWordThreshold = 4;
+
 	var CommentForm = exports.CommentForm = _react2.default.createClass({
 	  displayName: 'CommentForm',
 
 
 	  getInitialState: function getInitialState() {
 	    return { username: '', firstResponse: '', secondResponse: '', thirdResponse: '',
-	      firstResponseIsValid: false, secondResponseIsValid: false, thirdResponseIsValid: false };
-	  },
-	  handleUserChange: function handleUserChange(e) {
-	    this.setState({ user: e.target.value });
+	      firstResponseIsValid: "no", secondResponseIsValid: "no", thirdResponseIsValid: "no" };
 	  },
 	  handleFirstResponseChange: function handleFirstResponseChange(e) {
 	    this.setState({ firstResponse: e.target.value });
-	    // this.setState({firstResponseIsValid: true});
-	    if (doesNotUseOffensiveLanguage(e.target.value)) {
-	      this.setState({ firstResponseIsValid: true });
+	    if (isValidComment(e.target.value)) {
+	      this.setState({ firstResponseIsValid: "yes" });
 	    } else {
-	      this.setState({ firstResponseIsValid: false });
+	      if (!doesNotUseOffensiveLanguage(e.target.value)) {
+	        this.setState({ firstResponseIsValid: "offensive word" });
+	      } else if (!usedConstructiveLanguage(e.target.value)) {
+	        this.setState({ firstResponseIsValid: "This may not be useful commentary." });
+	      } else if (!isCorrectLength(e.target.value)) {
+	        this.setState({ firstResponseIsValid: "wrong length" });
+	      }
 	    }
 	  },
 	  handleSecondResponseChange: function handleSecondResponseChange(e) {
 	    this.setState({ secondResponse: e.target.value });
-	    this.setState({ secondResponseIsValid: true });
+	    if (isValidComment(e.target.value)) {
+	      this.setState({ secondResponseIsValid: "yes" });
+	    } else {
+	      if (!doesNotUseOffensiveLanguage(e.target.value)) {
+	        this.setState({ secondResponseIsValid: "offensive word" });
+	      } else if (!usedConstructiveLanguage(e.target.value)) {
+	        this.setState({ secondResponseIsValid: "This may not be useful commentary." });
+	      } else if (!isCorrectLength(e.target.value)) {
+	        this.setState({ secondResponseIsValid: "wrong length" });
+	      }
+	    }
 	  },
 	  handleThirdResponseChange: function handleThirdResponseChange(e) {
 	    this.setState({ thirdResponse: e.target.value });
-	    this.setState({ secondResponseIsValid: true });
+	    if (isValidComment(e.target.value)) {
+	      this.setState({ thirdResponseIsValid: "yes" });
+	    } else {
+	      if (!doesNotUseOffensiveLanguage(e.target.value)) {
+	        this.setState({ thirdResponseIsValid: "offensive word" });
+	      } else if (!usedConstructiveLanguage(e.target.value)) {
+	        this.setState({ thirdResponseIsValid: "This may not be useful commentary." });
+	      } else if (!isCorrectLength(e.target.value)) {
+	        this.setState({ thirdResponseIsValid: "wrong length" });
+	      }
+	    }
 	  },
 	  handleSubmit: function handleSubmit(e) {
 	    e.preventDefault();
-	    var username = this.state.username.trim();
 	    var firstResponse = this.state.firstResponse;
 	    var secondResponse = this.state.secondResponse;
 	    var thirdResponse = this.state.thirdResponse;
@@ -61101,17 +61236,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Username:'
-	      ),
-	      _react2.default.createElement('input', { type: 'text',
-	        placeholder: 'Your username',
-	        value: this.state.user,
-	        onChange: this.handleUserChange
-	      }),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'What is this? '
+	        'What is this art?'
 	      ),
 	      _react2.default.createElement('input', { type: 'text',
 	        placeholder: 'What',
@@ -61122,7 +61247,7 @@
 	        'p',
 	        null,
 	        'Valid Comment? ',
-	        this.state.firstResponseIsValid.toString()
+	        this.state.firstResponseIsValid
 	      ),
 	      _react2.default.createElement(
 	        'p',
@@ -61162,15 +61287,26 @@
 	});
 
 	function doesNotUseOffensiveLanguage(commentText) {
-	  return negativity(commentText).score < 3;
+	  var noPunctuation = commentText.replace(/[^a-zA-Z ]+/g, ' ').replace('/ {2,}/', ' '),
+	      tokens = noPunctuation.toLowerCase().split(" ");
+	  for (var i = 0; i < tokens.length; i++) {
+	    if ((0, _Sentimental.negativity)(tokens[i]).score >= offensiveWordThreshold) {
+	      return false;
+	    }
+	  }
+	  return true;
 	}
 
 	function usedConstructiveLanguage(commentText) {
-	  return analyze(commentText).comparative > -0.5;
+	  return (0, _Sentimental.analyze)(commentText).comparative > -0.5;
 	}
 
 	function isCorrectLength(commentText) {
-	  return commentText.trim().length >= 100 && commentText.trim().length <= 300;
+	  return commentText.trim().length >= 10 && commentText.trim().length <= 100;
+	}
+
+	function isValidComment(commentText) {
+	  return doesNotUseOffensiveLanguage(commentText) && usedConstructiveLanguage(commentText) && isCorrectLength(commentText);
 	}
 
 	function mapStateToProps(state) {
@@ -61186,12 +61322,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 456 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var analyze = __webpack_require__(457).analyze,
-	    negativity = __webpack_require__(457).negativity,
-	    positivity = __webpack_require__(457).positivity;
+	var analyze = __webpack_require__(458).analyze,
+	    negativity = __webpack_require__(458).negativity,
+	    positivity = __webpack_require__(458).positivity;
 
 	module.exports = {
 	  analyze    : analyze,
@@ -61201,10 +61337,10 @@
 
 
 /***/ },
-/* 457 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var afinn = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../wordLists/afinn.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var afinn = __webpack_require__(459);
 
 
 	// Calculates the negative sentiment of a sentence
@@ -61292,8 +61428,2476 @@
 
 
 /***/ },
-/* 458 */,
 /* 459 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"abandon": -2,
+		"abandoned": -2,
+		"abandons": -2,
+		"abducted": -2,
+		"abduction": -2,
+		"abductions": -2,
+		"abhor": -3,
+		"abhorred": -3,
+		"abhorrent": -3,
+		"abhors": -3,
+		"abilities": 2,
+		"ability": 2,
+		"aboard": 1,
+		"absentee": -1,
+		"absentees": -1,
+		"absolve": 2,
+		"absolved": 2,
+		"absolves": 2,
+		"absolving": 2,
+		"absorbed": 1,
+		"abuse": -3,
+		"abused": -3,
+		"abuses": -3,
+		"abusive": -3,
+		"accept": 1,
+		"accepted": 1,
+		"accepting": 1,
+		"accepts": 1,
+		"accident": -2,
+		"accidental": -2,
+		"accidentally": -2,
+		"accidents": -2,
+		"accomplish": 2,
+		"accomplished": 2,
+		"accomplishes": 2,
+		"accusation": -2,
+		"accusations": -2,
+		"accuse": -2,
+		"accused": -2,
+		"accuses": -2,
+		"accusing": -2,
+		"ache": -2,
+		"achievable": 1,
+		"aching": -2,
+		"acquit": 2,
+		"acquits": 2,
+		"acquitted": 2,
+		"acquitting": 2,
+		"acrimonious": -3,
+		"active": 1,
+		"adequate": 1,
+		"admire": 3,
+		"admired": 3,
+		"admires": 3,
+		"admiring": 3,
+		"admit": -1,
+		"admits": -1,
+		"admitted": -1,
+		"admonish": -2,
+		"admonished": -2,
+		"adopt": 1,
+		"adopts": 1,
+		"adorable": 3,
+		"adore": 3,
+		"adored": 3,
+		"adores": 3,
+		"advanced": 1,
+		"advantage": 2,
+		"advantages": 2,
+		"adventure": 2,
+		"adventures": 2,
+		"adventurous": 2,
+		"affected": -1,
+		"affection": 3,
+		"affectionate": 3,
+		"afflicted": -1,
+		"affronted": -1,
+		"afraid": -2,
+		"aggravate": -2,
+		"aggravated": -2,
+		"aggravates": -2,
+		"aggravating": -2,
+		"aggression": -2,
+		"aggressions": -2,
+		"aggressive": -2,
+		"aghast": -2,
+		"agog": 2,
+		"agonise": -3,
+		"agonised": -3,
+		"agonises": -3,
+		"agonising": -3,
+		"agonize": -3,
+		"agonized": -3,
+		"agonizes": -3,
+		"agonizing": -3,
+		"agree": 1,
+		"agreeable": 2,
+		"agreed": 1,
+		"agreement": 1,
+		"agrees": 1,
+		"alarm": -2,
+		"alarmed": -2,
+		"alarmist": -2,
+		"alarmists": -2,
+		"alas": -1,
+		"alert": -1,
+		"alienation": -2,
+		"alive": 1,
+		"allergic": -2,
+		"allow": 1,
+		"alone": -2,
+		"amaze": 2,
+		"amazed": 2,
+		"amazes": 2,
+		"amazing": 4,
+		"ambitious": 2,
+		"ambivalent": -1,
+		"amuse": 3,
+		"amused": 3,
+		"amusement": 3,
+		"amusements": 3,
+		"anger": -3,
+		"angers": -3,
+		"angry": -3,
+		"anguish": -3,
+		"anguished": -3,
+		"animosity": -2,
+		"annoy": -2,
+		"annoyance": -2,
+		"annoyed": -2,
+		"annoying": -2,
+		"annoys": -2,
+		"antagonistic": -2,
+		"anti": -1,
+		"anticipation": 1,
+		"anxiety": -2,
+		"anxious": -2,
+		"apathetic": -3,
+		"apathy": -3,
+		"apeshit": -3,
+		"apocalyptic": -2,
+		"apologise": -1,
+		"apologised": -1,
+		"apologises": -1,
+		"apologising": -1,
+		"apologize": -1,
+		"apologized": -1,
+		"apologizes": -1,
+		"apologizing": -1,
+		"apology": -1,
+		"appalled": -2,
+		"appalling": -2,
+		"appease": 2,
+		"appeased": 2,
+		"appeases": 2,
+		"appeasing": 2,
+		"applaud": 2,
+		"applauded": 2,
+		"applauding": 2,
+		"applauds": 2,
+		"applause": 2,
+		"appreciate": 2,
+		"appreciated": 2,
+		"appreciates": 2,
+		"appreciating": 2,
+		"appreciation": 2,
+		"apprehensive": -2,
+		"approval": 2,
+		"approved": 2,
+		"approves": 2,
+		"ardent": 1,
+		"arrest": -2,
+		"arrested": -3,
+		"arrests": -2,
+		"arrogant": -2,
+		"ashame": -2,
+		"ashamed": -2,
+		"ass": -4,
+		"assassination": -3,
+		"assassinations": -3,
+		"asset": 2,
+		"assets": 2,
+		"assfucking": -4,
+		"asshole": -4,
+		"astonished": 2,
+		"astound": 3,
+		"astounded": 3,
+		"astounding": 3,
+		"astoundingly": 3,
+		"astounds": 3,
+		"attack": -1,
+		"attacked": -1,
+		"attacking": -1,
+		"attacks": -1,
+		"attract": 1,
+		"attracted": 1,
+		"attracting": 2,
+		"attraction": 2,
+		"attractions": 2,
+		"attracts": 1,
+		"audacious": 3,
+		"authority": 1,
+		"avert": -1,
+		"averted": -1,
+		"averts": -1,
+		"avid": 2,
+		"avoid": -1,
+		"avoided": -1,
+		"avoids": -1,
+		"await": -1,
+		"awaited": -1,
+		"awaits": -1,
+		"award": 3,
+		"awarded": 3,
+		"awards": 3,
+		"awesome": 4,
+		"awful": -3,
+		"awkward": -2,
+		"axe": -1,
+		"axed": -1,
+		"backed": 1,
+		"backing": 2,
+		"backs": 1,
+		"bad": -3,
+		"badass": -3,
+		"badly": -3,
+		"bailout": -2,
+		"bamboozle": -2,
+		"bamboozled": -2,
+		"bamboozles": -2,
+		"ban": -2,
+		"banish": -1,
+		"bankrupt": -3,
+		"bankster": -3,
+		"banned": -2,
+		"bargain": 2,
+		"barrier": -2,
+		"bastard": -5,
+		"bastards": -5,
+		"battle": -1,
+		"battles": -1,
+		"beaten": -2,
+		"beatific": 3,
+		"beating": -1,
+		"beauties": 3,
+		"beautiful": 3,
+		"beautifully": 3,
+		"beautify": 3,
+		"belittle": -2,
+		"belittled": -2,
+		"beloved": 3,
+		"benefit": 2,
+		"benefits": 2,
+		"benefitted": 2,
+		"benefitting": 2,
+		"bereave": -2,
+		"bereaved": -2,
+		"bereaves": -2,
+		"bereaving": -2,
+		"best": 3,
+		"betray": -3,
+		"betrayal": -3,
+		"betrayed": -3,
+		"betraying": -3,
+		"betrays": -3,
+		"better": 2,
+		"bias": -1,
+		"biased": -2,
+		"big": 1,
+		"bitch": -5,
+		"bitches": -5,
+		"bitter": -2,
+		"bitterly": -2,
+		"bizarre": -2,
+		"blah": -2,
+		"blame": -2,
+		"blamed": -2,
+		"blames": -2,
+		"blaming": -2,
+		"bless": 2,
+		"blesses": 2,
+		"blessing": 3,
+		"blind": -1,
+		"bliss": 3,
+		"blissful": 3,
+		"blithe": 2,
+		"block": -1,
+		"blockbuster": 3,
+		"blocked": -1,
+		"blocking": -1,
+		"blocks": -1,
+		"bloody": -3,
+		"blurry": -2,
+		"boastful": -2,
+		"bold": 2,
+		"boldly": 2,
+		"bomb": -1,
+		"boost": 1,
+		"boosted": 1,
+		"boosting": 1,
+		"boosts": 1,
+		"bore": -2,
+		"bored": -2,
+		"boring": -3,
+		"bother": -2,
+		"bothered": -2,
+		"bothers": -2,
+		"bothersome": -2,
+		"boycott": -2,
+		"boycotted": -2,
+		"boycotting": -2,
+		"boycotts": -2,
+		"brainwashing": -3,
+		"brave": 2,
+		"breakthrough": 3,
+		"breathtaking": 5,
+		"bribe": -3,
+		"bright": 1,
+		"brightest": 2,
+		"brightness": 1,
+		"brilliant": 4,
+		"brisk": 2,
+		"broke": -1,
+		"broken": -1,
+		"brooding": -2,
+		"bullied": -2,
+		"bullshit": -4,
+		"bully": -2,
+		"bullying": -2,
+		"bummer": -2,
+		"buoyant": 2,
+		"burden": -2,
+		"burdened": -2,
+		"burdening": -2,
+		"burdens": -2,
+		"calm": 2,
+		"calmed": 2,
+		"calming": 2,
+		"calms": 2,
+		"cancel": -1,
+		"cancelled": -1,
+		"cancelling": -1,
+		"cancels": -1,
+		"cancer": -1,
+		"capable": 1,
+		"captivated": 3,
+		"care": 2,
+		"carefree": 1,
+		"careful": 2,
+		"carefully": 2,
+		"careless": -2,
+		"cares": 2,
+		"casualty": -2,
+		"catastrophe": -3,
+		"catastrophic": -4,
+		"cautious": -1,
+		"celebrate": 3,
+		"celebrated": 3,
+		"celebrates": 3,
+		"celebrating": 3,
+		"censor": -2,
+		"censored": -2,
+		"censors": -2,
+		"certain": 1,
+		"chagrin": -2,
+		"chagrined": -2,
+		"challenge": -1,
+		"chance": 2,
+		"chances": 2,
+		"chaos": -2,
+		"chaotic": -2,
+		"charged": -3,
+		"charges": -2,
+		"charm": 3,
+		"charming": 3,
+		"charmless": -3,
+		"chastise": -3,
+		"chastised": -3,
+		"chastises": -3,
+		"chastising": -3,
+		"cheat": -3,
+		"cheated": -3,
+		"cheater": -3,
+		"cheaters": -3,
+		"cheats": -3,
+		"cheer": 2,
+		"cheered": 2,
+		"cheerful": 2,
+		"cheering": 2,
+		"cheerless": -2,
+		"cheers": 2,
+		"cheery": 3,
+		"cherish": 2,
+		"cherished": 2,
+		"cherishes": 2,
+		"cherishing": 2,
+		"chic": 2,
+		"childish": -2,
+		"chilling": -1,
+		"choke": -2,
+		"choked": -2,
+		"chokes": -2,
+		"choking": -2,
+		"clarifies": 2,
+		"clarity": 2,
+		"clash": -2,
+		"classy": 3,
+		"clean": 2,
+		"cleaner": 2,
+		"clear": 1,
+		"cleared": 1,
+		"clearly": 1,
+		"clears": 1,
+		"clever": 2,
+		"clouded": -1,
+		"clueless": -2,
+		"cock": -5,
+		"cocksucker": -5,
+		"cocksuckers": -5,
+		"cocky": -2,
+		"coerced": -2,
+		"collapse": -2,
+		"collapsed": -2,
+		"collapses": -2,
+		"collapsing": -2,
+		"collide": -1,
+		"collides": -1,
+		"colliding": -1,
+		"collision": -2,
+		"collisions": -2,
+		"colluding": -3,
+		"combat": -1,
+		"combats": -1,
+		"comedy": 1,
+		"comfort": 2,
+		"comfortable": 2,
+		"comforting": 2,
+		"comforts": 2,
+		"commend": 2,
+		"commended": 2,
+		"commit": 1,
+		"commitment": 2,
+		"commits": 1,
+		"committed": 1,
+		"committing": 1,
+		"compassionate": 2,
+		"compelled": 1,
+		"competent": 2,
+		"competitive": 2,
+		"complacent": -2,
+		"complain": -2,
+		"complained": -2,
+		"complains": -2,
+		"comprehensive": 2,
+		"conciliate": 2,
+		"conciliated": 2,
+		"conciliates": 2,
+		"conciliating": 2,
+		"condemn": -2,
+		"condemnation": -2,
+		"condemned": -2,
+		"condemns": -2,
+		"confidence": 2,
+		"confident": 2,
+		"conflict": -2,
+		"conflicting": -2,
+		"conflictive": -2,
+		"conflicts": -2,
+		"confuse": -2,
+		"confused": -2,
+		"confusing": -2,
+		"congrats": 2,
+		"congratulate": 2,
+		"congratulation": 2,
+		"congratulations": 2,
+		"consent": 2,
+		"consents": 2,
+		"consolable": 2,
+		"conspiracy": -3,
+		"constrained": -2,
+		"contagion": -2,
+		"contagions": -2,
+		"contagious": -1,
+		"contempt": -2,
+		"contemptuous": -2,
+		"contemptuously": -2,
+		"contend": -1,
+		"contender": -1,
+		"contending": -1,
+		"contentious": -2,
+		"contestable": -2,
+		"controversial": -2,
+		"controversially": -2,
+		"convince": 1,
+		"convinced": 1,
+		"convinces": 1,
+		"convivial": 2,
+		"cool": 1,
+		"cornered": -2,
+		"corpse": -1,
+		"costly": -2,
+		"courage": 2,
+		"courageous": 2,
+		"courteous": 2,
+		"courtesy": 2,
+		"cover-up": -3,
+		"coward": -2,
+		"cowardly": -2,
+		"coziness": 2,
+		"cramp": -1,
+		"crap": -3,
+		"crash": -2,
+		"crazier": -2,
+		"craziest": -2,
+		"crazy": -2,
+		"creative": 2,
+		"crestfallen": -2,
+		"cried": -2,
+		"cries": -2,
+		"crime": -3,
+		"criminal": -3,
+		"criminals": -3,
+		"crisis": -3,
+		"critic": -2,
+		"criticism": -2,
+		"criticize": -2,
+		"criticized": -2,
+		"criticizes": -2,
+		"criticizing": -2,
+		"critics": -2,
+		"cruel": -3,
+		"cruelty": -3,
+		"crush": -1,
+		"crushed": -2,
+		"crushes": -1,
+		"crushing": -1,
+		"cry": -1,
+		"crying": -2,
+		"cunt": -5,
+		"curious": 1,
+		"curse": -1,
+		"cut": -1,
+		"cute": 2,
+		"cuts": -1,
+		"cutting": -1,
+		"cynic": -2,
+		"cynical": -2,
+		"cynicism": -2,
+		"damage": -3,
+		"damages": -3,
+		"damn": -4,
+		"damned": -4,
+		"damnit": -4,
+		"danger": -2,
+		"daredevil": 2,
+		"daring": 2,
+		"darkest": -2,
+		"darkness": -1,
+		"dauntless": 2,
+		"dead": -3,
+		"deadlock": -2,
+		"deafening": -1,
+		"dear": 2,
+		"dearly": 3,
+		"death": -2,
+		"debonair": 2,
+		"debt": -2,
+		"deceit": -3,
+		"deceitful": -3,
+		"deceive": -3,
+		"deceived": -3,
+		"deceives": -3,
+		"deceiving": -3,
+		"deception": -3,
+		"decisive": 1,
+		"dedicated": 2,
+		"defeated": -2,
+		"defect": -3,
+		"defects": -3,
+		"defender": 2,
+		"defenders": 2,
+		"defenseless": -2,
+		"defer": -1,
+		"deferring": -1,
+		"defiant": -1,
+		"deficit": -2,
+		"degrade": -2,
+		"degraded": -2,
+		"degrades": -2,
+		"dehumanize": -2,
+		"dehumanized": -2,
+		"dehumanizes": -2,
+		"dehumanizing": -2,
+		"deject": -2,
+		"dejected": -2,
+		"dejecting": -2,
+		"dejects": -2,
+		"delay": -1,
+		"delayed": -1,
+		"delight": 3,
+		"delighted": 3,
+		"delighting": 3,
+		"delights": 3,
+		"demand": -1,
+		"demanded": -1,
+		"demanding": -1,
+		"demands": -1,
+		"demonstration": -1,
+		"demoralized": -2,
+		"denied": -2,
+		"denier": -2,
+		"deniers": -2,
+		"denies": -2,
+		"denounce": -2,
+		"denounces": -2,
+		"deny": -2,
+		"denying": -2,
+		"depressed": -2,
+		"depressing": -2,
+		"derail": -2,
+		"derailed": -2,
+		"derails": -2,
+		"deride": -2,
+		"derided": -2,
+		"derides": -2,
+		"deriding": -2,
+		"derision": -2,
+		"desirable": 2,
+		"desire": 1,
+		"desired": 2,
+		"desirous": 2,
+		"despair": -3,
+		"despairing": -3,
+		"despairs": -3,
+		"desperate": -3,
+		"desperately": -3,
+		"despondent": -3,
+		"destroy": -3,
+		"destroyed": -3,
+		"destroying": -3,
+		"destroys": -3,
+		"destruction": -3,
+		"destructive": -3,
+		"detached": -1,
+		"detain": -2,
+		"detained": -2,
+		"detention": -2,
+		"determined": 2,
+		"devastate": -2,
+		"devastated": -2,
+		"devastating": -2,
+		"devoted": 3,
+		"diamond": 1,
+		"dick": -4,
+		"dickhead": -4,
+		"die": -3,
+		"died": -3,
+		"difficult": -1,
+		"diffident": -2,
+		"dilemma": -1,
+		"dipshit": -3,
+		"dire": -3,
+		"direful": -3,
+		"dirt": -2,
+		"dirtier": -2,
+		"dirtiest": -2,
+		"dirty": -2,
+		"disabling": -1,
+		"disadvantage": -2,
+		"disadvantaged": -2,
+		"disappear": -1,
+		"disappeared": -1,
+		"disappears": -1,
+		"disappoint": -2,
+		"disappointed": -2,
+		"disappointing": -2,
+		"disappointment": -2,
+		"disappointments": -2,
+		"disappoints": -2,
+		"disaster": -2,
+		"disasters": -2,
+		"disastrous": -3,
+		"disbelieve": -2,
+		"discard": -1,
+		"discarded": -1,
+		"discarding": -1,
+		"discards": -1,
+		"disconsolate": -2,
+		"disconsolation": -2,
+		"discontented": -2,
+		"discord": -2,
+		"discounted": -1,
+		"discouraged": -2,
+		"discredited": -2,
+		"disdain": -2,
+		"disgrace": -2,
+		"disgraced": -2,
+		"disguise": -1,
+		"disguised": -1,
+		"disguises": -1,
+		"disguising": -1,
+		"disgust": -3,
+		"disgusted": -3,
+		"disgusting": -3,
+		"disheartened": -2,
+		"dishonest": -2,
+		"disillusioned": -2,
+		"disinclined": -2,
+		"disjointed": -2,
+		"dislike": -2,
+		"dismal": -2,
+		"dismayed": -2,
+		"disorder": -2,
+		"disorganized": -2,
+		"disoriented": -2,
+		"disparage": -2,
+		"disparaged": -2,
+		"disparages": -2,
+		"disparaging": -2,
+		"displeased": -2,
+		"dispute": -2,
+		"disputed": -2,
+		"disputes": -2,
+		"disputing": -2,
+		"disqualified": -2,
+		"disquiet": -2,
+		"disregard": -2,
+		"disregarded": -2,
+		"disregarding": -2,
+		"disregards": -2,
+		"disrespect": -2,
+		"disrespected": -2,
+		"disruption": -2,
+		"disruptions": -2,
+		"disruptive": -2,
+		"dissatisfied": -2,
+		"distort": -2,
+		"distorted": -2,
+		"distorting": -2,
+		"distorts": -2,
+		"distract": -2,
+		"distracted": -2,
+		"distraction": -2,
+		"distracts": -2,
+		"distress": -2,
+		"distressed": -2,
+		"distresses": -2,
+		"distressing": -2,
+		"distrust": -3,
+		"distrustful": -3,
+		"disturb": -2,
+		"disturbed": -2,
+		"disturbing": -2,
+		"disturbs": -2,
+		"dithering": -2,
+		"dizzy": -1,
+		"dodging": -2,
+		"dodgy": -2,
+		"dolorous": -2,
+		"doom": -2,
+		"doomed": -2,
+		"doubt": -1,
+		"doubted": -1,
+		"doubtful": -1,
+		"doubting": -1,
+		"doubts": -1,
+		"douche": -3,
+		"douchebag": -3,
+		"downcast": -2,
+		"downhearted": -2,
+		"downside": -2,
+		"drag": -1,
+		"dragged": -1,
+		"drags": -1,
+		"drained": -2,
+		"dread": -2,
+		"dreaded": -2,
+		"dreadful": -3,
+		"dreading": -2,
+		"dream": 1,
+		"dreams": 1,
+		"dreary": -2,
+		"droopy": -2,
+		"drop": -1,
+		"drown": -2,
+		"drowned": -2,
+		"drowns": -2,
+		"drunk": -2,
+		"dubious": -2,
+		"dud": -2,
+		"dull": -2,
+		"dumb": -3,
+		"dumbass": -3,
+		"dump": -1,
+		"dumped": -2,
+		"dumps": -1,
+		"dupe": -2,
+		"duped": -2,
+		"dysfunction": -2,
+		"eager": 2,
+		"earnest": 2,
+		"ease": 2,
+		"easy": 1,
+		"ecstatic": 4,
+		"eerie": -2,
+		"eery": -2,
+		"effective": 2,
+		"effectively": 2,
+		"elated": 3,
+		"elation": 3,
+		"elegant": 2,
+		"elegantly": 2,
+		"embarrass": -2,
+		"embarrassed": -2,
+		"embarrasses": -2,
+		"embarrassing": -2,
+		"embarrassment": -2,
+		"embittered": -2,
+		"embrace": 1,
+		"emergency": -2,
+		"empathetic": 2,
+		"emptiness": -1,
+		"empty": -1,
+		"enchanted": 2,
+		"encourage": 2,
+		"encouraged": 2,
+		"encouragement": 2,
+		"encourages": 2,
+		"endorse": 2,
+		"endorsed": 2,
+		"endorsement": 2,
+		"endorses": 2,
+		"enemies": -2,
+		"enemy": -2,
+		"energetic": 2,
+		"engage": 1,
+		"engages": 1,
+		"engrossed": 1,
+		"enjoy": 2,
+		"enjoying": 2,
+		"enjoys": 2,
+		"enlighten": 2,
+		"enlightened": 2,
+		"enlightening": 2,
+		"enlightens": 2,
+		"ennui": -2,
+		"enrage": -2,
+		"enraged": -2,
+		"enrages": -2,
+		"enraging": -2,
+		"enrapture": 3,
+		"enslave": -2,
+		"enslaved": -2,
+		"enslaves": -2,
+		"ensure": 1,
+		"ensuring": 1,
+		"enterprising": 1,
+		"entertaining": 2,
+		"enthral": 3,
+		"enthusiastic": 3,
+		"entitled": 1,
+		"entrusted": 2,
+		"envies": -1,
+		"envious": -2,
+		"envy": -1,
+		"envying": -1,
+		"erroneous": -2,
+		"error": -2,
+		"errors": -2,
+		"escape": -1,
+		"escapes": -1,
+		"escaping": -1,
+		"esteemed": 2,
+		"ethical": 2,
+		"euphoria": 3,
+		"euphoric": 4,
+		"eviction": -1,
+		"evil": -3,
+		"exaggerate": -2,
+		"exaggerated": -2,
+		"exaggerates": -2,
+		"exaggerating": -2,
+		"exasperated": 2,
+		"excellence": 3,
+		"excellent": 3,
+		"excite": 3,
+		"excited": 3,
+		"excitement": 3,
+		"exciting": 3,
+		"exclude": -1,
+		"excluded": -2,
+		"exclusion": -1,
+		"exclusive": 2,
+		"excuse": -1,
+		"exempt": -1,
+		"exhausted": -2,
+		"exhilarated": 3,
+		"exhilarates": 3,
+		"exhilarating": 3,
+		"exonerate": 2,
+		"exonerated": 2,
+		"exonerates": 2,
+		"exonerating": 2,
+		"expand": 1,
+		"expands": 1,
+		"expel": -2,
+		"expelled": -2,
+		"expelling": -2,
+		"expels": -2,
+		"exploit": -2,
+		"exploited": -2,
+		"exploiting": -2,
+		"exploits": -2,
+		"exploration": 1,
+		"explorations": 1,
+		"expose": -1,
+		"exposed": -1,
+		"exposes": -1,
+		"exposing": -1,
+		"extend": 1,
+		"extends": 1,
+		"exuberant": 4,
+		"exultant": 3,
+		"exultantly": 3,
+		"fabulous": 4,
+		"fad": -2,
+		"fag": -3,
+		"faggot": -3,
+		"faggots": -3,
+		"fail": -2,
+		"failed": -2,
+		"failing": -2,
+		"fails": -2,
+		"failure": -2,
+		"failures": -2,
+		"fainthearted": -2,
+		"fair": 2,
+		"faith": 1,
+		"faithful": 3,
+		"fake": -3,
+		"fakes": -3,
+		"faking": -3,
+		"fallen": -2,
+		"falling": -1,
+		"falsified": -3,
+		"falsify": -3,
+		"fame": 1,
+		"fan": 3,
+		"fantastic": 4,
+		"farce": -1,
+		"fascinate": 3,
+		"fascinated": 3,
+		"fascinates": 3,
+		"fascinating": 3,
+		"fascist": -2,
+		"fascists": -2,
+		"fatalities": -3,
+		"fatality": -3,
+		"fatigue": -2,
+		"fatigued": -2,
+		"fatigues": -2,
+		"fatiguing": -2,
+		"favor": 2,
+		"favored": 2,
+		"favorite": 2,
+		"favorited": 2,
+		"favorites": 2,
+		"favors": 2,
+		"fear": -2,
+		"fearful": -2,
+		"fearing": -2,
+		"fearless": 2,
+		"fearsome": -2,
+		"feeble": -2,
+		"feeling": 1,
+		"felonies": -3,
+		"felony": -3,
+		"fervent": 2,
+		"fervid": 2,
+		"festive": 2,
+		"fiasco": -3,
+		"fidgety": -2,
+		"fight": -1,
+		"fine": 2,
+		"fire": -2,
+		"fired": -2,
+		"firing": -2,
+		"fit": 1,
+		"fitness": 1,
+		"flagship": 2,
+		"flees": -1,
+		"flop": -2,
+		"flops": -2,
+		"flu": -2,
+		"flustered": -2,
+		"focused": 2,
+		"fond": 2,
+		"fondness": 2,
+		"fool": -2,
+		"foolish": -2,
+		"fools": -2,
+		"forced": -1,
+		"foreclosure": -2,
+		"foreclosures": -2,
+		"forget": -1,
+		"forgetful": -2,
+		"forgive": 1,
+		"forgiving": 1,
+		"forgotten": -1,
+		"fortunate": 2,
+		"frantic": -1,
+		"fraud": -4,
+		"frauds": -4,
+		"fraudster": -4,
+		"fraudsters": -4,
+		"fraudulence": -4,
+		"fraudulent": -4,
+		"free": 1,
+		"freedom": 2,
+		"frenzy": -3,
+		"fresh": 1,
+		"friendly": 2,
+		"fright": -2,
+		"frightened": -2,
+		"frightening": -3,
+		"frikin": -2,
+		"frisky": 2,
+		"frowning": -1,
+		"frustrate": -2,
+		"frustrated": -2,
+		"frustrates": -2,
+		"frustrating": -2,
+		"frustration": -2,
+		"ftw": 3,
+		"fuck": -4,
+		"fucked": -4,
+		"fucker": -4,
+		"fuckers": -4,
+		"fuckface": -4,
+		"fuckhead": -4,
+		"fucking": -4,
+		"fucktard": -4,
+		"fud": -3,
+		"fuked": -4,
+		"fuking": -4,
+		"fulfill": 2,
+		"fulfilled": 2,
+		"fulfills": 2,
+		"fuming": -2,
+		"fun": 4,
+		"funeral": -1,
+		"funerals": -1,
+		"funky": 2,
+		"funnier": 4,
+		"funny": 4,
+		"furious": -3,
+		"futile": 2,
+		"gag": -2,
+		"gagged": -2,
+		"gain": 2,
+		"gained": 2,
+		"gaining": 2,
+		"gains": 2,
+		"gallant": 3,
+		"gallantly": 3,
+		"gallantry": 3,
+		"generous": 2,
+		"genial": 3,
+		"ghost": -1,
+		"giddy": -2,
+		"gift": 2,
+		"glad": 3,
+		"glamorous": 3,
+		"glamourous": 3,
+		"glee": 3,
+		"gleeful": 3,
+		"gloom": -1,
+		"gloomy": -2,
+		"glorious": 2,
+		"glory": 2,
+		"glum": -2,
+		"god": 1,
+		"goddamn": -3,
+		"godsend": 4,
+		"good": 3,
+		"goodness": 3,
+		"grace": 1,
+		"gracious": 3,
+		"grand": 3,
+		"grant": 1,
+		"granted": 1,
+		"granting": 1,
+		"grants": 1,
+		"grateful": 3,
+		"gratification": 2,
+		"grave": -2,
+		"gray": -1,
+		"great": 3,
+		"greater": 3,
+		"greatest": 3,
+		"greed": -3,
+		"greedy": -2,
+		"greenwash": -3,
+		"greenwasher": -3,
+		"greenwashers": -3,
+		"greenwashing": -3,
+		"greet": 1,
+		"greeted": 1,
+		"greeting": 1,
+		"greetings": 2,
+		"greets": 1,
+		"grey": -1,
+		"grief": -2,
+		"grieved": -2,
+		"gross": -2,
+		"growing": 1,
+		"growth": 2,
+		"guarantee": 1,
+		"guilt": -3,
+		"guilty": -3,
+		"gullibility": -2,
+		"gullible": -2,
+		"gun": -1,
+		"ha": 2,
+		"hacked": -1,
+		"haha": 3,
+		"hahaha": 3,
+		"hahahah": 3,
+		"hail": 2,
+		"hailed": 2,
+		"hapless": -2,
+		"haplessness": -2,
+		"happiness": 3,
+		"happy": 3,
+		"hard": -1,
+		"hardier": 2,
+		"hardship": -2,
+		"hardy": 2,
+		"harm": -2,
+		"harmed": -2,
+		"harmful": -2,
+		"harming": -2,
+		"harms": -2,
+		"harried": -2,
+		"harsh": -2,
+		"harsher": -2,
+		"harshest": -2,
+		"hate": -3,
+		"hated": -3,
+		"haters": -3,
+		"hates": -3,
+		"hating": -3,
+		"haunt": -1,
+		"haunted": -2,
+		"haunting": 1,
+		"haunts": -1,
+		"havoc": -2,
+		"healthy": 2,
+		"heartbreaking": -3,
+		"heartbroken": -3,
+		"heartfelt": 3,
+		"heaven": 2,
+		"heavenly": 4,
+		"heavyhearted": -2,
+		"hell": -4,
+		"help": 2,
+		"helpful": 2,
+		"helping": 2,
+		"helpless": -2,
+		"helps": 2,
+		"hero": 2,
+		"heroes": 2,
+		"heroic": 3,
+		"hesitant": -2,
+		"hesitate": -2,
+		"hid": -1,
+		"hide": -1,
+		"hides": -1,
+		"hiding": -1,
+		"highlight": 2,
+		"hilarious": 2,
+		"hindrance": -2,
+		"hoax": -2,
+		"homesick": -2,
+		"honest": 2,
+		"honor": 2,
+		"honored": 2,
+		"honoring": 2,
+		"honour": 2,
+		"honoured": 2,
+		"honouring": 2,
+		"hooligan": -2,
+		"hooliganism": -2,
+		"hooligans": -2,
+		"hope": 2,
+		"hopeful": 2,
+		"hopefully": 2,
+		"hopeless": -2,
+		"hopelessness": -2,
+		"hopes": 2,
+		"hoping": 2,
+		"horrendous": -3,
+		"horrible": -3,
+		"horrific": -3,
+		"horrified": -3,
+		"hostile": -2,
+		"huckster": -2,
+		"hug": 2,
+		"huge": 1,
+		"hugs": 2,
+		"humerous": 3,
+		"humiliated": -3,
+		"humiliation": -3,
+		"humor": 2,
+		"humorous": 2,
+		"humour": 2,
+		"humourous": 2,
+		"hunger": -2,
+		"hurrah": 5,
+		"hurt": -2,
+		"hurting": -2,
+		"hurts": -2,
+		"hypocritical": -2,
+		"hysteria": -3,
+		"hysterical": -3,
+		"hysterics": -3,
+		"idiot": -3,
+		"idiotic": -3,
+		"ignorance": -2,
+		"ignorant": -2,
+		"ignore": -1,
+		"ignored": -2,
+		"ignores": -1,
+		"ill": -2,
+		"illegal": -3,
+		"illiteracy": -2,
+		"illness": -2,
+		"illnesses": -2,
+		"imbecile": -3,
+		"immobilized": -1,
+		"immortal": 2,
+		"immune": 1,
+		"impatient": -2,
+		"imperfect": -2,
+		"importance": 2,
+		"important": 2,
+		"impose": -1,
+		"imposed": -1,
+		"imposes": -1,
+		"imposing": -1,
+		"impotent": -2,
+		"impress": 3,
+		"impressed": 3,
+		"impresses": 3,
+		"impressive": 3,
+		"imprisoned": -2,
+		"improve": 2,
+		"improved": 2,
+		"improvement": 2,
+		"improves": 2,
+		"improving": 2,
+		"inability": -2,
+		"inaction": -2,
+		"inadequate": -2,
+		"incapable": -2,
+		"incapacitated": -2,
+		"incensed": -2,
+		"incompetence": -2,
+		"incompetent": -2,
+		"inconsiderate": -2,
+		"inconvenience": -2,
+		"inconvenient": -2,
+		"increase": 1,
+		"increased": 1,
+		"indecisive": -2,
+		"indestructible": 2,
+		"indifference": -2,
+		"indifferent": -2,
+		"indignant": -2,
+		"indignation": -2,
+		"indoctrinate": -2,
+		"indoctrinated": -2,
+		"indoctrinates": -2,
+		"indoctrinating": -2,
+		"ineffective": -2,
+		"ineffectively": -2,
+		"infatuated": 2,
+		"infatuation": 2,
+		"infected": -2,
+		"inferior": -2,
+		"inflamed": -2,
+		"influential": 2,
+		"infringement": -2,
+		"infuriate": -2,
+		"infuriated": -2,
+		"infuriates": -2,
+		"infuriating": -2,
+		"inhibit": -1,
+		"injured": -2,
+		"injury": -2,
+		"injustice": -2,
+		"innovate": 1,
+		"innovates": 1,
+		"innovation": 1,
+		"innovative": 2,
+		"inquisition": -2,
+		"inquisitive": 2,
+		"insane": -2,
+		"insanity": -2,
+		"insecure": -2,
+		"insensitive": -2,
+		"insensitivity": -2,
+		"insignificant": -2,
+		"insipid": -2,
+		"inspiration": 2,
+		"inspirational": 2,
+		"inspire": 2,
+		"inspired": 2,
+		"inspires": 2,
+		"inspiring": 3,
+		"insult": -2,
+		"insulted": -2,
+		"insulting": -2,
+		"insults": -2,
+		"intact": 2,
+		"integrity": 2,
+		"intelligent": 2,
+		"intense": 1,
+		"interest": 1,
+		"interested": 2,
+		"interesting": 2,
+		"interests": 1,
+		"interrogated": -2,
+		"interrupt": -2,
+		"interrupted": -2,
+		"interrupting": -2,
+		"interruption": -2,
+		"interrupts": -2,
+		"intimidate": -2,
+		"intimidated": -2,
+		"intimidates": -2,
+		"intimidating": -2,
+		"intimidation": -2,
+		"intricate": 2,
+		"intrigues": 1,
+		"invincible": 2,
+		"invite": 1,
+		"inviting": 1,
+		"invulnerable": 2,
+		"irate": -3,
+		"ironic": -1,
+		"irony": -1,
+		"irrational": -1,
+		"irresistible": 2,
+		"irresolute": -2,
+		"irresponsible": 2,
+		"irreversible": -1,
+		"irritate": -3,
+		"irritated": -3,
+		"irritating": -3,
+		"isolated": -1,
+		"itchy": -2,
+		"jackass": -4,
+		"jackasses": -4,
+		"jailed": -2,
+		"jaunty": 2,
+		"jealous": -2,
+		"jeopardy": -2,
+		"jerk": -3,
+		"jesus": 1,
+		"jewel": 1,
+		"jewels": 1,
+		"jocular": 2,
+		"join": 1,
+		"joke": 2,
+		"jokes": 2,
+		"jolly": 2,
+		"jovial": 2,
+		"joy": 3,
+		"joyful": 3,
+		"joyfully": 3,
+		"joyless": -2,
+		"joyous": 3,
+		"jubilant": 3,
+		"jumpy": -1,
+		"justice": 2,
+		"justifiably": 2,
+		"justified": 2,
+		"keen": 1,
+		"kill": -3,
+		"killed": -3,
+		"killing": -3,
+		"kills": -3,
+		"kind": 2,
+		"kinder": 2,
+		"kiss": 2,
+		"kudos": 3,
+		"lack": -2,
+		"lackadaisical": -2,
+		"lag": -1,
+		"lagged": -2,
+		"lagging": -2,
+		"lags": -2,
+		"lame": -2,
+		"landmark": 2,
+		"laugh": 1,
+		"laughed": 1,
+		"laughing": 1,
+		"laughs": 1,
+		"laughting": 1,
+		"launched": 1,
+		"lawl": 3,
+		"lawsuit": -2,
+		"lawsuits": -2,
+		"lazy": -1,
+		"leak": -1,
+		"leaked": -1,
+		"leave": -1,
+		"legal": 1,
+		"legally": 1,
+		"lenient": 1,
+		"lethargic": -2,
+		"lethargy": -2,
+		"liar": -3,
+		"liars": -3,
+		"libelous": -2,
+		"lied": -2,
+		"lifesaver": 4,
+		"lighthearted": 1,
+		"like": 2,
+		"liked": 2,
+		"likes": 2,
+		"limitation": -1,
+		"limited": -1,
+		"limits": -1,
+		"litigation": -1,
+		"litigious": -2,
+		"lively": 2,
+		"livid": -2,
+		"lmao": 4,
+		"lmfao": 4,
+		"loathe": -3,
+		"loathed": -3,
+		"loathes": -3,
+		"loathing": -3,
+		"lobby": -2,
+		"lobbying": -2,
+		"lol": 3,
+		"lonely": -2,
+		"lonesome": -2,
+		"longing": -1,
+		"loom": -1,
+		"loomed": -1,
+		"looming": -1,
+		"looms": -1,
+		"loose": -3,
+		"looses": -3,
+		"loser": -3,
+		"losing": -3,
+		"loss": -3,
+		"lost": -3,
+		"lovable": 3,
+		"love": 3,
+		"loved": 3,
+		"lovelies": 3,
+		"lovely": 3,
+		"loving": 2,
+		"lowest": -1,
+		"loyal": 3,
+		"loyalty": 3,
+		"luck": 3,
+		"luckily": 3,
+		"lucky": 3,
+		"lugubrious": -2,
+		"lunatic": -3,
+		"lunatics": -3,
+		"lurk": -1,
+		"lurking": -1,
+		"lurks": -1,
+		"mad": -3,
+		"maddening": -3,
+		"made-up": -1,
+		"madly": -3,
+		"madness": -3,
+		"mandatory": -1,
+		"manipulated": -1,
+		"manipulating": -1,
+		"manipulation": -1,
+		"marvel": 3,
+		"marvelous": 3,
+		"marvels": 3,
+		"masterpiece": 4,
+		"masterpieces": 4,
+		"matter": 1,
+		"matters": 1,
+		"mature": 2,
+		"meaningful": 2,
+		"meaningless": -2,
+		"medal": 3,
+		"mediocrity": -3,
+		"meditative": 1,
+		"melancholy": -2,
+		"menace": -2,
+		"menaced": -2,
+		"mercy": 2,
+		"merry": 3,
+		"mess": -2,
+		"messed": -2,
+		"methodical": 2,
+		"mindless": -2,
+		"miracle": 4,
+		"mirth": 3,
+		"mirthful": 3,
+		"mirthfully": 3,
+		"misbehave": -2,
+		"misbehaved": -2,
+		"misbehaves": -2,
+		"misbehaving": -2,
+		"mischief": -1,
+		"mischiefs": -1,
+		"miserable": -3,
+		"misery": -2,
+		"misgiving": -2,
+		"misinformation": -2,
+		"misinformed": -2,
+		"misinterpreted": -2,
+		"misleading": -3,
+		"misread": -1,
+		"misreporting": -2,
+		"misrepresentation": -2,
+		"miss": -2,
+		"missed": -2,
+		"missing": -2,
+		"mistake": -2,
+		"mistaken": -2,
+		"mistakes": -2,
+		"mistaking": -2,
+		"misunderstand": -2,
+		"misunderstanding": -2,
+		"misunderstands": -2,
+		"misunderstood": -2,
+		"moan": -2,
+		"moaned": -2,
+		"moaning": -2,
+		"moans": -2,
+		"mock": -2,
+		"mocked": -2,
+		"mocking": -2,
+		"mocks": -2,
+		"mongering": -2,
+		"monopolize": -2,
+		"monopolized": -2,
+		"monopolizes": -2,
+		"monopolizing": -2,
+		"moody": -1,
+		"mope": -1,
+		"moping": -1,
+		"moron": -3,
+		"motherfucker": -5,
+		"motherfucking": -5,
+		"motivate": 1,
+		"motivated": 2,
+		"motivating": 2,
+		"motivation": 1,
+		"mourn": -2,
+		"mourned": -2,
+		"mournful": -2,
+		"mourning": -2,
+		"mourns": -2,
+		"mumpish": -2,
+		"murder": -2,
+		"murderer": -2,
+		"murdering": -3,
+		"murderous": -3,
+		"murders": -2,
+		"myth": -1,
+		"n00b": -2,
+		"naive": -2,
+		"nasty": -3,
+		"natural": 1,
+		"naïve": -2,
+		"needy": -2,
+		"negative": -2,
+		"negativity": -2,
+		"neglect": -2,
+		"neglected": -2,
+		"neglecting": -2,
+		"neglects": -2,
+		"nerves": -1,
+		"nervous": -2,
+		"nervously": -2,
+		"nice": 3,
+		"nifty": 2,
+		"niggas": -5,
+		"nigger": -5,
+		"no": -1,
+		"noble": 2,
+		"noisy": -1,
+		"nonsense": -2,
+		"noob": -2,
+		"nosey": -2,
+		"notorious": -2,
+		"novel": 2,
+		"numb": -1,
+		"nuts": -3,
+		"obliterate": -2,
+		"obliterated": -2,
+		"obnoxious": -3,
+		"obscene": -2,
+		"obsessed": 2,
+		"obsolete": -2,
+		"obstacle": -2,
+		"obstacles": -2,
+		"obstinate": -2,
+		"odd": -2,
+		"offend": -2,
+		"offended": -2,
+		"offender": -2,
+		"offending": -2,
+		"offends": -2,
+		"offline": -1,
+		"oks": 2,
+		"ominous": 3,
+		"once-in-a-lifetime": 3,
+		"opportunities": 2,
+		"opportunity": 2,
+		"oppressed": -2,
+		"oppressive": -2,
+		"optimism": 2,
+		"optimistic": 2,
+		"optionless": -2,
+		"outcry": -2,
+		"outmaneuvered": -2,
+		"outrage": -3,
+		"outraged": -3,
+		"outreach": 2,
+		"outstanding": 5,
+		"overjoyed": 4,
+		"overload": -1,
+		"overlooked": -1,
+		"overreact": -2,
+		"overreacted": -2,
+		"overreaction": -2,
+		"overreacts": -2,
+		"oversell": -2,
+		"overselling": -2,
+		"oversells": -2,
+		"oversimplification": -2,
+		"oversimplified": -2,
+		"oversimplifies": -2,
+		"oversimplify": -2,
+		"overstatement": -2,
+		"overstatements": -2,
+		"overweight": -1,
+		"oxymoron": -1,
+		"pain": -2,
+		"pained": -2,
+		"panic": -3,
+		"panicked": -3,
+		"panics": -3,
+		"paradise": 3,
+		"paradox": -1,
+		"pardon": 2,
+		"pardoned": 2,
+		"pardoning": 2,
+		"pardons": 2,
+		"parley": -1,
+		"passionate": 2,
+		"passive": -1,
+		"passively": -1,
+		"pathetic": -2,
+		"pay": -1,
+		"peace": 2,
+		"peaceful": 2,
+		"peacefully": 2,
+		"penalty": -2,
+		"pensive": -1,
+		"perfect": 3,
+		"perfected": 2,
+		"perfectly": 3,
+		"perfects": 2,
+		"peril": -2,
+		"perjury": -3,
+		"perpetrator": -2,
+		"perpetrators": -2,
+		"perplexed": -2,
+		"persecute": -2,
+		"persecuted": -2,
+		"persecutes": -2,
+		"persecuting": -2,
+		"perturbed": -2,
+		"pesky": -2,
+		"pessimism": -2,
+		"pessimistic": -2,
+		"petrified": -2,
+		"phobic": -2,
+		"picturesque": 2,
+		"pileup": -1,
+		"pique": -2,
+		"piqued": -2,
+		"piss": -4,
+		"pissed": -4,
+		"pissing": -3,
+		"piteous": -2,
+		"pitied": -1,
+		"pity": -2,
+		"playful": 2,
+		"pleasant": 3,
+		"please": 1,
+		"pleased": 3,
+		"pleasure": 3,
+		"poised": -2,
+		"poison": -2,
+		"poisoned": -2,
+		"poisons": -2,
+		"pollute": -2,
+		"polluted": -2,
+		"polluter": -2,
+		"polluters": -2,
+		"pollutes": -2,
+		"poor": -2,
+		"poorer": -2,
+		"poorest": -2,
+		"popular": 3,
+		"positive": 2,
+		"positively": 2,
+		"possessive": -2,
+		"postpone": -1,
+		"postponed": -1,
+		"postpones": -1,
+		"postponing": -1,
+		"poverty": -1,
+		"powerful": 2,
+		"powerless": -2,
+		"praise": 3,
+		"praised": 3,
+		"praises": 3,
+		"praising": 3,
+		"pray": 1,
+		"praying": 1,
+		"prays": 1,
+		"prblm": -2,
+		"prblms": -2,
+		"prepared": 1,
+		"pressure": -1,
+		"pressured": -2,
+		"pretend": -1,
+		"pretending": -1,
+		"pretends": -1,
+		"pretty": 1,
+		"prevent": -1,
+		"prevented": -1,
+		"preventing": -1,
+		"prevents": -1,
+		"prick": -5,
+		"prison": -2,
+		"prisoner": -2,
+		"prisoners": -2,
+		"privileged": 2,
+		"proactive": 2,
+		"problem": -2,
+		"problems": -2,
+		"profiteer": -2,
+		"progress": 2,
+		"prominent": 2,
+		"promise": 1,
+		"promised": 1,
+		"promises": 1,
+		"promote": 1,
+		"promoted": 1,
+		"promotes": 1,
+		"promoting": 1,
+		"propaganda": -2,
+		"prosecute": -1,
+		"prosecuted": -2,
+		"prosecutes": -1,
+		"prosecution": -1,
+		"prospect": 1,
+		"prospects": 1,
+		"prosperous": 3,
+		"protect": 1,
+		"protected": 1,
+		"protects": 1,
+		"protest": -2,
+		"protesters": -2,
+		"protesting": -2,
+		"protests": -2,
+		"proud": 2,
+		"proudly": 2,
+		"provoke": -1,
+		"provoked": -1,
+		"provokes": -1,
+		"provoking": -1,
+		"pseudoscience": -3,
+		"punish": -2,
+		"punished": -2,
+		"punishes": -2,
+		"punitive": -2,
+		"pushy": -1,
+		"puzzled": -2,
+		"quaking": -2,
+		"questionable": -2,
+		"questioned": -1,
+		"questioning": -1,
+		"racism": -3,
+		"racist": -3,
+		"racists": -3,
+		"rage": -2,
+		"rageful": -2,
+		"rainy": -1,
+		"rant": -3,
+		"ranter": -3,
+		"ranters": -3,
+		"rants": -3,
+		"rape": -4,
+		"rapist": -4,
+		"rapture": 2,
+		"raptured": 2,
+		"raptures": 2,
+		"rapturous": 4,
+		"rash": -2,
+		"ratified": 2,
+		"reach": 1,
+		"reached": 1,
+		"reaches": 1,
+		"reaching": 1,
+		"reassure": 1,
+		"reassured": 1,
+		"reassures": 1,
+		"reassuring": 2,
+		"rebellion": -2,
+		"recession": -2,
+		"reckless": -2,
+		"recommend": 2,
+		"recommended": 2,
+		"recommends": 2,
+		"redeemed": 2,
+		"refuse": -2,
+		"refused": -2,
+		"refusing": -2,
+		"regret": -2,
+		"regretful": -2,
+		"regrets": -2,
+		"regretted": -2,
+		"regretting": -2,
+		"reject": -1,
+		"rejected": -1,
+		"rejecting": -1,
+		"rejects": -1,
+		"rejoice": 4,
+		"rejoiced": 4,
+		"rejoices": 4,
+		"rejoicing": 4,
+		"relaxed": 2,
+		"relentless": -1,
+		"reliant": 2,
+		"relieve": 1,
+		"relieved": 2,
+		"relieves": 1,
+		"relieving": 2,
+		"relishing": 2,
+		"remarkable": 2,
+		"remorse": -2,
+		"repulse": -1,
+		"repulsed": -2,
+		"rescue": 2,
+		"rescued": 2,
+		"rescues": 2,
+		"resentful": -2,
+		"resign": -1,
+		"resigned": -1,
+		"resigning": -1,
+		"resigns": -1,
+		"resolute": 2,
+		"resolve": 2,
+		"resolved": 2,
+		"resolves": 2,
+		"resolving": 2,
+		"respected": 2,
+		"responsible": 2,
+		"responsive": 2,
+		"restful": 2,
+		"restless": -2,
+		"restore": 1,
+		"restored": 1,
+		"restores": 1,
+		"restoring": 1,
+		"restrict": -2,
+		"restricted": -2,
+		"restricting": -2,
+		"restriction": -2,
+		"restricts": -2,
+		"retained": -1,
+		"retard": -2,
+		"retarded": -2,
+		"retreat": -1,
+		"revenge": -2,
+		"revengeful": -2,
+		"revered": 2,
+		"revive": 2,
+		"revives": 2,
+		"reward": 2,
+		"rewarded": 2,
+		"rewarding": 2,
+		"rewards": 2,
+		"rich": 2,
+		"ridiculous": -3,
+		"rig": -1,
+		"rigged": -1,
+		"rigorous": 3,
+		"rigorously": 3,
+		"riot": -2,
+		"riots": -2,
+		"risk": -2,
+		"risks": -2,
+		"rob": -2,
+		"robber": -2,
+		"robed": -2,
+		"robing": -2,
+		"robs": -2,
+		"robust": 2,
+		"rofl": 4,
+		"roflcopter": 4,
+		"roflmao": 4,
+		"romance": 2,
+		"rotfl": 4,
+		"rotflmfao": 4,
+		"rotflol": 4,
+		"ruin": -2,
+		"ruined": -2,
+		"ruining": -2,
+		"ruins": -2,
+		"sabotage": -2,
+		"sad": -2,
+		"sadden": -2,
+		"saddened": -2,
+		"sadly": -2,
+		"safe": 1,
+		"safely": 1,
+		"safety": 1,
+		"salient": 1,
+		"sappy": -1,
+		"sarcastic": -2,
+		"satisfied": 2,
+		"save": 2,
+		"saved": 2,
+		"scam": -2,
+		"scams": -2,
+		"scandal": -3,
+		"scandalous": -3,
+		"scandals": -3,
+		"scapegoat": -2,
+		"scapegoats": -2,
+		"scare": -2,
+		"scared": -2,
+		"scary": -2,
+		"sceptical": -2,
+		"scold": -2,
+		"scoop": 3,
+		"scorn": -2,
+		"scornful": -2,
+		"scream": -2,
+		"screamed": -2,
+		"screaming": -2,
+		"screams": -2,
+		"screwed": -2,
+		"scumbag": -4,
+		"secure": 2,
+		"secured": 2,
+		"secures": 2,
+		"sedition": -2,
+		"seditious": -2,
+		"seduced": -1,
+		"self-confident": 2,
+		"self-deluded": -2,
+		"selfish": -3,
+		"selfishness": -3,
+		"sentence": -2,
+		"sentenced": -2,
+		"sentences": -2,
+		"sentencing": -2,
+		"serene": 2,
+		"severe": -2,
+		"sexy": 3,
+		"shaky": -2,
+		"shame": -2,
+		"shamed": -2,
+		"shameful": -2,
+		"share": 1,
+		"shared": 1,
+		"shares": 1,
+		"shattered": -2,
+		"shit": -4,
+		"shithead": -4,
+		"shitty": -3,
+		"shock": -2,
+		"shocked": -2,
+		"shocking": -2,
+		"shocks": -2,
+		"shoot": -1,
+		"short-sighted": -2,
+		"short-sightedness": -2,
+		"shortage": -2,
+		"shortages": -2,
+		"shrew": -4,
+		"shy": -1,
+		"sick": -2,
+		"sigh": -2,
+		"significance": 1,
+		"significant": 1,
+		"silencing": -1,
+		"silly": -1,
+		"sincere": 2,
+		"sincerely": 2,
+		"sincerest": 2,
+		"sincerity": 2,
+		"sinful": -3,
+		"singleminded": -2,
+		"skeptic": -2,
+		"skeptical": -2,
+		"skepticism": -2,
+		"skeptics": -2,
+		"slam": -2,
+		"slash": -2,
+		"slashed": -2,
+		"slashes": -2,
+		"slashing": -2,
+		"slavery": -3,
+		"sleeplessness": -2,
+		"slick": 2,
+		"slicker": 2,
+		"slickest": 2,
+		"sluggish": -2,
+		"slut": -5,
+		"smart": 1,
+		"smarter": 2,
+		"smartest": 2,
+		"smear": -2,
+		"smile": 2,
+		"smiled": 2,
+		"smiles": 2,
+		"smiling": 2,
+		"smog": -2,
+		"sneaky": -1,
+		"snub": -2,
+		"snubbed": -2,
+		"snubbing": -2,
+		"snubs": -2,
+		"sobering": 1,
+		"solemn": -1,
+		"solid": 2,
+		"solidarity": 2,
+		"solution": 1,
+		"solutions": 1,
+		"solve": 1,
+		"solved": 1,
+		"solves": 1,
+		"solving": 1,
+		"somber": -2,
+		"son-of-a-bitch": -5,
+		"soothe": 3,
+		"soothed": 3,
+		"soothing": 3,
+		"sophisticated": 2,
+		"sore": -1,
+		"sorrow": -2,
+		"sorrowful": -2,
+		"sorry": -1,
+		"spam": -2,
+		"spammer": -3,
+		"spammers": -3,
+		"spamming": -2,
+		"spark": 1,
+		"sparkle": 3,
+		"sparkles": 3,
+		"sparkling": 3,
+		"speculative": -2,
+		"spirit": 1,
+		"spirited": 2,
+		"spiritless": -2,
+		"spiteful": -2,
+		"splendid": 3,
+		"sprightly": 2,
+		"squelched": -1,
+		"stab": -2,
+		"stabbed": -2,
+		"stable": 2,
+		"stabs": -2,
+		"stall": -2,
+		"stalled": -2,
+		"stalling": -2,
+		"stamina": 2,
+		"stampede": -2,
+		"startled": -2,
+		"starve": -2,
+		"starved": -2,
+		"starves": -2,
+		"starving": -2,
+		"steadfast": 2,
+		"steal": -2,
+		"steals": -2,
+		"stereotype": -2,
+		"stereotyped": -2,
+		"stifled": -1,
+		"stimulate": 1,
+		"stimulated": 1,
+		"stimulates": 1,
+		"stimulating": 2,
+		"stingy": -2,
+		"stolen": -2,
+		"stop": -1,
+		"stopped": -1,
+		"stopping": -1,
+		"stops": -1,
+		"stout": 2,
+		"straight": 1,
+		"strange": -1,
+		"strangely": -1,
+		"strangled": -2,
+		"strength": 2,
+		"strengthen": 2,
+		"strengthened": 2,
+		"strengthening": 2,
+		"strengthens": 2,
+		"stressed": -2,
+		"stressor": -2,
+		"stressors": -2,
+		"stricken": -2,
+		"strike": -1,
+		"strikers": -2,
+		"strikes": -1,
+		"strong": 2,
+		"stronger": 2,
+		"strongest": 2,
+		"struck": -1,
+		"struggle": -2,
+		"struggled": -2,
+		"struggles": -2,
+		"struggling": -2,
+		"stubborn": -2,
+		"stuck": -2,
+		"stunned": -2,
+		"stunning": 4,
+		"stupid": -2,
+		"stupidly": -2,
+		"suave": 2,
+		"substantial": 1,
+		"substantially": 1,
+		"subversive": -2,
+		"success": 2,
+		"successful": 3,
+		"suck": -3,
+		"sucks": -3,
+		"suffer": -2,
+		"suffering": -2,
+		"suffers": -2,
+		"suicidal": -2,
+		"suicide": -2,
+		"suing": -2,
+		"sulking": -2,
+		"sulky": -2,
+		"sullen": -2,
+		"sunshine": 2,
+		"super": 3,
+		"superb": 5,
+		"superior": 2,
+		"support": 2,
+		"supported": 2,
+		"supporter": 1,
+		"supporters": 1,
+		"supporting": 1,
+		"supportive": 2,
+		"supports": 2,
+		"survived": 2,
+		"surviving": 2,
+		"survivor": 2,
+		"suspect": -1,
+		"suspected": -1,
+		"suspecting": -1,
+		"suspects": -1,
+		"suspend": -1,
+		"suspended": -1,
+		"suspicious": -2,
+		"swear": -2,
+		"swearing": -2,
+		"swears": -2,
+		"sweet": 2,
+		"swift": 2,
+		"swiftly": 2,
+		"swindle": -3,
+		"swindles": -3,
+		"swindling": -3,
+		"sympathetic": 2,
+		"sympathy": 2,
+		"tard": -2,
+		"tears": -2,
+		"tender": 2,
+		"tense": -2,
+		"tension": -1,
+		"terrible": -3,
+		"terribly": -3,
+		"terrific": 4,
+		"terrified": -3,
+		"terror": -3,
+		"terrorize": -3,
+		"terrorized": -3,
+		"terrorizes": -3,
+		"thank": 2,
+		"thankful": 2,
+		"thanks": 2,
+		"thorny": -2,
+		"thoughtful": 2,
+		"thoughtless": -2,
+		"threat": -2,
+		"threaten": -2,
+		"threatened": -2,
+		"threatening": -2,
+		"threatens": -2,
+		"threats": -2,
+		"thrilled": 5,
+		"thwart": -2,
+		"thwarted": -2,
+		"thwarting": -2,
+		"thwarts": -2,
+		"timid": -2,
+		"timorous": -2,
+		"tired": -2,
+		"tits": -2,
+		"tolerant": 2,
+		"toothless": -2,
+		"top": 2,
+		"tops": 2,
+		"torn": -2,
+		"torture": -4,
+		"tortured": -4,
+		"tortures": -4,
+		"torturing": -4,
+		"totalitarian": -2,
+		"totalitarianism": -2,
+		"tout": -2,
+		"touted": -2,
+		"touting": -2,
+		"touts": -2,
+		"tragedy": -2,
+		"tragic": -2,
+		"tranquil": 2,
+		"trap": -1,
+		"trapped": -2,
+		"trauma": -3,
+		"traumatic": -3,
+		"travesty": -2,
+		"treason": -3,
+		"treasonous": -3,
+		"treasure": 2,
+		"treasures": 2,
+		"trembling": -2,
+		"tremulous": -2,
+		"tricked": -2,
+		"trickery": -2,
+		"triumph": 4,
+		"triumphant": 4,
+		"trouble": -2,
+		"troubled": -2,
+		"troubles": -2,
+		"true": 2,
+		"trust": 1,
+		"trusted": 2,
+		"tumor": -2,
+		"twat": -5,
+		"ugly": -3,
+		"unacceptable": -2,
+		"unappreciated": -2,
+		"unapproved": -2,
+		"unaware": -2,
+		"unbelievable": -1,
+		"unbelieving": -1,
+		"unbiased": 2,
+		"uncertain": -1,
+		"unclear": -1,
+		"uncomfortable": -2,
+		"unconcerned": -2,
+		"unconfirmed": -1,
+		"unconvinced": -1,
+		"uncredited": -1,
+		"undecided": -1,
+		"underestimate": -1,
+		"underestimated": -1,
+		"underestimates": -1,
+		"underestimating": -1,
+		"undermine": -2,
+		"undermined": -2,
+		"undermines": -2,
+		"undermining": -2,
+		"undeserving": -2,
+		"undesirable": -2,
+		"uneasy": -2,
+		"unemployment": -2,
+		"unequal": -1,
+		"unequaled": 2,
+		"unethical": -2,
+		"unfair": -2,
+		"unfocused": -2,
+		"unfulfilled": -2,
+		"unhappy": -2,
+		"unhealthy": -2,
+		"unified": 1,
+		"unimpressed": -2,
+		"unintelligent": -2,
+		"united": 1,
+		"unjust": -2,
+		"unlovable": -2,
+		"unloved": -2,
+		"unmatched": 1,
+		"unmotivated": -2,
+		"unprofessional": -2,
+		"unresearched": -2,
+		"unsatisfied": -2,
+		"unsecured": -2,
+		"unsettled": -1,
+		"unsophisticated": -2,
+		"unstable": -2,
+		"unstoppable": 2,
+		"unsupported": -2,
+		"unsure": -1,
+		"untarnished": 2,
+		"unwanted": -2,
+		"unworthy": -2,
+		"upset": -2,
+		"upsets": -2,
+		"upsetting": -2,
+		"uptight": -2,
+		"urgent": -1,
+		"useful": 2,
+		"usefulness": 2,
+		"useless": -2,
+		"uselessness": -2,
+		"vague": -2,
+		"validate": 1,
+		"validated": 1,
+		"validates": 1,
+		"validating": 1,
+		"verdict": -1,
+		"verdicts": -1,
+		"vested": 1,
+		"vexation": -2,
+		"vexing": -2,
+		"vibrant": 3,
+		"vicious": -2,
+		"victim": -3,
+		"victimize": -3,
+		"victimized": -3,
+		"victimizes": -3,
+		"victimizing": -3,
+		"victims": -3,
+		"vigilant": 3,
+		"vile": -3,
+		"vindicate": 2,
+		"vindicated": 2,
+		"vindicates": 2,
+		"vindicating": 2,
+		"violate": -2,
+		"violated": -2,
+		"violates": -2,
+		"violating": -2,
+		"violence": -3,
+		"violent": -3,
+		"virtuous": 2,
+		"virulent": -2,
+		"vision": 1,
+		"visionary": 3,
+		"visioning": 1,
+		"visions": 1,
+		"vitality": 3,
+		"vitamin": 1,
+		"vitriolic": -3,
+		"vivacious": 3,
+		"vociferous": -1,
+		"vulnerability": -2,
+		"vulnerable": -2,
+		"walkout": -2,
+		"walkouts": -2,
+		"wanker": -3,
+		"want": 1,
+		"war": -2,
+		"warfare": -2,
+		"warm": 1,
+		"warmth": 2,
+		"warn": -2,
+		"warned": -2,
+		"warning": -3,
+		"warnings": -3,
+		"warns": -2,
+		"waste": -1,
+		"wasted": -2,
+		"wasting": -2,
+		"wavering": -1,
+		"weak": -2,
+		"weakness": -2,
+		"wealth": 3,
+		"wealthy": 2,
+		"weary": -2,
+		"weep": -2,
+		"weeping": -2,
+		"weird": -2,
+		"welcome": 2,
+		"welcomed": 2,
+		"welcomes": 2,
+		"whimsical": 1,
+		"whitewash": -3,
+		"whore": -4,
+		"wicked": -2,
+		"widowed": -1,
+		"willingness": 2,
+		"win": 4,
+		"winner": 4,
+		"winning": 4,
+		"wins": 4,
+		"winwin": 3,
+		"wish": 1,
+		"wishes": 1,
+		"wishing": 1,
+		"withdrawal": -3,
+		"woebegone": -2,
+		"woeful": -3,
+		"won": 3,
+		"wonderful": 4,
+		"woo": 3,
+		"woohoo": 3,
+		"wooo": 4,
+		"woow": 4,
+		"worn": -1,
+		"worried": -3,
+		"worry": -3,
+		"worrying": -3,
+		"worse": -3,
+		"worsen": -3,
+		"worsened": -3,
+		"worsening": -3,
+		"worsens": -3,
+		"worshiped": 3,
+		"worst": -3,
+		"worth": 2,
+		"worthless": -2,
+		"worthy": 2,
+		"wow": 4,
+		"wowow": 4,
+		"wowww": 4,
+		"wrathful": -3,
+		"wreck": -2,
+		"wrong": -2,
+		"wronged": -2,
+		"wtf": -4,
+		"yeah": 1,
+		"yearning": 1,
+		"yeees": 2,
+		"yes": 1,
+		"youthful": 2,
+		"yucky": -2,
+		"yummy": 3,
+		"zealot": -2,
+		"zealots": -2,
+		"zealous": 2
+	};
+
+/***/ },
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61313,7 +63917,7 @@
 
 	var _reactRedux = __webpack_require__(327);
 
-	var _action_creators = __webpack_require__(450);
+	var _action_creators = __webpack_require__(451);
 
 	var actionCreators = _interopRequireWildcard(_action_creators);
 
@@ -61356,7 +63960,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 460 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61374,13 +63978,25 @@
 
 	var _reactRedux = __webpack_require__(327);
 
-	var _action_creators = __webpack_require__(450);
+	var _action_creators = __webpack_require__(451);
 
 	var actionCreators = _interopRequireWildcard(_action_creators);
 
-	var _SignIn = __webpack_require__(459);
+	var _MuiThemeProvider = __webpack_require__(352);
 
-	var _SignUp = __webpack_require__(461);
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+	var _getMuiTheme = __webpack_require__(353);
+
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+	var _reactTapEventPlugin = __webpack_require__(444);
+
+	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
+
+	var _SignIn = __webpack_require__(460);
+
+	var _SignUp = __webpack_require__(462);
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
@@ -61395,12 +64011,7 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'candorhub'
-	      ),
+	      { className: 'container' },
 	      _react2.default.createElement(_SignUp2.default, null),
 	      _react2.default.createElement(_SignIn.SignInContainer, null)
 	    );
@@ -61417,7 +64028,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 461 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(146); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -61433,6 +64044,10 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRedux = __webpack_require__(327);
+
+	var _TextField = __webpack_require__(463);
+
+	var _TextField2 = _interopRequireDefault(_TextField);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -61469,40 +64084,1613 @@
 
 	  render: function render() {
 	    return _react2.default.createElement(
-	      'form',
-	      { className: 'signUpForm', onSubmit: this.handleSubmit },
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Join Candorhub'
-	      ),
-	      _react2.default.createElement('input', { type: 'text',
-	        placeholder: 'Your Username',
-	        value: this.state.username,
-	        onChange: this.handleUsernameChange
+	      'div',
+	      null,
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'Hint Text'
 	      }),
-	      _react2.default.createElement('input', { type: 'text',
-	        placeholder: 'Your Email',
-	        value: this.state.email,
-	        onChange: this.handleEmailChange
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'The hint text can be as long as you want, it will wrap.'
 	      }),
-	      _react2.default.createElement('input', { type: 'test',
-	        placeholder: 'Password',
-	        value: this.state.password,
-	        onChange: this.handlePasswordChange
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        id: 'text-field-default',
+	        defaultValue: 'Default Value'
 	      }),
-	      _react2.default.createElement('input', { type: 'test',
-	        placeholder: 'Confirm Password',
-	        value: this.state.passwordConfirm,
-	        onChange: this.handlePasswordConfirmChange
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'Hint Text',
+	        floatingLabelText: 'Floating Label Text'
 	      }),
-	      _react2.default.createElement('input', { type: 'submit', value: 'Post' })
-	    );
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'Hint Text',
+	        floatingLabelText: 'Fixed Floating Label Text',
+	        floatingLabelFixed: true
+	      }),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'Password Field',
+	        floatingLabelText: 'Password',
+	        type: 'password'
+	      }),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'MultiLine with rows: 2 and rowsMax: 4',
+	        multiLine: true,
+	        rows: 2,
+	        rowsMax: 4
+	      }),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'Message Field',
+	        floatingLabelText: 'MultiLine and FloatingLabel',
+	        multiLine: true,
+	        rows: 2
+	      }),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_TextField2.default, {
+	        hintText: 'Full width',
+	        fullWidth: true
+	      })
+	    )
+	    // <form className="signUpForm" onSubmit={this.handleSubmit}>
+	    //   <p>Join Candorhub</p>
+	    //   <input type="text"
+	    //     placeholder="Your Username"
+	    //     value={this.state.username}
+	    //     onChange={this.handleUsernameChange}
+	    //     />
+	    //   <input type="text"
+	    //     placeholder="Your Email"
+	    //     value={this.state.email}
+	    //     onChange={this.handleEmailChange}
+	    //     />
+	    //   <input type="test"
+	    //     placeholder="Password"
+	    //     value={this.state.password}
+	    //     onChange={this.handlePasswordChange}
+	    //     />
+	    //   <input type="test"
+	    //     placeholder="Confirm Password"
+	    //     value={this.state.passwordConfirm}
+	    //     onChange={this.handlePasswordConfirmChange}
+	    //     />
+	    //   <input type="submit" value="Post" />
+	    // </form>
+	    ;
 	  }
 	});
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(344); if (makeExportsHot(module, __webpack_require__(146))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SignUp.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 463 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _TextField = __webpack_require__(464);
+
+	var _TextField2 = _interopRequireDefault(_TextField);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _TextField2.default;
+
+/***/ },
+/* 464 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(465);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(162);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _keycode = __webpack_require__(466);
+
+	var _keycode2 = _interopRequireDefault(_keycode);
+
+	var _shallowEqual = __webpack_require__(467);
+
+	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
+
+	var _colorManipulator = __webpack_require__(360);
+
+	var _transitions = __webpack_require__(468);
+
+	var _transitions2 = _interopRequireDefault(_transitions);
+
+	var _deprecatedPropType = __webpack_require__(469);
+
+	var _deprecatedPropType2 = _interopRequireDefault(_deprecatedPropType);
+
+	var _EnhancedTextarea = __webpack_require__(470);
+
+	var _EnhancedTextarea2 = _interopRequireDefault(_EnhancedTextarea);
+
+	var _TextFieldHint = __webpack_require__(472);
+
+	var _TextFieldHint2 = _interopRequireDefault(_TextFieldHint);
+
+	var _TextFieldLabel = __webpack_require__(473);
+
+	var _TextFieldLabel2 = _interopRequireDefault(_TextFieldLabel);
+
+	var _TextFieldUnderline = __webpack_require__(474);
+
+	var _TextFieldUnderline2 = _interopRequireDefault(_TextFieldUnderline);
+
+	var _warning = __webpack_require__(398);
+
+	var _warning2 = _interopRequireDefault(_warning);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var getStyles = function getStyles(props, context, state) {
+	  var _context$muiTheme = context.muiTheme;
+	  var baseTheme = _context$muiTheme.baseTheme;
+	  var _context$muiTheme$tex = _context$muiTheme.textField;
+	  var floatingLabelColor = _context$muiTheme$tex.floatingLabelColor;
+	  var focusColor = _context$muiTheme$tex.focusColor;
+	  var textColor = _context$muiTheme$tex.textColor;
+	  var disabledTextColor = _context$muiTheme$tex.disabledTextColor;
+	  var backgroundColor = _context$muiTheme$tex.backgroundColor;
+	  var hintColor = _context$muiTheme$tex.hintColor;
+	  var errorColor = _context$muiTheme$tex.errorColor;
+
+
+	  var styles = {
+	    root: {
+	      fontSize: 16,
+	      lineHeight: '24px',
+	      width: props.fullWidth ? '100%' : 256,
+	      height: (props.rows - 1) * 24 + (props.floatingLabelText ? 72 : 48),
+	      display: 'inline-block',
+	      position: 'relative',
+	      backgroundColor: backgroundColor,
+	      fontFamily: baseTheme.fontFamily,
+	      transition: _transitions2.default.easeOut('200ms', 'height')
+	    },
+	    error: {
+	      position: 'relative',
+	      bottom: 2,
+	      fontSize: 12,
+	      lineHeight: '12px',
+	      color: errorColor,
+	      transition: _transitions2.default.easeOut()
+	    },
+	    floatingLabel: {
+	      color: hintColor
+	    },
+	    input: {
+	      WebkitTapHighlightColor: 'rgba(0,0,0,0)', // Remove mobile color flashing (deprecated)
+	      padding: 0,
+	      position: 'relative',
+	      width: '100%',
+	      height: '100%',
+	      border: 'none',
+	      outline: 'none',
+	      backgroundColor: 'rgba(0,0,0,0)',
+	      color: props.disabled ? disabledTextColor : textColor,
+	      font: 'inherit'
+	    },
+	    textarea: {}
+	  };
+
+	  (0, _simpleAssign2.default)(styles.error, props.errorStyle);
+
+	  (0, _simpleAssign2.default)(styles.textarea, styles.input, {
+	    marginTop: props.floatingLabelText ? 36 : 12,
+	    marginBottom: props.floatingLabelText ? -36 : -12,
+	    boxSizing: 'border-box',
+	    font: 'inherit'
+	  });
+
+	  if (state.hasValue) {
+	    styles.floatingLabel.color = (0, _colorManipulator.fade)(props.disabled ? disabledTextColor : floatingLabelColor, 0.5);
+	  }
+
+	  if (state.isFocused) {
+	    styles.floatingLabel.color = focusColor;
+	  }
+
+	  if (props.floatingLabelText) {
+	    styles.input.boxSizing = 'border-box';
+
+	    if (!props.multiLine) {
+	      styles.input.marginTop = 14;
+	    }
+
+	    if (state.errorText) {
+	      styles.error.bottom = !props.multiLine ? styles.error.fontSize + 3 : 3;
+	    }
+	  }
+
+	  if (state.errorText) {
+	    if (state.isFocused) {
+	      styles.floatingLabel.color = styles.error.color;
+	    }
+	  }
+
+	  return styles;
+	};
+
+	/**
+	 * Check if a value is valid to be displayed inside an input.
+	 *
+	 * @param The value to check.
+	 * @returns True if the string provided is valid, false otherwise.
+	 */
+	function isValid(value) {
+	  return Boolean(value || value === 0);
+	}
+
+	var TextField = function (_Component) {
+	  _inherits(TextField, _Component);
+
+	  function TextField() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, TextField);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(TextField)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	      isFocused: false,
+	      errorText: undefined,
+	      hasValue: false,
+	      isClean: true
+	    }, _this.handleInputBlur = function (event) {
+	      _this.setState({ isFocused: false });
+	      if (_this.props.onBlur) _this.props.onBlur(event);
+	    }, _this.handleInputChange = function (event) {
+	      _this.setState({ hasValue: isValid(event.target.value), isClean: false });
+	      if (_this.props.onChange) _this.props.onChange(event, event.target.value);
+	    }, _this.handleInputFocus = function (event) {
+	      if (_this.props.disabled) return;
+	      _this.setState({ isFocused: true });
+	      if (_this.props.onFocus) _this.props.onFocus(event);
+	    }, _this.handleInputKeyDown = function (event) {
+	      if ((0, _keycode2.default)(event) === 'enter' && _this.props.onEnterKeyDown) _this.props.onEnterKeyDown(event);
+	      if (_this.props.onKeyDown) _this.props.onKeyDown(event);
+	    }, _this.handleHeightChange = function (event, height) {
+	      var newHeight = height + 24;
+	      if (_this.props.floatingLabelText) {
+	        newHeight += 24;
+	      }
+	      _reactDom2.default.findDOMNode(_this).style.height = newHeight + 'px';
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(TextField, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var _props = this.props;
+	      var children = _props.children;
+	      var name = _props.name;
+	      var hintText = _props.hintText;
+	      var floatingLabelText = _props.floatingLabelText;
+	      var id = _props.id;
+
+
+	      var propsLeaf = children ? children.props : this.props;
+
+	      this.setState({
+	        errorText: this.props.errorText,
+	        hasValue: isValid(propsLeaf.value) || isValid(propsLeaf.defaultValue)
+	      });
+
+	      process.env.NODE_ENV !== "production" ? (0, _warning2.default)(name || hintText || floatingLabelText || id, 'We don\'t have enough information\n      to build a robust unique id for the TextField component. Please provide an id or a name.') : void 0;
+
+	      var uniqueId = name + '-' + hintText + '-' + floatingLabelText + '-' + Math.floor(Math.random() * 0xFFFF);
+	      this.uniqueId = uniqueId.replace(/[^A-Za-z0-9-]/gi, '');
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.errorText !== this.props.errorText) {
+	        this.setState({
+	          errorText: nextProps.errorText
+	        });
+	      }
+
+	      if (nextProps.children && nextProps.children.props) {
+	        nextProps = nextProps.children.props;
+	      }
+
+	      if (nextProps.hasOwnProperty('value')) {
+	        var hasValue = isValid(nextProps.value) || this.state.isClean && isValid(nextProps.defaultValue);
+
+	        if (hasValue !== this.state.hasValue) {
+	          this.setState({
+	            hasValue: hasValue
+	          });
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'shouldComponentUpdate',
+	    value: function shouldComponentUpdate(nextProps, nextState, nextContext) {
+	      return !(0, _shallowEqual2.default)(this.props, nextProps) || !(0, _shallowEqual2.default)(this.state, nextState) || !(0, _shallowEqual2.default)(this.context, nextContext);
+	    }
+	  }, {
+	    key: 'blur',
+	    value: function blur() {
+	      if (this.input) this.getInputNode().blur();
+	    }
+	  }, {
+	    key: 'focus',
+	    value: function focus() {
+	      if (this.input) this.getInputNode().focus();
+	    }
+	  }, {
+	    key: 'select',
+	    value: function select() {
+	      if (this.input) this.getInputNode().select();
+	    }
+	  }, {
+	    key: 'getValue',
+	    value: function getValue() {
+	      return this.input ? this.getInputNode().value : undefined;
+	    }
+	  }, {
+	    key: 'getInputNode',
+	    value: function getInputNode() {
+	      return this.props.children || this.props.multiLine ? this.input.getInputNode() : _reactDom2.default.findDOMNode(this.input);
+	    }
+	  }, {
+	    key: '_isControlled',
+	    value: function _isControlled() {
+	      return this.props.hasOwnProperty('value');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      var _props2 = this.props;
+	      var className = _props2.className;
+	      var disabled = _props2.disabled;
+	      var errorStyle = _props2.errorStyle;
+	      var errorText = _props2.errorText;
+	      var // eslint-disable-line no-unused-vars
+	      floatingLabelFixed = _props2.floatingLabelFixed;
+	      var floatingLabelText = _props2.floatingLabelText;
+	      var fullWidth = _props2.fullWidth;
+	      var // eslint-disable-line no-unused-vars
+	      hintText = _props2.hintText;
+	      var hintStyle = _props2.hintStyle;
+	      var id = _props2.id;
+	      var inputStyle = _props2.inputStyle;
+	      var multiLine = _props2.multiLine;
+	      var onBlur = _props2.onBlur;
+	      var // eslint-disable-line no-unused-vars
+	      onChange = _props2.onChange;
+	      var // eslint-disable-line no-unused-vars
+	      onFocus = _props2.onFocus;
+	      var // eslint-disable-line no-unused-vars
+	      style = _props2.style;
+	      var type = _props2.type;
+	      var underlineDisabledStyle = _props2.underlineDisabledStyle;
+	      var underlineFocusStyle = _props2.underlineFocusStyle;
+	      var underlineShow = _props2.underlineShow;
+	      var underlineStyle = _props2.underlineStyle;
+	      var rows = _props2.rows;
+	      var rowsMax = _props2.rowsMax;
+	      var textareaStyle = _props2.textareaStyle;
+
+	      var other = _objectWithoutProperties(_props2, ['className', 'disabled', 'errorStyle', 'errorText', 'floatingLabelFixed', 'floatingLabelText', 'fullWidth', 'hintText', 'hintStyle', 'id', 'inputStyle', 'multiLine', 'onBlur', 'onChange', 'onFocus', 'style', 'type', 'underlineDisabledStyle', 'underlineFocusStyle', 'underlineShow', 'underlineStyle', 'rows', 'rowsMax', 'textareaStyle']);
+
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+	      var styles = getStyles(this.props, this.context, this.state);
+	      var inputId = id || this.uniqueId;
+
+	      var errorTextElement = this.state.errorText && _react2.default.createElement(
+	        'div',
+	        { style: prepareStyles(styles.error) },
+	        this.state.errorText
+	      );
+
+	      var floatingLabelTextElement = floatingLabelText && _react2.default.createElement(
+	        _TextFieldLabel2.default,
+	        {
+	          muiTheme: this.context.muiTheme,
+	          style: (0, _simpleAssign2.default)(styles.floatingLabel, this.props.floatingLabelStyle),
+	          shrinkStyle: this.props.floatingLabelFocusStyle,
+	          htmlFor: inputId,
+	          shrink: this.state.hasValue || this.state.isFocused || floatingLabelFixed,
+	          disabled: disabled
+	        },
+	        floatingLabelText
+	      );
+
+	      var inputProps = {
+	        id: inputId,
+	        ref: function ref(elem) {
+	          return _this2.input = elem;
+	        },
+	        disabled: this.props.disabled,
+	        onBlur: this.handleInputBlur,
+	        onChange: this.handleInputChange,
+	        onFocus: this.handleInputFocus,
+	        onKeyDown: this.handleInputKeyDown
+	      };
+
+	      var inputStyleMerged = (0, _simpleAssign2.default)(styles.input, inputStyle);
+
+	      var inputElement = void 0;
+	      if (this.props.children) {
+	        inputElement = _react2.default.cloneElement(this.props.children, _extends({}, inputProps, this.props.children.props, {
+	          style: (0, _simpleAssign2.default)(inputStyleMerged, this.props.children.props.style)
+	        }));
+	      } else {
+	        inputElement = multiLine ? _react2.default.createElement(_EnhancedTextarea2.default, _extends({}, other, inputProps, {
+	          style: inputStyleMerged,
+	          rows: rows,
+	          rowsMax: rowsMax,
+	          onHeightChange: this.handleHeightChange,
+	          textareaStyle: (0, _simpleAssign2.default)(styles.textarea, textareaStyle)
+	        })) : _react2.default.createElement('input', _extends({}, other, inputProps, {
+	          style: prepareStyles(inputStyleMerged),
+	          type: type
+	        }));
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: className, style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)) },
+	        floatingLabelTextElement,
+	        hintText ? _react2.default.createElement(_TextFieldHint2.default, {
+	          muiTheme: this.context.muiTheme,
+	          show: !(this.state.hasValue || floatingLabelText && !this.state.isFocused) || !this.state.hasValue && floatingLabelText && floatingLabelFixed && !this.state.isFocused,
+	          style: hintStyle,
+	          text: hintText
+	        }) : null,
+	        inputElement,
+	        underlineShow ? _react2.default.createElement(_TextFieldUnderline2.default, {
+	          disabled: disabled,
+	          disabledStyle: underlineDisabledStyle,
+	          error: !!this.state.errorText,
+	          errorStyle: errorStyle,
+	          focus: this.state.isFocused,
+	          focusStyle: underlineFocusStyle,
+	          muiTheme: this.context.muiTheme,
+	          style: underlineStyle
+	        }) : null,
+	        errorTextElement
+	      );
+	    }
+	  }]);
+
+	  return TextField;
+	}(_react.Component);
+
+	TextField.propTypes = {
+	  children: _react.PropTypes.node,
+	  /**
+	   * The css class name of the root element.
+	   */
+	  className: _react.PropTypes.string,
+	  /**
+	   * The text string to use for the default value.
+	   */
+	  defaultValue: _react.PropTypes.any,
+	  /**
+	   * Disables the text field if set to true.
+	   */
+	  disabled: _react.PropTypes.bool,
+	  /**
+	   * The style object to use to override error styles.
+	   */
+	  errorStyle: _react.PropTypes.object,
+	  /**
+	   * The error content to display.
+	   */
+	  errorText: _react.PropTypes.node,
+	  /**
+	   * If true, the floating label will float even when there is no value.
+	   */
+	  floatingLabelFixed: _react.PropTypes.bool,
+	  /**
+	   * The style object to use to override floating label styles when focused.
+	   */
+	  floatingLabelFocusStyle: _react.PropTypes.object,
+	  /**
+	   * The style object to use to override floating label styles.
+	   */
+	  floatingLabelStyle: _react.PropTypes.object,
+	  /**
+	   * The content to use for the floating label element.
+	   */
+	  floatingLabelText: _react.PropTypes.node,
+	  /**
+	   * If true, the field receives the property width 100%.
+	   */
+	  fullWidth: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the TextField's hint text element.
+	   */
+	  hintStyle: _react.PropTypes.object,
+	  /**
+	   * The hint content to display.
+	   */
+	  hintText: _react.PropTypes.node,
+	  /**
+	   * The id prop for the text field.
+	   */
+	  id: _react.PropTypes.string,
+	  /**
+	   * Override the inline-styles of the TextField's input element.
+	   * When multiLine is false: define the style of the input element.
+	   * When multiLine is true: define the style of the container of the textarea.
+	   */
+	  inputStyle: _react.PropTypes.object,
+	  /**
+	   * If true, a textarea element will be rendered.
+	   * The textarea also grows and shrinks according to the number of lines.
+	   */
+	  multiLine: _react.PropTypes.bool,
+	  /**
+	   * Name applied to the input.
+	   */
+	  name: _react.PropTypes.string,
+	  /**
+	   * Callback function that is fired when the textfield loses focus.
+	   */
+	  onBlur: _react.PropTypes.func,
+	  /**
+	   * Callback function that is fired when the textfield's value changes.
+	   */
+	  onChange: _react.PropTypes.func,
+	  /**
+	   * The function to call when the user presses the Enter key.
+	   */
+	  onEnterKeyDown: (0, _deprecatedPropType2.default)(_react.PropTypes.func, 'Use onKeyDown and check for keycode instead.'),
+	  /**
+	   * Callback function that is fired when the textfield gains focus.
+	   */
+	  onFocus: _react.PropTypes.func,
+	  /**
+	   * Callback function fired when key is pressed down.
+	   */
+	  onKeyDown: _react.PropTypes.func,
+	  /**
+	   * Number of rows to display when multiLine option is set to true.
+	   */
+	  rows: _react.PropTypes.number,
+	  /**
+	   * Maximum number of rows to display when
+	   * multiLine option is set to true.
+	   */
+	  rowsMax: _react.PropTypes.number,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object,
+	  /**
+	   * Override the inline-styles of the TextField's textarea element.
+	   * The TextField use either a textarea or an input,
+	   * this property has effects only when multiLine is true.
+	   */
+	  textareaStyle: _react.PropTypes.object,
+	  /**
+	   * Specifies the type of input to display
+	   * such as "password" or "text".
+	   */
+	  type: _react.PropTypes.string,
+	  /**
+	   * Override the inline-styles of the
+	   * TextField's underline element when disabled.
+	   */
+	  underlineDisabledStyle: _react.PropTypes.object,
+	  /**
+	   * Override the inline-styles of the TextField's
+	   * underline element when focussed.
+	   */
+	  underlineFocusStyle: _react.PropTypes.object,
+	  /**
+	   * If true, shows the underline for the text field.
+	   */
+	  underlineShow: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the TextField's underline element.
+	   */
+	  underlineStyle: _react.PropTypes.object,
+	  /**
+	   * The value of the text field.
+	   */
+	  value: _react.PropTypes.any
+	};
+	TextField.defaultProps = {
+	  disabled: false,
+	  floatingLabelFixed: false,
+	  multiLine: false,
+	  fullWidth: false,
+	  type: 'text',
+	  underlineShow: true,
+	  rows: 1
+	};
+	TextField.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	exports.default = TextField;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+
+/***/ },
+/* 465 */
+/***/ function(module, exports) {
+
+	module.exports = function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];
+	    for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }
+	  return target;
+	};
+
+
+/***/ },
+/* 466 */
+/***/ function(module, exports) {
+
+	// Source: http://jsfiddle.net/vWx8V/
+	// http://stackoverflow.com/questions/5603195/full-list-of-javascript-keycodes
+
+	/**
+	 * Conenience method returns corresponding value for given keyName or keyCode.
+	 *
+	 * @param {Mixed} keyCode {Number} or keyName {String}
+	 * @return {Mixed}
+	 * @api public
+	 */
+
+	exports = module.exports = function(searchInput) {
+	  // Keyboard Events
+	  if (searchInput && 'object' === typeof searchInput) {
+	    var hasKeyCode = searchInput.which || searchInput.keyCode || searchInput.charCode
+	    if (hasKeyCode) searchInput = hasKeyCode
+	  }
+
+	  // Numbers
+	  if ('number' === typeof searchInput) return names[searchInput]
+
+	  // Everything else (cast to string)
+	  var search = String(searchInput)
+
+	  // check codes
+	  var foundNamedKey = codes[search.toLowerCase()]
+	  if (foundNamedKey) return foundNamedKey
+
+	  // check aliases
+	  var foundNamedKey = aliases[search.toLowerCase()]
+	  if (foundNamedKey) return foundNamedKey
+
+	  // weird character?
+	  if (search.length === 1) return search.charCodeAt(0)
+
+	  return undefined
+	}
+
+	/**
+	 * Get by name
+	 *
+	 *   exports.code['enter'] // => 13
+	 */
+
+	var codes = exports.code = exports.codes = {
+	  'backspace': 8,
+	  'tab': 9,
+	  'enter': 13,
+	  'shift': 16,
+	  'ctrl': 17,
+	  'alt': 18,
+	  'pause/break': 19,
+	  'caps lock': 20,
+	  'esc': 27,
+	  'space': 32,
+	  'page up': 33,
+	  'page down': 34,
+	  'end': 35,
+	  'home': 36,
+	  'left': 37,
+	  'up': 38,
+	  'right': 39,
+	  'down': 40,
+	  'insert': 45,
+	  'delete': 46,
+	  'command': 91,
+	  'right click': 93,
+	  'numpad *': 106,
+	  'numpad +': 107,
+	  'numpad -': 109,
+	  'numpad .': 110,
+	  'numpad /': 111,
+	  'num lock': 144,
+	  'scroll lock': 145,
+	  'my computer': 182,
+	  'my calculator': 183,
+	  ';': 186,
+	  '=': 187,
+	  ',': 188,
+	  '-': 189,
+	  '.': 190,
+	  '/': 191,
+	  '`': 192,
+	  '[': 219,
+	  '\\': 220,
+	  ']': 221,
+	  "'": 222
+	}
+
+	// Helper aliases
+
+	var aliases = exports.aliases = {
+	  'windows': 91,
+	  '⇧': 16,
+	  '⌥': 18,
+	  '⌃': 17,
+	  '⌘': 91,
+	  'ctl': 17,
+	  'control': 17,
+	  'option': 18,
+	  'pause': 19,
+	  'break': 19,
+	  'caps': 20,
+	  'return': 13,
+	  'escape': 27,
+	  'spc': 32,
+	  'pgup': 33,
+	  'pgdn': 33,
+	  'ins': 45,
+	  'del': 46,
+	  'cmd': 91
+	}
+
+
+	/*!
+	 * Programatically add the following
+	 */
+
+	// lower case chars
+	for (i = 97; i < 123; i++) codes[String.fromCharCode(i)] = i - 32
+
+	// numbers
+	for (var i = 48; i < 58; i++) codes[i - 48] = i
+
+	// function keys
+	for (i = 1; i < 13; i++) codes['f'+i] = i + 111
+
+	// numpad keys
+	for (i = 0; i < 10; i++) codes['numpad '+i] = i + 96
+
+	/**
+	 * Get by code
+	 *
+	 *   exports.name[13] // => 'Enter'
+	 */
+
+	var names = exports.names = exports.title = {} // title for backward compat
+
+	// Create reverse mapping
+	for (i in codes) names[codes[i]] = i
+
+	// Add aliases
+	for (var alias in aliases) {
+	  codes[alias] = aliases[alias]
+	}
+
+
+/***/ },
+/* 467 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	exports.default = shallowEqual;
+	// Copied from https://github.com/facebook/fbjs/blob/master/src/core/shallowEqual.js
+
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+	function shallowEqual(objA, objB) {
+	  if (objA === objB) {
+	    return true;
+	  }
+
+	  if ((typeof objA === 'undefined' ? 'undefined' : _typeof(objA)) !== 'object' || objA === null || (typeof objB === 'undefined' ? 'undefined' : _typeof(objB)) !== 'object' || objB === null) {
+	    return false;
+	  }
+
+	  var keysA = Object.keys(objA);
+	  var keysB = Object.keys(objB);
+
+	  if (keysA.length !== keysB.length) {
+	    return false;
+	  }
+
+	  // Test for A's keys different from B.
+	  var bHasOwnProperty = hasOwnProperty.bind(objB);
+	  for (var i = 0; i < keysA.length; i++) {
+	    if (!bHasOwnProperty(keysA[i]) || objA[keysA[i]] !== objB[keysA[i]]) {
+	      return false;
+	    }
+	  }
+
+	  return true;
+	}
+
+/***/ },
+/* 468 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+
+	  easeOutFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',
+	  easeInOutFunction: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
+
+	  easeOut: function easeOut(duration, property, delay, easeFunction) {
+	    easeFunction = easeFunction || this.easeOutFunction;
+
+	    if (property && Object.prototype.toString.call(property) === '[object Array]') {
+	      var transitions = '';
+	      for (var i = 0; i < property.length; i++) {
+	        if (transitions) transitions += ',';
+	        transitions += this.create(duration, property[i], delay, easeFunction);
+	      }
+
+	      return transitions;
+	    } else {
+	      return this.create(duration, property, delay, easeFunction);
+	    }
+	  },
+	  create: function create(duration, property, delay, easeFunction) {
+	    duration = duration || '450ms';
+	    property = property || 'all';
+	    delay = delay || '0ms';
+	    easeFunction = easeFunction || 'linear';
+
+	    return property + ' ' + duration + ' ' + easeFunction + ' ' + delay;
+	  }
+	};
+
+/***/ },
+/* 469 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = deprecated;
+
+	var _warning = __webpack_require__(398);
+
+	var _warning2 = _interopRequireDefault(_warning);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function deprecated(propType, explanation) {
+	  return function validate(props, propName, componentName) {
+	    if (props[propName] != null) {
+	      process.env.NODE_ENV !== "production" ? (0, _warning2.default)(false, '"' + propName + '" property of "' + componentName + '" has been deprecated.\n' + explanation) : void 0;
+	    }
+
+	    return propType(props, propName, componentName);
+	  };
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+
+/***/ },
+/* 470 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(465);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactEventListener = __webpack_require__(471);
+
+	var _reactEventListener2 = _interopRequireDefault(_reactEventListener);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var rowsHeight = 24;
+
+	function getStyles(props, context, state) {
+	  return {
+	    root: {
+	      position: 'relative' },
+	    // because the shadow has position: 'absolute'
+	    textarea: {
+	      height: state.height,
+	      width: '100%',
+	      resize: 'none',
+	      font: 'inherit',
+	      padding: 0,
+	      cursor: props.disabled ? 'default' : 'initial'
+	    },
+	    shadow: {
+	      resize: 'none',
+	      // Overflow also needed to here to remove the extra row
+	      // added to textareas in Firefox.
+	      overflow: 'hidden',
+	      // Visibility needed to hide the extra text area on ipads
+	      visibility: 'hidden',
+	      position: 'absolute',
+	      height: 'initial'
+	    }
+	  };
+	}
+
+	var EnhancedTextarea = function (_Component) {
+	  _inherits(EnhancedTextarea, _Component);
+
+	  function EnhancedTextarea() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, EnhancedTextarea);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(EnhancedTextarea)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	      height: _this.props.rows * rowsHeight
+	    }, _this.handleResize = function (event) {
+	      _this.syncHeightWithShadow(undefined, event);
+	    }, _this.handleChange = function (event) {
+	      _this.syncHeightWithShadow(event.target.value);
+
+	      if (_this.props.hasOwnProperty('valueLink')) {
+	        _this.props.valueLink.requestChange(event.target.value);
+	      }
+
+	      if (_this.props.onChange) {
+	        _this.props.onChange(event);
+	      }
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(EnhancedTextarea, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.syncHeightWithShadow();
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.value !== this.props.value) {
+	        this.syncHeightWithShadow(nextProps.value);
+	      }
+	    }
+	  }, {
+	    key: 'getInputNode',
+	    value: function getInputNode() {
+	      return this.refs.input;
+	    }
+	  }, {
+	    key: 'setValue',
+	    value: function setValue(value) {
+	      this.getInputNode().value = value;
+	      this.syncHeightWithShadow(value);
+	    }
+	  }, {
+	    key: 'syncHeightWithShadow',
+	    value: function syncHeightWithShadow(newValue, event) {
+	      var shadow = this.refs.shadow;
+
+	      if (newValue !== undefined) {
+	        shadow.value = newValue;
+	      }
+
+	      var newHeight = shadow.scrollHeight;
+
+	      if (this.props.rowsMax >= this.props.rows) {
+	        newHeight = Math.min(this.props.rowsMax * rowsHeight, newHeight);
+	      }
+
+	      newHeight = Math.max(newHeight, rowsHeight);
+
+	      if (this.state.height !== newHeight) {
+	        this.setState({
+	          height: newHeight
+	        });
+
+	        if (this.props.onHeightChange) {
+	          this.props.onHeightChange(event, newHeight);
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var onChange = _props.onChange;
+	      var // eslint-disable-line no-unused-vars
+	      onHeightChange = _props.onHeightChange;
+	      var // eslint-disable-line no-unused-vars
+	      rows = _props.rows;
+	      var // eslint-disable-line no-unused-vars
+	      shadowStyle = _props.shadowStyle;
+	      var style = _props.style;
+	      var textareaStyle = _props.textareaStyle;
+	      var valueLink = _props.valueLink;
+
+	      var other = _objectWithoutProperties(_props, ['onChange', 'onHeightChange', 'rows', 'shadowStyle', 'style', 'textareaStyle', 'valueLink']);
+
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+	      var styles = getStyles(this.props, this.context, this.state);
+	      var rootStyles = (0, _simpleAssign2.default)({}, styles.root, style);
+	      var textareaStyles = (0, _simpleAssign2.default)({}, styles.textarea, textareaStyle);
+	      var shadowStyles = (0, _simpleAssign2.default)({}, textareaStyles, styles.shadow, shadowStyle);
+
+	      if (this.props.hasOwnProperty('valueLink')) {
+	        other.value = this.props.valueLink.value;
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        { style: prepareStyles(rootStyles) },
+	        _react2.default.createElement(_reactEventListener2.default, { elementName: 'window', onResize: this.handleResize }),
+	        _react2.default.createElement('textarea', {
+	          ref: 'shadow',
+	          style: prepareStyles(shadowStyles),
+	          tabIndex: '-1',
+	          rows: this.props.rows,
+	          defaultValue: this.props.defaultValue,
+	          readOnly: true,
+	          value: this.props.value,
+	          valueLink: this.props.valueLink
+	        }),
+	        _react2.default.createElement('textarea', _extends({}, other, {
+	          ref: 'input',
+	          rows: this.props.rows,
+	          style: prepareStyles(textareaStyles),
+	          onChange: this.handleChange
+	        }))
+	      );
+	    }
+	  }]);
+
+	  return EnhancedTextarea;
+	}(_react.Component);
+
+	EnhancedTextarea.propTypes = {
+	  defaultValue: _react.PropTypes.any,
+	  disabled: _react.PropTypes.bool,
+	  onChange: _react.PropTypes.func,
+	  onHeightChange: _react.PropTypes.func,
+	  rows: _react.PropTypes.number,
+	  rowsMax: _react.PropTypes.number,
+	  shadowStyle: _react.PropTypes.object,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object,
+	  textareaStyle: _react.PropTypes.object,
+	  value: _react.PropTypes.string,
+	  valueLink: _react.PropTypes.object
+	};
+	EnhancedTextarea.defaultProps = {
+	  rows: 1
+	};
+	EnhancedTextarea.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	exports.default = EnhancedTextarea;
+
+/***/ },
+/* 471 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(146);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function on(element, type, callback) {
+	  if (element.addEventListener) {
+	    element.addEventListener(type, callback);
+	  } else {
+	    // IE8+ Support
+	    element.attachEvent('on' + type, function () {
+	      callback.call(element);
+	    });
+	  }
+	}
+
+	function off(element, type, callback) {
+	  if (element.removeEventListener) {
+	    element.removeEventListener(type, callback);
+	  } else {
+	    // IE8+ Support
+	    element.detachEvent('on' + type, callback);
+	  }
+	}
+
+	function listenersForEach(props, callback) {
+	  var elementName = props.elementName;
+
+	  var other = _objectWithoutProperties(props, ['elementName']);
+
+	  var element = window[elementName];
+
+	  for (var eventIdentifier in other) {
+	    var eventName = eventIdentifier.substring(2).toLowerCase();
+
+	    callback(element, eventName, other[eventIdentifier]);
+	  }
+	}
+
+	var EventListener = function (_Component) {
+	  _inherits(EventListener, _Component);
+
+	  function EventListener() {
+	    _classCallCheck(this, EventListener);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(EventListener).apply(this, arguments));
+	  }
+
+	  _createClass(EventListener, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      listenersForEach(this.props, function (element, eventName, callback) {
+	        on(element, eventName, callback);
+	      });
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      listenersForEach(this.props, function (element, eventName, callback) {
+	        off(element, eventName, callback);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return this.props.children || null;
+	    }
+	  }]);
+
+	  return EventListener;
+	}(_react.Component);
+
+	EventListener.propTypes = {
+	  /**
+	   * You can provide a children too.
+	   */
+	  children: _react.PropTypes.node,
+	  /**
+	   * Name of the element that we will be listening to.
+	   */
+	  elementName: _react.PropTypes.string
+	};
+	exports.default = EventListener;
+
+/***/ },
+/* 472 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _simpleAssign = __webpack_require__(465);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _transitions = __webpack_require__(468);
+
+	var _transitions2 = _interopRequireDefault(_transitions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function getStyles(props) {
+	  var hintColor = props.muiTheme.textField.hintColor;
+	  var show = props.show;
+
+
+	  return {
+	    root: {
+	      position: 'absolute',
+	      opacity: show ? 1 : 0,
+	      color: hintColor,
+	      transition: _transitions2.default.easeOut(),
+	      bottom: 12
+	    }
+	  };
+	}
+
+	var TextFieldHint = function TextFieldHint(props) {
+	  var prepareStyles = props.muiTheme.prepareStyles;
+	  var style = props.style;
+	  var text = props.text;
+
+
+	  var styles = getStyles(props);
+
+	  return _react2.default.createElement(
+	    'div',
+	    { style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)) },
+	    text
+	  );
+	};
+
+	TextFieldHint.propTypes = {
+	  /**
+	   * @ignore
+	   * The material-ui theme applied to this component.
+	   */
+	  muiTheme: _react.PropTypes.object.isRequired,
+	  /**
+	   * True if the hint text should be visible.
+	   */
+	  show: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object,
+	  /**
+	   * The hint text displayed.
+	   */
+	  text: _react.PropTypes.node
+	};
+
+	TextFieldHint.defaultProps = {
+	  show: true
+	};
+
+	exports.default = TextFieldHint;
+
+/***/ },
+/* 473 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _simpleAssign = __webpack_require__(465);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _transitions = __webpack_require__(468);
+
+	var _transitions2 = _interopRequireDefault(_transitions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function getStyles(props) {
+	  var defaultStyles = {
+	    position: 'absolute',
+	    lineHeight: '22px',
+	    top: 38,
+	    transition: _transitions2.default.easeOut(),
+	    zIndex: 1, // Needed to display label above Chrome's autocomplete field background
+	    cursor: props.disabled ? 'default' : 'text',
+	    transform: 'scale(1) translate3d(0, 0, 0)',
+	    transformOrigin: 'left top',
+	    pointerEvents: 'auto',
+	    userSelect: 'none'
+	  };
+
+	  var shrinkStyles = props.shrink ? (0, _simpleAssign2.default)({
+	    transform: 'perspective(1px) scale(0.75) translate3d(0, -28px, 0)',
+	    pointerEvents: 'none'
+	  }, props.shrinkStyle) : null;
+
+	  return {
+	    root: (0, _simpleAssign2.default)(defaultStyles, props.style, shrinkStyles)
+	  };
+	}
+
+	var TextFieldLabel = function TextFieldLabel(props) {
+	  var muiTheme = props.muiTheme;
+	  var className = props.className;
+	  var children = props.children;
+	  var htmlFor = props.htmlFor;
+	  var onTouchTap = props.onTouchTap;
+	  var prepareStyles = muiTheme.prepareStyles;
+
+	  var styles = getStyles(props);
+
+	  return _react2.default.createElement(
+	    'label',
+	    {
+	      className: className,
+	      style: prepareStyles(styles.root),
+	      htmlFor: htmlFor,
+	      onTouchTap: onTouchTap
+	    },
+	    children
+	  );
+	};
+
+	TextFieldLabel.propTypes = {
+	  /**
+	   * The label contents.
+	   */
+	  children: _react.PropTypes.node,
+	  /**
+	   * The css class name of the root element.
+	   */
+	  className: _react.PropTypes.string,
+	  /**
+	   * Disables the label if set to true.
+	   */
+	  disabled: _react.PropTypes.bool,
+	  /**
+	   * The id of the target element that this label should refer to.
+	   */
+	  htmlFor: _react.PropTypes.string,
+	  /**
+	   * @ignore
+	   * The material-ui theme applied to this component.
+	   */
+	  muiTheme: _react.PropTypes.object.isRequired,
+	  /**
+	   * Callback function for when the label is selected via a touch tap.
+	   */
+	  onTouchTap: _react.PropTypes.func,
+	  /**
+	   * True if the floating label should shrink.
+	   */
+	  shrink: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the root element when focused.
+	   */
+	  shrinkStyle: _react.PropTypes.object,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object
+	};
+
+	TextFieldLabel.defaultProps = {
+	  disabled: false,
+	  shrink: false
+	};
+
+	exports.default = TextFieldLabel;
+
+/***/ },
+/* 474 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _simpleAssign = __webpack_require__(465);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _transitions = __webpack_require__(468);
+
+	var _transitions2 = _interopRequireDefault(_transitions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var propTypes = {
+	  /**
+	   * True if the parent `TextField` is disabled.
+	   */
+	  disabled: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the underline when parent `TextField` is disabled.
+	   */
+	  disabledStyle: _react.PropTypes.object,
+	  /**
+	   * True if the parent `TextField` has an error.
+	   */
+	  error: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the underline when parent `TextField` has an error.
+	   */
+	  errorStyle: _react.PropTypes.object,
+	  /**
+	   * True if the parent `TextField` is focused.
+	   */
+	  focus: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the underline when parent `TextField` is focused.
+	   */
+	  focusStyle: _react.PropTypes.object,
+	  /**
+	   * @ignore
+	   * The material-ui theme applied to this component.
+	   */
+	  muiTheme: _react.PropTypes.object.isRequired,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object
+	};
+
+	var defaultProps = {
+	  disabled: false,
+	  disabledStyle: {},
+	  error: false,
+	  errorStyle: {},
+	  focus: false,
+	  focusStyle: {},
+	  style: {}
+	};
+
+	var TextFieldUnderline = function TextFieldUnderline(props) {
+	  var disabled = props.disabled;
+	  var disabledStyle = props.disabledStyle;
+	  var error = props.error;
+	  var errorStyle = props.errorStyle;
+	  var focus = props.focus;
+	  var focusStyle = props.focusStyle;
+	  var muiTheme = props.muiTheme;
+	  var style = props.style;
+	  var errorStyleColor = errorStyle.color;
+	  var prepareStyles = muiTheme.prepareStyles;
+	  var _muiTheme$textField = muiTheme.textField;
+	  var borderColor = _muiTheme$textField.borderColor;
+	  var disabledTextColor = _muiTheme$textField.disabledTextColor;
+	  var errorColor = _muiTheme$textField.errorColor;
+	  var focusColor = _muiTheme$textField.focusColor;
+
+
+	  var styles = {
+	    root: {
+	      border: 'none',
+	      borderBottom: 'solid 1px',
+	      borderColor: borderColor,
+	      bottom: 8,
+	      boxSizing: 'content-box',
+	      margin: 0,
+	      position: 'absolute',
+	      width: '100%'
+	    },
+	    disabled: {
+	      borderBottom: 'dotted 2px',
+	      borderColor: disabledTextColor
+	    },
+	    focus: {
+	      borderBottom: 'solid 2px',
+	      borderColor: focusColor,
+	      transform: 'scaleX(0)',
+	      transition: _transitions2.default.easeOut()
+	    },
+	    error: {
+	      borderColor: errorStyleColor ? errorStyleColor : errorColor,
+	      transform: 'scaleX(1)'
+	    }
+	  };
+
+	  var underline = (0, _simpleAssign2.default)({}, styles.root, style);
+	  var focusedUnderline = (0, _simpleAssign2.default)({}, underline, styles.focus, focusStyle);
+
+	  if (disabled) underline = (0, _simpleAssign2.default)({}, underline, styles.disabled, disabledStyle);
+	  if (focus) focusedUnderline = (0, _simpleAssign2.default)({}, focusedUnderline, { transform: 'scaleX(1)' });
+	  if (error) focusedUnderline = (0, _simpleAssign2.default)({}, focusedUnderline, styles.error);
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement('hr', { style: prepareStyles(underline) }),
+	    _react2.default.createElement('hr', { style: prepareStyles(focusedUnderline) })
+	  );
+	};
+
+	TextFieldUnderline.propTypes = propTypes;
+	TextFieldUnderline.defaultProps = defaultProps;
+
+	exports.default = TextFieldUnderline;
 
 /***/ }
 /******/ ]);

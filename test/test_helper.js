@@ -15,3 +15,4 @@ Object.keys(window).forEach((key) => {
 });
 
 chai.use(chaiImmutable);
+chai.use(require('skin-deep/chai'));
