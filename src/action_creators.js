@@ -19,6 +19,20 @@ export function signIn(state) {
   };
 }
 
+export function hideForm(state) {
+  return {
+    type: 'HIDE_FORM',
+    state
+  }
+}
+
+export function displayComments(state) {
+  return {
+    type: 'DISPLAY_COMMENTS',
+    state
+  }
+}
+
 export function commentSubmitted(state, responseJSON) {
   console.log('COMMENT_SUBMITTED');
   return {
@@ -39,7 +53,11 @@ export function postSubmitComment(state, body) {
       body: JSON.stringify(body)
     })
     .then(response => response.json())
-    .then(responseJSON => dispatch(commentSubmitted(state, responseJSON)));
+    .then(responseJSON => {
+      dispatch(commentSubmitted(state, responseJSON)),
+      dispatch(hideForm(state)),
+      dispatch(displayComments(state))
+    });
   }
 }
 

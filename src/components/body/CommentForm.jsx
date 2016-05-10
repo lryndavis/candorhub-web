@@ -74,7 +74,7 @@ export const CommentForm = React.createClass ({
     }
     //server request
     var body = {
-      "image_id": 1,
+      "image_id": this.props.imageForCritique.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
           "body": firstResponse.toString()
@@ -90,8 +90,10 @@ export const CommentForm = React.createClass ({
   },
 
   render: function() {
-    return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
+    return (<div>
+      {
+        this.props.showForm ? 
+          <form className="commentForm" onSubmit={this.handleSubmit}>
           <h1>Your Daily Candor</h1>
           <p>{this.props.firstQuestion.body}</p>
           <input type="text"
@@ -115,7 +117,11 @@ export const CommentForm = React.createClass ({
             />
           <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
           <input type="submit" value="Post" />
-      </form>
+        </form> :
+        <div className="commentList">
+        </div>
+      }
+      </div>
     );
   }
 });
@@ -152,6 +158,8 @@ function mapStateToProps(state) {
     firstQuestion: state.get('questionsForComment')[0],
     secondQuestion: state.get('questionsForComment')[1],
     thirdQuestion: state.get('questionsForComment')[2],
+    showForm: state.get('showCommentForm'),
+    displayComments: state.get('displayComments'),
     state: state
   };
 }
