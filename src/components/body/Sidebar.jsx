@@ -3,7 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
-// import UploadForm from 'UploadForm';
+import UploadFormModal from './UploadFormModal';
 
 const contentClearStyles = {
   marginLeft: 250,
@@ -41,6 +41,9 @@ export default class Sidebar extends React.Component {
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
           <MenuItem a href="/">Home</MenuItem>
           <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
+          <MenuItem>
+            <UploadFormModal />
+          </MenuItem>
         </Drawer>
       </div>
     );

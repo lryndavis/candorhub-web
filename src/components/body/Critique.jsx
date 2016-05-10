@@ -10,7 +10,7 @@ import Sidebar from './Sidebar';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
 import { CommentFormContainer } from './CommentForm';
-import UploadForm from './UploadForm';
+import UploadFormModal from './UploadFormModal';
 
 export const Critique = React.createClass({
 
@@ -36,7 +36,7 @@ export const Critique = React.createClass({
             </div>
             <div className="col-md-6 upload-form">
               <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <UploadForm />
+                <UploadFormModal />
               </MuiThemeProvider>
             </div>
           </div> :
