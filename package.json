@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "Sentimental": "^1.0.1",
+    "aws-sdk": "^2.3.10",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "css-loader": "^0.23.1",
     "immutable": "^3.8.1",
@@ -54,6 +55,7 @@
     "react": "^15.0.2",
     "react-burger-menu": "^1.8.2",
     "react-dom": "^15.0.2",
+    "react-dropzone": "^3.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
     "react-tap-event-plugin": "^1.0.0",
