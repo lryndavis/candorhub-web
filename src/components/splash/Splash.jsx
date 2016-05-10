@@ -12,13 +12,15 @@ import SignUp from './SignUp';
 export const Splash = React.createClass({
 
   render: function() {
-    return <div className="container">
-       <MuiThemeProvider muiTheme={getMuiTheme()}>
+    return (
+      <div className="container">
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
          <SignUp />
         </MuiThemeProvider>
         <SignInContainer />
-      </div>;
-    }
+      </div>
+    )
+  }
 });
 
 function mapStateToProps(state) {

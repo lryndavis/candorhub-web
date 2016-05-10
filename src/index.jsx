@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, hashHistory} from 'react-router';
+import {Router, Route, browserHistory} from 'react-router';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
@@ -18,14 +18,17 @@ import {Splash} from './components/splash/Splash';
 const store = createStore(reducer, applyMiddleware(thunk));
 
 //Routing table
-const routes = <Route component={App}>
+
+const routes = (
+  <Route component={App}>
     <Route path='/' component={Splash} />
     <Route path="/critique" component={CritiqueContainer} />
-</Route>;
+  </Route>
+);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={hashHistory}>{routes}</Router>
+    <Router history={browserHistory}>{routes}</Router>
   </Provider>,
   document.getElementById('app')
 );
