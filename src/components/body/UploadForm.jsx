@@ -22,7 +22,6 @@ export default React.createClass({
   render : function() {
     return (
       <form className='signUpForm'>
-        <p>Upload a Piece of Art!</p>
           <TextField
             hintText="Image URL dropzone zone"
             value={this.state.imageURL}
@@ -41,7 +40,6 @@ export default React.createClass({
             onChange={this.handleDescChange}
             /><br />
             <br />
-        <input className="sign-up-button" type="submit" value="Upload" />
       </form>
     )
   }

@@ -28,24 +28,19 @@ export default class DialogExampleModal extends React.Component {
 
   render() {
     const actions = [
-      <FlatButton
-        label="Cancel"
+      <button
+        className="sign-up-button"
+        label="Upload"
         primary={true}
-        onClick={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        disabled={false}
-        onClick={this.handleClose}
-      />,
+        onClick={this.handleClose}>Upload
+      </button>
     ];
 
     return (
       <div>
-        <RaisedButton label="Modal Dialog" onClick={this.handleOpen} />
+        <RaisedButton label="Upload" onClick={this.handleOpen} />
         <Dialog
-          title="Dialog With Actions"
+          title="Upload Your Work!"
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
