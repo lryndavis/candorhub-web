@@ -1,4 +1,3 @@
-import {Map} from 'immutable';
 import $ from 'jquery';
 
 const initialState = {
@@ -27,9 +26,6 @@ function setState(state, newState) {
 }
 
 function signIn(state) {
-  console.log("In Reducer");
-  console.log(state);
-  console.log({ ...state, signedIn: true});
   return { ...state, signedIn: true};
 }
 
