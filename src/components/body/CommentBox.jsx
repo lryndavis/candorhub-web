@@ -1,14 +1,16 @@
 import React from 'react';
+import Comments from './Comments';
 
 export default React.createClass({
 
   render: function() {
-    var questionNodes = this.props.imageForCritique.questions.map(function(question) {
-      console.log(question.body)
+    let questions = this.props.imageForCritique.questions;
+    var questionNodes = questions.map(function(question) {
       return (
-        <div key={question.id}>
+        <h2 key={question.id}>
           {question.body}
-        </div>
+          <Comments question={question} />
+        </h2>
       );
     });
     return (
