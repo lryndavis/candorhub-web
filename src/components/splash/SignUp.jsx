@@ -38,18 +38,21 @@ export default React.createClass({
       <form className="signUpForm" onSubmit={this.handleSubmit}>
         <p>Join Candorhub</p>
           <TextField
+            className="usernameTextField"
             hintText="Your Username"
             value={this.state.username}
             onChange={this.handleUsernameChange}
             /><br />
             <br />
           <TextField
+            className="emailTextField"
             hintText="Your Email"
             value={this.state.email}
             onChange={this.handleEmailChange}
             /><br />
             <br />
           <TextField
+            className="passwordTextField"
             hintText="Your Password"
             floatingLabelText="Password"
             type="password"
@@ -58,6 +61,7 @@ export default React.createClass({
             /><br />
             <br />
           <TextField
+            className="passwordConfirmTextField"
             hintText="Confirm Password"
             floatingLabelText="Confirm Password"
             type="password"

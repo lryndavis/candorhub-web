@@ -6,6 +6,10 @@ const nonConstructiveLanguageThreshold = -0.5;
 const minimumCommentLength = 10;
 const maximumCommentLength = 100;
 
+export function isCorrectLength(commentText) {
+  return (commentText.trim().length >= minimumCommentLength && commentText.trim().length <= maximumCommentLength);
+}
+
 export function doesNotUseOffensiveLanguage(commentText) {
   var noPunctuation = commentText
     .replace(/[^a-zA-Z ]+/g, ' ')
@@ -23,10 +27,7 @@ export function usesConstructiveLanguage(commentText) {
   return analyze(commentText).comparative > nonConstructiveLanguageThreshold;
 }
 
-export function isCorrectLength(commentText) {
-  return (commentText.trim().length >= minimumCommentLength && commentText.trim().length <= maximumCommentLength);
-}
-
 export function isValidComment(commentText) {
-  return doesNotUseOffensiveLanguage(commentText) && usedConstructiveLanguage(commentText) && isCorrectLength(commentText);
+  return doesNotUseOffensiveLanguage(commentText) && usesConstructiveLanguage(commentText) &&
+  isCorrectLength(commentText);
 }
