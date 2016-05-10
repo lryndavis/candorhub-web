@@ -41,19 +41,21 @@ export const UploadForm = React.createClass({
       <form className='uploadForm' onSubmit={this.handleSubmit}>
           <Dropzone onDrop={this.onDrop}>
             <div>Select a file to upload</div>
-          </Dropzone> 
+          </Dropzone>
           {this.state.files.length > 0 ? <div>
             {this.state.files.map((file) => <img src={file.preview} />)}</div>
           : null }
           <br />
           <br />
           <TextField
+            className="imageTitleTextField"
             hintText="Title"
             value={this.state.title}
             onChange={this.handleTitleChange}
             /><br />
             <br />
           <TextField
+            className="imageDescriptionTextField"
             hintText="Description"
             value={this.state.desc}
             onChange={this.handleDescChange}
