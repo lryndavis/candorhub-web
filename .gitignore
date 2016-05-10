@@ -1,5 +1,5 @@
 node_modules/
-bundle.js
+dist/bundle.js
 .DS_Store/
 *~
 *.pyc
@@ -10,4 +10,5 @@ coverage/
 *.gem
 .vscode
 *.log*
-
+*.swp
+*.swo
