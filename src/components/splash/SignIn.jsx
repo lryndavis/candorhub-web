@@ -20,7 +20,7 @@ export const SignIn = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.get('signedIn')
+    signedIn: state.signedIn
   };
 }
 

@@ -29,7 +29,7 @@ const testImage = {
 
 //use skin-deep to shallow render components to avoid problems with trying to render CommentFormContainer without action creators
 describe("Critique", () => {
-  it("displays correct component for signed-out state", () => {
+  it("renders correct component for signed-out state", () => {
     let signedIn = false;
     let tree = sd.shallowRender(<CritiqueTest
       signedIn={signedIn}
@@ -39,12 +39,13 @@ describe("Critique", () => {
       .text()).to.contain("need to sign in");
   });
 
-  it("displays correct components for signed-in state", () => {
+  it("renders correct components for signed-in state", () => {
     let signedIn = true;
     let tree = sd.shallowRender(<CritiqueTest
       signedIn={signedIn}
       imageForCritique={testImage} />);
     expect(tree.subTree("CritiqueImage")).to.be.ok;
     expect(tree.subTree("CritiqueImage").props.image).to.equal(testImage);
+    expect(tree.subTree("Connect(CommentForm)")).to.be.ok;
   });
 });

@@ -49,9 +49,9 @@ export const Critique = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.get('signedIn'),
-    imageForCritique: state.get('imageForCritique'),
-    questionsForComment: state.get('questionsForComment')
+    signedIn: state.signedIn,
+    imageForCritique: state.imageForCritique,
+    questionsForComment: state.questionsForComment
   };
 }
 
