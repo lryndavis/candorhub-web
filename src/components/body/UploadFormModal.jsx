@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import UploadForm from './UploadForm';
+import {UploadFormContainer} from './UploadForm';
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
@@ -47,7 +47,7 @@ export default class DialogExampleModal extends React.Component {
           autoScrollBodyContent={true}
           open={this.state.open}
         >
-          <UploadForm />
+          <UploadFormContainer />
         </Dialog>
       </div>
     );
