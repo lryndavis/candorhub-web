@@ -28,11 +28,16 @@ describe("CommentValidation", () => {
   });
 
   describe("doesNotUseOffensiveLanguage", () => {
-    it("rejects comments that use offensive words", () => {
+    it("rejects offensive words", () => {
       let offensiveWords = ["asshole", "bastard", "scumbag", "cocksucker", "dickhead"];
       offensiveWords.forEach(((word) =>
         expect(doesNotUseOffensiveLanguage(word)).to.be.false
       ));
+    });
+
+    it("rejects comments that use offensive words", () => {
+      let commentText = "You are a real scumbag";
+      expect(doesNotUseOffensiveLanguage(commentText)).to.be.false;
     });
 
     it("allows comments that do not use offensive words", () => {
