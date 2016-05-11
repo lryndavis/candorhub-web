@@ -10,6 +10,7 @@ import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength, 
 import Critique from './Critique';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
+import QuestionBox from './QuestionBox';
 
 export const CommentForm = React.createClass ({
 
@@ -127,7 +128,9 @@ export const CommentForm = React.createClass ({
             <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
             <input type="submit" value="Post" className="submit-button"/>
           </form> :
-          <div></div>
+          <div>
+            <QuestionBox imageForCritique={this.props.imageForCritique}/>
+          </div>
       }
       </div>
     );

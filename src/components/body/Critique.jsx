@@ -12,6 +12,7 @@ import CritiqueImage from './CritiqueImage';
 import { CommentFormContainer } from './CommentForm';
 import UploadFormModal from './UploadFormModal';
 
+
 export const Critique = React.createClass({
 
   componentDidMount: function() {
