@@ -2,23 +2,26 @@ import React from 'react';
 import CommentBox from './CommentBox';
 import QuestionList from './QuestionList';
 import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
+import NavigationArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
 
 
 export default React.createClass({
 
   getInitialState: function() {
     return { commentShow: false };
+    return { navArrowChange: true };
   },
 
   onClick: function() {
     this.setState({ commentShow: !this.state.commentShow });
+    this.setState({ navArrowChange: !this.state.navArrowChange });
   },
 
   render: function() {
     return (
       <div className="individual-question-box">
         <h3 key={this.props.question.id} onClick={ this.onClick }>
-          <NavigationArrowDropDown />
+          { this.state.navArrowChange ? <NavigationArrowDropUp /> : <NavigationArrowDropDown /> }
           {this.props.question.body}
         </h3>
         <div>
