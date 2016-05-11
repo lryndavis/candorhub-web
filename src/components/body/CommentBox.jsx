@@ -1,10 +1,11 @@
 import React from 'react';
+import QuestionBox from './QuestionBox';
 
 export default React.createClass({
 
   render: function() {
     let comments = this.props.question.comments;
-    var commentList = comments.map(function(comment){
+    var commentRender = comments.map(function(comment){
     return (
       <div className="individual-comment-box">
         <p key={comment.id}>
@@ -15,7 +16,7 @@ export default React.createClass({
     });
     return (
       <div className="comment-list">
-        {commentList}
+        {commentRender}
       </div>
     );
   }
