@@ -1,5 +1,8 @@
 import React from 'react';
 import QuestionBox from './QuestionBox';
+import Avatar from 'material-ui/Avatar';
+import List from 'material-ui/List/List';
+import ListItem from 'material-ui/List/ListItem';
 
 export default React.createClass({
 
@@ -8,10 +11,10 @@ export default React.createClass({
     var commentRender = comments.map(function(comment){
     return (
       <div className="individual-comment-box">
-        <p key={comment.id}>
+        <Avatar>U</Avatar>
+        <span className="comment-body" key={comment.id}>
           {comment.body}
-          <p>By: User</p>
-        </p>
+        </span>
       </div>
       );
     });
