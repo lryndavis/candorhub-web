@@ -10,6 +10,7 @@ export default React.createClass({
       <div className="individual-comment-box">
         <p key={comment.id}>
           {comment.body}
+          <p>By: User</p>
         </p>
       </div>
       );

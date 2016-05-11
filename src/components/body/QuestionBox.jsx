@@ -1,6 +1,8 @@
 import React from 'react';
 import CommentBox from './CommentBox';
 import QuestionList from './QuestionList';
+import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
+
 
 export default React.createClass({
 
@@ -14,10 +16,11 @@ export default React.createClass({
 
   render: function() {
     return (
-      <div>
-        <h2 key={this.props.question.id} onClick={ this.onClick }>
+      <div className="individual-question-box">
+        <h3 key={this.props.question.id} onClick={ this.onClick }>
+          <NavigationArrowDropDown />
           {this.props.question.body}
-        </h2>
+        </h3>
         <div>
           { this.state.commentShow ? <CommentBox question={this.props.question} /> : null }
         </div>
