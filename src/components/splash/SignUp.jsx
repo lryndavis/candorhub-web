@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import TextField from 'material-ui/TextField';
 
 
-
 export default React.createClass({
   getInitialState: function() {
     return {username: '', email: '', password: '', passwordConfirm: ''};
@@ -29,14 +28,14 @@ export default React.createClass({
     if (!username || !email || !password || !passwordConfirm) {
       return;
     }
-    //server request
+
     this.setState({username: '', email: '', password: '', passwordConfirm: ''});
   },
 
   render: function() {
     return (
-      <form className="signUpForm" onSubmit={this.handleSubmit}>
-        <p>Join Candorhub</p>
+      <form className="sign-up-form" onSubmit={this.handleSubmit}>
+        <p className="tag-line">Join Candorhub</p>
           <TextField
             className="usernameTextField"
             hintText="Your Username"
@@ -69,7 +68,7 @@ export default React.createClass({
             onChange={this.handlePasswordConfirmChange}
             /><br />
             <br />
-        <input className="sign-up-button" type="submit" value="Post" />
+        <input className="sign-up-button" type="submit" value="JOIN" />
       </form>
     );
   }
