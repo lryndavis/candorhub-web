@@ -59,5 +59,15 @@ describe("CommentValidation", () => {
       expect(usesConstructiveLanguage(commentText)).to.be.true;
       expect(isValidComment(commentText)).to.be.true;
     });
+
+    it("recognizes negation of negative words", () => {
+      let commentText = "This art isn't bad. Not terrible, not horrible, not awful, not foolish, and not moronic."
+      expect(usesConstructiveLanguage(commentText)).to.be.true;
+    });
+
+    it("recognizes negation of positive words", () => {
+      let commentText = "This art isn't good. It isn't awesome."
+      expect(usesConstructiveLanguage(commentText)).to.be.false;
+    });
   });
 });

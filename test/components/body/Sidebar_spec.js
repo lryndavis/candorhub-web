@@ -25,7 +25,26 @@ describe("Sidebar", () => {
     expect(tree.subTree("ContentClear")).to.be.ok;
   });
 
+  it("renders a hamburger menu", () => {
+    expect(tree.subTree("ImageDehaze")).to.be.ok;
+  });
+
   it("renders menu items", () => {
     expect(tree.subTree("MenuItem")).to.be.ok;
+  });
+
+  it("opens the Drawer when the hamburger menu is clicked", () => {
+    tree.subTree("ImageDehaze").props.onClick();
+    let drawer = tree.subTree("Drawer");
+    expect(drawer.props.open).to.be.true;
+    expect(drawer.subTree("ContentClear")).to.be.ok;
+    expect(drawer.everySubTree("MenuItem").length).to.equal(3);
+  });
+
+  it("closes the Drawer when the ContentClear component is clicked", () => {
+    tree.subTree("ImageDehaze").props.onClick();
+    expect(tree.subTree("Drawer").props.open).to.be.true;
+    tree.subTree("ContentClear").props.onClick();
+    expect(tree.subTree("Drawer").props.open).to.be.false;
   });
 });

@@ -27,25 +27,38 @@ const testImage = {
   description: 'This kitty thinks it is an airplane!'
 };
 
+const testQuestion = {
+  id: 0,
+  body: "What?"
+};
+
 //use skin-deep to shallow render components to avoid problems with trying to render CommentFormContainer without action creators
 describe("Critique", () => {
-  it("renders correct component for signed-out state", () => {
+  it("renders correct components when in signed-out state", () => {
     let signedIn = false;
     let tree = sd.shallowRender(<CritiqueTest
       signedIn={signedIn}
-      imageForCritique={testImage} />);
+      imageForCritique={testImage}
+      questionsForComment={testQuestion} />);
     expect(tree.subTree("CritiqueNotSignedIn")).to.be.ok;
-    expect(tree.dive(['CritiqueNotSignedIn'])
-      .text()).to.contain("need to sign in");
+    expect(tree.dive(['CritiqueNotSignedIn']).text())
+      .to.contain("need to sign in");
   });
 
-  it("renders correct components for signed-in state", () => {
+  it("renders a CritiqueImage when in signed-in state", () => {
     let signedIn = true;
     let tree = sd.shallowRender(<CritiqueTest
       signedIn={signedIn}
       imageForCritique={testImage} />);
     expect(tree.subTree("CritiqueImage")).to.be.ok;
     expect(tree.subTree("CritiqueImage").props.image).to.equal(testImage);
+  });
+
+  it("renders a CommentFormContainer when in signed-in state", () => {
+    let signedIn = true;
+    let tree = sd.shallowRender(<CritiqueTest
+      signedIn={signedIn}
+      imageForCritique={testImage} />);
     expect(tree.subTree("Connect(CommentForm)")).to.be.ok;
   });
 });
