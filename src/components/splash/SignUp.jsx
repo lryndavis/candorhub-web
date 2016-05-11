@@ -35,6 +35,7 @@ export default React.createClass({
   render: function() {
     return (
       <form className="sign-up-form" onSubmit={this.handleSubmit}>
+        <h1 className="main-logo">candorhub</h1>
         <p className="tag-line">Join Candorhub</p>
           <TextField
             className="usernameTextField"

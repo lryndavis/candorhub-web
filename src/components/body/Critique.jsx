@@ -22,11 +22,10 @@ export const Critique = React.createClass({
   render: function() {
     return <div className="critique">
         { this.props.signedIn ?
-          <div>
-            <MuiThemeProvider muiTheme={getMuiTheme()}>
-              <Sidebar />
-            </MuiThemeProvider>
             <div className="container">
+              <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <Sidebar />
+              </MuiThemeProvider>
               <div className="col-md-8 image-info-container">
                 <CritiqueImage image={this.props.imageForCritique} />
               </div>
@@ -35,7 +34,6 @@ export const Critique = React.createClass({
                   <CommentFormContainer questionsForComment={this.props.questionsForComment} />
                 </MuiThemeProvider>
               </div>
-            </div>
             </div> :
             <CritiqueNotSignedIn />
           }
