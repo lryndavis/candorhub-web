@@ -35,11 +35,6 @@ export const Critique = React.createClass({
                 <CommentFormContainer questionsForComment={this.props.questionsForComment} />
               </MuiThemeProvider>
             </div>
-            <div className="col-md-6 upload-form">
-              <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <UploadFormModal />
-              </MuiThemeProvider>
-            </div>
           </div> :
           <CritiqueNotSignedIn />
         }
