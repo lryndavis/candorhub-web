@@ -23,7 +23,6 @@ const initialState = {
 
 function setState(state, newState) {
   return {...state, ...newState};
-  // return state.merge(newState);
 }
 
 function signIn(state) {
