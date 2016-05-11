@@ -10,8 +10,6 @@ const contentClearStyles = {
   marginTop: 10,
 };
 
-
-
 export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
