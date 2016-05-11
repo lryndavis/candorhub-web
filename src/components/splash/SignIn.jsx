@@ -6,7 +6,7 @@ import * as actionCreators from '../../action_creators';
 export const SignIn = React.createClass({
   render: function() {
     return (
-      <div className="signIn">
+      <div className="sign-in">
         <Link ref="signIn"
           className="signInLink"
           to={'/critique'}
