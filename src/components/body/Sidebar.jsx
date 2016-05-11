@@ -10,9 +10,8 @@ const contentClearStyles = {
   marginTop: 10,
 };
 
-const imageDehazeStyles = {
-  marginRight: 800,
-  marginTop: -300,
+const burgerStyles = {
+  marginRight: 750,
 };
 
 export default class Sidebar extends React.Component {
@@ -31,7 +30,7 @@ export default class Sidebar extends React.Component {
   render() {
     return (
       <div>
-        <ImageDehaze style={imageDehazeStyles} onClick={this.handleToggle} />
+        <ImageDehaze style={burgerStyles} onClick={this.handleToggle} />
         <Drawer
           docked={false}
           width={300}

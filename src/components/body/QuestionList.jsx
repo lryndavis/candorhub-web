@@ -15,7 +15,7 @@ export default React.createClass({
     });
     return (
       <div>
-        <h2 className="criticisms-header">Criticisms</h2>
+        <h2 className="criticisms-header">Critique</h2>
         {questionRender}
       </div>
     );

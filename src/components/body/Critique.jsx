@@ -19,28 +19,29 @@ export const Critique = React.createClass({
     this.props.getRandomImageFromServer();
   },
 
-
   render: function() {
     return <div className="critique">
         { this.props.signedIn ?
-          <div className="container">
-            <div className="col-md-8 image-info-container">
-              <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <Sidebar />
-              </MuiThemeProvider>
-              <CritiqueImage image={this.props.imageForCritique} />
+          <div>
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+              <Sidebar />
+            </MuiThemeProvider>
+            <div className="container">
+              <div className="col-md-8 image-info-container">
+                <CritiqueImage image={this.props.imageForCritique} />
+              </div>
+              <div className="col-md-4 comment-form-container">
+                <MuiThemeProvider muiTheme={getMuiTheme()}>
+                  <CommentFormContainer questionsForComment={this.props.questionsForComment} />
+                </MuiThemeProvider>
+              </div>
             </div>
-            <div className="col-md-4 comment-form-container">
-              <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <CommentFormContainer questionsForComment={this.props.questionsForComment} />
-              </MuiThemeProvider>
-            </div>
-          </div> :
-          <CritiqueNotSignedIn />
-        }
+            </div> :
+            <CritiqueNotSignedIn />
+          }
       </div>;
-  }
-});
+    }
+  });
 
 
 function mapStateToProps(state) {
