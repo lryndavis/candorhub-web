@@ -49,6 +49,11 @@ function displayComments(state) {
   return { ...state, displayComments: true};
 }
 
+function setSignedUrl(state, responseJSON) {
+  console.log(responseJSON);
+  return { ...state, signedUrl: responseJSON["signed_url"]};
+}
+
 export default function(state = initialState, action) {
   switch (action.type) {
     case 'SET_STATE':
@@ -65,6 +70,8 @@ export default function(state = initialState, action) {
       return hideForm(state);
     case 'DISPLAY_COMMENTS':
       return displayComments(state);
+    case 'SET_SIGNED_URL':
+      return setSignedUrl(state, action.responseJSON);
     }
   return state;
 }

@@ -87,7 +87,7 @@ export const CommentForm = React.createClass ({
           "body": thirdResponse.toString()
         }]
       };
-    this.props.postSubmitComment(this.props.state, body);
+    this.props.postSubmitComment(body);
   },
 
   render: function() {
@@ -145,8 +145,7 @@ function mapStateToProps(state) {
     secondQuestion: state.questionsForComment[1],
     thirdQuestion: state.questionsForComment[2],
     showForm: state.showCommentForm,
-    displayComments: state.displayComments,
-    state: state
+    displayComments: state.displayComments
   };
 }
 
