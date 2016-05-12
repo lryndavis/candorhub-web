@@ -5,6 +5,9 @@ import Dropzone from 'react-dropzone';
 import * as actions from '../../../src/action_creators'
 import {connect} from 'react-redux';
 
+const MAX_FILE_SIZE = 20000000000;
+const ALLOWED_FILE_TYPES = ['image/png', 'image/jpg', 'image/gif'];
+
 //Change class names to suit styling for this page....
 export const UploadForm = React.createClass({
   getInitialState() {
@@ -32,7 +35,13 @@ export const UploadForm = React.createClass({
     const title = this.state.title;
     const description = this.state.description;
     const image = this.state.files[0];
-    this.props.startFileUpload(image);
+    if (this.state.files[0].size > MAX_FILE_SIZE) {
+      alert("This file is too big!");
+    } else if (!ALLOWED_FILE_TYPES.includes(this.state.files[0].type)) {
+      alert("This file type is not allowed!");
+    } else {
+      this.props.startFileUpload(image);
+    }
     console.log(title, image, description);
   },
 
@@ -43,7 +52,7 @@ export const UploadForm = React.createClass({
             <div>Select a file to upload</div>
           </Dropzone>
           {this.state.files.length > 0 ? <div>
-            {this.state.files.map((file) => <img src={file.preview} />)}</div>
+            {this.state.files.map((file) => <img src={file.preview} key={file.name}/>)}</div>
           : null }
           <br />
           <br />

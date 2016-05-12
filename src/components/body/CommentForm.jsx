@@ -47,18 +47,6 @@ export const CommentForm = React.createClass ({
     }
   },
 
-  setReadyToSubmit: function() {
-    console.log("in ready");
-    if (this.state.firstResponseStatus !== OKAY ||
-      this.state.secondResponseStatus !== OKAY ||
-      this.state.thirdResponseStatus !== OKAY) {
-      this.setState({readyToSubmit: false});
-    } else {
-      this.setState({readyToSubmit: true});
-    }
-    console.log(this.state.readyToSubmit);
-  },
-
   componentDidMount: function() {
     this.props.getQuestionsForComment(this.props.state);
   },
