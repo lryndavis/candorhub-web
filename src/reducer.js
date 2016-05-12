@@ -6,15 +6,10 @@ const initialState = {
   displayComments: false,
   imageForCritique: {
     title: '',
-<<<<<<< HEAD
     description: '',
     image: {
-      url: ''
+      image: ''
     }
-=======
-    image: '',
-    description: ''
->>>>>>> 148909d5d00e19fc7b02ae33cfa4efd53ac7997c
   },
   questionsForComment: [{
     id: 0,
