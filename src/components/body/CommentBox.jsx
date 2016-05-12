@@ -12,11 +12,11 @@ export default React.createClass({
 
   render: function() {
     let comments = this.props.question.comments;
-    var commentRender = comments.map(function(comment){
+    var commentRender = comments.map(function(comment) {
     return (
-      <div className="individual-comment-box">
+      <div className="individual-comment-box" key={comment.id}>
         <Avatar style={avatarStyles}>U</Avatar>
-        <span className="comment-body" key={comment.id}>
+        <span className="comment-body">
           {comment.body}
         </span>
         <p className="comment-meta">
