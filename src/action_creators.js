@@ -90,7 +90,6 @@ export function getRandomImageFromServer(state) {
   }
 }
 
-<<<<<<< HEAD
 //image gallery
 export function getMultipleImagesFromServer(state) {
   return function (dispatch) {
@@ -113,13 +112,14 @@ export function setQuestionsForComment(state, responseJSON) {
     type: 'SET_QUESTIONS_FOR_COMMENT',
     state,
     responseJSON
-=======
+  }
+}
+
 export function getSpecificImageFromServer(state, id) {
   return function (dispatch) {
     return fetch (specificImageEndpoint + id)
     .then(response => response.json())
     .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
->>>>>>> 6dcdceaaf939df4bbbe7a1292087b57a9160fd1e
   }
 }
 

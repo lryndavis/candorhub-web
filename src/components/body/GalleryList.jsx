@@ -1,5 +1,6 @@
 import React from 'react';
 import GalleryThumbnail from './GalleryThumbnail';
+import GalleryView from './GalleryView';
 
 
 export default React.createClass({

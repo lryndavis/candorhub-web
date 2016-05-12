@@ -170,12 +170,7 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-<<<<<<< HEAD
-            <p>Valid Comment? {this.state.firstResponseIsValid}</p>
-            <p className="question-body">{this.props.secondQuestion.body}</p>
-=======
             <p>{this.props.secondQuestion.body}</p>
->>>>>>> 6dcdceaaf939df4bbbe7a1292087b57a9160fd1e
             <TextField
               hintText="Your Critique"
               errorText={this.getErrorHint(this.state.secondResponseStatus)}
@@ -185,12 +180,7 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-<<<<<<< HEAD
-            <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
-            <p className="question-body">{this.props.thirdQuestion.body}</p>
-=======
             <p>{this.props.thirdQuestion.body}</p>
->>>>>>> 6dcdceaaf939df4bbbe7a1292087b57a9160fd1e
             <TextField
               hintText="Your Critique"
               errorText={this.getErrorHint(this.state.thirdResponseStatus)}

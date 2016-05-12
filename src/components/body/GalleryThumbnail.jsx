@@ -1,5 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import GalleryList from './GalleryList';
+import GalleryView from './GalleryView';
 
 export default React.createClass({
 
@@ -16,10 +19,10 @@ export default React.createClass({
   },
 
   render: function(){
-    return <div className="gallery-thumbnail">
-        <img className="critiqueImageTag" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
-        <p className="critiqueImageTitle">{this.getImageTitle()}</p>
-        <p className="critiqueImageDescription">{this.getImageDescription()}</p>
+    return <div className="gallery-thumbnail col-md-6">
+        <img className="gallery-img" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
+        <p>{this.getImageTitle()}</p>
+        <p>{this.getImageDescription()}</p>
       </div>;
     }
   })
