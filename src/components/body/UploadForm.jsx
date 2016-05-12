@@ -5,13 +5,17 @@ import Dropzone from 'react-dropzone';
 import * as actions from '../../../src/action_creators'
 import {connect} from 'react-redux';
 
-const MAX_FILE_SIZE = 20000000000;
-const ALLOWED_FILE_TYPES = ['image/png', 'image/jpg', 'image/gif'];
+const MAX_FILE_SIZE = 150000000000;
+const ALLOWED_FILE_TYPES = [
+  'image/png',
+  'image/jpg',
+  'image/gif',
+  'image/jpeg'];
 
 //Change class names to suit styling for this page....
 export const UploadForm = React.createClass({
   getInitialState() {
-    return {imageURL: '', title: '', desc: '', files: []};
+    return {imageURL: '', title: '', description: '', files: []};
   },
 
   handleImageURLChange(e) {
@@ -23,7 +27,7 @@ export const UploadForm = React.createClass({
   },
 
   handleDescChange(e) {
-    this.setState({desc: e.target.value});
+    this.setState({description: e.target.value});
   },
 
   onDrop(files) {
@@ -71,7 +75,7 @@ export const UploadForm = React.createClass({
           <TextField
             className="imageDescriptionTextField"
             hintText="Description"
-            value={this.state.desc}
+            value={this.state.description}
             onChange={this.handleDescChange}
             /><br />
             <br />
