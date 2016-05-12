@@ -14,6 +14,7 @@ export default React.createClass({
   },
 
   render: function() {
+    console.log(this.props.image);
     return <div className="critiqueImage">
         <img className="critiqueImageTag" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
         <h1 className="critiqueImageTitle">{this.getImageTitle()}</h1>

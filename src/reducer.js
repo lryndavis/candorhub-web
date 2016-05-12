@@ -6,10 +6,15 @@ const initialState = {
   displayComments: false,
   imageForCritique: {
     title: '',
+<<<<<<< HEAD
     description: '',
     image: {
       url: ''
     }
+=======
+    image: '',
+    description: ''
+>>>>>>> 148909d5d00e19fc7b02ae33cfa4efd53ac7997c
   },
   questionsForComment: [{
     id: 0,
@@ -32,7 +37,13 @@ function signIn(state) {
 }
 
 function setImageToCritique(state, responseJSON) {
-  return { ...state, imageForCritique: responseJSON.images[0]};
+  if (responseJSON.images) {
+    //handle getting an image from an array
+    return { ...state, imageForCritique: responseJSON.images[0]};
+  } else if (responseJSON.image) {
+    //handle getting a specific image
+    return { ...state, imageForCritique: responseJSON.image};
+  }
 }
 
 function setQuestionsForComment(state, responseJSON) {
