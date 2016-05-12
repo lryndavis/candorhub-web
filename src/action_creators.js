@@ -4,7 +4,7 @@ const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
-const uploadImageEndpoint = "";
+const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
   return {
@@ -96,22 +96,32 @@ export function getQuestionsForComment(state) {
 }
 
 export function startImageUpload(image, title, description) {
-  return (image, title, description) => (dispatch, getState) => {
+  return (dispatch, getState) => {
     const state = getState();
-    return fetch(state.signedUrl, {
-      method: 'POST',
-      body: JSON.stringify({
+    dispatch({type: 'IS_UPLOADING_IMAGE'})
+    const imageForUpload = {
+      image: {
         image: image,
         title: title,
         description: description
-      })
+      }
+    }
+    return fetch(imageUploadEndpoint, {
+      method: 'POST',
+      headers: {
+        'ACCEPT': 'application/json',
+        'CONTENT_TYPE': 'application/json'
+      },
+      body: JSON.stringify(imageForUpload)
     })
     .then(response => response.json())
-    .then(responseJSON => dispatch(finishedImageUpload(state, responseJSON)))
+    .then(responseJSON => dispatch(finishedImageUpload(state, responseJSON)),
+                          dispatch({type: 'DONE_UPLOADING_IMAGE'}));
   } 
 }
 
-export function finishedImageUpload(state, data) {
+export function finishedImageUpload(state, responseJSON) {
+  console.log(responseJSON)
   return {
     type: "FINISHED_IMAGE_UPLOAD",
     state,

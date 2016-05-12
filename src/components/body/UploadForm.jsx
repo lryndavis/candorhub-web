@@ -36,11 +36,7 @@ export const UploadForm = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     const title = this.state.title;
-    const description = this.state.description;
-    const signedUrl = this.props.signedUrl;
-    if (!signedUrl) {
-      return;
-    }
+    const description = this.state.desc;
     this.props.startImageUpload(this.state.image, title, description);
   },
 
@@ -50,7 +46,7 @@ export const UploadForm = React.createClass({
           <Dropzone onDrop={this.onDrop}>
             <div>Select a file to upload</div>
           </Dropzone>
-          {this.state.base64 ? <img src={this.state.base64} /> : null}
+          {this.state.image ? <img src={this.state.image} /> : null}
           <br />
           <br />
           <TextField
@@ -67,7 +63,7 @@ export const UploadForm = React.createClass({
             onChange={this.handleDescChange}
             /><br />
             <br />
-          <input type="submit" class="submit-button" />
+            <input type="submit" class="submit-button" disabled={this.state.isUploadingImage} />
       </form>
     )
   }

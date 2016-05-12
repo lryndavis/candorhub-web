@@ -2,7 +2,7 @@ import React from 'react';
 
 export default React.createClass({
   getImageUrl() {
-    return this.props.image.url || [];
+    return this.props.image.image || [];
   },
 
   getImageTitle() {
