@@ -25,15 +25,19 @@ export const UploadForm = React.createClass({
 
   onDrop(files) {
     this.setState({files: files})
+    console.log(files[0])
+    let reader = new FileReader();
+    reader.onloadend = () => {
+      this.setState({image: reader.result});
+    }
+    reader.readAsDataURL(files[0]);
   },
 
   handleSubmit(e) {
     e.preventDefault();
     const title = this.state.title;
-    const description = this.state.description;
-    const image = this.state.files[0];
-    this.props.startFileUpload(image);
-    console.log(title, image, description);
+    const description = this.state.desc;
+    this.props.startImageUpload(this.state.image, title, description);
   },
 
   render() {
@@ -42,9 +46,7 @@ export const UploadForm = React.createClass({
           <Dropzone onDrop={this.onDrop}>
             <div>Select a file to upload</div>
           </Dropzone>
-          {this.state.files.length > 0 ? <div>
-            {this.state.files.map((file) => <img src={file.preview} />)}</div>
-          : null }
+          {this.state.image ? <img src={this.state.image} /> : null}
           <br />
           <br />
           <TextField
@@ -61,7 +63,7 @@ export const UploadForm = React.createClass({
             onChange={this.handleDescChange}
             /><br />
             <br />
-          <input type="submit" class="submit-button" />
+            <input type="submit" class="submit-button" disabled={this.state.isUploadingImage} />
       </form>
     )
   }
@@ -69,7 +71,8 @@ export const UploadForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    uploadProgress: state.uploadProgress
+    uploadProgress: state.uploadProgress,
+    signedUrl: state.signedUrl
   }
 }
 
