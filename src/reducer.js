@@ -20,7 +20,11 @@ const initialState = {
     body: ''
   }],
   //image gallery
-  imageGallery: [],
+  imagesForGallery: [{
+    title: '',
+    image: '',
+    description: ''
+  }],
 };
 
 function setState(state, newState) {
@@ -69,7 +73,6 @@ export default function(state = initialState, action) {
       return commentSubmitted(state, action.responseJSON);
     case 'SET_QUESTIONS_FOR_COMMENT':
       return setQuestionsForComment(state, action.responseJSON);
-      //image gallery
     case 'SET_IMAGE_GALLERY':
       return setImageGallery(state, action.responseJSON);
     case 'HIDE_FORM':

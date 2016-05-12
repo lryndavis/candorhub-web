@@ -5,7 +5,6 @@ const randomImageEndpoint = apiRoot + "images?count=1";
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const uploadImageEndpoint = "";
-//image gallery
 const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
 
 export function setState(state) {
@@ -89,7 +88,6 @@ export function getMultipleImagesFromServer(state) {
   }
 }
 
-//image gallery
 export function setImageGallery(state, responseJSON) {
   return {
     type: 'SET_IMAGE_GALLERY',

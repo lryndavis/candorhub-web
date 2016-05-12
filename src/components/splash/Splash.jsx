@@ -1,9 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../action_creators';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+
 
 
 import {SignInContainer} from './SignIn';
