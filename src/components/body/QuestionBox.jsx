@@ -1,24 +1,33 @@
 import React from 'react';
 import CommentBox from './CommentBox';
+import QuestionList from './QuestionList';
+import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
+import NavigationArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
+
 
 export default React.createClass({
 
+  getInitialState: function() {
+    return { commentShow: false };
+    return { navArrowChange: false };
+  },
+
+  onClick: function() {
+    this.setState({ commentShow: !this.state.commentShow });
+    this.setState({ navArrowChange: !this.state.navArrowChange });
+  },
+
   render: function() {
-    let questions = this.props.imageForCritique.questions;
-    var questionList = questions.map(function(question) {
-      return (
-        <div className="individual-question-box">
-          <h2 key={question.id}>
-            {question.body}
-            <CommentBox question={question} />
-          </h2>
-        </div>
-      );
-    });
     return (
-      <div className="question-list">
-        {questionList}
+      <div className="individual-question-box">
+        <h3 className="question-body" key={this.props.question.id} onClick={ this.onClick }>
+          { this.state.navArrowChange ? <NavigationArrowDropUp /> : <NavigationArrowDropDown /> }
+          {this.props.question.body}
+        </h3>
+        <div>
+          { this.state.commentShow ? <CommentBox question={this.props.question} /> : null }
+        </div>
       </div>
-    );
-  }
-});
+      );
+    }
+  });

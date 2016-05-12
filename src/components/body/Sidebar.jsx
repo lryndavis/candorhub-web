@@ -10,13 +10,7 @@ const contentClearStyles = {
   marginTop: 10,
 };
 
-const imageDehazeStyles = {
-  marginRight: 800,
-  marginTop: -300,
-};
-
 export default class Sidebar extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {open: false};
@@ -31,7 +25,10 @@ export default class Sidebar extends React.Component {
   render() {
     return (
       <div>
-        <ImageDehaze style={imageDehazeStyles} onClick={this.handleToggle} />
+        <div className="dashboard-header">
+          <ImageDehaze onClick={this.handleToggle} />
+          <span className="main-logo-dashboard">candorhub</span>
+        </div>
         <Drawer
           docked={false}
           width={300}

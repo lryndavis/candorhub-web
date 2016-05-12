@@ -1,0 +1,36 @@
+// custom styles for the question + comment view
+
+.criticisms-header {
+  text-align: center;
+}
+
+.comment-list {
+  border-bottom: 1px solid grey;
+}
+
+.individual-comment-box {
+  margin-bottom: 20px;
+}
+
+.comment-body {
+  padding-left: 10px;
+  font-size: 1.1em;
+}
+
+.question-body {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.comment-meta {
+  margin-top: 10px;
+}
+
+.comment-date {
+  border-right: 1px solid black;
+  padding-right: 7px;
+}
+
+.comment-user {
+  padding-left: 7px;
+}
