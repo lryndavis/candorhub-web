@@ -2,6 +2,8 @@ import fetch from 'isomorphic-fetch';
 
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
+const specificImageEndpoint = apiRoot + "images/";
+
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const uploadImageEndpoint = "";
@@ -43,6 +45,22 @@ export function commentSubmitted(state, responseJSON) {
   }
 }
 
+export function setImageToCritique(state, responseJSON) {
+  return {
+    type: "SET_IMAGE_TO_CRITIQUE",
+    state,
+    responseJSON
+  };
+}
+
+export function setQuestionsForComment(state, responseJSON) {
+  return {
+    type: 'SET_QUESTIONS_FOR_COMMENT',
+    state,
+    responseJSON
+  }
+}
+
 export function postSubmitComment(state, body) {
   return function (dispatch) {
     return fetch(submitCommentEndpoint, {
@@ -57,17 +75,10 @@ export function postSubmitComment(state, body) {
     .then(responseJSON => {
       dispatch(commentSubmitted(state, responseJSON)),
       dispatch(hideForm(state)),
-      dispatch(displayComments(state))
+      dispatch(displayComments(state)),
+      dispatch(getSpecificImageFromServer(state, state.imageForCritique.id))
     });
   }
-}
-
-export function setImageToCritique(state, responseJSON) {
-  return {
-    type: "SET_IMAGE_TO_CRITIQUE",
-    state,
-    responseJSON
-  };
 }
 
 export function getRandomImageFromServer(state) {
@@ -78,11 +89,11 @@ export function getRandomImageFromServer(state) {
   }
 }
 
-export function setQuestionsForComment(state, responseJSON) {
-  return {
-    type: 'SET_QUESTIONS_FOR_COMMENT',
-    state,
-    responseJSON
+export function getSpecificImageFromServer(state, id) {
+  return function (dispatch) {
+    return fetch (specificImageEndpoint + id)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
   }
 }
 
