@@ -8,7 +8,7 @@ export default React.createClass({
     let questions = this.props.imageForCritique.questions;
     var questionRender = questions.map(function(question) {
       return (
-        <div>
+        <div key={question.id}>
           <QuestionBox question={question} />
         </div>
       );

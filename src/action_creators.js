@@ -2,10 +2,12 @@ import fetch from 'isomorphic-fetch';
 
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
+const specificImageEndpoint = apiRoot + "images/";
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const uploadImageEndpoint = "";
 const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
+const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
   return {
@@ -44,6 +46,22 @@ export function commentSubmitted(state, responseJSON) {
   }
 }
 
+export function setImageToCritique(state, responseJSON) {
+  return {
+    type: "SET_IMAGE_TO_CRITIQUE",
+    state,
+    responseJSON
+  };
+}
+
+export function setQuestionsForComment(state, responseJSON) {
+  return {
+    type: 'SET_QUESTIONS_FOR_COMMENT',
+    state,
+    responseJSON
+  }
+}
+
 export function postSubmitComment(state, body) {
   return function (dispatch) {
     return fetch(submitCommentEndpoint, {
@@ -58,17 +76,10 @@ export function postSubmitComment(state, body) {
     .then(responseJSON => {
       dispatch(commentSubmitted(state, responseJSON)),
       dispatch(hideForm(state)),
-      dispatch(displayComments(state))
+      dispatch(displayComments(state)),
+      dispatch(getSpecificImageFromServer(state, state.imageForCritique.id))
     });
   }
-}
-
-export function setImageToCritique(state, responseJSON) {
-  return {
-    type: "SET_IMAGE_TO_CRITIQUE",
-    state,
-    responseJSON
-  };
 }
 
 export function getRandomImageFromServer(state) {
@@ -79,6 +90,7 @@ export function getRandomImageFromServer(state) {
   }
 }
 
+<<<<<<< HEAD
 //image gallery
 export function getMultipleImagesFromServer(state) {
   return function (dispatch) {
@@ -101,6 +113,13 @@ export function setQuestionsForComment(state, responseJSON) {
     type: 'SET_QUESTIONS_FOR_COMMENT',
     state,
     responseJSON
+=======
+export function getSpecificImageFromServer(state, id) {
+  return function (dispatch) {
+    return fetch (specificImageEndpoint + id)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
+>>>>>>> 6dcdceaaf939df4bbbe7a1292087b57a9160fd1e
   }
 }
 
@@ -112,12 +131,36 @@ export function getQuestionsForComment(state) {
   }
 }
 
-export function startFileUpload(image) {
-  return function (dispatch) {
-    return fetch(uploadImageEndpoint, {
-      method: 'POST'
+export function startImageUpload(image, title, description) {
+  return (dispatch, getState) => {
+    const state = getState();
+    dispatch({type: 'IS_UPLOADING_IMAGE'})
+    const imageForUpload = {
+      image: {
+        image: image,
+        title: title,
+        description: description
+      }
+    }
+    return fetch(imageUploadEndpoint, {
+      method: 'POST',
+      headers: {
+        'ACCEPT': 'application/json',
+        'CONTENT_TYPE': 'application/json'
+      },
+      body: JSON.stringify(imageForUpload)
     })
     .then(response => response.json())
-    .then(responseJSON => dispatch(uploadImageToServer(state, responseJSON)));
+    .then(responseJSON => dispatch(finishedImageUpload(state, responseJSON)),
+                          dispatch({type: 'DONE_UPLOADING_IMAGE'}));
+  }
+}
+
+export function finishedImageUpload(state, responseJSON) {
+  console.log(responseJSON)
+  return {
+    type: "FINISHED_IMAGE_UPLOAD",
+    state,
+    responseJSON
   }
 }

@@ -5,18 +5,58 @@ import $ from 'jquery';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength, isValidComment} from '../../lib/CommentValidation';
+import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../lib/CommentValidation';
 
 import Critique from './Critique';
 import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import CritiqueImage from './CritiqueImage';
 import QuestionList from './QuestionList';
 
+//Status codes for comment status
+const WRONG_LENGTH = 11;
+const OFFENSIVE = 22;
+const NOT_CONSTRUCTIVE = 33;
+const OKAY = 44;
+const NOT_STARTED = 55;
+
+//Feedback for comment error hints
+const feedbackWrongLength = "Comments must be between 10 and 100 characters.";
+const feedbackOffensive = "This comment does not appear constructive due to its use of offensive language.";
+const feedbackNotConstructive = "This comment does not appear constructive due to its extreme negativity.";
+
 export const CommentForm = React.createClass ({
 
   getInitialState: function() {
-    return {username: '', firstResponse: '', secondResponse: '', thirdResponse: '',
-    firstResponseIsValid: "no", secondResponseIsValid: "no", thirdResponseIsValid: "no"};
+    return {username: '',
+      firstResponse: '',
+      secondResponse: '',
+      thirdResponse: '',
+      firstResponseStatus: NOT_STARTED,
+      secondResponseStatus: NOT_STARTED,
+      thirdResponseStatus: NOT_STARTED,
+      readyToSubmit: false
+    };
+  },
+
+  getErrorHint: function(status) {
+    switch(status) {
+      case WRONG_LENGTH: return feedbackWrongLength;
+      case OFFENSIVE: return feedbackOffensive;
+      case NOT_CONSTRUCTIVE: return feedbackNotConstructive;
+      default: return "";
+    }
+  },
+
+  setReadyToSubmit: function() {
+    console.log("in ready");
+    if (this.state.firstResponseStatus !== OKAY ||
+      this.state.secondResponseStatus !== OKAY ||
+      this.state.thirdResponseStatus !== OKAY) {
+      this.setState({readyToSubmit: false});
+    } else {
+      this.setState({readyToSubmit: true});
+    }
+    console.log(this.state.readyToSubmit);
   },
 
   componentDidMount: function() {
@@ -25,46 +65,70 @@ export const CommentForm = React.createClass ({
 
   handleFirstResponseChange: function(e) {
     this.setState({firstResponse: e.target.value});
-    if (isValidComment(e.target.value)) {
-      this.setState({firstResponseIsValid: "yes"});
+    if (!doesNotUseOffensiveLanguage(e.target.value)) {
+      this.setState({firstResponseStatus: OFFENSIVE});
+      this.setState({readyToSubmit: false});
+
+    } else if (!usesConstructiveLanguage(e.target.value)) {
+      this.setState({firstResponseStatus: NOT_CONSTRUCTIVE});
+      this.setState({readyToSubmit: false});
+
+    } else if (!isCorrectLength(e.target.value)) {
+      this.setState({firstResponseStatus: WRONG_LENGTH});
+      this.setState({readyToSubmit: false});
+
     } else {
-      if (!doesNotUseOffensiveLanguage(e.target.value)) {
-        this.setState({firstResponseIsValid: "offensive word"});
-      } else if (!usesConstructiveLanguage(e.target.value)) {
-        this.setState({firstResponseIsValid: "This may not be useful commentary."});
-      } else if (!isCorrectLength(e.target.value)) {
-        this.setState({firstResponseIsValid: "wrong length"});
+      this.setState({firstResponseStatus: OKAY});
+      if (this.state.secondResponseStatus === OKAY && this.state.thirdResponseStatus === OKAY) {
+        this.setState({readyToSubmit: true});
       }
     }
   },
+
   handleSecondResponseChange: function(e) {
     this.setState({secondResponse: e.target.value});
-    if (isValidComment(e.target.value)) {
-      this.setState({secondResponseIsValid: "yes"});
+    if (!doesNotUseOffensiveLanguage(e.target.value)) {
+      this.setState({secondResponseStatus: OFFENSIVE});
+      this.setState({readyToSubmit: false});
+
+    } else if (!usesConstructiveLanguage(e.target.value)) {
+      this.setState({secondResponseStatus: NOT_CONSTRUCTIVE});
+      this.setState({readyToSubmit: false});
+
+    } else if (!isCorrectLength(e.target.value)) {
+      this.setState({secondResponseStatus: WRONG_LENGTH});
+      this.setState({readyToSubmit: false});
+
     } else {
-      if (!doesNotUseOffensiveLanguage(e.target.value)) {
-        this.setState({secondResponseIsValid: "offensive word"});
-      } else if (!usesConstructiveLanguage(e.target.value)) {
-        this.setState({secondResponseIsValid: "This may not be useful commentary."});
-      } else if (!isCorrectLength(e.target.value)) {
-        this.setState({secondResponseIsValid: "wrong length"});
+      this.setState({secondResponseStatus: OKAY});
+      if (this.state.firstResponseStatus === OKAY && this.state.thirdResponseStatus === OKAY) {
+        this.setState({readyToSubmit: true});
       }
     }
   },
+
   handleThirdResponseChange: function(e) {
     this.setState({thirdResponse: e.target.value});
-    if (isValidComment(e.target.value)) {
-      this.setState({thirdResponseIsValid: "yes"});
+    if (!doesNotUseOffensiveLanguage(e.target.value)) {
+      this.setState({thirdResponseStatus: OFFENSIVE});
+      this.setState({readyToSubmit: false});
+
+    } else if (!usesConstructiveLanguage(e.target.value)) {
+      this.setState({thirdResponseStatus: NOT_CONSTRUCTIVE});
+      this.setState({readyToSubmit: false});
+
+    } else if (!isCorrectLength(e.target.value)) {
+      this.setState({thirdResponseStatus: WRONG_LENGTH});
+      this.setState({readyToSubmit: false});
+
     } else {
-      if (!doesNotUseOffensiveLanguage(e.target.value)) {
-        this.setState({thirdResponseIsValid: "offensive word"});
-      } else if (!usesConstructiveLanguage(e.target.value)) {
-        this.setState({thirdResponseIsValid: "This may not be useful commentary."});
-      } else if (!isCorrectLength(e.target.value)) {
-        this.setState({thirdResponseIsValid: "wrong length"});
+      this.setState({thirdResponseStatus: OKAY});
+      if (this.state.firstResponseStatus === OKAY && this.state.secondResponseStatus === OKAY) {
+        this.setState({readyToSubmit: true});
       }
     }
   },
+
   handleSubmit: function(e) {
     e.preventDefault();
     var firstResponse = this.state.firstResponse;
@@ -87,7 +151,7 @@ export const CommentForm = React.createClass ({
           "body": thirdResponse.toString()
         }]
       };
-    this.props.postSubmitComment(this.props.state, body);
+    this.props.postSubmitComment(body);
   },
 
   render: function() {
@@ -99,34 +163,46 @@ export const CommentForm = React.createClass ({
             <p className="question-body">{this.props.firstQuestion.body}</p>
             <TextField
               hintText="Your Critique"
+              errorText={this.getErrorHint(this.state.firstResponseStatus)}
               value={this.state.firstResponse}
               onChange={this.handleFirstResponseChange}
               fullWidth={true}
               multiLine={true}
             /><br />
             <br />
+<<<<<<< HEAD
             <p>Valid Comment? {this.state.firstResponseIsValid}</p>
             <p className="question-body">{this.props.secondQuestion.body}</p>
+=======
+            <p>{this.props.secondQuestion.body}</p>
+>>>>>>> 6dcdceaaf939df4bbbe7a1292087b57a9160fd1e
             <TextField
               hintText="Your Critique"
+              errorText={this.getErrorHint(this.state.secondResponseStatus)}
               value={this.state.secondResponse}
               onChange={this.handleSecondResponseChange}
               fullWidth={true}
               multiLine={true}
             /><br />
             <br />
+<<<<<<< HEAD
             <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
             <p className="question-body">{this.props.thirdQuestion.body}</p>
+=======
+            <p>{this.props.thirdQuestion.body}</p>
+>>>>>>> 6dcdceaaf939df4bbbe7a1292087b57a9160fd1e
             <TextField
               hintText="Your Critique"
+              errorText={this.getErrorHint(this.state.thirdResponseStatus)}
               value={this.state.thirdResponse}
               onChange={this.handleThirdResponseChange}
               fullWidth={true}
               multiLine={true}
             /><br />
             <br />
-            <p>Valid Comment? {this.state.thirdResponseIsValid.toString()}</p>
-            <input type="submit" value="Post" className="submit-button"/>
+            <button type="submit"
+              className="submit-button"
+              disabled={!this.state.readyToSubmit}>Post</button>
           </form> :
           <div>
             <QuestionList imageForCritique={this.props.imageForCritique}/>
@@ -145,8 +221,7 @@ function mapStateToProps(state) {
     secondQuestion: state.questionsForComment[1],
     thirdQuestion: state.questionsForComment[2],
     showForm: state.showCommentForm,
-    displayComments: state.displayComments,
-    state: state
+    displayComments: state.displayComments
   };
 }
 

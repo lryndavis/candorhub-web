@@ -6,8 +6,10 @@ const initialState = {
   displayComments: false,
   imageForCritique: {
     title: '',
-    url: '',
-    description: ''
+    description: '',
+    image: {
+      image: ''
+    }
   },
   questionsForComment: [{
     id: 0,
@@ -36,7 +38,13 @@ function signIn(state) {
 }
 
 function setImageToCritique(state, responseJSON) {
-  return { ...state, imageForCritique: responseJSON.images[0]};
+  if (responseJSON.images) {
+    //handle getting an image from an array
+    return { ...state, imageForCritique: responseJSON.images[0]};
+  } else if (responseJSON.image) {
+    //handle getting a specific image
+    return { ...state, imageForCritique: responseJSON.image};
+  }
 }
 
 function setQuestionsForComment(state, responseJSON) {
@@ -61,6 +69,14 @@ function displayComments(state) {
   return { ...state, displayComments: true};
 }
 
+function isUploadingImage(state) {
+  return { ...state,  isUploadingImage: true }
+}
+
+function doneUploadingImage(state) {
+  return { ...state, isUploadingImage: false }
+}
+
 export default function(state = initialState, action) {
   switch (action.type) {
     case 'SET_STATE':
@@ -79,6 +95,12 @@ export default function(state = initialState, action) {
       return hideForm(state);
     case 'DISPLAY_COMMENTS':
       return displayComments(state);
+    case 'SET_SIGNED_URL':
+      return setSignedUrl(state, action.responseJSON);
+    case 'IS_UPLOADING_IMAGE':
+      return isUploadingImage(state);
+    case 'DONE_UPLOADING_IMAGE':
+      return doneUploadingImage(state);
     }
   return state;
 }
