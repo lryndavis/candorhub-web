@@ -5,6 +5,8 @@ const randomImageEndpoint = apiRoot + "images?count=1";
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const uploadImageEndpoint = "";
+//image gallery
+const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
 
 export function setState(state) {
   return {
@@ -75,6 +77,24 @@ export function getRandomImageFromServer(state) {
     return fetch(randomImageEndpoint)
     .then(response => response.json())
     .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
+  }
+}
+
+//image gallery
+export function getMultipleImagesFromServer(state) {
+  return function (dispatch) {
+    return fetch(multipleRandomImagesEndpoint)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setImageGallery(state, responseJSON)));
+  }
+}
+
+//image gallery
+export function setImageGallery(state, responseJSON) {
+  return {
+    type: 'SET_IMAGE_GALLERY',
+    state,
+    responseJSON
   }
 }
 

@@ -95,8 +95,8 @@ export const CommentForm = React.createClass ({
       {
         this.props.showForm ?
           <form className="commentForm" onSubmit={this.handleSubmit}>
-            <h1>Your Daily Candor</h1>
-            <p>{this.props.firstQuestion.body}</p>
+            <h2 className="daily-candor-heading">Your Daily Candor</h2>
+            <p className="question-body">{this.props.firstQuestion.body}</p>
             <TextField
               hintText="Your Critique"
               value={this.state.firstResponse}
@@ -106,7 +106,7 @@ export const CommentForm = React.createClass ({
             /><br />
             <br />
             <p>Valid Comment? {this.state.firstResponseIsValid}</p>
-            <p>{this.props.secondQuestion.body}</p>
+            <p className="question-body">{this.props.secondQuestion.body}</p>
             <TextField
               hintText="Your Critique"
               value={this.state.secondResponse}
@@ -116,7 +116,7 @@ export const CommentForm = React.createClass ({
             /><br />
             <br />
             <p>Valid Comment? {this.state.secondResponseIsValid.toString()}</p>
-            <p>{this.props.thirdQuestion.body}</p>
+            <p className="question-body">{this.props.thirdQuestion.body}</p>
             <TextField
               hintText="Your Critique"
               value={this.state.thirdResponse}
