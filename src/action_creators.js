@@ -6,7 +6,7 @@ const specificImageEndpoint = apiRoot + "images/";
 
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
-const uploadImageEndpoint = "";
+const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
   return {
@@ -105,12 +105,36 @@ export function getQuestionsForComment(state) {
   }
 }
 
-export function startFileUpload(image) {
-  return function (dispatch) {
-    return fetch(uploadImageEndpoint, {
-      method: 'POST'
+export function startImageUpload(image, title, description) {
+  return (dispatch, getState) => {
+    const state = getState();
+    dispatch({type: 'IS_UPLOADING_IMAGE'})
+    const imageForUpload = {
+      image: {
+        image: image,
+        title: title,
+        description: description
+      }
+    }
+    return fetch(imageUploadEndpoint, {
+      method: 'POST',
+      headers: {
+        'ACCEPT': 'application/json',
+        'CONTENT_TYPE': 'application/json'
+      },
+      body: JSON.stringify(imageForUpload)
     })
     .then(response => response.json())
-    .then(responseJSON => dispatch(uploadImageToServer(state, responseJSON)));
+    .then(responseJSON => dispatch(finishedImageUpload(state, responseJSON)),
+                          dispatch({type: 'DONE_UPLOADING_IMAGE'}));
+  } 
+}
+
+export function finishedImageUpload(state, responseJSON) {
+  console.log(responseJSON)
+  return {
+    type: "FINISHED_IMAGE_UPLOAD",
+    state,
+    responseJSON
   }
 }
