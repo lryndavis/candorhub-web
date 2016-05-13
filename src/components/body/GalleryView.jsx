@@ -8,7 +8,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Sidebar from './Sidebar';
 import CritiqueImage from './CritiqueImage';
-
+import GalleryQuestionList from './GalleryQuestionList';
 
 export const GalleryView = React.createClass({
 
