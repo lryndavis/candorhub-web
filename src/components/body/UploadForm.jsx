@@ -26,6 +26,10 @@ export const UploadForm = React.createClass({
     return {imageURL: '', title: '', description: '', files: []};
   },
 
+  componentDidMount() {
+    this.props.setState({uploadedImage: false});
+  },
+
   handleImageURLChange(e) {
     this.setState({image: e.target.value});
   },
@@ -40,7 +44,6 @@ export const UploadForm = React.createClass({
 
   onDrop(files) {
     this.setState({files: files})
-    console.log(files[0])
     let reader = new FileReader();
     reader.onloadend = () => {
       this.setState({image: reader.result});
@@ -59,16 +62,19 @@ export const UploadForm = React.createClass({
       alert("This file type is not allowed!");
     } else {
       this.props.startImageUpload(this.state.image, title, description);
-      this.setState(this.getInitialState());
+      this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true});
     }
   },
 
   render() {
-    console.log(this.props.isUploadingImage);
     return (
       <form className='uploadForm' onSubmit={this.handleSubmit}>
-          {this.props.isUploadingImage ?
-            <CircularProgress size={2} /> :
+        {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
+          <div>
+            <CircularProgress size={2} />
+            <p>Uploading your masterpiece...</p>
+          </div> :
+          <p>All done with your upload!</p>) :
             <Dropzone
               onDrop={this.onDrop}
               accept="image/*">
@@ -79,9 +85,6 @@ export const UploadForm = React.createClass({
             </Dropzone>
           }
 
-          {this.props.isUploadingImage ?
-            <h1>Loading</h1> :
-            <h2>not loading</h2>}
           <br />
           <br />
           <TextField
@@ -106,8 +109,9 @@ export const UploadForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    isUploadingImage: state.isUploadingImage
-  }
+    isUploadingImage: state.isUploadingImage,
+    finishedImageUpload: state.finishedImageUpload
+  };
 }
 
 export const UploadFormContainer = connect(
