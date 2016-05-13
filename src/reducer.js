@@ -28,6 +28,11 @@ const initialState = {
     image: '',
     description: ''
   }],
+  imageById: {
+    title: '',
+    description: '',
+    image: ''
+  },
 };
 
 function setState(state, newState) {
@@ -46,6 +51,11 @@ function setImageToCritique(state, responseJSON) {
     //handle getting a specific image
     return { ...state, imageForCritique: responseJSON.image};
   }
+}
+
+//get specific image for gallery view
+function setImageById(state, responseJSON) {
+  return {...state, imageById: responseJSON.image};
 }
 
 function setQuestionsForComment(state, responseJSON) {
@@ -94,6 +104,8 @@ export default function(state = initialState, action) {
       return setQuestionsForComment(state, action.responseJSON);
     case 'SET_IMAGE_GALLERY':
       return setImageGallery(state, action.responseJSON);
+    case 'SET_IMAGE_BY_ID':
+      return setImageById(state, action.responseJSON);
     case 'HIDE_FORM':
       return hideForm(state);
     case 'DISPLAY_COMMENTS':

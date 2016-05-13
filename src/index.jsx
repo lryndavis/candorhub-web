@@ -15,7 +15,7 @@ import {CritiqueContainer} from './components/body/Critique';
 import {SignInContainer} from './components/splash/SignIn';
 import {Splash} from './components/splash/Splash';
 import {GalleryContainer} from './components/body/Gallery';
-import {GalleryView} from './components/body/GalleryView';
+import {GalleryViewContainer} from './components/body/GalleryView';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -25,7 +25,7 @@ const routes = (
     <Route path='/' component={Splash} />
     <Route path='/critique' component={CritiqueContainer} />
     <Route path='gallery' component={GalleryContainer} />
-    <Route path="/gallery/:id" component={GalleryView} />
+    <Route path="/gallery/:id" component={GalleryViewContainer} />
   </Route>
 );
 

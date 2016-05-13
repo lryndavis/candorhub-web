@@ -10,7 +10,8 @@ export default React.createClass({
     var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
     return (
       <div key={image.id}>
-        <Link to={`/gallery/${image.id}`}>
+        <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
+
           <GalleryThumbnail image={image} />
         </Link>
       </div>
@@ -24,3 +25,6 @@ export default React.createClass({
     );
   }
 });
+
+        //
+        // <Link to={`/gallery/${image.id}`}>
