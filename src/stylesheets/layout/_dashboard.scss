@@ -17,3 +17,15 @@
 .critiqueImageTitle {
   font-size: 1.8em;
 }
+
+@media screen and (min-width: 400px) {
+  .critiqueImageTag{
+    width: 100%;
+  }
+  .image-info-container {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #696969;
+  }
+}

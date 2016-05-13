@@ -1,9 +1,5 @@
 //custom styles for the sidebar
 
-body{
-  background: #f6f6f6;
-}
-
 .main-logo-dashboard {
   font-family: 'Montserrat';
   font-size: 2.8em;
@@ -21,4 +17,14 @@ body{
 
 .logout-button{
   flex-basis: 1;
+}
+
+@media screen and (max-width: 550px) {
+  .logout-button{
+    display: none;
+  }
+  .main-logo-dashboard{
+    order: -1;
+    margin-left: 0;
+  }
 }
