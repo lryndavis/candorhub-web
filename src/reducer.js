@@ -30,7 +30,15 @@ const initialState = {
   imageById: {
     title: '',
     description: '',
-    image: ''
+    image: '',
+    questions: [{
+      id: '',
+      body: '',
+      comments: [{
+        id: '',
+        body: ''
+      }],
+    }],
   },
 };
 
