@@ -62,8 +62,9 @@ export function setQuestionsForComment(state, responseJSON) {
   }
 }
 
-export function postSubmitComment(state, body) {
-  return function (dispatch) {
+export function postSubmitComment(body) {
+  return function (dispatch, getState) {
+    const state = getState();
     return fetch(submitCommentEndpoint, {
       method: 'POST',
       headers: {
