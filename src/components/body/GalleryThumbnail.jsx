@@ -18,11 +18,16 @@ export default React.createClass({
     return this.props.image.description || [];
   },
 
+  getImageId() {
+    return this.props.image.id || [];
+  },
+
   render: function(){
-    return <div className="gallery-thumbnail col-md-6">
+    return <div key={this.getImageId()} className="gallery-thumbnail col-md-6">
         <img className="gallery-img" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
         <p>{this.getImageTitle()}</p>
         <p>{this.getImageDescription()}</p>
+        <h1>{this.getImageId()}</h1>
       </div>;
     }
   })

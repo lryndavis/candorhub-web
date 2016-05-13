@@ -24,8 +24,9 @@ const routes = (
   <Route component={App}>
     <Route path='/' component={Splash} />
     <Route path='/critique' component={CritiqueContainer} />
-    <Route path='/gallery' component={GalleryContainer} />
-    <Route path='/galleryview' component={GalleryView} />
+    <Route path='gallery' component={GalleryContainer}>
+      <Route path="/gallery/:id" component={GalleryView} />
+    </Route>
   </Route>
 );
 

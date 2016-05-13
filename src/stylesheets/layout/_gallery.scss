@@ -1,5 +1,8 @@
 //custom styles for the image gallery
 
 .gallery-img {
-  width: 85%;
+  object-fit: cover;
+  height: 400px;
+  width: 600px;
+  display: block;
 }

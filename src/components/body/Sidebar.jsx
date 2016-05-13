@@ -5,6 +5,7 @@ import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
 import UploadFormModal from './UploadFormModal';
 import Gallery from './Gallery';
+import GalleryView from './GalleryView';
 import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {connect} from 'react-redux';
