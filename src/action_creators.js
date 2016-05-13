@@ -55,6 +55,15 @@ export function setImageToCritique(state, responseJSON) {
   };
 }
 
+//get image for image gallery view
+export function setImageById(state, responseJSON) {
+  return {
+    type: "SET_IMAGE_BY_ID",
+    state,
+    responseJSON
+  };
+}
+
 export function setQuestionsForComment(state, responseJSON) {
   return {
     type: 'SET_QUESTIONS_FOR_COMMENT',
@@ -62,6 +71,23 @@ export function setQuestionsForComment(state, responseJSON) {
     responseJSON
   }
 }
+
+export function setImageGallery(state, responseJSON) {
+  return {
+    type: 'SET_IMAGE_GALLERY',
+    state,
+    responseJSON
+  }
+}
+
+export function setQuestionsForComment(state, responseJSON) {
+  return {
+    type: 'SET_QUESTIONS_FOR_COMMENT',
+    state,
+    responseJSON
+  }
+}
+
 
 export function postSubmitComment(body) {
   return function (dispatch, getState) {
@@ -101,27 +127,23 @@ export function getMultipleImagesFromServer(state) {
   }
 }
 
-export function setImageGallery(state, responseJSON) {
-  return {
-    type: 'SET_IMAGE_GALLERY',
-    state,
-    responseJSON
-  }
-}
 
-export function setQuestionsForComment(state, responseJSON) {
-  return {
-    type: 'SET_QUESTIONS_FOR_COMMENT',
-    state,
-    responseJSON
-  }
-}
-
+//get specific image for critique
 export function getSpecificImageFromServer(state, id) {
   return function (dispatch) {
     return fetch (specificImageEndpoint + id)
     .then(response => response.json())
     .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
+  }
+}
+
+//get specific image for gallery view
+export function getImageFromServerById(id) {
+  return function(dispatch, getState) {
+    const state = getState();
+    return fetch (specificImageEndpoint + id)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setImageById(state, responseJSON)));
   }
 }
 
