@@ -51,7 +51,7 @@ describe("UploadForm", () => {
         value: "My Description"
       }
     });
-    expect(instance.state.desc).to.equal("My Description");
+    expect(instance.state.description).to.equal("My Description");
   });
 
   it("updates state and renders preview on file drop", () => {
