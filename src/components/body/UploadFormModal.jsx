@@ -30,9 +30,9 @@ export default class DialogExampleModal extends React.Component {
     const actions = [
       <button
         className="sign-up-button"
-        label="Upload"
+        label="CLOSE"
         primary={true}
-        onClick={this.handleClose}>Upload
+        onClick={this.handleClose}>CLOSE
       </button>
     ];
 

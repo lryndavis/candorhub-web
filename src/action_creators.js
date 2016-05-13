@@ -3,9 +3,10 @@ import fetch from 'isomorphic-fetch';
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
 const specificImageEndpoint = apiRoot + "images/";
-
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
+const uploadImageEndpoint = "";
+const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
 const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
@@ -86,6 +87,31 @@ export function getRandomImageFromServer(state) {
     return fetch(randomImageEndpoint)
     .then(response => response.json())
     .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
+  }
+}
+
+//image gallery
+export function getMultipleImagesFromServer(state) {
+  return function (dispatch) {
+    return fetch(multipleRandomImagesEndpoint)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setImageGallery(state, responseJSON)));
+  }
+}
+
+export function setImageGallery(state, responseJSON) {
+  return {
+    type: 'SET_IMAGE_GALLERY',
+    state,
+    responseJSON
+  }
+}
+
+export function setQuestionsForComment(state, responseJSON) {
+  return {
+    type: 'SET_QUESTIONS_FOR_COMMENT',
+    state,
+    responseJSON
   }
 }
 

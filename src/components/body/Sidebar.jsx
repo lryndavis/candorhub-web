@@ -4,6 +4,10 @@ import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
 import UploadFormModal from './UploadFormModal';
+import Gallery from './Gallery';
+import {Link} from 'react-router';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import {connect} from 'react-redux';
 
 const contentClearStyles = {
   marginLeft: 250,
@@ -37,7 +41,13 @@ export default class Sidebar extends React.Component {
           >
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
           <MenuItem a href="/">Home</MenuItem>
-          <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
+          <MenuItem>
+            <Link ref="gallery"
+              className="gallery-link"
+              to={'/gallery'}>
+              Gallery
+            </Link>
+          </MenuItem>
           <MenuItem>
             <UploadFormModal />
           </MenuItem>

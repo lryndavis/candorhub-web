@@ -147,8 +147,8 @@ export const CommentForm = React.createClass ({
       {
         this.props.showForm ?
           <form className="commentForm" onSubmit={this.handleSubmit}>
-            <h1>Your Daily Candor</h1>
-            <p>{this.props.firstQuestion.body}</p>
+            <h2 className="daily-candor-heading">Your Daily Candor</h2>
+            <p className="question-body">{this.props.firstQuestion.body}</p>
             <TextField
               hintText="Your Critique"
               errorText={this.getErrorHint(this.state.firstResponseStatus)}
