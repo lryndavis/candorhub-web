@@ -1,6 +1,7 @@
 import React from 'react';
 // import Dialog from 'material-ui/Dialog';
 import {FlatButton, RaisedButton, TextField} from 'material-ui';
+import CircularProgress from 'material-ui/CircularProgress';
 import Dropzone from 'react-dropzone';
 import * as actions from '../../../src/action_creators'
 import {connect} from 'react-redux';
@@ -51,16 +52,22 @@ export const UploadForm = React.createClass({
       alert("This file type is not allowed!");
     } else {
       this.props.startImageUpload(this.state.image, title, description);
+      this.setState(this.getInitialState());
     }
   },
 
   render() {
+    console.log(this.props.isUploadingImage);
     return (
       <form className='uploadForm' onSubmit={this.handleSubmit}>
-          <Dropzone onDrop={this.onDrop}>
-            <div>Select a file to upload</div>
-          </Dropzone>
-          {this.state.files.length > 0 ? <div>
+          {this.props.isUploadingImage ?
+            <CircularProgress size={2} /> :
+            <Dropzone onDrop={this.onDrop}>
+              <div>Select a file to upload</div>
+            </Dropzone>
+          }
+
+          {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
             {this.state.files.map((file) => <img src={this.state.image} key={file.name}/>)}</div>
           : null }
           <br />
@@ -79,7 +86,7 @@ export const UploadForm = React.createClass({
             onChange={this.handleDescChange}
             /><br />
             <br />
-            <input type="submit" class="submit-button" disabled={this.state.isUploadingImage} />
+            <input type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
       </form>
     )
   }
@@ -87,8 +94,7 @@ export const UploadForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    uploadProgress: state.uploadProgress,
-    signedUrl: state.signedUrl
+    isUploadingImage: state.isUploadingImage
   }
 }
 

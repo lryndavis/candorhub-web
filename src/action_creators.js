@@ -108,7 +108,7 @@ export function getQuestionsForComment(state) {
 export function startImageUpload(image, title, description) {
   return (dispatch, getState) => {
     const state = getState();
-    dispatch({type: 'IS_UPLOADING_IMAGE'})
+    dispatch({type: 'IS_UPLOADING_IMAGE', state})
     const imageForUpload = {
       image: {
         image: image,
@@ -126,8 +126,8 @@ export function startImageUpload(image, title, description) {
     })
     .then(response => response.json())
     .then(responseJSON => dispatch(finishedImageUpload(state, responseJSON)),
-                          dispatch({type: 'DONE_UPLOADING_IMAGE'}));
-  } 
+                          dispatch({type: 'DONE_UPLOADING_IMAGE', state}));
+  }
 }
 
 export function finishedImageUpload(state, responseJSON) {
