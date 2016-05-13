@@ -10,6 +10,7 @@ const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
 const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
+  console.log("In setState");
   return {
     type: 'SET_STATE',
     state
@@ -174,15 +175,15 @@ export function startImageUpload(image, title, description) {
       body: JSON.stringify(imageForUpload)
     })
     .then(response => response.json())
-    .then(responseJSON => dispatch(finishedImageUpload(state, responseJSON)),
+    .then(responseJSON => dispatch(onFinishedImageUpload(state, responseJSON)),
                           dispatch({type: 'DONE_UPLOADING_IMAGE', state}));
   }
 }
 
-export function finishedImageUpload(state, responseJSON) {
+export function onFinishedImageUpload(state, responseJSON) {
   console.log(responseJSON)
   return {
-    type: "FINISHED_IMAGE_UPLOAD",
+    type: "ON_FINISHED_IMAGE_UPLOAD",
     state,
     responseJSON
   }

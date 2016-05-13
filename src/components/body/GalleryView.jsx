@@ -10,12 +10,19 @@ import Sidebar from './Sidebar';
 import CritiqueImage from './CritiqueImage';
 import GalleryQuestionList from './GalleryQuestionList';
 
+<<<<<<< HEAD
 export const GalleryView = React.createClass({
 
 componentDidMount: function() {
   var id = this.props.params.id;
   this.props.getImageFromServerById(id);
 },
+=======
+export class GalleryView extends React.Component {
+  // constructor(props) {
+  //   // super(props);
+  // }
+>>>>>>> 26e8dbbc888727b7b6ecba5bc70453491b4b1d8a
 
   render() {
     return (

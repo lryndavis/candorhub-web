@@ -2,8 +2,8 @@
 
 .gallery-img {
   object-fit: cover;
-  height: 300px;
-  width: 500px;
+  height: 400px;
+  width: 100%;
   display: block;
   margin: 7px;
 }
@@ -14,9 +14,14 @@
 }
 
 .gallery-header {
-  margin-bottom: 15px;
+  margin: 25px 15px;
+  font-size: 2em;
 }
 
 .image-gallery {
   text-align: left;
+}
+.image-gallery-title {
+  font-size: 1.5em;
+  margin: 15px 0;
 }

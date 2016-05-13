@@ -13,10 +13,21 @@ const ALLOWED_FILE_TYPES = [
   'image/gif',
   'image/jpeg'];
 
+const customContentStyle = {
+  width: '150px',
+  height: '150px',
+  display: 'block',
+  margin: 'auto'
+}
+
 //Change class names to suit styling for this page....
 export const UploadForm = React.createClass({
   getInitialState() {
     return {imageURL: '', title: '', description: '', files: []};
+  },
+
+  componentDidMount() {
+    this.props.setState({uploadedImage: false});
   },
 
   handleImageURLChange(e) {
@@ -33,7 +44,6 @@ export const UploadForm = React.createClass({
 
   onDrop(files) {
     this.setState({files: files})
-    console.log(files[0])
     let reader = new FileReader();
     reader.onloadend = () => {
       this.setState({image: reader.result});
@@ -52,24 +62,29 @@ export const UploadForm = React.createClass({
       alert("This file type is not allowed!");
     } else {
       this.props.startImageUpload(this.state.image, title, description);
-      this.setState(this.getInitialState());
+      this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true});
     }
   },
 
   render() {
-    console.log(this.props.isUploadingImage);
     return (
       <form className='uploadForm' onSubmit={this.handleSubmit}>
-          {this.props.isUploadingImage ?
-            <CircularProgress size={2} /> :
-            <Dropzone onDrop={this.onDrop}>
+        {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
+          <div>
+            <CircularProgress size={2} />
+            <p>Uploading your masterpiece...</p>
+          </div> :
+          <p>All done with your upload!</p>) :
+            <Dropzone
+              onDrop={this.onDrop}
+              accept="image/*">
               <div>Select a file to upload</div>
+                {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
+                  {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
+                : null }
             </Dropzone>
           }
 
-          {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
-            {this.state.files.map((file) => <img src={this.state.image} key={file.name}/>)}</div>
-          : null }
           <br />
           <br />
           <TextField
@@ -94,8 +109,9 @@ export const UploadForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    isUploadingImage: state.isUploadingImage
-  }
+    isUploadingImage: state.isUploadingImage,
+    finishedImageUpload: state.finishedImageUpload
+  };
 }
 
 export const UploadFormContainer = connect(

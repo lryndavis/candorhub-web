@@ -11,7 +11,6 @@ const initialState = {
       image: ''
     }
   },
-  isUploadingImage: false,
   questionsForComment: [{
     id: 0,
     body: ''
@@ -81,12 +80,10 @@ function displayComments(state) {
 }
 
 function isUploadingImage(state) {
-  console.log("isUploadingImage");
   return { ...state,  isUploadingImage: true }
 }
 
 function doneUploadingImage(state) {
-  console.log("doneUploadingImage");
   return { ...state, isUploadingImage: false }
 }
 
@@ -116,6 +113,8 @@ export default function(state = initialState, action) {
       return isUploadingImage(state);
     case 'DONE_UPLOADING_IMAGE':
       return doneUploadingImage(state);
+    case 'ON_FINISHED_IMAGE_UPLOAD':
+      return setState(state, {finishedImageUpload: true});
     }
   return state;
 }

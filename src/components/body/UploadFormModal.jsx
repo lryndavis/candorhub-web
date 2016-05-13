@@ -9,8 +9,7 @@ import {UploadFormContainer} from './UploadForm';
  */
 
  const customContentStyle = {
-   width: '100%',
-   maxWidth: 'none',
+   maxWidth: '900px',
  };
 
 export default class DialogExampleModal extends React.Component {
