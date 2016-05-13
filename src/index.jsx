@@ -14,15 +14,18 @@ import App from './components/App';
 import {CritiqueContainer} from './components/body/Critique';
 import {SignInContainer} from './components/splash/SignIn';
 import {Splash} from './components/splash/Splash';
+import {GalleryContainer} from './components/body/Gallery';
+import {GalleryView} from './components/body/GalleryView';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
 //Routing table
-
 const routes = (
   <Route component={App}>
     <Route path='/' component={Splash} />
-    <Route path="/critique" component={CritiqueContainer} />
+    <Route path='/critique' component={CritiqueContainer} />
+    <Route path='/gallery' component={GalleryContainer} />
+    <Route path='/galleryview' component={GalleryView} />
   </Route>
 );
 

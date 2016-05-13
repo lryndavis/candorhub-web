@@ -20,7 +20,13 @@ const initialState = {
   }, {
     id: 0,
     body: ''
-  }]
+  }],
+  //image gallery
+  imagesForGallery: [{
+    title: '',
+    image: '',
+    description: ''
+  }],
 };
 
 function setState(state, newState) {
@@ -43,6 +49,12 @@ function setImageToCritique(state, responseJSON) {
 
 function setQuestionsForComment(state, responseJSON) {
   return { ...state, questionsForComment: responseJSON.questions};
+}
+
+//image gallery
+
+function setImageGallery(state, responseJSON) {
+  return { ...state, imagesForGallery: responseJSON.images};
 }
 
 function commentSubmitted(state, responseJSON) {
@@ -77,6 +89,8 @@ export default function(state = initialState, action) {
       return commentSubmitted(state, action.responseJSON);
     case 'SET_QUESTIONS_FOR_COMMENT':
       return setQuestionsForComment(state, action.responseJSON);
+    case 'SET_IMAGE_GALLERY':
+      return setImageGallery(state, action.responseJSON);
     case 'HIDE_FORM':
       return hideForm(state);
     case 'DISPLAY_COMMENTS':
