@@ -2,9 +2,9 @@
 
 .gallery-img {
   object-fit: cover;
-  height: 300px;
-  width: 500px;
-  display: block;
+  height: 400px;
+  width: 100%;
+  display: block
 }
 
 .dashboard-header {
@@ -13,9 +13,19 @@
 }
 
 .gallery-header {
-  margin-bottom: 15px;
+  margin: 25px 0;
+  font-size: 2em;
 }
 
 .image-gallery {
   text-align: left;
+}
+.image-gallery-title {
+  font-size: 1.5em;
+  margin: 15px 0;
+}
+
+.gallery-thumbnail{
+  padding: 0;
+  margin: 0;
 }

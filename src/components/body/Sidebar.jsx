@@ -33,6 +33,7 @@ export default class Sidebar extends React.Component {
         <div className="dashboard-header">
           <ImageDehaze onClick={this.handleToggle} />
           <span className="main-logo-dashboard">candorhub</span>
+          <span className="logout-button">Logout</span>
         </div>
         <Drawer
           docked={false}

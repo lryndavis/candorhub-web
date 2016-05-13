@@ -1,12 +1,24 @@
 //custom styles for the sidebar
 
+body{
+  background: #f6f6f6;
+}
+
 .main-logo-dashboard {
   font-family: 'Montserrat';
   font-size: 2.8em;
   margin-left: 20px;
+  flex-grow: 2;
 }
 
 .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.logout-button{
+  flex-basis: 1;
 }
