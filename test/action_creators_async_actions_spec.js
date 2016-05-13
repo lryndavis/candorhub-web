@@ -94,31 +94,11 @@ describe('action_creators', () => {
                     body: "What!"
                   }
                 });
-
-    const expectedActions = [
-      {
-        type: 'COMMENT_SUBMITTED',
-        state: undefined,
-        responseJSON: {
-          comment: {
-                        id: 1,
-                        body: "What!"
-                      }
-        },
-      },
-      {
-        type: "HIDE_FORM",
-        state: undefined
-      },
-      {
-        type: "DISPLAY_COMMENTS",
-        state: undefined
-      }
-    ]
-
     return store.dispatch(actions.postSubmitComment())
       .then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()[0].type).to.equal("COMMENT_SUBMITTED");
+        expect(store.getActions()[1].type).to.equal("HIDE_FORM");
+        expect(store.getActions()[2].type).to.equal("DISPLAY_COMMENTS");
       });
   });
 });
