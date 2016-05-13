@@ -3,7 +3,12 @@ import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../action_creators';
 import $ from 'jquery';
-import GalleryImage from './GalleryImage';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import Sidebar from './Sidebar';
+import CritiqueImage from './CritiqueImage';
+
 
 export const GalleryView = React.createClass({
 
@@ -14,9 +19,13 @@ componentDidMount: function() {
 
   render() {
     return (
-      <div>
-        <h1>Test</h1>
-        <GalleryImage image={this.props.imageById} />
+      <div className="container">
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
+          <Sidebar />
+        </MuiThemeProvider>
+        <div className="col-md-8 image-info-container">
+          <CritiqueImage image={this.props.imageById} />
+        </div>
       </div>
     );
   }
