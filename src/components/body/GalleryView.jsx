@@ -3,9 +3,9 @@ import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
 
 export class GalleryView extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   // super(props);
+  // }
 
   render() {
     return (
