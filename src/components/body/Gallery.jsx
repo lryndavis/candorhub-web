@@ -10,7 +10,6 @@ import CritiqueNotSignedIn from './CritiqueNotSignedIn';
 import GalleryList from './GalleryList';
 
 
-
 export const Gallery = React.createClass({
 
   componentDidMount: function() {

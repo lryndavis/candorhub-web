@@ -13,10 +13,10 @@ import GalleryQuestionList from './GalleryQuestionList';
 
 export const GalleryView = React.createClass({
 
-  componentDidMount: function() {
-    var id = this.props.params.id;
-    this.props.getImageFromServerById(id);
-  },
+componentDidMount: function() {
+  var id = this.props.params.id;
+  this.props.getImageFromServerById(id);
+},
 
   render() {
     return (
@@ -24,8 +24,13 @@ export const GalleryView = React.createClass({
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Sidebar />
         </MuiThemeProvider>
-        <div className="col-md-8 image-info-container">
-          <CritiqueImage image={this.props.imageById} />
+        <div className="critique-container">
+          <div className="col-md-8 image-info-container">
+            <CritiqueImage image={this.props.imageById} />
+          </div>
+          <div className="col-md-4 comment-form-container">
+            <GalleryQuestionList imageById={this.props.imageById} />
+          </div>
         </div>
       </div>
     );
