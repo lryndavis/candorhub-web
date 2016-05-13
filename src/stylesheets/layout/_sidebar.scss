@@ -4,9 +4,27 @@
   font-family: 'Montserrat';
   font-size: 2.8em;
   margin-left: 20px;
+  flex-grow: 2;
 }
 
 .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.logout-button{
+  flex-basis: 1;
+}
+
+@media screen and (max-width: 990px) {
+  .logout-button{
+    display: none;
+  }
+  .main-logo-dashboard{
+    order: -1;
+    margin-left: 0;
+  }
 }

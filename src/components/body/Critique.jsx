@@ -27,6 +27,7 @@ export const Critique = React.createClass({
               <MuiThemeProvider muiTheme={getMuiTheme()}>
                 <Sidebar />
               </MuiThemeProvider>
+              <div className="critique-container">
               <div className="col-md-8 image-info-container">
                 <CritiqueImage image={this.props.imageForCritique} />
               </div>
@@ -34,6 +35,7 @@ export const Critique = React.createClass({
                 <MuiThemeProvider muiTheme={getMuiTheme()}>
                   <CommentFormContainer questionsForComment={this.props.questionsForComment} />
                 </MuiThemeProvider>
+              </div>
               </div>
             </div> :
             <CritiqueNotSignedIn />
