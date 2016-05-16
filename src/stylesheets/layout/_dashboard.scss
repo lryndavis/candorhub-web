@@ -1,4 +1,4 @@
-//custom styles for dashboard view
+//Main dashboard component styles and containers.
 
 .dashboard{
   margin-top: 30px;
@@ -9,30 +9,39 @@
   padding: 0;
 }
 
-.dashboard__comment-form-container{
-}
+.dashboard__comment-form-container{}
 
-//Other shown dashboard elements
+//Image component styles
 
-.critiqueImageTag {
+.critique-image{}
+
+.critique-image__image {
   width: 85%;
   margin-bottom: 20px;
 }
 
-.critiqueImageTitle {
+.critique-image__image-title {
   font-size: 1.8em;
+}
+
+.critique-image__image-desc {
+  max-width: 500px;
 }
 
 //media queries
 
 @media screen and (max-width: 990px) {
-  .critiqueImageTag{
-    width: 100%;
-  }
-  .image-info-container {
+  .dashboard__image-container {
     text-align: center;
     padding: 0;
     margin-bottom: 15px;
     border-bottom: 1px solid #696969;
+  }
+  .critique-image__image{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .critique-image__image-title {
+    font-size: 1.5em;
   }
 }

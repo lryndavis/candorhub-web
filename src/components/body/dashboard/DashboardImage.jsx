@@ -14,10 +14,10 @@ export default React.createClass({
   },
 
   render: function() {
-    return <div className="critiqueImage">
-        <img className="critiqueImageTag" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
-        <h1 className="critiqueImageTitle">{this.getImageTitle()}</h1>
-        <p className="critiqueImageDescription">{this.getImageDescription()}</p>
+    return <div className="critique-image">
+        <img className="critique-image__image" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
+        <h1 className="critique-image__image-title">{this.getImageTitle()}</h1>
+        <p className="critique-image__image-desc">{this.getImageDescription()}</p>
       </div>;
   }
 })
