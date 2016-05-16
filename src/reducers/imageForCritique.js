@@ -4,8 +4,9 @@ const initialState = {
     description: '',
     image: {
       image: ''
-    }
-  }  
+    },
+    questions: []
+  }
 }
 
 function setImageToCritique(state, responseJSON) {

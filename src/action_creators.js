@@ -92,6 +92,10 @@ export function setQuestionsForComment(state, responseJSON) {
 export function postSubmitComment(body) {
   return function (dispatch, getState) {
     const state = getState();
+    console.log("postSubmitComment");
+    console.log(state);
+    console.log(submitCommentEndpoint);
+    console.log(body);
     return fetch(submitCommentEndpoint, {
       method: 'POST',
       headers: {
@@ -105,7 +109,7 @@ export function postSubmitComment(body) {
       dispatch(commentSubmitted(state, responseJSON)),
       dispatch(hideForm(state)),
       dispatch(displayComments(state)),
-      dispatch(getSpecificImageFromServer(state, state.imageForCritique.id))
+      dispatch(getSpecificImageFromServer(state, state.imageForCritique.imageForCritique.id))
     });
   }
 }

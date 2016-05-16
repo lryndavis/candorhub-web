@@ -49,7 +49,7 @@ export const Dashboard = React.createClass({
 function mapStateToProps(state) {
   return {
     signedIn: state.signIn.signedIn,
-    imageForCritique: state.imageForCritique,
+    imageForCritique: state.imageForCritique.imageForCritique,
     questionsForComment: state.comments.questionsForComment
   };
 }

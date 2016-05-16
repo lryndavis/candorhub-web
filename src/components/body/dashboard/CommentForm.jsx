@@ -119,6 +119,8 @@ export const CommentForm = React.createClass ({
 
   handleSubmit: function(e) {
     e.preventDefault();
+    console.log("in comment form");
+    console.log(this.props.imageForCritique);
     var firstResponse = this.state.firstResponse;
     var secondResponse = this.state.secondResponse;
     var thirdResponse = this.state.thirdResponse;
@@ -127,7 +129,7 @@ export const CommentForm = React.createClass ({
     }
     //server request
     var body = {
-      "image_id": this.props.imageForCritique.id,
+      "image_id": this.props.imageForCritique.imageForCritique.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
           "body": firstResponse.toString()
@@ -138,7 +140,8 @@ export const CommentForm = React.createClass ({
           "question_id": this.props.questionsForComment[2].id,
           "body": thirdResponse.toString()
         }]
-      };
+    };
+    console.log(body);
     this.props.postSubmitComment(body);
   },
 

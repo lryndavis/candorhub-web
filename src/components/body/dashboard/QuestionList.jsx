@@ -5,7 +5,11 @@ import QuestionBox from './QuestionBox';
 export default React.createClass({
 
   render: function() {
-    let questions = this.props.imageForCritique.questions;
+    console.log("in questionlist");
+    console.log(this.props.imageForCritique);
+    console.log(this.props.imageForCritique.imageForCritique.questions)
+    let questions = this.props.imageForCritique.imageForCritique.questions;
+    console.log(questions)
     var questionRender = questions.map(function(question) {
       return (
         <div key={question.id}>
