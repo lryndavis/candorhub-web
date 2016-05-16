@@ -27,7 +27,7 @@ export const Gallery = React.createClass({
           <GalleryList imagesForGallery={this.props.imagesForGallery} />
         </div>
       </div> :
-      <CritiqueNotSignedIn />
+      <DashboardNotSignedIn />
       }
     </div>;
   }
