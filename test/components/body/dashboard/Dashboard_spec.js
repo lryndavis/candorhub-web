@@ -1,21 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  createRenderer,
-  renderIntoDocument,
-  scryRenderedDOMComponentsWithClass,
-  scryRenderedDOMComponentsWithTag,
-  Simulate
-} from 'react-addons-test-utils';
-import {Critique} from '../../../src/components/body/Critique';
-import CritiqueImage from '../../../src/components/body/CritiqueImage'
-import CritiqueNotSignedIn from '../../../src/components/body/CritiqueNotSignedIn';
-import CommentFormContainer from '../../../src/components/body/CommentForm';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 
+import {Dashboard} from '../../../../src/components/body/dashboard/Dashboard';
+import DashboardImage from '../../../../src/components/body/dashboard/DashboardImage'
+import DashboardNotSignedIn from '../../../../src/components/body/dashboard/DashboardNotSignedIn';
+import CommentFormContainer from '../../../../src/components/body/dashboard/CommentForm';
+
 //a dummy version of the class without componentDidMount, so as to test rendering behavior seperately from the API call action
-class CritiqueTest extends Critique {
+class DashboardTest extends Dashboard {
   componentDidMount() {
     return true;
   }
@@ -33,30 +27,30 @@ const testQuestion = {
 };
 
 //use skin-deep to shallow render components to avoid problems with trying to render CommentFormContainer without action creators
-describe("Critique", () => {
+describe("Dashboard", () => {
   it("renders correct components when in signed-out state", () => {
     let signedIn = false;
-    let tree = sd.shallowRender(<CritiqueTest
+    let tree = sd.shallowRender(<DashboardTest
       signedIn={signedIn}
       imageForCritique={testImage}
       questionsForComment={testQuestion} />);
-    expect(tree.subTree("CritiqueNotSignedIn")).to.be.ok;
-    expect(tree.dive(['CritiqueNotSignedIn']).text())
+    expect(tree.subTree("DashboardNotSignedIn")).to.be.ok;
+    expect(tree.dive(['DashboardNotSignedIn']).text())
       .to.contain("need to sign in");
   });
 
   it("renders a CritiqueImage when in signed-in state", () => {
     let signedIn = true;
-    let tree = sd.shallowRender(<CritiqueTest
+    let tree = sd.shallowRender(<DashboardTest
       signedIn={signedIn}
       imageForCritique={testImage} />);
-    expect(tree.subTree("CritiqueImage")).to.be.ok;
-    expect(tree.subTree("CritiqueImage").props.image).to.equal(testImage);
+    expect(tree.subTree("DashboardImage")).to.be.ok;
+    expect(tree.subTree("DashboardImage").props.image).to.equal(testImage);
   });
 
   it("renders a CommentFormContainer when in signed-in state", () => {
     let signedIn = true;
-    let tree = sd.shallowRender(<CritiqueTest
+    let tree = sd.shallowRender(<DashboardTest
       signedIn={signedIn}
       imageForCritique={testImage} />);
     expect(tree.subTree("Connect(CommentForm)")).to.be.ok;

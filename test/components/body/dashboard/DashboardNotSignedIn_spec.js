@@ -7,15 +7,15 @@ import {
   Simulate
 } from 'react-addons-test-utils';
 import {Map} from 'immutable';
-import CritiqueNotSignedIn from '../../../src/components/body/CritiqueNotSignedIn';
+import DashboardNotSignedIn from '../../../../src/components/body/dashboard/DashboardNotSignedIn';
 import {expect} from 'chai';
 
-describe('CritiqueNotSignedIn', () => {
+describe('DashboardNotSignedIn', () => {
   it('renders a paragraph saying the user is not signed in', () => {
     const component = renderIntoDocument(
-      <CritiqueNotSignedIn />
+      <DashboardNotSignedIn />
     );
-    const paragraph = scryRenderedDOMComponentsWithTag(component, "p");
-    expect(paragraph[0].textContent).to.contain('need to sign in');
+    const componentContent = scryRenderedDOMComponentsWithTag(component, "p");
+    expect(componentContent[0].textContent).to.contain('need to sign in');
   });
 });

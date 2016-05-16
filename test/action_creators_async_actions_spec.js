@@ -19,11 +19,16 @@ describe('action_creators', () => {
 
   beforeEach(() => {
     store = mockStore({
-      signedIn: false,
+      signIn: {
+        signedIn: false
+      },
       imageForCritique: {
-        url: '',
-        title: '',
-        description: ''
+        imageForCritique: {
+          url: '',
+          title: '',
+          description: '',
+          id: 0
+        }
       }
     });
   });

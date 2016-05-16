@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import {Splash} from '../../../src/components/splash/Splash';
+import {Splash} from '../../../../src/components/body/splash/Splash';
 
 import {expect} from 'chai';
 import sd from 'skin-deep'
