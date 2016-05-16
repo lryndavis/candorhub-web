@@ -35,8 +35,8 @@ export const Gallery = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signedIn,
-    imagesForGallery: state.imagesForGallery
+    signedIn: state.signIn.signedIn,
+    imagesForGallery: state.imageGallery.imagesForGallery
   };
 }
 

@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {Map} from 'immutable';
 
-import reducer from './reducer';
+import reducer from './reducers/index';
 
 import styles from './stylesheets/main.scss';
 
