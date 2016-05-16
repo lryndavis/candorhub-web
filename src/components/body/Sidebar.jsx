@@ -15,17 +15,18 @@ const contentClearStyles = {
   marginTop: 10,
 };
 
+// this is what fixed the menu not closing.......
+injectTapEventPlugin();
+
 export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {open: false};
-    this.handleToggle = this.handleToggle.bind(this);
-    this.handleClose = this.handleClose.bind(this);
   }
 
-  handleToggle() { this.setState({open: !this.state.open}); }
+  handleToggle = () => this.setState({open: !this.state.open});
 
-  handleClose() { this.setState({open: false}); }
+  handleClose = () =>  this.setState({open: false}); 
 
   render() {
     return (
@@ -39,8 +40,8 @@ export default class Sidebar extends React.Component {
           docked={false}
           width={300}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-          >
+          onRequestChange={open => this.setState({open})}
+        >
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
           <MenuItem a href="/">Home</MenuItem>
           <MenuItem>
