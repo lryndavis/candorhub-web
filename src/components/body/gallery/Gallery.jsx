@@ -27,7 +27,7 @@ export const Gallery = React.createClass({
           <GalleryList imagesForGallery={this.props.imagesForGallery} />
         </div>
       </div> :
-      <CritiqueNotSignedIn />
+      <DashboardNotSignedIn />
       }
     </div>;
   }
@@ -35,8 +35,8 @@ export const Gallery = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signedIn,
-    imagesForGallery: state.imagesForGallery
+    signedIn: state.signIn.signedIn,
+    imagesForGallery: state.imageGallery.imagesForGallery
   };
 }
 

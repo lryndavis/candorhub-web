@@ -10,7 +10,6 @@ const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
 const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
-  console.log("In setState");
   return {
     type: 'SET_STATE',
     state
@@ -39,7 +38,6 @@ export function displayComments(state) {
 }
 
 export function commentSubmitted(state, responseJSON) {
-  console.log('COMMENT_SUBMITTED');
   return {
     type: 'COMMENT_SUBMITTED',
     state,
@@ -105,7 +103,7 @@ export function postSubmitComment(body) {
       dispatch(commentSubmitted(state, responseJSON)),
       dispatch(hideForm(state)),
       dispatch(displayComments(state)),
-      dispatch(getSpecificImageFromServer(state, state.imageForCritique.id))
+      dispatch(getSpecificImageFromServer(state, state.imageForCritique.imageForCritique.id))
     });
   }
 }
@@ -181,7 +179,6 @@ export function startImageUpload(image, title, description) {
 }
 
 export function onFinishedImageUpload(state, responseJSON) {
-  console.log(responseJSON)
   return {
     type: "ON_FINISHED_IMAGE_UPLOAD",
     state,

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignUp from '../../../src/components/splash/SignUp';
+import SignUp from '../../../../src/components/body/splash/SignUp';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 

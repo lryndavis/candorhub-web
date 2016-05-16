@@ -39,7 +39,7 @@ componentDidMount: function() {
 
 function mapStateToProps(state) {
   return {
-    imageById: state.imageById
+    imageById: state.imageGallery.imageById
   };
 }
 

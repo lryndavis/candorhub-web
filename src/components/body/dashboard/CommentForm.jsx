@@ -127,7 +127,7 @@ export const CommentForm = React.createClass ({
     }
     //server request
     var body = {
-      "image_id": this.props.imageForCritique.id,
+      "image_id": this.props.imageForCritique.imageForCritique.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
           "body": firstResponse.toString()
@@ -138,7 +138,7 @@ export const CommentForm = React.createClass ({
           "question_id": this.props.questionsForComment[2].id,
           "body": thirdResponse.toString()
         }]
-      };
+    };
     this.props.postSubmitComment(body);
   },
 
@@ -196,13 +196,13 @@ export const CommentForm = React.createClass ({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signedIn,
+    signedIn: state.signIn.signedIn,
     imageForCritique: state.imageForCritique,
-    firstQuestion: state.questionsForComment[0],
-    secondQuestion: state.questionsForComment[1],
-    thirdQuestion: state.questionsForComment[2],
-    showForm: state.showCommentForm,
-    displayComments: state.displayComments
+    firstQuestion: state.comments.questionsForComment[0],
+    secondQuestion: state.comments.questionsForComment[1],
+    thirdQuestion: state.comments.questionsForComment[2],
+    showForm: state.comments.showCommentForm,
+    displayComments: state.comments.displayComments
   };
 }
 

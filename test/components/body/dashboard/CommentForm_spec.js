@@ -6,7 +6,7 @@ import {
   scryRenderedDOMComponentsWithTag,
   Simulate
 } from 'react-addons-test-utils';
-import {CommentForm} from '../../../src/components/body/CommentForm';
+import {CommentForm} from '../../../../src/components/body/dashboard/CommentForm';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 
