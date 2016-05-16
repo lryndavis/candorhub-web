@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {UploadForm} from '../../../src/components/body/UploadForm';
+import {UploadForm} from '../../../../src/components/body/sidebar/UploadForm';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import QuestionBox from '../../../src/components/body/QuestionBox';
+import QuestionBox from '../../../../src/components/body/dashboard/QuestionBox';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 

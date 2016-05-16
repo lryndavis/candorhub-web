@@ -6,7 +6,7 @@ import {
   scryRenderedDOMComponentsWithTag,
   Simulate
 } from 'react-addons-test-utils';
-import {SignIn} from '../../../src/components/body/splash/SignIn';
+import {SignIn} from '../../../../src/components/body/splash/SignIn';
 import {expect} from 'chai';
 
 describe("SignIn", () => {

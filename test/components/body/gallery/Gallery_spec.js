@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Gallery from '../../../src/components/body/Gallery';
+import Gallery from '../../../../src/components/body/gallery/Gallery';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 
