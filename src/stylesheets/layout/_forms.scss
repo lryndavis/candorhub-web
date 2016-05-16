@@ -2,6 +2,16 @@
 
 //comment form styling
 
-.daily-candor-heading {
+.header {
   margin-bottom: 10px;
+  text-align: right;
+}
+
+.form__question {
+  padding-left: 10px;
+  font-size: 1.1em;
+}
+
+.form__textfield {
+  margin-bottom: 20px;
 }
