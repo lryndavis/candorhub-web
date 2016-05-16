@@ -26,7 +26,6 @@ export function doesNotUseOffensiveLanguage(commentText) {
   tokenizedText.forEach((token) => retext().use(sentiment).use(() => (node) => {
       if (node.children.length && node.data.polarity) {
         if (node.data.polarity <= offensiveWordThreshold) {
-          console.log("OFFENSIVE WORD DETECTED: " + node.children[0].children[0].children[0].children[0].value);
           result = false;
         }
       }
@@ -40,9 +39,6 @@ export function usesConstructiveLanguage(commentText) {
   let length = tokenize(commentText).length;
   retext().use(sentiment).use(() => (node) => {
     if (node.children.length) {
-      console.log("VALENCE:" + node.data.valence);
-      console.log("POLARITY: " + node.data.polarity);
-      console.log("POLARITY / LENGTH: " + node.data.polarity / length);
       if ((node.data.polarity / length) <= nonConstructiveLanguageThreshold) {
         result = false;
       }

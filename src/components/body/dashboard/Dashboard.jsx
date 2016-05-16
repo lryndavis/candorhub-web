@@ -21,7 +21,6 @@ export const Dashboard = React.createClass({
   },
 
   render: function() {
-    console.log(this.props.imageForCritique);
     return <div className="critique">
         { this.props.signedIn ?
             <div className="container">

@@ -18,7 +18,6 @@ import {GalleryContainer} from './components/body/gallery/Gallery';
 import {GalleryViewContainer} from './components/body/gallery/GalleryView';
 
 const store = createStore(reducer, applyMiddleware(thunk));
-console.log(store.getState());
 
 //Routing table
 const routes = (

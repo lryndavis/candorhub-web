@@ -10,7 +10,6 @@ const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
 const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
-  console.log("In setState");
   return {
     type: 'SET_STATE',
     state
@@ -39,7 +38,6 @@ export function displayComments(state) {
 }
 
 export function commentSubmitted(state, responseJSON) {
-  console.log('COMMENT_SUBMITTED');
   return {
     type: 'COMMENT_SUBMITTED',
     state,
@@ -92,10 +90,6 @@ export function setQuestionsForComment(state, responseJSON) {
 export function postSubmitComment(body) {
   return function (dispatch, getState) {
     const state = getState();
-    console.log("postSubmitComment");
-    console.log(state);
-    console.log(submitCommentEndpoint);
-    console.log(body);
     return fetch(submitCommentEndpoint, {
       method: 'POST',
       headers: {
@@ -115,7 +109,6 @@ export function postSubmitComment(body) {
 }
 
 export function getRandomImageFromServer(state) {
-  console.log("getting random image...")
   return function (dispatch) {
     return fetch(randomImageEndpoint)
     .then(response => response.json())
@@ -186,7 +179,6 @@ export function startImageUpload(image, title, description) {
 }
 
 export function onFinishedImageUpload(state, responseJSON) {
-  console.log(responseJSON)
   return {
     type: "ON_FINISHED_IMAGE_UPLOAD",
     state,

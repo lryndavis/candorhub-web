@@ -119,8 +119,6 @@ export const CommentForm = React.createClass ({
 
   handleSubmit: function(e) {
     e.preventDefault();
-    console.log("in comment form");
-    console.log(this.props.imageForCritique);
     var firstResponse = this.state.firstResponse;
     var secondResponse = this.state.secondResponse;
     var thirdResponse = this.state.thirdResponse;
@@ -141,7 +139,6 @@ export const CommentForm = React.createClass ({
           "body": thirdResponse.toString()
         }]
     };
-    console.log(body);
     this.props.postSubmitComment(body);
   },
 
