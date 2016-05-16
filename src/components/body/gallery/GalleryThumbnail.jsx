@@ -1,8 +1,10 @@
-import React from 'react';
 import {connect} from 'react-redux';
+import React from 'react';
 import {Link} from 'react-router';
+
 import GalleryList from './GalleryList';
 import GalleryView from './GalleryView';
+
 
 export default React.createClass({
 

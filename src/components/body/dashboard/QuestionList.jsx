@@ -1,6 +1,8 @@
-import React from 'react';
 import CommentBox from './CommentBox';
 import QuestionBox from './QuestionBox';
+
+import React from 'react';
+
 
 export default React.createClass({
 

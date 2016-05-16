@@ -1,21 +1,23 @@
-import React from 'react';
+
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
-import UploadFormModal from './UploadFormModal';
-import Gallery from '../gallery/Gallery';
-import GalleryView from '../gallery/GalleryView';
+import React from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import {connect} from 'react-redux';
+
+import Gallery from '../gallery/Gallery';
+import GalleryView from '../gallery/GalleryView';
+import UploadFormModal from './UploadFormModal';
+
 
 const contentClearStyles = {
   marginLeft: 250,
   marginTop: 10,
 };
 
-// this is what fixed the menu not closing.......
 injectTapEventPlugin();
 
 export default class Sidebar extends React.Component {

@@ -1,8 +1,10 @@
-import React from 'react';
-import GalleryQuestionBox from './GalleryQuestionBox';
 import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
+import React from 'react';
+
+import GalleryQuestionBox from './GalleryQuestionBox';
+
 
 const avatarStyles = {
   marginBottom: 5,

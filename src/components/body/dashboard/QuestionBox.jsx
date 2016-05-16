@@ -1,8 +1,9 @@
-import React from 'react';
-import CommentBox from './CommentBox';
-import QuestionList from './QuestionList';
 import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
 import NavigationArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
+import React from 'react';
+
+import CommentBox from './CommentBox';
+import QuestionList from './QuestionList';
 
 
 export default React.createClass({
