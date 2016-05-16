@@ -1,6 +1,6 @@
+import TextField from 'material-ui/TextField';
 import React from 'react';
 import {connect} from 'react-redux';
-import TextField from 'material-ui/TextField';
 
 
 export default React.createClass({

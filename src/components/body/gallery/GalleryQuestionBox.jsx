@@ -1,8 +1,9 @@
-import React from 'react';
-import GalleryCommentBox from './GalleryCommentBox';
-import GalleryQuestionList from './GalleryQuestionList';
 import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
 import NavigationArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
+import React from 'react';
+
+import GalleryCommentBox from './GalleryCommentBox';
+import GalleryQuestionList from './GalleryQuestionList';
 
 
 export default React.createClass({

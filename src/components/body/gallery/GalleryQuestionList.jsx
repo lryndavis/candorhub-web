@@ -1,10 +1,12 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import React from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 import GalleryQuestionBox from './GalleryQuestionBox';
 import GalleryCommentBox from './GalleryCommentBox';
 import GalleryView from './GalleryView';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+
 
 export default React.createClass({
 

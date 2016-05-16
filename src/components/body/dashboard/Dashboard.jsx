@@ -1,16 +1,16 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router';
-import * as actionCreators from '../../../action_creators';
 import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import React from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Sidebar from '../sidebar/Sidebar';
-import DashboardNotSignedIn from './DashboardNotSignedIn';
-import DashboardImage from './DashboardImage';
+import * as actionCreators from '../../../action_creators';
 import { CommentFormContainer } from './CommentForm';
+import DashboardImage from './DashboardImage';
+import DashboardNotSignedIn from './DashboardNotSignedIn';
+import Sidebar from '../sidebar/Sidebar';
 import UploadFormModal from '../sidebar/UploadFormModal';
 
 

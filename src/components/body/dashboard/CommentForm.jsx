@@ -1,16 +1,16 @@
+import $ from 'jquery';
 import React from 'react';
 import {connect} from 'react-redux';
-import * as actionCreators from '../../../action_creators';
-import $ from 'jquery';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import * as actionCreators from '../../../action_creators';
 import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../../lib/CommentValidation';
-
 import Dashboard from './Dashboard';
 import DashboardNotSignedIn from './DashboardNotSignedIn';
 import DashboardImage from './DashboardImage';
 import QuestionList from './QuestionList';
+
 
 //Status codes for comment status
 const WRONG_LENGTH = 11;

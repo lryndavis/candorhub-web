@@ -1,21 +1,20 @@
-import React from 'react';
+import {Map} from 'immutable';
 import ReactDOM from 'react-dom';
+import React from 'react';
 import {Router, Route, browserHistory} from 'react-router';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
-import {Map} from 'immutable';
 
-import reducer from './reducers/index';
-
-import styles from './stylesheets/main.scss';
-
-import App from './components/App';
 import {DashboardContainer} from './components/body/dashboard/Dashboard';
-import {SignInContainer} from './components/body/splash/SignIn';
-import {Splash} from './components/body/splash/Splash';
+import App from './components/App';
 import {GalleryContainer} from './components/body/gallery/Gallery';
 import {GalleryViewContainer} from './components/body/gallery/GalleryView';
+import reducer from './reducers/index';
+import styles from './stylesheets/main.scss';
+import {SignInContainer} from './components/body/splash/SignIn';
+import {Splash} from './components/body/splash/Splash';
+
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

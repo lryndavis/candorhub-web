@@ -1,14 +1,15 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import $ from 'jquery';
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
-import * as actionCreators from '../../../action_creators';
-import $ from 'jquery';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Sidebar from '../sidebar/Sidebar';
+
+import * as actionCreators from '../../../action_creators';
 import DashboardImage from '../dashboard/DashboardImage';
 import GalleryQuestionList from './GalleryQuestionList';
+import Sidebar from '../sidebar/Sidebar';
 
 
 export const GalleryView = React.createClass({
