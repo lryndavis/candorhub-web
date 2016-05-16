@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {Map} from 'immutable';
 
-import reducer from './reducer';
+import reducer from './reducers/index';
 
 import styles from './stylesheets/main.scss';
 
@@ -18,6 +18,7 @@ import {GalleryContainer} from './components/body/Gallery';
 import {GalleryViewContainer} from './components/body/GalleryView';
 
 const store = createStore(reducer, applyMiddleware(thunk));
+console.log(store.getState());
 
 //Routing table
 const routes = (

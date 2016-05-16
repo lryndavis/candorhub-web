@@ -111,6 +111,7 @@ export function postSubmitComment(body) {
 }
 
 export function getRandomImageFromServer(state) {
+  console.log("getting random image...")
   return function (dispatch) {
     return fetch(randomImageEndpoint)
     .then(response => response.json())

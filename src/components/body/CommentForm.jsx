@@ -193,13 +193,13 @@ export const CommentForm = React.createClass ({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signedIn,
+    signedIn: state.signIn.signedIn,
     imageForCritique: state.imageForCritique,
-    firstQuestion: state.questionsForComment[0],
-    secondQuestion: state.questionsForComment[1],
-    thirdQuestion: state.questionsForComment[2],
-    showForm: state.showCommentForm,
-    displayComments: state.displayComments
+    firstQuestion: state.comments.questionsForComment[0],
+    secondQuestion: state.comments.questionsForComment[1],
+    thirdQuestion: state.comments.questionsForComment[2],
+    showForm: state.comments.showCommentForm,
+    displayComments: state.comments.displayComments
   };
 }
 
