@@ -4,8 +4,8 @@ import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
 import UploadFormModal from './UploadFormModal';
-import Gallery from './Gallery';
-import GalleryView from './GalleryView';
+import Gallery from '../gallery/Gallery';
+import GalleryView from '../gallery/GalleryView';
 import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {connect} from 'react-redux';
@@ -26,7 +26,7 @@ export default class Sidebar extends React.Component {
 
   handleToggle = () => this.setState({open: !this.state.open});
 
-  handleClose = () =>  this.setState({open: false}); 
+  handleClose = () =>  this.setState({open: false});
 
   render() {
     return (

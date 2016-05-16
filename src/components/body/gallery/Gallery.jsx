@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-import * as actionCreators from '../../action_creators';
+import * as actionCreators from '../../../action_creators';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Sidebar from './Sidebar';
-import CritiqueImage from './CritiqueImage';
-import CritiqueNotSignedIn from './CritiqueNotSignedIn';
+import Sidebar from '../sidebar/Sidebar';
+import DashboardImage from '../dashboard/DashboardImage';
+import DashboardNotSignedIn from '../dashboard/DashboardNotSignedIn';
 import GalleryList from './GalleryList';
 
 
