@@ -11,11 +11,11 @@ import reducer from './reducers/index';
 import styles from './stylesheets/main.scss';
 
 import App from './components/App';
-import {CritiqueContainer} from './components/body/Critique';
-import {SignInContainer} from './components/splash/SignIn';
-import {Splash} from './components/splash/Splash';
-import {GalleryContainer} from './components/body/Gallery';
-import {GalleryViewContainer} from './components/body/GalleryView';
+import {DashboardContainer} from './components/body/dashboard/Dashboard';
+import {SignInContainer} from './components/body/splash/SignIn';
+import {Splash} from './components/body/splash/Splash';
+import {GalleryContainer} from './components/body/gallery/Gallery';
+import {GalleryViewContainer} from './components/body/gallery/GalleryView';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 console.log(store.getState());
@@ -24,7 +24,7 @@ console.log(store.getState());
 const routes = (
   <Route component={App}>
     <Route path='/' component={Splash} />
-    <Route path='/critique' component={CritiqueContainer} />
+    <Route path='/dashboard' component={DashboardContainer} />
     <Route path='gallery' component={GalleryContainer} />
     <Route path="/gallery/:id" component={GalleryViewContainer} />
   </Route>

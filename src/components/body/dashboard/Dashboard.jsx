@@ -1,20 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-import * as actionCreators from '../../action_creators';
+import * as actionCreators from '../../../action_creators';
 import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Sidebar from './Sidebar';
-import CritiqueNotSignedIn from './CritiqueNotSignedIn';
-import CritiqueImage from './CritiqueImage';
+import Sidebar from '../sidebar/Sidebar';
+import DashboardNotSignedIn from './DashboardNotSignedIn';
+import DashboardImage from './DashboardImage';
 import { CommentFormContainer } from './CommentForm';
-import UploadFormModal from './UploadFormModal';
+import UploadFormModal from '../sidebar/UploadFormModal';
 
 
-export const Critique = React.createClass({
+export const Dashboard = React.createClass({
 
   componentDidMount: function() {
     this.props.getRandomImageFromServer();
@@ -30,7 +30,7 @@ export const Critique = React.createClass({
               </MuiThemeProvider>
               <div className="critique-container">
               <div className="col-md-8 image-info-container">
-                <CritiqueImage image={this.props.imageForCritique.imageForCritique} />
+                <DashboardImage image={this.props.imageForCritique} />
               </div>
               <div className="col-md-4 comment-form-container">
                 <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -39,7 +39,7 @@ export const Critique = React.createClass({
               </div>
               </div>
             </div> :
-            <CritiqueNotSignedIn />
+            <DashboardNotSignedIn />
           }
       </div>;
     }
@@ -54,7 +54,7 @@ function mapStateToProps(state) {
   };
 }
 
-export const CritiqueContainer = connect(
+export const DashboardContainer = connect(
   mapStateToProps,
   actionCreators
-)(Critique);
+)(Dashboard);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import * as actionCreators from '../../action_creators';
+import * as actionCreators from '../../../action_creators';
 
 export const SignIn = React.createClass({
   render: function() {
@@ -9,7 +9,7 @@ export const SignIn = React.createClass({
       <div className="sign-in">
         <Link ref="signIn"
           className="signInLink"
-          to={'/critique'}
+          to={'/dashboard'}
           onClick={() => this.props.signIn()}>
           Sign In
         </Link>

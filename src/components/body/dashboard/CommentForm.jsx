@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as actionCreators from '../../action_creators';
+import * as actionCreators from '../../../action_creators';
 import $ from 'jquery';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../lib/CommentValidation';
+import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../../lib/CommentValidation';
 
-import Critique from './Critique';
-import CritiqueNotSignedIn from './CritiqueNotSignedIn';
-import CritiqueImage from './CritiqueImage';
+import Dashboard from './Dashboard';
+import DashboardNotSignedIn from './DashboardNotSignedIn';
+import DashboardImage from './DashboardImage';
 import QuestionList from './QuestionList';
 
 //Status codes for comment status

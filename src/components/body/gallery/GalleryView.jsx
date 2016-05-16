@@ -1,13 +1,13 @@
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
-import * as actionCreators from '../../action_creators';
+import * as actionCreators from '../../../action_creators';
 import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Sidebar from './Sidebar';
-import CritiqueImage from './CritiqueImage';
+import Sidebar from '../sidebar/Sidebar';
+import DashboardImage from '../dashboard/DashboardImage';
 import GalleryQuestionList from './GalleryQuestionList';
 
 
@@ -26,7 +26,7 @@ componentDidMount: function() {
         </MuiThemeProvider>
         <div className="critique-container">
           <div className="col-md-8 image-info-container">
-            <CritiqueImage image={this.props.imageById} />
+            <DashboardImage image={this.props.imageById} />
           </div>
           <div className="col-md-4 comment-form-container">
             <GalleryQuestionList imageById={this.props.imageById} />
