@@ -3,7 +3,7 @@ import React from 'react';
 import {FlatButton, RaisedButton, TextField} from 'material-ui';
 import CircularProgress from 'material-ui/CircularProgress';
 import Dropzone from 'react-dropzone';
-import * as actions from '../../../src/action_creators'
+import * as actionCreators from '../../../action_creators';
 import {connect} from 'react-redux';
 
 const MAX_FILE_SIZE = 150000000000;
@@ -116,5 +116,5 @@ function mapStateToProps(state) {
 
 export const UploadFormContainer = connect(
   mapStateToProps,
-  actions
+  actionCreators
 )(UploadForm);
