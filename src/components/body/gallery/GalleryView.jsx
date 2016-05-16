@@ -24,11 +24,11 @@ componentDidMount: function() {
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Sidebar />
         </MuiThemeProvider>
-        <div className="critique-container">
-          <div className="col-md-8 image-info-container">
+        <div className="dashboard">
+          <div className="dashboard__image-container col-md-8">
             <DashboardImage image={this.props.imageById} />
           </div>
-          <div className="col-md-4 comment-form-container">
+          <div className="dashboard__comment-form-container col-md-4">
             <GalleryQuestionList imageById={this.props.imageById} />
           </div>
         </div>
