@@ -146,10 +146,11 @@ export const CommentForm = React.createClass ({
     return (<div>
       {
         this.props.showForm ?
-          <form className="commentForm" onSubmit={this.handleSubmit}>
-            <h2 className="daily-candor-heading">Your Daily Candor</h2>
-            <p className="question-body">{this.props.firstQuestion.body}</p>
+          <form className="form" onSubmit={this.handleSubmit}>
+            <h2 className="form__header">Your Daily Candor</h2>
+            <p className="form__question">{this.props.firstQuestion.body}</p>
             <TextField
+              className="form__textfield"
               hintText="Your Critique"
               errorText={this.getErrorHint(this.state.firstResponseStatus)}
               value={this.state.firstResponse}
@@ -158,8 +159,9 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-            <p>{this.props.secondQuestion.body}</p>
+            <p  className="form__question">{this.props.secondQuestion.body}</p>
             <TextField
+              className="form__textfield"
               hintText="Your Critique"
               errorText={this.getErrorHint(this.state.secondResponseStatus)}
               value={this.state.secondResponse}
@@ -168,8 +170,9 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-            <p>{this.props.thirdQuestion.body}</p>
+            <p  className="form__question">{this.props.thirdQuestion.body}</p>
             <TextField
+              className="form__textfield"
               hintText="Your Critique"
               errorText={this.getErrorHint(this.state.thirdResponseStatus)}
               value={this.state.thirdResponse}
@@ -179,7 +182,7 @@ export const CommentForm = React.createClass ({
             /><br />
             <br />
             <button type="submit"
-              className="submit-button"
+              className="button button__submit"
               disabled={!this.state.readyToSubmit}>Post</button>
           </form> :
           <div>

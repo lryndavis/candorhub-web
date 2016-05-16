@@ -1,0 +1,26 @@
+//Image component styles
+
+.critique-image{}
+
+.critique-image__image {
+  width: 85%;
+  margin-bottom: 20px;
+}
+
+.critique-image__image-title {
+  font-size: 1.8em;
+}
+
+.critique-image__image-desc {
+  max-width: 500px;
+}
+
+@media screen and (max-width: 990px) {
+  .critique-image__image{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .critique-image__image-title {
+    font-size: 1.5em;
+  }
+}

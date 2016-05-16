@@ -20,7 +20,7 @@ export default React.createClass({
     });
     return (
       <div>
-        <h2 className="criticisms-header">Critique</h2>
+        <h2 className="comments__header">Critique</h2>
         {questionListRender}
       </div>
     );

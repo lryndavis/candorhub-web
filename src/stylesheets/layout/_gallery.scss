@@ -1,6 +1,20 @@
 //custom styles for the image gallery
 
-.gallery-img {
+.gallery {
+  text-align: left;
+}
+
+.gallery__header {
+  margin: 25px 15px;
+  font-size: 2em;
+}
+
+.gallery-thumbnail__title {
+  font-size: 1.5em;
+  margin: 15px 0;
+}
+
+.gallery-thumbnail__image {
   object-fit: cover;
   height: 400px;
   width: 100%;
@@ -11,17 +25,4 @@
 .dashboard-header {
   border-bottom: 1px solid #696969;
   padding-bottom: 15px;
-}
-
-.gallery-header {
-  margin: 25px 15px;
-  font-size: 2em;
-}
-
-.image-gallery {
-  text-align: left;
-}
-.image-gallery-title {
-  font-size: 1.5em;
-  margin: 15px 0;
 }

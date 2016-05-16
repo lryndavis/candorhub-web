@@ -17,8 +17,8 @@ export default React.createClass({
     );
   });
   return (
-    <div className="image-gallery">
-      <h2 className="gallery-header">Gallery</h2>
+    <div className="gallery">
+      <h2 className="gallery__header">Gallery</h2>
       {imageGalleryRender}
     </div>
     );
