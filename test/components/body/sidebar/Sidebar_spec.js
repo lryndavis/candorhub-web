@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sidebar from '../../../src/components/body/Sidebar';
+import Sidebar from '../../../../src/components/body/sidebar/Sidebar';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DialogExampleModal from '../../../src/components/body/UploadFormModal';
+import DialogExampleModal from '../../../../src/components/body/sidebar/UploadFormModal';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 

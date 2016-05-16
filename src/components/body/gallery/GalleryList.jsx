@@ -68,7 +68,6 @@ export default React.createClass({
                          timeScrollStateLastsForAfterUserScrolls={2000}
                          useWindowAsScrollContainer
                          >
-
       {imageGalleryRender}
        </Infinite>
     </div>

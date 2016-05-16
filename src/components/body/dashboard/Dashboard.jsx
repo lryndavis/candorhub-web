@@ -21,21 +21,28 @@ export const Dashboard = React.createClass({
   },
 
   render: function() {
-    return <div className="critique">
+    return <div className="dashboard-component-div">
         { this.props.signedIn ?
             <div className="container">
+
               <MuiThemeProvider muiTheme={getMuiTheme()}>
                 <Sidebar />
               </MuiThemeProvider>
-              <div className="critique-container">
-              <div className="col-md-8 image-info-container">
-                <DashboardImage image={this.props.imageForCritique} />
-              </div>
-              <div className="col-md-4 comment-form-container">
-                <MuiThemeProvider muiTheme={getMuiTheme()}>
-                  <CommentFormContainer questionsForComment={this.props.questionsForComment} />
-                </MuiThemeProvider>
-              </div>
+
+              <div className="dashboard">
+
+                <div className="dashboard__image-container col-md-8 ">
+                  <DashboardImage image={this.props.imageForCritique} />
+                </div>
+
+                <div className="dashboard__comment-form-container col-md-4">
+
+                  <MuiThemeProvider muiTheme={getMuiTheme()}>
+                    <CommentFormContainer questionsForComment={this.props.questionsForComment} />
+                  </MuiThemeProvider>
+
+                </div>
+
               </div>
             </div> :
             <DashboardNotSignedIn />
@@ -47,9 +54,9 @@ export const Dashboard = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signedIn,
-    imageForCritique: state.imageForCritique,
-    questionsForComment: state.questionsForComment
+    signedIn: state.signIn.signedIn,
+    imageForCritique: state.imageForCritique.imageForCritique,
+    questionsForComment: state.comments.questionsForComment
   };
 }
 

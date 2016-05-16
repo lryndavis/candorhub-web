@@ -25,6 +25,6 @@ export const Splash = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signedIn
+    signedIn: state.signIn.signedIn
   };
 }

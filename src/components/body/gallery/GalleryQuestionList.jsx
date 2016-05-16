@@ -11,7 +11,6 @@ import GalleryView from './GalleryView';
 export default React.createClass({
 
   render: function() {
-    console.log(this.props.imageById);
     var questionListRender = this.props.imageById.questions.map(function(question) {
       return (
         <div key={question.id}>
@@ -23,7 +22,7 @@ export default React.createClass({
     });
     return (
       <div>
-        <h2 className="criticisms-header">Critique</h2>
+        <h2 className="comments__header">Critique</h2>
         {questionListRender}
       </div>
     );

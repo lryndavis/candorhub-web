@@ -110,8 +110,8 @@ export const UploadForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    isUploadingImage: state.isUploadingImage,
-    finishedImageUpload: state.finishedImageUpload
+    isUploadingImage: state.imageUpload.isUploadingImage,
+    finishedImageUpload: state.imageUpload.finishedImageUpload
   };
 }
 

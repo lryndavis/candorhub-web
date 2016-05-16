@@ -10,7 +10,7 @@ import {DashboardContainer} from './components/body/dashboard/Dashboard';
 import App from './components/App';
 import {GalleryContainer} from './components/body/gallery/Gallery';
 import {GalleryViewContainer} from './components/body/gallery/GalleryView';
-import reducer from './reducer';
+import reducer from './reducers/index';
 import styles from './stylesheets/main.scss';
 import {SignInContainer} from './components/body/splash/SignIn';
 import {Splash} from './components/body/splash/Splash';

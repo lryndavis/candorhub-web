@@ -16,20 +16,24 @@ export default React.createClass({
     let comments = this.props.question.comments;
     var commentRender = comments.map(function(comment) {
     return (
-      <div className="individual-comment-box" key={comment.id}>
+      <div className="comments" key={comment.id}>
+
         <Avatar style={avatarStyles}>U</Avatar>
-        <span className="comment-body">
+
+        <span className="comments__body">
           {comment.body}
         </span>
-        <p className="comment-meta">
-          <span className="comment-date">Date: 5/11/2016</span>
-          <span className="comment-user">By: User</span>
+
+        <p className="comments__meta">
+          <span className="comments__date">Date: 5/11/2016</span>
+          <span className="comments__user">By: User</span>
         </p>
+
       </div>
       );
     });
     return (
-      <div className="comment-list">
+      <div className="comments__comment-list">
         {commentRender}
       </div>
     );

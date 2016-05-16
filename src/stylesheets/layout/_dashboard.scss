@@ -1,28 +1,18 @@
-//custom styles for dashboard view
+//Main dashboard component styles and containers.
 
-.critiqueImageTag {
-  width: 85%;
-  margin-bottom: 20px;
+.dashboard{
+  margin-top: 30px;
 }
 
-.image-info-container {
+.dashboard__image-container {
   text-align: left;
   padding: 0;
 }
 
-.critique-container {
-  margin-top: 30px;
-}
-
-.critiqueImageTitle {
-  font-size: 1.8em;
-}
+.dashboard__comment-form-container{}
 
 @media screen and (max-width: 990px) {
-  .critiqueImageTag{
-    width: 100%;
-  }
-  .image-info-container {
+  .dashboard__image-container {
     text-align: center;
     padding: 0;
     margin-bottom: 15px;

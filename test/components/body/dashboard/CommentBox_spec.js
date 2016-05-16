@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CommentBox from '../../../src/components/body/CommentBox';
+import CommentBox from '../../../../src/components/body/dashboard/CommentBox';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 
