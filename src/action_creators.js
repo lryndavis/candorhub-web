@@ -6,7 +6,7 @@ const specificImageEndpoint = apiRoot + "images/";
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const uploadImageEndpoint = "";
-const multipleRandomImagesEndpoint = apiRoot + "images?count=4";
+const multipleRandomImagesEndpoint = apiRoot + "/images";
 const imageUploadEndpoint = apiRoot + "images";
 
 export function setState(state) {
