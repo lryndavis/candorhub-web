@@ -19,7 +19,9 @@ module.exports = {
      },
      {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
+        loaders: ['style-loader', 'css-loader', 'style',
+				'css?importLoaders=1',
+				'font?format[]=truetype&format[]=woff&format[]=embedded-opentype']
       },
       { test: /\.json$/, loader: "json-loader" }
     ],
