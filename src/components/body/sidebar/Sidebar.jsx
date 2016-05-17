@@ -48,12 +48,12 @@ export default class Sidebar extends React.Component {
           <Link ref="home"
             className="home-link"
             to={'/'} >
-            <MenuItem a href="/">Home</MenuItem>
+            <MenuItem>Home</MenuItem>
           </Link>
           <Link ref="gallery"
             className="gallery-link"
             to={'gallery'} >
-            <MenuItem a href="/">Gallery</MenuItem>
+            <MenuItem>Gallery</MenuItem>
           </Link>
           <MenuItem>
             <UploadFormModal />
