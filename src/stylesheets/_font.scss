@@ -9,3 +9,15 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Coves-Bold';
+  src: url('./fonts/Coves-Bold/Coves-Bold.eot');
+  src: url('./fonts/Coves-Bold/Coves-Bold.woff2') format('woff2'),
+       url('./fonts/Coves-Bold/Coves-Bold.woff') format('woff'),
+       url('./fonts/Coves-Bold/Coves-Bold.ttf') format('truetype'),
+       url('./fonts/Coves-Bold/Coves-Bold.svg#Coves-Bold') format('svg'),
+       url('./fonts/Coves-Bold/Coves-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
