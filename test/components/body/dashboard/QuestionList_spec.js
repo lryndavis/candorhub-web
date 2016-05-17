@@ -34,7 +34,7 @@ const testImage = {
           },
         ]
       }
-    ]    
+    ]
   }
 };
 
@@ -48,7 +48,7 @@ describe("QuestionList", () => {
   });
 
   it("renders a header", () => {
-    expect(tree.subTree(".criticisms-header")).to.be.ok;
+    expect(tree.subTree(".comments__header")).to.be.ok;
   });
 
   it("renders a QuestionBox for each question", () => {

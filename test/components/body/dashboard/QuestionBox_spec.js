@@ -42,14 +42,14 @@ describe("QuestionBox", () => {
   });
 
   it("updates state and shows comments on question body click", () => {
-    const questionBody = tree.subTree(".question-body");
+    const questionBody = tree.subTree(".question");
     questionBody.props.onClick();
     expect(instance.state.commentShow).to.be.true;
     expect(tree.subTree("CommentBox")).to.be.ok;
   });
 
   it("toggles the navigation arrow on question body click", () => {
-    const questionBody = tree.subTree(".question-body");
+    const questionBody = tree.subTree(".question");
     questionBody.props.onClick();
     expect(instance.state.navArrowChange).to.be.true;
     expect(tree.subTree("NavigationArrowDropUp")).to.be.ok;
