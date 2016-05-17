@@ -18,7 +18,7 @@ function commentSubmitted(state, responseJSON) {
 }
 
 function setQuestionsForComment(state, responseJSON) {
-  return { ...state, questionsForComment: responseJSON.questions};
+  return { ...state, questionsForComment: responseJSON};
 }
 
 function hideForm(state) {
