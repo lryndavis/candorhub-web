@@ -1,12 +1,5 @@
 //custom styles for the sidebar
 
-.main-logo-dashboard {
-  font-family: 'Montserrat';
-  font-size: 2.8em;
-  margin-left: 20px;
-  flex-grow: 2;
-}
-
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -15,15 +8,22 @@
   margin-bottom: 15px;
 }
 
-.logout-button{
+.dashboard-header__logo {
+  font-family: 'Montserrat';
+  font-size: 2.8em;
+  margin-left: 20px;
+  flex-grow: 2;
+}
+
+.dashboard-header__logout{
   flex-basis: 1;
 }
 
 @media screen and (max-width: 990px) {
-  .logout-button{
+  .dashboard-header__logout{
     display: none;
   }
-  .main-logo-dashboard{
+  .dashboard-header__logo{
     order: -1;
     margin-left: 0;
   }
