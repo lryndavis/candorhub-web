@@ -127,7 +127,7 @@ export const CommentForm = React.createClass ({
     }
     //server request
     var body = {
-      "image_id": this.props.imageForCritique.imageForCritique.id,
+      "image_id": this.props.imageForCritique.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
           "body": firstResponse.toString()

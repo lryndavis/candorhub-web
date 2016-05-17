@@ -1,22 +1,13 @@
 const initialState = {
-  imageForCritique: {
-    title: '',
-    description: '',
-    image: {
-      image: ''
-    },
-    questions: []
-  }
+  title: '',
+  description: '',
+  image: '',
+  questions: []
 }
 
 function setImageToCritique(state, responseJSON) {
-  if (responseJSON.images) {
-    //handle getting an image from an array
-    return { ...state, imageForCritique: responseJSON.images[0]};
-  } else if (responseJSON.image) {
-    //handle getting a specific image
-    return { ...state, imageForCritique: responseJSON.image};
-  }
+  console.log(responseJSON[0]);
+  return { ...state, ...responseJSON[0]};
 }
 
 export default function imageForCritique(state = initialState, action) {
