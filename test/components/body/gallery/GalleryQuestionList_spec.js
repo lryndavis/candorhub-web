@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import QuestionList from '../../../../src/components/body/dashboard/QuestionList';
+import GalleryQuestionList from '../../../../src/components/body/gallery/GalleryQuestionList';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 
 const testImage = {
-  imageForCritique: {
+  imageById: {
     id: 0,
     url: "www.google.com",
     title: "test image",
@@ -38,11 +38,11 @@ const testImage = {
   }
 };
 
-describe("QuestionList", () => {
+describe("GalleryQuestionList", () => {
   let tree, instance, vdom;
 
   beforeEach(() => {
-    tree = sd.shallowRender(<QuestionList imageForCritique={testImage} />);
+    tree = sd.shallowRender(<GalleryQuestionList imageById={testImage.imageById} />);
     instance = tree.getMountedInstance();
     vdom = tree.getRenderOutput();
   });
@@ -51,7 +51,7 @@ describe("QuestionList", () => {
     expect(tree.subTree(".comments__header")).to.be.ok;
   });
 
-  it("renders a QuestionBox for each question", () => {
-    expect(tree.everySubTree("QuestionBox").length).to.equal(2);
+  it("renders a GalleryQuestionBox for each question", () => {
+    expect(tree.everySubTree("GalleryQuestionBox").length).to.equal(2);
   });
 });

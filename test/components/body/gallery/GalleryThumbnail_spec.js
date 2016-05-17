@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import QuestionList from '../../../../src/components/body/dashboard/QuestionList';
+import GalleryThumbnail from '../../../../src/components/body/gallery/GalleryThumbnail';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 
 const testImage = {
-  imageForCritique: {
+  image: {
     id: 0,
-    url: "www.google.com",
+    image: "www.google.com",
     title: "test image",
     questions: [
       {
@@ -38,20 +38,26 @@ const testImage = {
   }
 };
 
-describe("QuestionList", () => {
+describe("GalleryThumbnail", () => {
   let tree, instance, vdom;
 
   beforeEach(() => {
-    tree = sd.shallowRender(<QuestionList imageForCritique={testImage} />);
+    tree = sd.shallowRender(<GalleryThumbnail image={testImage.image} />);
     instance = tree.getMountedInstance();
     vdom = tree.getRenderOutput();
   });
 
-  it("renders a header", () => {
-    expect(tree.subTree(".comments__header")).to.be.ok;
+  it("renders a gallery thumbnail", () => {
+    expect(tree.props.className).to.contain("gallery-thumbnail")
+  })
+
+  it("renders a header with the image title", () => {
+    expect(tree.subTree(".gallery-thumbnail__title")).to.be.ok;
+    expect(tree.subTree(".gallery-thumbnail__title").text()).to.equal("test image");
   });
 
-  it("renders a QuestionBox for each question", () => {
-    expect(tree.everySubTree("QuestionBox").length).to.equal(2);
+  it("renders a image tag with the image", () => {
+    expect(tree.subTree("img")).to.be.ok;
+    expect(tree.subTree("img").props.src).to.equal("www.google.com");
   });
 });

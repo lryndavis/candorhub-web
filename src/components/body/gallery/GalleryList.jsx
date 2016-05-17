@@ -49,7 +49,7 @@ export default React.createClass({
   render: function() {
     var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
     return (
-      <div className="infinite-list-item">
+      <div className="infinite-list-item" key={image.id}>
         <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
           <GalleryThumbnail image={image} />
         </Link>

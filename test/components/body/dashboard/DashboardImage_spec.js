@@ -35,8 +35,8 @@ describe('DashboardImage', () => {
     const component = renderIntoDocument(
       <DashboardImage image={image}/>
     );
-    const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "critiqueImageTitle");
-    const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "critiqueImageDescription");
+    const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "critique-image__image-title");
+    const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "critique-image__image-desc");
     expect(critiqueImageTitle[0].textContent).to.equal("Airplane Lolcat");
     expect(critiqueImageDescription[0].textContent).to.equal("This kitty thinks it is an airplane!");
   })
