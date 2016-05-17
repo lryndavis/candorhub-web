@@ -69,7 +69,7 @@ export const UploadForm = React.createClass({
 
   render() {
     return (
-      <form className='uploadForm' onSubmit={this.handleSubmit}>
+      <form className='upload-form' onSubmit={this.handleSubmit}>
         {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
           <div>
             <CircularProgress size={2} />
@@ -89,20 +89,20 @@ export const UploadForm = React.createClass({
           <br />
           <br />
           <TextField
-            className="imageTitleTextField"
+            className="upload-form__image-title"
             hintText="Title"
             value={this.state.title}
             onChange={this.handleTitleChange}
             /><br />
             <br />
           <TextField
-            className="imageDescriptionTextField"
+            className="upload-form__image-desc"
             hintText="Description"
             value={this.state.description}
             onChange={this.handleDescChange}
             /><br />
             <br />
-            <input type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
+            <input className="button button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
       </form>
     )
   }
