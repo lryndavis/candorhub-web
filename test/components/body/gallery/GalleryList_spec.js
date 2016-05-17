@@ -25,7 +25,7 @@ describe("GalleryList", () => {
   });
 
   it("renders an image gallery", () => {
-    expect(tree.props.className).to.equal("image-gallery infinite-list-item");
+    expect(tree.props.className).to.contain("image-gallery");
   });
 
   it("renders a Link for each image", () => {
