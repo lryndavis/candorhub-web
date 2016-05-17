@@ -29,14 +29,14 @@ describe("GalleryCommentBox", () => {
   });
 
   it("renders a comment list", () => {
-    expect(tree.props.className).to.equal("comment-list");
+    expect(tree.props.className).to.equal("comments__list");
   });
 
   it("renders a comment box for each comment", () => {
-    expect(tree.everySubTree(".individual-comment-box").length).to.equal(2);
+    expect(tree.everySubTree(".comments").length).to.equal(2);
   });
 
   it("passes content to the comment boxes", () => {
-    expect(tree.dive(['.individual-comment-box', '.comment-body']).text()).to.equal("I don't know.");
+    expect(tree.dive(['.comments', '.comments__body']).text()).to.equal("I don't know.");
   })
 })

@@ -14,12 +14,12 @@ import Sidebar from '../sidebar/Sidebar';
 
 export const GalleryView = React.createClass({
 
-componentDidMount: function() {
-  var id = this.props.params.id;
-  this.props.getImageFromServerById(id);
-},
+  componentDidMount: function() {
+    var id = this.props.params.id;
+    this.props.getImageFromServerById(id);
+  },
 
-  render() {
+  render: function() {
     return (
       <div className="container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>
