@@ -21,12 +21,12 @@ const initialState = {
 
 //get specific image for gallery view
 function setImageById(state, responseJSON) {
-  return {...state, imageById: responseJSON.image};
+  return {...state, imageById: responseJSON};
 }
 
 //image gallery
 function setImageGallery(state, responseJSON) {
-  return { ...state, imagesForGallery: responseJSON.images};
+  return { ...state, imagesForGallery: responseJSON};
 }
 
 export default function(state = initialState, action) {

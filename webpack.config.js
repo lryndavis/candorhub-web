@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   entry: [
@@ -27,7 +28,11 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      react: path.resolve('./node_modules/react'),
+      "material-ui": path.resolve('./node_modules/material-ui')
+    }
   },
   output: {
     path: __dirname + '/dist',
