@@ -6,8 +6,11 @@ const initialState = {
 }
 
 function setImageToCritique(state, responseJSON) {
-  console.log(responseJSON[0]);
-  return { ...state, ...responseJSON[0]};
+  if (Array.isArray(responseJSON)) {
+    return { ...state, ...responseJSON[0]};
+  } else {
+    return { ...state, ...responseJSON}
+  }
 }
 
 export default function imageForCritique(state = initialState, action) {

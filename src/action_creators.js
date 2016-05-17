@@ -103,7 +103,7 @@ export function postSubmitComment(body) {
       dispatch(commentSubmitted(state, responseJSON)),
       dispatch(hideForm(state)),
       dispatch(displayComments(state)),
-      dispatch(getSpecificImageFromServer(state, state.imageForCritique.imageForCritique.id))
+      dispatch(getSpecificImageFromServer(state, state.imageForCritique.id))
     });
   }
 }
