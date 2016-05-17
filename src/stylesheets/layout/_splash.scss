@@ -1,11 +1,19 @@
 // custom styles for splash page, including sign in and sign up forms
 
-.sign-up-form {
+.splash__tagline {
+  font-size: 1.3em;
+  font-style: italic;
+  margin-bottom: 20px;
   text-align: center;
-  margin-top: 20px;
 }
 
-.sign-in {
+.splash__logo {
+  font-size: 5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.button__sign-in {
   text-align: center;
   margin: 20px auto 0 auto;
   text-transform: uppercase;
@@ -14,19 +22,9 @@
   padding: 5px 0 5px 0;
 }
 
-.sign-in a {
+.button__sign-in a {
   color: #1309F2;
   &:hover {
     color: #1309F2;
   }
-}
-
-.tag-line {
-  font-size: 1.6em;
-  font-style: italic;
-  margin-bottom: 20px;
-}
-
-.main-logo {
-  margin-bottom: 10px;
 }
