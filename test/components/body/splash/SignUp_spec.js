@@ -15,7 +15,7 @@ describe("SignUp", () => {
 
   it("renders a sign up form", () => {
     expect(tree.type).to.equal("form");
-    expect(tree.props.className).to.equal("sign-up-form");
+    expect(tree.props.className).to.contain("form__sign-up");
   });
 
   it("renders four input fields", () => {

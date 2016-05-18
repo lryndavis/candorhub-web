@@ -16,25 +16,23 @@ describe("imagesForCritique reducer", () => {
           signedIn: true
         }
       },
-      responseJSON: {
-        images: [
-          {
-            title: "",
-            description: "an image",
-            body: "",
-            url: ""
-          }
-        ]
-      }
+      responseJSON: [
+        {
+          title: "",
+          description: "an image",
+          body: "",
+          image: "",
+          questions: []
+        }
+      ]
     };
     const nextState = reducer(initialState, action);
     expect(nextState.imageForCritique).to.deep.equal({
-      imageForCritique: {
-        title: "",
-        description: "an image",
-        body: "",
-        url: ""
-      }
+      title: "",
+      description: "an image",
+      body: "",
+      image: "",
+      questions: []
     });
   });
 
@@ -52,22 +50,20 @@ describe("imagesForCritique reducer", () => {
         }
       },
       responseJSON: {
-        image: {
-            title: "",
-            description: "an image",
-            body: "",
-            url: ""
-        }
+        title: "",
+        description: "an image",
+        body: "",
+        image: "",
+        questions: []
       }
     };
     const nextState = reducer(initialState, action);
     expect(nextState.imageForCritique).to.deep.equal({
-      imageForCritique: {
-        title: "",
-        description: "an image",
-        body: "",
-        url: ""
-      }
+      title: "",
+      description: "an image",
+      body: "",
+      image: "",
+      questions: []
     });
   });
 })
