@@ -4,7 +4,7 @@ import {expect} from 'chai';
 import sd from 'skin-deep';
 
 import {Dashboard} from '../../../../src/components/body/dashboard/Dashboard';
-import DashboardImage from '../../../../src/components/body/dashboard/DashboardImage'
+import ImageModal from '../../../../src/components/body/dashboard/ImageModal'
 import DashboardNotSignedIn from '../../../../src/components/body/dashboard/DashboardNotSignedIn';
 import CommentFormContainer from '../../../../src/components/body/dashboard/CommentForm';
 
@@ -44,8 +44,8 @@ describe("Dashboard", () => {
     let tree = sd.shallowRender(<DashboardTest
       signedIn={signedIn}
       imageForCritique={testImage} />);
-    expect(tree.subTree("DashboardImage")).to.be.ok;
-    expect(tree.subTree("DashboardImage").props.image).to.equal(testImage);
+    expect(tree.subTree("ImageModal")).to.be.ok;
+    expect(tree.subTree("ImageModal").props.image).to.equal(testImage);
   });
 
   it("renders a CommentFormContainer when in signed-in state", () => {

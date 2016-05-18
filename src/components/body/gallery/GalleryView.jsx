@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import * as actionCreators from '../../../action_creators';
-import DashboardImage from '../dashboard/DashboardImage';
+import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from './GalleryQuestionList';
 import Sidebar from '../sidebar/Sidebar';
 
@@ -27,7 +27,9 @@ export const GalleryView = React.createClass({
         </MuiThemeProvider>
         <div className="dashboard">
           <div className="dashboard__image-container col-md-8">
-            <DashboardImage image={this.props.imageById} />
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+              <ImageModal image={this.props.imageById} />
+            </MuiThemeProvider>
           </div>
           <div className="dashboard__comment-form-container col-md-4">
             <GalleryQuestionList imageById={this.props.imageById} />

@@ -1,4 +1,3 @@
-
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
@@ -18,7 +17,6 @@ const contentClearStyles = {
   marginTop: 10,
 };
 
-injectTapEventPlugin();
 
 export default class Sidebar extends React.Component {
   constructor(props) {

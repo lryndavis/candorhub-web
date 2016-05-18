@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
 import * as actionCreators from '../../../action_creators';
-import DashboardImage from '../dashboard/DashboardImage';
+import ImageModal from '../dashboard/ImageModal';
 import DashboardNotSignedIn from '../dashboard/DashboardNotSignedIn';
 import GalleryList from './GalleryList';
 import Sidebar from '../sidebar/Sidebar';

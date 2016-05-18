@@ -5,6 +5,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {AuthGlobals} from 'redux-auth/bootstrap-theme';
 
+injectTapEventPlugin();
+
 export default React.createClass({
   render: function() {
     return (

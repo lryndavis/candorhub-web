@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import * as actionCreators from '../../../action_creators';
 import { CommentFormContainer } from './CommentForm';
-import DashboardImage from './DashboardImage';
+import ImageModal from './ImageModal';
 import DashboardNotSignedIn from './DashboardNotSignedIn';
 import Sidebar from '../sidebar/Sidebar';
 import UploadFormModal from '../sidebar/UploadFormModal';
@@ -32,15 +32,15 @@ export const Dashboard = React.createClass({
               <div className="dashboard">
 
                 <div className="dashboard__image-container col-md-8 ">
-                  <DashboardImage image={this.props.imageForCritique} />
+                  <MuiThemeProvider muiTheme={getMuiTheme()}>
+                    <ImageModal image={this.props.imageForCritique} />
+                  </MuiThemeProvider>
                 </div>
 
                 <div className="dashboard__comment-form-container col-md-4">
-
                   <MuiThemeProvider muiTheme={getMuiTheme()}>
                     <CommentFormContainer questionsForComment={this.props.questionsForComment} />
                   </MuiThemeProvider>
-
                 </div>
 
               </div>
