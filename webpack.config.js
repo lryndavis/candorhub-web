@@ -20,15 +20,17 @@ module.exports = {
      },
      {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader', 'style',
-				'css?importLoaders=1',
-				'font?format[]=truetype&format[]=woff&format[]=embedded-opentype']
+        loaders: ['style-loader', 'css-loader']
       },
       { test: /\.json$/, loader: "json-loader" },
       {
         test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
         loader: 'imports?define=>false&this=>window'
-    }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+       loader: 'file?name=stylesheets/fonts/Coves-Light/[name].[ext]'
+      }
     ],
   },
   resolve: {

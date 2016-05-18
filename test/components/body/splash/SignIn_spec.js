@@ -1,33 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  renderIntoDocument,
-  scryRenderedDOMComponentsWithClass,
-  scryRenderedDOMComponentsWithTag,
-  Simulate
-} from 'react-addons-test-utils';
 import {SignIn} from '../../../../src/components/body/splash/SignIn';
 import {expect} from 'chai';
+import sd from 'skin-deep';
 
 describe("SignIn", () => {
-  it('renders a sign-in button', () => {
-    const component = renderIntoDocument(
-      <SignIn />
-    );
-    const link = scryRenderedDOMComponentsWithClass(component, 'signInLink');
-    expect(link.length).to.equal(1);
-    expect(link[0].textContent).to.equal("Sign In");
+
+  it("renders a sign-in button", () => {
+    let tree = sd.shallowRender(<SignIn />);
+    expect(tree.subTree(".button__sign-in")).to.be.ok;
   });
 
-  it('invokes a callback function when the link is clicked', () => {
+  it("invokes a callback function when the button is clicked", () => {
     let signedIn = false;
     const signIn = () => signedIn = true;
-
-    const component = renderIntoDocument(
-      <SignIn signIn={signIn} />
-    );
-    const link = scryRenderedDOMComponentsWithClass(component, 'signInLink');
-    Simulate.click(link[0]);
+    const tree = sd.shallowRender(<SignIn signIn={signIn}/>);
+    const signInButton = tree.subTree("Link");
+    signInButton.props.onClick();
     expect(signedIn).to.be.true;
   });
 });

@@ -3,29 +3,25 @@ import {expect} from 'chai';
 import reducer from '../../src/reducers/index';
 
 const testImageById = {
-  image: {
-    title: '',
-    description: '',
-    image: '',
-    questions: [{
+  title: '',
+  description: '',
+  image: '',
+  questions: [{
+    id: '',
+    body: '',
+    comments: [{
       id: '',
-      body: '',
-      comments: [{
-        id: '',
-        body: ''
-      }],
-    }]
-  }
+      body: ''
+    }],
+  }]
 }
 
-const testImagesForGallery = {
-  images: [
-    {
-      id: 0,
-      title: ""
-    }
-  ]
-}
+const testImagesForGallery = [
+  {
+    id: 0,
+    title: ""
+  }
+]
 
 describe("imageGallery reducer", () => {
   it('handles SET_IMAGE_BY_ID', () => {
@@ -35,7 +31,7 @@ describe("imageGallery reducer", () => {
       responseJSON: testImageById
     }
     const nextState = reducer(undefined, action);
-    expect(nextState.imageGallery.imageById).to.deep.equal(testImageById.image);
+    expect(nextState.imageGallery.imageById).to.deep.equal(testImageById);
   });
 
   it('handles SET_IMAGE_GALLERY', () => {
@@ -45,6 +41,6 @@ describe("imageGallery reducer", () => {
       responseJSON: testImagesForGallery
     }
     const nextState = reducer(undefined, action);
-    expect(nextState.imageGallery.imagesForGallery).to.deep.equal(testImagesForGallery.images);
+    expect(nextState.imageGallery.imagesForGallery).to.deep.equal(testImagesForGallery);
   });
 });

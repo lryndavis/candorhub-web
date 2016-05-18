@@ -4,6 +4,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 
 import {UploadFormContainer} from './UploadForm';
+import MenuItem from 'material-ui/MenuItem';
+
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
@@ -37,8 +39,7 @@ export default class DialogExampleModal extends React.Component {
     ];
 
     return (
-      <div>
-        <RaisedButton label="Upload" onClick={this.handleOpen} />
+      <MenuItem onClick={this.handleOpen}>Upload
         <Dialog
           title="Upload Your Work!"
           actions={actions}
@@ -49,7 +50,7 @@ export default class DialogExampleModal extends React.Component {
         >
           <UploadFormContainer />
         </Dialog>
-      </div>
+      </MenuItem>
     );
   }
 }
