@@ -4,6 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
 import React from 'react';
+import {SignOutButton} from 'redux-auth';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -36,7 +37,7 @@ export default class Sidebar extends React.Component {
         <div className="dashboard-header">
           <ImageDehaze onClick={this.handleToggle} />
           <span className="dashboard-header__logo">candorhub</span>
-          <span className="dashboard-header__logout">Logout</span>
+          <SignOutButton />
         </div>
         <Drawer
           docked={false}
@@ -47,7 +48,7 @@ export default class Sidebar extends React.Component {
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
           <Link ref="home"
             className="home-link"
-            to={'/'} >
+            to={'dashboard'} >
             <MenuItem>Home</MenuItem>
           </Link>
           <Link ref="gallery"
