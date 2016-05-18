@@ -196,7 +196,7 @@ export const CommentForm = React.createClass ({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signIn.signedIn,
+    signedIn: state.auth.getIn(["user", "isSignedIn"]),
     imageForCritique: state.imageForCritique,
     firstQuestion: state.comments.questionsForComment[0],
     secondQuestion: state.comments.questionsForComment[1],

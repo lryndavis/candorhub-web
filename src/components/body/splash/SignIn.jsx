@@ -7,17 +7,10 @@ import * as actionCreators from '../../../action_creators';
 
 
 export const SignIn = React.createClass({
-  
-  componentWillUpdate(nextProps) {
-    console.log('receiving props');
-    if (nextProps.signedIn === true) {
-      browserHistory.push('/dashboard');
-    } 
-  },
 
   render: function() {
     return (
-      <EmailSignInForm /> 
+      <EmailSignInForm />
     )
   }
 });
