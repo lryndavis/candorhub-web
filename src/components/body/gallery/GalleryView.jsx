@@ -31,7 +31,7 @@ export const GalleryView = React.createClass({
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
           </div>
-          <div className="dashboard__comment-form-container col-md-4">
+          <div className="col-md-4">
             <GalleryQuestionList imageById={this.props.imageById} />
           </div>
         </div>

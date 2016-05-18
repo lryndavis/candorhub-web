@@ -17,18 +17,14 @@ export default React.createClass({
     var commentRender = comments.map(function(comment) {
     return (
       <div className="comments" key={comment.id}>
-
         <Avatar style={avatarStyles}>U</Avatar>
-
         <span className="comments__body">
           {comment.body}
         </span>
-
         <p className="comments__meta">
           <span className="comments__date">Date: 5/11/2016</span>
           <span className="comments__user">By: User</span>
         </p>
-
       </div>
       );
     });

@@ -24,10 +24,14 @@
 }
 
 
+//Media Queries 
+
+
 @media screen and (max-width: 990px) {
   .critique-image__image{
     width: 100%;
     margin-bottom: 10px;
+    border-right: none;
   }
   .critique-image__image-title {
     font-size: 1.5em;

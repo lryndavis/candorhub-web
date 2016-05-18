@@ -1,15 +1,15 @@
 import $ from 'jquery';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import * as actionCreators from '../../../action_creators';
 import { CommentFormContainer } from './CommentForm';
-import ImageModal from './ImageModal';
 import DashboardNotSignedIn from './DashboardNotSignedIn';
+import ImageModal from './ImageModal';
 import Sidebar from '../sidebar/Sidebar';
 import UploadFormModal from '../sidebar/UploadFormModal';
 

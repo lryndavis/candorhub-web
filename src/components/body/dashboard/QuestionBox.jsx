@@ -25,7 +25,7 @@ export default React.createClass({
           { this.state.navArrowChange ? <NavigationArrowDropUp /> : <NavigationArrowDropDown /> }
           {this.props.question.body}
         </h3>
-        <div>
+        <div className="comment-list">
           { this.state.commentShow ? <CommentBox question={this.props.question} /> : null }
         </div>
       </div>
