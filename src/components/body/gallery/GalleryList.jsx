@@ -4,8 +4,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Router, Route, Link } from 'react-router';
 
-import GalleryView from './GalleryView';
-
 
 const masonryOptions = {
     transitionDuration: 0,
@@ -16,6 +14,7 @@ const masonryOptions = {
 
   export default React.createClass({
 
+  //infinite scroll functions
     getInitialState: function() {
         return {
             elements: this.buildElements(0, 15),
@@ -51,6 +50,7 @@ const masonryOptions = {
             Loading...
         </div>;
     },
+    // -----------
 
   render: function() {
     var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
