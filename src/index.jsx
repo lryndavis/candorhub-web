@@ -13,15 +13,15 @@ import {GalleryViewContainer} from './components/body/gallery/GalleryView';
 import reducer from './reducers/index';
 import styles from './stylesheets/main.scss';
 import {SignInContainer} from './components/body/splash/SignIn';
-import {Splash} from './components/body/splash/Splash';
+import {SplashContainer} from './components/body/splash/Splash';
 import {configure} from 'redux-auth';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
 //Routing table
 const routes = (
-  <Route component={App}>
-    <Route path='/' component={Splash} />
+  <Route path='/' component={App}>
+    <IndexRoute component={SplashContainer} />
     <Route path='dashboard' component={DashboardContainer} />
     <Route path='gallery' component={GalleryContainer} />
     <Route path="gallery/:id" component={GalleryViewContainer} />

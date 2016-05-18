@@ -54,7 +54,7 @@ export const Dashboard = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signIn.signedIn,
+    signedIn: state.auth.getIn(["user", "isSignedIn"]),
     imageForCritique: state.imageForCritique,
     questionsForComment: state.comments.questionsForComment
   };
