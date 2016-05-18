@@ -3,8 +3,11 @@
 .critique-image{}
 
 .critique-image__image {
-  width: 85%;
+  width: 90%;
   margin-bottom: 20px;
+  border-right: 1px solid grey;
+  padding-right: 60px;
+  cursor: pointer;
 }
 
 .critique-image__image-title {
@@ -15,10 +18,20 @@
   max-width: 600px;
 }
 
+.modal-image {
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+//Media Queries 
+
+
 @media screen and (max-width: 990px) {
   .critique-image__image{
     width: 100%;
     margin-bottom: 10px;
+    border-right: none;
   }
   .critique-image__image-title {
     font-size: 1.5em;

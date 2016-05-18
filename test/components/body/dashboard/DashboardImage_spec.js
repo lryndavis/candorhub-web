@@ -7,10 +7,10 @@ import {
   Simulate
 } from 'react-addons-test-utils';
 import {Map} from 'immutable';
-import DashboardImage from '../../../../src/components/body/dashboard/DashboardImage';
+import ImageModal from '../../../../src/components/body/dashboard/ImageModal';
 import {expect} from 'chai';
 
-describe('DashboardImage', () => {
+describe('ImageModal', () => {
 
   it('displays an image from a url from an image prop', () => {
     const image = {
@@ -19,7 +19,7 @@ describe('DashboardImage', () => {
       description: 'This kitty thinks it is an airplane!'
     };
     const component = renderIntoDocument(
-      <DashboardImage image={image}/>
+      <ImageModal image={image}/>
     );
     const critiqueImage = scryRenderedDOMComponentsWithTag(component, "img");
     expect(critiqueImage[0].hasAttribute('src')).to.be.true;
@@ -33,7 +33,7 @@ describe('DashboardImage', () => {
       description: 'This kitty thinks it is an airplane!'
     };
     const component = renderIntoDocument(
-      <DashboardImage image={image}/>
+      <ImageModal image={image}/>
     );
     const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "critique-image__image-title");
     const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "critique-image__image-desc");

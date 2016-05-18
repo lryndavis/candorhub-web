@@ -6,7 +6,7 @@ import sd from 'skin-deep';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import DashboardImage from '../../../../src/components/body/dashboard/DashboardImage';
+import ImageModal from '../../../../src/components/body/dashboard/ImageModal';
 import GalleryQuestionList from '../../../../src/components/body/gallery/GalleryQuestionList';
 import Sidebar from '../../../../src/components/body/sidebar/Sidebar';
 
@@ -20,7 +20,7 @@ const GalleryViewTest = React.createClass({
         </MuiThemeProvider>
         <div className="dashboard">
           <div className="dashboard__image-container col-md-8">
-            <DashboardImage image={this.props.imageById} />
+            <ImageModal image={this.props.imageById} />
           </div>
           <div className="dashboard__comment-form-container col-md-4">
             <GalleryQuestionList imageById={this.props.imageById} />
@@ -75,9 +75,9 @@ describe("GalleryView", () => {
     vdom = tree.getRenderOutput();
   });
 
-  it("renders a DashboardImage", () => {
-    expect(tree.subTree("DashboardImage")).to.be.ok;
-    expect(tree.subTree("DashboardImage").props.image).to.deep.equal(testImage.imageById);
+  it("renders a ImageModal", () => {
+    expect(tree.subTree("ImageModal")).to.be.ok;
+    expect(tree.subTree("ImageModal").props.image).to.deep.equal(testImage.imageById);
   })
 
   it("renders a GalleryQuestionList", () => {

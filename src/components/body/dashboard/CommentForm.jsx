@@ -8,7 +8,7 @@ import * as actionCreators from '../../../action_creators';
 import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../../lib/CommentValidation';
 import Dashboard from './Dashboard';
 import DashboardNotSignedIn from './DashboardNotSignedIn';
-import DashboardImage from './DashboardImage';
+import ImageModal from './ImageModal';
 import QuestionList from './QuestionList';
 
 
@@ -148,10 +148,9 @@ export const CommentForm = React.createClass ({
         this.props.showForm ?
           <form className="form" onSubmit={this.handleSubmit}>
             <h2 className="form__header">Your Daily Candor</h2>
-            <p className="form__question">{this.props.firstQuestion.body}</p>
+            <p className="form__question">{this.props.firstQuestion.body}?</p>
             <TextField
               className="form__textfield"
-              hintText="Your Critique"
               errorText={this.getErrorHint(this.state.firstResponseStatus)}
               value={this.state.firstResponse}
               onChange={this.handleFirstResponseChange}
@@ -159,10 +158,9 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-            <p  className="form__question">{this.props.secondQuestion.body}</p>
+            <p  className="form__question">{this.props.secondQuestion.body}?</p>
             <TextField
               className="form__textfield"
-              hintText="Your Critique"
               errorText={this.getErrorHint(this.state.secondResponseStatus)}
               value={this.state.secondResponse}
               onChange={this.handleSecondResponseChange}
@@ -170,10 +168,9 @@ export const CommentForm = React.createClass ({
               multiLine={true}
             /><br />
             <br />
-            <p  className="form__question">{this.props.thirdQuestion.body}</p>
+            <p  className="form__question">{this.props.thirdQuestion.body}?</p>
             <TextField
               className="form__textfield"
-              hintText="Your Critique"
               errorText={this.getErrorHint(this.state.thirdResponseStatus)}
               value={this.state.thirdResponse}
               onChange={this.handleThirdResponseChange}

@@ -1,11 +1,33 @@
 // custom styles for the comments
 
-.comments {
-  margin-bottom: 20px;
+
+.gallery__comment-box {
+  border-bottom: 1px solid grey;
 }
 
-.comments__comment-list {
-  border-bottom: 1px solid grey;
+.dashboard__comment-form-container{
+  text-align: center;
+}
+
+.form__header {
+  padding-bottom: 25px;
+  font-family: 'Merriweather';
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2em;
+}
+
+.comments__header {
+  padding-bottom: 25px;
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 2em;
+  text-align: center;
+}
+
+.comments {
+  margin-bottom: 20px;
 }
 
 .comments__body {
