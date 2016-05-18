@@ -20,8 +20,8 @@ const store = createStore(reducer, applyMiddleware(thunk));
 
 //Routing table
 const routes = (
-  <Route component={App}>
-    <Route path='/' component={Splash} />
+  <Route path='/' component={App}>
+    <IndexRoute component={Splash} />
     <Route path='dashboard' component={DashboardContainer} />
     <Route path='gallery' component={GalleryContainer} />
     <Route path="gallery/:id" component={GalleryViewContainer} />

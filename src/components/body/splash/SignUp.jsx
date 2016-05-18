@@ -1,6 +1,7 @@
 import TextField from 'material-ui/TextField';
 import React from 'react';
 import {connect} from 'react-redux';
+import {EmailSignUpForm} from 'redux-auth';
 
 
 export default React.createClass({
@@ -34,41 +35,7 @@ export default React.createClass({
 
   render: function() {
     return (
-      <form className="form__sign-up" onSubmit={this.handleSubmit}>
-          <TextField
-            className="usernameTextField"
-            hintText="Your Username"
-            value={this.state.username}
-            onChange={this.handleUsernameChange}
-            /><br />
-            <br />
-          <TextField
-            className="emailTextField"
-            hintText="Your Email"
-            value={this.state.email}
-            onChange={this.handleEmailChange}
-            /><br />
-            <br />
-          <TextField
-            className="passwordTextField"
-            hintText="Your Password"
-            floatingLabelText="Password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handlePasswordChange}
-            /><br />
-            <br />
-          <TextField
-            className="passwordConfirmTextField"
-            hintText="Confirm Password"
-            floatingLabelText="Confirm Password"
-            type="password"
-            value={this.state.passwordConfirm}
-            onChange={this.handlePasswordConfirmChange}
-            /><br />
-            <br />
-        <input className="sign-up-button" type="submit" value="JOIN" />
-      </form>
+      <EmailSignUpForm /> 
     );
   }
 });

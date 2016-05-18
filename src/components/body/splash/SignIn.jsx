@@ -1,27 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
+import {EmailSignInForm} from 'redux-auth';
 
 import * as actionCreators from '../../../action_creators';
 
 
 export const SignIn = React.createClass({
+  
+  componentWillUpdate(nextProps) {
+    console.log('receiving props');
+    if (nextProps.signedIn === true) {
+      browserHistory.push('/dashboard');
+    } 
+  },
+
   render: function() {
     return (
-      <div className="button button__sign-in">
-        <Link ref="signIn"
-          to={'/dashboard'}
-          onClick={() => this.props.signIn()}>
-          Sign In
-        </Link>
-      </div>
+      <EmailSignInForm /> 
     )
   }
 });
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signIn.signedIn
+    signedIn: state.auth.getIn(["user", "isSignedIn"])
   };
 }
 
