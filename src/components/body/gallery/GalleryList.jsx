@@ -1,4 +1,3 @@
-import InfiniteScroll from 'react-infinite-scroller';
 import Infinite from 'react-infinite';
 import Masonry from 'react-masonry-component';
 import React from 'react';
