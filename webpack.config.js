@@ -20,11 +20,12 @@ module.exports = {
      },
      {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader', 'style',
-				'css?importLoaders=1',
-				'font?format[]=truetype&format[]=woff&format[]=embedded-opentype']
+        loaders: ['style-loader', 'css-loader']
       },
-      { test: /\.json$/, loader: "json-loader" }
+      { test: /\.json$/, loader: "json-loader" },
+      { test: /\.(eot|svg|ttf|woff|woff2)$/,
+       loader: 'file?name=stylesheets/fonts/Coves-Light/[name].[ext]'
+     }
     ],
   },
   resolve: {

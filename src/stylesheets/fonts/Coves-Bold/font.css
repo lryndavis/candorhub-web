@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Coves-Bold';
+  src: url('Coves-Bold.eot');
+  src: url('Coves-Bold.woff2') format('woff2'),
+       url('Coves-Bold.woff') format('woff'),
+       url('Coves-Bold.ttf') format('truetype'),
+       url('Coves-Bold.svg#Coves-Bold') format('svg'),
+       url('Coves-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
