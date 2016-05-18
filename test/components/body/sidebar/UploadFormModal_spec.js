@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import DialogExampleModal from '../../../../src/components/body/sidebar/UploadFormModal';
 import {expect} from 'chai';
 import sd from 'skin-deep';
+import MenuItem from 'material-ui/MenuItem';
+
 
 describe("UploadFormModal", () => {
   let tree, instance, vdom, dialog;
@@ -23,10 +25,8 @@ describe("UploadFormModal", () => {
     expect(instance.state.open).to.be.false;
   });
 
-  it("renders a raised upload button", () => {
-    const raisedButton = tree.subTree("RaisedButton",
-      (node) => node.props.label === "Upload");
-    expect(raisedButton).to.be.ok;
+  it("is a MenuItem", () => {
+    expect(tree.type).to.equal(MenuItem);
   });
 
   it("renders an UploadFormContainer", () => {
@@ -34,9 +34,8 @@ describe("UploadFormModal", () => {
   });
 
   it("changes open state when the upload button is pressed", () => {
-    const raisedButton = tree.subTree("RaisedButton",
-      (node) => node.props.label === "Upload");
-    raisedButton.props.onClick();
+    const menuItem = tree.subTree("MenuItem");
+    menuItem.props.onClick();
     expect(instance.state.open).to.be.true;
   });
 });
