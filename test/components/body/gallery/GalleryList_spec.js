@@ -28,11 +28,18 @@ describe("GalleryList", () => {
     expect(tree.props.className).to.contain("image-gallery");
   });
 
+  it("renders images", () => {
+    expect(tree.everySubTree("img").length).to.equal(2);
+  })
+
   it("renders a Link for each image", () => {
-    expect(tree.everySubTree("Link").length).to.equal(2);
+    const links = tree.everySubTree("Link");
+    expect(links.length).to.equal(2);
+    expect(links[0].props.to).to.equal("/gallery/0");
+    expect(links[1].props.to).to.equal("/gallery/1");
   });
 
-  it("renders a GalleryThumbnail for each image", () => {
-    expect(tree.everySubTree("GalleryThumbnail").length).to.equal(2);
+  it("renders an Infinite scroll element", () => {
+    expect(tree.subTree("Infinite")).to.be.ok;
   });
 })
