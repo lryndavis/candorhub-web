@@ -38,7 +38,7 @@ describe("Sidebar", () => {
     let drawer = tree.subTree("Drawer");
     expect(drawer.props.open).to.be.true;
     expect(drawer.subTree("ContentClear")).to.be.ok;
-    expect(drawer.everySubTree("MenuItem").length).to.equal(3);
+    expect(drawer.everySubTree("MenuItem").length).to.equal(2);
   });
 
   it("closes the Drawer when the ContentClear component is clicked", () => {
