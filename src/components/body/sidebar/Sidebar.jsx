@@ -35,8 +35,8 @@ export default class Sidebar extends React.Component {
       <div>
         <div className="dashboard-header">
           <ImageDehaze onClick={this.handleToggle} />
-          <span className="main-logo-dashboard">candorhub</span>
-          <span className="logout-button">Logout</span>
+          <span className="dashboard-header__logo">candorhub</span>
+          <span className="dashboard-header__logout">Logout</span>
         </div>
         <Drawer
           docked={false}
@@ -45,14 +45,16 @@ export default class Sidebar extends React.Component {
           onRequestChange={open => this.setState({open})}
         >
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
-          <MenuItem a href="/">Home</MenuItem>
-          <MenuItem>
-            <Link ref="gallery"
-              className="gallery-link"
-              to={'/gallery'}>
-              Gallery
-            </Link>
-          </MenuItem>
+          <Link ref="home"
+            className="home-link"
+            to={'/'} >
+            <MenuItem>Home</MenuItem>
+          </Link>
+          <Link ref="gallery"
+            className="gallery-link"
+            to={'gallery'} >
+            <MenuItem>Gallery</MenuItem>
+          </Link>
           <MenuItem>
             <UploadFormModal />
           </MenuItem>

@@ -8,9 +8,8 @@ import * as actionCreators from '../../../action_creators';
 export const SignIn = React.createClass({
   render: function() {
     return (
-      <div className="sign-in">
+      <div className="button button__sign-in">
         <Link ref="signIn"
-          className="signInLink"
           to={'/dashboard'}
           onClick={() => this.props.signIn()}>
           Sign In

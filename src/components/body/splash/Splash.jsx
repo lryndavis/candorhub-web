@@ -13,7 +13,9 @@ export const Splash = React.createClass({
 
   render: function() {
     return (
-      <div className="container">
+      <div className="splash container">
+        <h1 className="splash__logo">candorhub</h1>
+        <p className="splash__tagline">Thought Provoking Critique</p>
         <MuiThemeProvider muiTheme={getMuiTheme()}>
          <SignUp />
         </MuiThemeProvider>

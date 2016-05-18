@@ -29,7 +29,7 @@ export default class DialogExampleModal extends React.Component {
   render() {
     const actions = [
       <button
-        className="sign-up-button"
+        className="button"
         label="CLOSE"
         primary={true}
         onClick={this.handleClose}>CLOSE
