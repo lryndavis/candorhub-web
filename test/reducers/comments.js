@@ -45,10 +45,12 @@ describe('comments reducer', () => {
     expect(nextState.comments).to.deep.equal({
       displayComments: false,
       showCommentForm: true,
-      questionsForComment: [
-        {text: "a question"},
-        {text: "another question"}
-      ]
+      questionsForComment: {
+        questions: [
+          {text: "a question"},
+          {text: "another question"}
+        ]
+      }
     });
   });
 

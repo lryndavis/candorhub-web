@@ -15,7 +15,7 @@ describe("UploadForm", () => {
 
   it("renders an upload form with a dropzone", () => {
     expect(tree.type).to.equal("form");
-    expect(tree.props.className).to.equal("uploadForm");
+    expect(tree.props.className).to.contain("upload-form");
     expect(tree.subTree("Dropzone")).to.be.ok;
   });
 
@@ -34,7 +34,7 @@ describe("UploadForm", () => {
 
   it("updates state on title change", () => {
     const textField = tree.subTree("TextField",
-      (node) => node.props.className === "imageTitleTextField");
+      (node) => node.props.className === "upload-form__image-title");
     textField.props.onChange({
       target: {
         value: "My Image"
@@ -45,7 +45,7 @@ describe("UploadForm", () => {
 
   it("updates state on description change", () => {
     const textField = tree.subTree("TextField",
-      (node) => node.props.className === "imageDescriptionTextField");
+      (node) => node.props.className === "upload-form__image-desc");
     textField.props.onChange({
       target: {
         value: "My Description"
