@@ -1,5 +1,5 @@
-import ReactInfiniteScroll from 'react-infinite-scroll';
-const InfiniteScroll = ReactInfiniteScroll(React);
+import InfiniteScroll from 'react-infinite-scroller';
+import Infinite from 'react-infinite';
 import Masonry from 'react-masonry-component';
 import React from 'react';
 import {connect} from 'react-redux';
@@ -10,17 +10,53 @@ import GalleryView from './GalleryView';
 
 
 const masonryOptions = {
-    transitionDuration: 1000,
+    transitionDuration: 0,
     columnWidth: '.grid-sizer',
     itemSelector: '.grid-item',
     gutter: '.gutter-sizer'
 };
 
-export default React.createClass({
+  export default React.createClass({
+
+    getInitialState: function() {
+        return {
+            elements: this.buildElements(0, 15),
+            isInfiniteLoading: false
+        }
+    },
+
+    buildElements: function(start, end) {
+        var elements = [];
+        for (var i = start; i < end; i++) {
+            elements.push(<div className="grid-sizer" />)
+        }
+        return elements;
+    },
+
+    handleInfiniteLoad: function() {
+      console.log("handling infinite load")
+        var that = this;
+        this.setState({
+            isInfiniteLoading: true
+        });
+        setTimeout(function() {
+            var elemLength = that.state.elements.length,
+                newElements = that.buildElements(elemLength, elemLength + 1000);
+            that.setState({
+                isInfiniteLoading: false,
+                elements: that.state.elements.concat(newElements)
+            });
+        }, 500);
+    },
+
+    elementInfiniteLoad: function() {
+        return <div className="infinite-list-item">
+            Loading...
+        </div>;
+    },
 
   render: function() {
-    var showImages = this.props.imagesForGallery;
-    var imageGalleryRender = showImages.map(function(image) {
+    var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
     return (
       <div key={image.id} className="grid-sizer">
         <div className="gutter-sizer">
@@ -33,13 +69,22 @@ export default React.createClass({
   });
   return (
     <div className="image-gallery container">
-      <Masonry
-              options={masonryOptions}
-              disableImagesLoaded={false}
-              className={"image-gallery"}
-        >
-        {imageGalleryRender}
-      </Masonry>
+      <Infinite elementHeight={1000}
+                         infiniteLoadBeginEdgeOffset={7000}
+                         onInfiniteLoad={this.handleInfiniteLoad}
+                         loadingSpinnerDelegate={this.elementInfiniteLoad()}
+                         isInfiniteLoading={this.state.isInfiniteLoading}
+                         timeScrollStateLastsForAfterUserScrolls={1000}
+                         useWindowAsScrollContainer
+                         >
+        <Masonry
+                options={masonryOptions}
+                disableImagesLoaded={false}
+                className={"image-gallery"}
+          >
+          {imageGalleryRender}
+        </Masonry>
+      </Infinite>
     </div>
     );
   }
