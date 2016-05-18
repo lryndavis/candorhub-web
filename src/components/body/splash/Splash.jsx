@@ -11,11 +11,8 @@ import SignUp from './SignUp';
 export const Splash = React.createClass({
 
   componentWillUpdate(nextProps) {
-    console.log(nextProps);
-    console.log('receiving props');
-    console.log('signed in ' + nextProps.signedIn);
+
     if (nextProps.signedIn) {
-      console.log("transitioning");
       // browserHistory.push("dashboard");
       browserHistory.push("/dashboard");
     }
@@ -36,8 +33,6 @@ export const Splash = React.createClass({
 });
 
 function mapStateToProps(state) {
-  console.log("in map");
-  console.log(state.auth.getIn(["user", "isSignedIn"]));
   return {
     signedIn: state.auth.getIn(["user", "isSignedIn"])
   };
