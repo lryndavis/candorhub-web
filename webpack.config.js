@@ -24,7 +24,11 @@ module.exports = {
 				'css?importLoaders=1',
 				'font?format[]=truetype&format[]=woff&format[]=embedded-opentype']
       },
-      { test: /\.json$/, loader: "json-loader" }
+      { test: /\.json$/, loader: "json-loader" },
+      {
+        test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
+        loader: 'imports?define=>false&this=>window'
+    }
     ],
   },
   resolve: {

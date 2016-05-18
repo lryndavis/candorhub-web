@@ -24,7 +24,7 @@ export const Gallery = React.createClass({
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <Sidebar />
           </MuiThemeProvider>
-        <div className="gallery-container">
+        <div className="image-gallery container">
           <GalleryList imagesForGallery={this.props.imagesForGallery} />
         </div>
       </div> :

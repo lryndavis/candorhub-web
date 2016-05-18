@@ -25,9 +25,8 @@ export default React.createClass({
   },
 
   render: function(){
-    return <div key={this.getImageId()} className="gallery-thumbnail col-md-6">
+    return <div key={this.getImageId()}>
         <img className="gallery-thumbnail__image" src={this.getImageUrl()} alt={this.getImageDescription()}></img>
-        <h2 className="gallery-thumbnail__title">{this.props.image.title}</h2>
       </div>;
     }
   })
