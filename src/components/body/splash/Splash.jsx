@@ -8,9 +8,7 @@ import * as actionCreators from '../../../action_creators';
 import {SignInContainer} from './SignIn';
 import SignUp from './SignUp';
 
-
 export const Splash = React.createClass({
-
   render: function() {
     return (
       <div className="splash container">
@@ -27,6 +25,6 @@ export const Splash = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.signIn.signedIn
+    signedIn: state.auth.getIn(["user", "isSignedIn"])
   };
 }

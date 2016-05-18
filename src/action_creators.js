@@ -16,13 +16,6 @@ export function setState(state) {
   };
 }
 
-export function signIn(state) {
-  return {
-    type: 'SIGN_IN',
-    state
-  };
-}
-
 export function hideForm(state) {
   return {
     type: 'HIDE_FORM',
