@@ -4,7 +4,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Router, Route, Link } from 'react-router';
 
-import GalleryThumbnail from './GalleryThumbnail';
 import GalleryView from './GalleryView';
 
 
@@ -33,7 +32,6 @@ const masonryOptions = {
     },
 
     handleInfiniteLoad: function() {
-      console.log("handling infinite load")
         var that = this;
         this.setState({
             isInfiniteLoading: true
