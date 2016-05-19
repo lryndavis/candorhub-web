@@ -30,6 +30,7 @@ export default class SignInModal extends React.Component {
 
     return(
       <div className="form__sign-in-container">
+        <h3 className="form__member-header">Already a member?</h3>
         <button className="form__sign-in-button" onClick={this.handleOpen}>Sign In</button>
         <Dialog
             actions={actions}

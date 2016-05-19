@@ -12,7 +12,7 @@ export const SignIn = React.createClass({
     return (
       <div className="form__sign-in-email">
         <h2 className="form__sign-in-header">candorhub</h2>
-        <EmailSignInForm />
+        <EmailSignInForm icon={''} />
       </div>
     )
   }
