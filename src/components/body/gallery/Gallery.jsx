@@ -2,7 +2,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import {browserHistory, Link} from 'react-router';
 
 import * as actionCreators from '../../../action_creators';
 import ImageModal from '../dashboard/ImageModal';
@@ -15,6 +15,13 @@ export const Gallery = React.createClass({
 
   componentDidMount: function() {
     this.props.getMultipleImagesFromServer();
+  },
+
+  componentWillUpdate(nextProps) {
+    //redirect to splash on sign-out
+    if (!nextProps.signedIn) {
+      browserHistory.push("/");
+    }
   },
 
   render: function() {
