@@ -31,8 +31,6 @@ export default class ImageModal extends React.Component {
     return (
       <div>
         <img className="critique-image__image" src={this.props.image.image} onClick={this.handleOpen} />
-        <h1 className="critique-image__image-title">{this.props.image.title}</h1>
-        <p className="critique-image__image-desc">{this.props.image.description}</p>
         <Dialog
           actions={actions}
           modal={true}

@@ -9,9 +9,70 @@
   margin-bottom: 20px;
 }
 
-//Splash form styling
-
 .form__sign-up {
   text-align: center;
   margin-top: 20px;
+}
+
+.form__join-header {
+  font-family: 'Coves-Light';
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.form__member-header {
+  font-family: 'Coves-Light';
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 40px;
+  color: #2957C3;
+}
+
+.form__sign-in-header {
+  font-family: 'Coves-Light';
+  text-align: center;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+//Custom styling workaround that mimics material design forms
+
+input.email-sign-up-email,
+input.email-sign-up-password,
+input.email-sign-up-password-confirmation {
+  @extend %material-text-fields;
+  background-color: #f6f6f6;
+}
+
+input.email-sign-in-email,
+input.email-sign-in-password {
+  @extend %material-text-fields;
+  background-color: #fff;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  display: none;
+}
+
+.form__sign-in-container,
+.form__sign-in-email {
+  @extend %splash-form-centering;
+}
+
+.form__sign-up-container {
+  @extend %splash-form-centering;
+}
+
+form.redux-auth.email-sign-in-form {
+  @extend %splash-form-centering;
+}
+
+//removes ugly yellow input field highlight in chrome browsers
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
 }

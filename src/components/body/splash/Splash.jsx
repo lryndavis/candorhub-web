@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../../../action_creators';
 import {SignInContainer} from './SignIn';
 import SignUp from './SignUp';
+import SignInModal from './SignInModal';
 
 export const Splash = React.createClass({
 
@@ -24,9 +25,11 @@ export const Splash = React.createClass({
         <h1 className="splash__logo">candorhub</h1>
         <p className="splash__tagline">Thought Provoking Critique</p>
         <MuiThemeProvider muiTheme={getMuiTheme()}>
-         <SignUp />
+          <SignUp />
         </MuiThemeProvider>
-        <SignInContainer />
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
+          <SignInModal/>
+        </MuiThemeProvider>
       </div>
     )
   }
