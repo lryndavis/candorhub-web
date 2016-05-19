@@ -9,9 +9,40 @@
   margin-bottom: 20px;
 }
 
-//Splash form styling
-
 .form__sign-up {
   text-align: center;
   margin-top: 20px;
+}
+
+//Custom styling workaround that mimics material design forms
+
+input.email-sign-up-email,
+input.email-sign-up-password,
+input.email-sign-up-password-confirmation,
+input.email-sign-in-email,
+input.email-sign-in-password {
+  @extend %material-text-fields;
+}
+
+input:focus {
+  outline: none;
+}
+
+//removes ugly yellow input field highlight in chrome browsers
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
+}
+
+label {
+  display: none;
+}
+
+button.email-sign-up-submit,
+button.email-sign-in-submit {
+  @extend %splash-buttons;
+}
+
+.form__sign-up-container {
+  width: 300px;
+  margin: 0 auto;
 }
