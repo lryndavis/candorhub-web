@@ -40,3 +40,8 @@ button.form__sign-in-button {
   @extend %splash-buttons;
   background-color: #f6f6f6;
 }
+
+button.sign-out-submit {
+  background-color: #f6f6f6;
+  font-style: italic;
+}
