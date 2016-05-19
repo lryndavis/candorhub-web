@@ -10,7 +10,10 @@ export const SignIn = React.createClass({
 
   render: function() {
     return (
-      <EmailSignInForm />
+      <div className="form__sign-in-email">
+        <h2 className="form__sign-in-header">candorhub</h2>
+        <EmailSignInForm />
+      </div>
     )
   }
 });

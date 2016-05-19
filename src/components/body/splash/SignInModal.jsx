@@ -7,7 +7,7 @@ import {SignInContainer} from './SignIn';
 import MenuItem from 'material-ui/MenuItem';
 
 const customContentStyle = {
-  maxWidth: '900px',
+  maxWidth: '400px',
 };
 
 export default class SignInModal extends React.Component {
@@ -29,8 +29,8 @@ export default class SignInModal extends React.Component {
     ];
 
     return(
-      <div>
-        <button onClick={this.handleOpen}>Sign In</button>
+      <div className="form__sign-in-container">
+        <button className="form__sign-in-button" onClick={this.handleOpen}>Sign In</button>
         <Dialog
             actions={actions}
             modal={true}

@@ -7,16 +7,20 @@
   width:300px;
   border:none;
   border-bottom:1px solid #949191;
-  background-color: #f6f6f6;
   margin-bottom: 20px;
 }
 
 %splash-buttons {
-  background-color: #f6f6f6;
+  font-family: 'Coves-Light';
   width: 300px;
   border: 1px solid #949191;
   text-transform: uppercase;
-  font-style: italic;
+  font-size: 1.2em;
   margin-top: 25px;
   padding: 5px;
+}
+
+%splash-form-centering {
+  width: 300px;
+  margin: 0 auto;
 }
