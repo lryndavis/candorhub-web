@@ -31,13 +31,13 @@ export const Dashboard = React.createClass({
 
               <div className="dashboard">
 
-                <div className="dashboard__image-container col-md-8 ">
+                <div className="dashboard__image-container col-md-6">
                   <MuiThemeProvider muiTheme={getMuiTheme()}>
                     <ImageModal image={this.props.imageForCritique} />
                   </MuiThemeProvider>
                 </div>
 
-                <div className="dashboard__comment-form-container col-md-4">
+                <div className="dashboard__comment-form-container col-md-6">
                   <MuiThemeProvider muiTheme={getMuiTheme()}>
                     <CommentFormContainer questionsForComment={this.props.questionsForComment} />
                   </MuiThemeProvider>

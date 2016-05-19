@@ -147,11 +147,15 @@ export const CommentForm = React.createClass ({
       {
         this.props.showForm ?
           <form className="form" onSubmit={this.handleSubmit}>
-            <p>Your Daily Candor</p>
-            <span>{this.props.imageForCritique.title}</span>
-            <span>By User</span>
-            <p>Artists Notes: {this.props.imageForCritique.description}</p>
-            <p className="form__question">Thoughts?</p>
+            <span className="form__image-title">{this.props.imageForCritique.title}</span>
+            <span className="form__user-name">By User</span>
+            <p className="form__image-description">
+              <span className="form__artist-notes">Artist's Notes: </span>
+              {this.props.imageForCritique.description}
+            </p>
+
+            <div className="form__form-text-center">
+            <p className="form__comment-header">Critique It</p>
             <p className="form__question">{this.props.firstQuestion.body}?</p>
             <TextField
               className="form__textfield"
@@ -185,6 +189,7 @@ export const CommentForm = React.createClass ({
             <button type="submit"
               className="button button__submit"
               disabled={!this.state.readyToSubmit}>Post</button>
+            </div>
           </form> :
           <div>
             <QuestionList imageForCritique={this.props.imageForCritique}/>

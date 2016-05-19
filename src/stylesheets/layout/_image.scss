@@ -3,9 +3,9 @@
 .critique-image{}
 
 .critique-image__image {
-  width: 90%;
+  width: 95%;
   margin-bottom: 20px;
-  border-right: 1px solid grey;
+  border-right: 1px solid #949191;
   padding-right: 60px;
   cursor: pointer;
 }
@@ -23,8 +23,14 @@
   width: 100%;
 }
 
+.critique-image__header {
+  margin-top: 0;
+  font-size: 1.3em;
+  font-weight: lighter;
+  font-style: italic;
+}
 
-//Media Queries 
+//Media Queries
 
 
 @media screen and (max-width: 990px) {

@@ -1,5 +1,40 @@
 //Main dashboard component styles and containers.
 
+.form__image-title {
+  font-size: 2.1em;
+  font-family: 'Coves-Light';
+  border-right: 1px solid black;
+  padding-right: 10px;
+}
+
+.form__user-name {
+  font-size: 1.6em;
+  font-family: 'Coves-Light';
+  padding-left: 10px;
+}
+
+.form__image-description {
+  margin-bottom: 20px;
+  margin-top: 15px;
+  font-size:  .9em;
+  line-height: 1.7em;
+  border-bottom: 1px solid grey;
+  padding-bottom: 30px;
+}
+
+.form__artist-notes {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.form__comment-header {
+  font-family: 'Coves-Light';
+  font-size: 2em;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
 .dashboard{
   margin-top: 30px;
 }
@@ -10,7 +45,8 @@
   margin-bottom: 50px;
 }
 
-//media queries 
+
+//media queries
 
 @media screen and (max-width: 990px) {
   .dashboard__image-container {

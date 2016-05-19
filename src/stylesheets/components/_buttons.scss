@@ -1,11 +1,13 @@
 // styling for all button elements
 
 .button__submit {
-  width: 100%;
-  background-color: #f6f6f6;
+  width: 200px;
+  background-color: #666;
   text-transform: uppercase;
   border: 1px solid #666;
-  color: #666;
+  color: #fff;
+  font-family: 'Coves-Light';
+  font-size: 1.2em;
 }
 
 .sign-up-button {

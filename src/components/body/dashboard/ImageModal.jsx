@@ -30,6 +30,7 @@ export default class ImageModal extends React.Component {
 
     return (
       <div>
+        <h3 className="critique-image__header">Your Daily Candor</h3>
         <img className="critique-image__image" src={this.props.image.image} onClick={this.handleOpen} />
         <Dialog
           actions={actions}
