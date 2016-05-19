@@ -12,9 +12,8 @@ import SignInModal from './SignInModal';
 export const Splash = React.createClass({
 
   componentWillUpdate(nextProps) {
-
+    //redirect to dashboard on successful sign-in
     if (nextProps.signedIn) {
-      // browserHistory.push("dashboard");
       browserHistory.push("/dashboard");
     }
   },
