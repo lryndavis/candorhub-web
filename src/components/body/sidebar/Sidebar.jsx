@@ -46,12 +46,12 @@ export default class Sidebar extends React.Component {
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
           <Link ref="home"
             className="home-link"
-            to={'dashboard'} >
+            to={'/dashboard'} >
             <MenuItem>Home</MenuItem>
           </Link>
           <Link ref="gallery"
             className="gallery-link"
-            to={'gallery'} >
+            to={'/gallery'} >
             <MenuItem>Gallery</MenuItem>
           </Link>
           <UploadFormModal />
