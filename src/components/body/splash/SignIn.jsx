@@ -10,9 +10,7 @@ export const SignIn = React.createClass({
 
   render: function() {
     return (
-      <div className="form__sign-up-container">
-        <EmailSignInForm />
-      </div>
+      <EmailSignInForm />
     )
   }
 });

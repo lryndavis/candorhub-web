@@ -7,10 +7,6 @@ import {UploadFormContainer} from './UploadForm';
 import MenuItem from 'material-ui/MenuItem';
 
 
-/**
- * A modal dialog can only be closed by selecting one of the actions.
- */
-
  const customContentStyle = {
    maxWidth: '900px',
  };
