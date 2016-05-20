@@ -146,7 +146,7 @@ export function getQuestionsForComment(state) {
   }
 }
 
-export function startImageUpload(image, title, description) {
+export function startImageUpload(image, title, description, tags) {
   return (dispatch, getState) => {
     const state = getState();
     dispatch({type: 'IS_UPLOADING_IMAGE', state})
@@ -154,7 +154,8 @@ export function startImageUpload(image, title, description) {
       image: {
         image: image,
         title: title,
-        description: description
+        description: description,
+        tags: tags
       }
     }
     return fetch(imageUploadEndpoint, {
