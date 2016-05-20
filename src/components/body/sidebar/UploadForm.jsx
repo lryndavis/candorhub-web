@@ -1,4 +1,3 @@
-import {FlatButton, RaisedButton, TextField} from 'material-ui';
 import CircularProgress from 'material-ui/CircularProgress';
 import React from 'react';
 import Dropzone from 'react-dropzone';
@@ -129,7 +128,7 @@ export const UploadForm = React.createClass({
     return (
       <form className='upload-form' onSubmit={this.handleSubmit}>
         <h3 className="upload-title">Upload Your Work</h3>
-        <div className="col-md-6">
+        <div className="col-md-6 upload-text-fields">
         {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
           <div>
             <CircularProgress size={2} />
@@ -140,31 +139,32 @@ export const UploadForm = React.createClass({
             <Dropzone
               onDrop={this.onDrop}
               accept="image/*">
-              <div>Select a file to upload</div>
+              <div className="dropzone-copy">Select a file to upload</div>
                 {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
                   {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
                 : null }
             </Dropzone>
           </div>
           }
+          <br />
+          <br />
 
-          <br />
-          <br />
-          <TextField
+          <input
             className="upload-form__image-title"
-            hintText="Title"
+            placeholder="Title"
             value={this.state.title}
             onChange={this.handleTitleChange}
             /><br />
             <br />
-          <TextField
+          <input
             className="upload-form__image-desc"
-            hintText="Description"
+            placeholder="Artist's Notes"
             value={this.state.description}
             onChange={this.handleDescChange}
-            /><br />
-            <br />
+            />
+            <input className="button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
           </div>
+
           <div className="col-md-6 tags-container">
             <p className="tags-header">Add Tags</p>
             <ReactTags
