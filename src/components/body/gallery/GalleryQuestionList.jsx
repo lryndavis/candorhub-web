@@ -28,3 +28,7 @@ export default React.createClass({
     );
   }
 });
+
+//conditional logic in question list render
+//array.indexOf
+//if this.props.imageById.indexof(question) =0
