@@ -19,7 +19,4 @@ describe('Splash', () => {
     expect(tree.subTree("SignUp")).to.be.ok;
   });
 
-  it('renders a SignInContainer component', () => {
-    expect(tree.subTree("Connect(SignIn)")).to.be.ok;
-  });
 });
