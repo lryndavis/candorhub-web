@@ -23,8 +23,6 @@ const customContentStyle = {
   margin: 'auto'
 }
 
-const tagSuggestions = ["art", "photography", "drawing", "painting", "sculpture"];
-
 export const UploadForm = React.createClass({
   getInitialState() {
     return {
@@ -32,8 +30,7 @@ export const UploadForm = React.createClass({
       title: '',
       description: '',
       files: [],
-      tags: [],
-      suggestions: tagSuggestions
+      tags: []
     }
   },
 
@@ -122,6 +119,7 @@ export const UploadForm = React.createClass({
     return (
       <form className='upload-form' onSubmit={this.handleSubmit}>
         <h3 className="upload-title">Upload Your Work</h3>
+        <div className="col-md-6">
         {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
           <div>
             <CircularProgress size={2} />
@@ -156,18 +154,20 @@ export const UploadForm = React.createClass({
             onChange={this.handleDescChange}
             /><br />
             <br />
-            <input className="button button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
-          <ReactTags
-            tags={this.state.tags}
-            suggestions={this.state.suggestions}
-            handleDelete={this.handleTagDeletion}
-            handleAddition={this.handleTagAddition}
-            autocomplete={1}
-            handleInputChange={this.handleTagInputChange}
-            ref={(reactTagsNode) => reactTagsNode ?
-              this.tagInput = reactTagsNode.refs.child.refs.input : null}
-            />
-          <span className="feedback">{this.state.feedback}</span>
+          </div>
+          <div className="col-md-6 tags-container">
+            <p className="tags-header">Add Tags</p>
+            <ReactTags
+              tags={this.state.tags}
+              handleDelete={this.handleTagDeletion}
+              handleAddition={this.handleTagAddition}
+              handleInputChange={this.handleTagInputChange}
+              ref={(reactTagsNode) => reactTagsNode ?
+                this.tagInput = reactTagsNode.refs.child.refs.input : null}
+              />
+              <span className="feedback">{this.state.feedback}</span>
+            </div>
+          <input className="button button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
       </form>
     )
   }
