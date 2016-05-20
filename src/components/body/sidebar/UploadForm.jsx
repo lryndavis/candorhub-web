@@ -109,7 +109,7 @@ export const UploadForm = React.createClass({
 
   handleTagInputChange: function(value) {
     if (!doesNotUseOffensiveLanguage(value)) {
-      this.setState({feedback: "stop typing bad words"});
+      this.setState({feedback: "Tags must not use offensive language."});
     } else {
       this.setState({feedback: ""});
     }
@@ -162,6 +162,7 @@ export const UploadForm = React.createClass({
               handleDelete={this.handleTagDeletion}
               handleAddition={this.handleTagAddition}
               handleInputChange={this.handleTagInputChange}
+              allowDeleteFromEmptyInput={false}
               ref={(reactTagsNode) => reactTagsNode ?
                 this.tagInput = reactTagsNode.refs.child.refs.input : null}
               />
