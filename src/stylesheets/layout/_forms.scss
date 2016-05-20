@@ -85,20 +85,14 @@ input.email-sign-in-password:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
+//Custom styling for upload form
 
-//upload form styling
-
-// .upload-form {
-//   width: 80%;
-//   margin: 0 auto;
-//   text-align: center;
-// }
-
-// .drop-zone {
-//   text-align: center;
-//   margin: 0 auto;
-//   margin-left: 60px;
-// }
+div.ReactTags__tagInput input,
+div.ReactTags__tagInput input:focus,
+input.upload-form__image-title,
+input.upload-form__image-desc {
+  @extend %upload-material-text-fields;
+}
 
 .upload-title {
   text-transform: uppercase;
@@ -122,17 +116,21 @@ div.ReactTags__selected a.ReactTags__remove {
 div.ReactTags__selected span.ReactTags__tag {
   padding-right: 5px;
   font-size: 1.2em;
-  display: block;
   font-family: 'coves-light';
+  display: block;
+  margin-bottom: 5px;
 }
 
 .tags-header {
   font-size: 1.3em;
+  font-family: 'Coves-Light';
 }
 
-div.ReactTags__tagInput input,
-div.ReactTags__tagInput input:focus,
-input.upload-form__image-title,
-input.upload-form__image-desc {
-  @extend %upload-material-text-fields;
+.upload-text-fields {
+  text-align: center;
+}
+
+.dropzone-copy {
+  font-family: 'Coves-Light';
+  margin-top: 5px;
 }

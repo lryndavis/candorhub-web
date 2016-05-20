@@ -1,9 +1,7 @@
-import {FlatButton, RaisedButton, TextField} from 'material-ui';
 import CircularProgress from 'material-ui/CircularProgress';
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import {connect} from 'react-redux';
-import {grey800, indigoA400} from 'material-ui/styles/colors';
 
 import * as actionCreators from '../../../action_creators';
 import {doesNotUseOffensiveLanguage} from '../../../lib/CommentValidation';
@@ -118,10 +116,9 @@ export const UploadForm = React.createClass({
 
   render() {
     return (
-      <div className='upload-form-container'>
       <form className='upload-form' onSubmit={this.handleSubmit}>
         <h3 className="upload-title">Upload Your Work</h3>
-        <div className="col-md-6">
+        <div className="col-md-6 upload-text-fields">
         {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
           <div>
             <CircularProgress size={2} />
@@ -132,16 +129,16 @@ export const UploadForm = React.createClass({
             <Dropzone
               onDrop={this.onDrop}
               accept="image/*">
-              <div>Select a file to upload</div>
+              <div className="dropzone-copy">Select a file to upload</div>
                 {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
                   {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
                 : null }
             </Dropzone>
           </div>
           }
+          <br />
+          <br />
 
-          <br />
-          <br />
           <input
             className="upload-form__image-title"
             placeholder="Title"
@@ -154,8 +151,8 @@ export const UploadForm = React.createClass({
             placeholder="Artist's Notes"
             value={this.state.description}
             onChange={this.handleDescChange}
-            /><br />
-            <br />
+            />
+            <input className="button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
           </div>
 
           <div className="col-md-6 tags-container">
@@ -167,15 +164,13 @@ export const UploadForm = React.createClass({
               handleInputChange={this.handleTagInputChange}
               ref={(reactTagsNode) => reactTagsNode ?
                 this.tagInput = reactTagsNode.refs.child.refs.input : null}
-              />
-              <span className="feedback">{this.state.feedback}</span>
-            </div>
-          <input className="button button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
-      </form>
-      </div>
-    )
-  }
-});
+                />
+            <span className="feedback">{this.state.feedback}</span>
+          </div>
+        </form>
+      )
+    }
+  });
 
 function mapStateToProps(state) {
   return {
