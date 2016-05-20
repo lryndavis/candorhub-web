@@ -23,7 +23,7 @@ export const Dashboard = React.createClass({
   render: function() {
     return <div className="dashboard-component-div">
         { this.props.signedIn ?
-            <div className="container">
+            <div className="dashboard__main-container">
 
               <MuiThemeProvider muiTheme={getMuiTheme()}>
                 <Sidebar />

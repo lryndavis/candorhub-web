@@ -10,6 +10,7 @@ import Dashboard from './Dashboard';
 import DashboardNotSignedIn from './DashboardNotSignedIn';
 import ImageModal from './ImageModal';
 import QuestionList from './QuestionList';
+import {grey800, indigoA400} from 'material-ui/styles/colors';
 
 
 //Status codes for comment status
@@ -23,6 +24,16 @@ const NOT_STARTED = 55;
 const feedbackWrongLength = "Comments must be between 10 and 100 characters.";
 const feedbackOffensive = "This comment does not appear constructive due to its use of offensive language.";
 const feedbackNotConstructive = "This comment does not appear constructive due to its extreme negativity.";
+
+const styles = {
+  underlineStyle: {
+    borderColor: grey800,
+  },
+  underlineAccentStyle: {
+    color: indigoA400,
+  }
+};
+
 
 export const CommentForm = React.createClass ({
 
@@ -147,15 +158,8 @@ export const CommentForm = React.createClass ({
       {
         this.props.showForm ?
           <form className="form" onSubmit={this.handleSubmit}>
-            <span className="form__image-title">{this.props.imageForCritique.title}</span>
-            <span className="form__user-name">By User</span>
-            <p className="form__image-description">
-              <span className="form__artist-notes">Artist's Notes: </span>
-              {this.props.imageForCritique.description}
-            </p>
-
             <div className="form__form-text-center">
-            <p className="form__comment-header">Critique It</p>
+            <p className="form__comment-header">Your Daily Candor</p>
             <p className="form__question">{this.props.firstQuestion.body}?</p>
             <TextField
               className="form__textfield"
@@ -164,6 +168,8 @@ export const CommentForm = React.createClass ({
               onChange={this.handleFirstResponseChange}
               fullWidth={true}
               multiLine={true}
+              underlineStyle={styles.underlineStyle}
+              underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
             <p  className="form__question">{this.props.secondQuestion.body}?</p>
@@ -174,6 +180,8 @@ export const CommentForm = React.createClass ({
               onChange={this.handleSecondResponseChange}
               fullWidth={true}
               multiLine={true}
+              underlineStyle={styles.underlineStyle}
+              underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
             <p  className="form__question">{this.props.thirdQuestion.body}?</p>
@@ -184,6 +192,8 @@ export const CommentForm = React.createClass ({
               onChange={this.handleThirdResponseChange}
               fullWidth={true}
               multiLine={true}
+              underlineStyle={styles.underlineStyle}
+              underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
             <button type="submit"

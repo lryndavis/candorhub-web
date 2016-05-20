@@ -1,22 +1,22 @@
 //Image component styles
 
-.critique-image{}
 
 .critique-image__image {
-  width: 95%;
+  max-height: 450px;
+  max-width: 90%;
+  padding-right: 50px;
   margin-bottom: 20px;
-  border-right: 1px solid #949191;
-  padding-right: 60px;
   cursor: pointer;
+  border-right: 1px solid black;
 }
 
 .critique-image__image-title {
   font-size: 1.8em;
 }
 
-.critique-image__image-desc {
-  max-width: 600px;
-}
+// .critique-image__image-desc {
+//   max-width: 600px;
+// }
 
 .modal-image {
   margin: 0 auto;

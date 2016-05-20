@@ -30,6 +30,7 @@ export const Splash = React.createClass({
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <SignInModal/>
         </MuiThemeProvider>
+        <Link to={'dashboard'}>DASH</Link>
       </div>
     )
   }
