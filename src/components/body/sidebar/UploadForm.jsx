@@ -23,6 +23,8 @@ const customContentStyle = {
   margin: 'auto'
 }
 
+const tagSuggestions = ["art", "photography", "drawing", "painting", "sculpture"];
+
 export const UploadForm = React.createClass({
   getInitialState() {
     return {
@@ -31,7 +33,7 @@ export const UploadForm = React.createClass({
       description: '',
       files: [],
       tags: [],
-      suggestions: ["Art"]
+      suggestions: tagSuggestions
     }
   },
 
@@ -69,13 +71,14 @@ export const UploadForm = React.createClass({
     const title = this.state.title;
     const description = this.state.description;
     const image = this.state.files[0];
+    const tags = this.state.tags;
     if (image.size > MAX_FILE_SIZE) {
       alert("This file is too big!");
     } else if (!ALLOWED_FILE_TYPES.includes(image.type)) {
       alert("This file type is not allowed!");
     } else {
-      this.props.startImageUpload(this.state.image, title, description);
-      this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true});
+      this.props.startImageUpload(this.state.image, title, description, tags);
+      this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true, tags: []});
     }
   },
 
@@ -91,15 +94,19 @@ export const UploadForm = React.createClass({
 
   handleTagAddition: function(tag) {
     if (doesNotUseOffensiveLanguage(tag)) {
-      var tags = this.state.tags;
-      tags.push({
-          id: tags.length + 1,
-          text: tag
-      });
-      this.setState({tags: tags});
-      if (this.state.tags.length >= 5) {
-        this.tagInput.disabled = true;
-      }      
+      let tags = this.state.tags;
+      let newTag = {
+        id: tags.length + 1,
+        text: tag.replace(/[^a-zA-Z0-9]+/g, ' ')
+                  .trim()
+        }
+      if (newTag.text.length) {
+        tags.push(newTag);
+        this.setState({tags: tags});
+        if (this.state.tags.length >= 5) {
+          this.tagInput.disabled = true;
+        }
+      }
     }
   },
 
