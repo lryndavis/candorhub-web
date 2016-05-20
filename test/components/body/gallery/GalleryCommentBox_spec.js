@@ -29,7 +29,7 @@ describe("GalleryCommentBox", () => {
   });
 
   it("renders a comment list", () => {
-    expect(tree.props.className).to.equal("comments__list");
+    expect(tree.props.className).to.contain("gallery__comment-box");
   });
 
   it("renders a comment box for each comment", () => {

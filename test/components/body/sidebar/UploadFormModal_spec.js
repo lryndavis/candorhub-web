@@ -25,16 +25,12 @@ describe("UploadFormModal", () => {
     expect(instance.state.open).to.be.false;
   });
 
-  it("is a MenuItem", () => {
-    expect(tree.type).to.equal(MenuItem);
-  });
-
   it("renders an UploadFormContainer", () => {
     expect(tree.subTree("Connect(UploadForm)")).to.be.ok;
   });
 
   it("changes open state when the upload button is pressed", () => {
-    const menuItem = tree.subTree("MenuItem");
+    const menuItem = tree.subTree(".sidebar__menu-link");
     menuItem.props.onClick();
     expect(instance.state.open).to.be.true;
   });

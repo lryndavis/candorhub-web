@@ -15,6 +15,10 @@ const ALLOWED_FILE_TYPES = [
   'image/gif',
   'image/jpeg'];
 
+const MAX_TAGS = 5;
+const MAX_TAGS_FEEDBACK = "Only five tags may be added to an image."
+const TAGS_LANGUAGE_FEEDBACK = "Tags must not use offensive language."
+
 const customContentStyle = {
   maxWidth: '90%',
   maxHeight: '150px',
@@ -29,7 +33,8 @@ export const UploadForm = React.createClass({
       title: '',
       description: '',
       files: [],
-      tags: []
+      tags: [],
+      readyToSubmit: false
     }
   },
 
@@ -37,20 +42,22 @@ export const UploadForm = React.createClass({
     this.props.setState({uploadedImage: false});
   },
 
-  componentWillUpdate(nextProps) {
-    console.log(this.state.tags);
-  },
-
-  handleImageURLChange(e) {
-    this.setState({image: e.target.value});
+  checkReadiness() {
+    if (this.state.description && this.state.image && this.state.title) {
+      this.setState({readyToSubmit: true});
+    } else {
+      this.setState({readyToSubmit: false});
+    }
   },
 
   handleTitleChange(e) {
     this.setState({title: e.target.value});
+    this.checkReadiness();
   },
 
   handleDescChange(e) {
     this.setState({description: e.target.value});
+    this.checkReadiness();
   },
 
   onDrop(files) {
@@ -58,6 +65,7 @@ export const UploadForm = React.createClass({
     let reader = new FileReader();
     reader.onloadend = () => {
       this.setState({image: reader.result});
+      this.checkReadiness();
     }
     reader.readAsDataURL(files[0]);
   },
@@ -74,7 +82,7 @@ export const UploadForm = React.createClass({
       alert("This file type is not allowed!");
     } else {
       this.props.startImageUpload(this.state.image, title, description, tags);
-      this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true, tags: []});
+      this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true, tags: [], readyToSubmit: false});
     }
   },
 
@@ -84,6 +92,7 @@ export const UploadForm = React.createClass({
     this.setState({tags: tags});
     if (this.state.tags.length <= 5) {
       this.tagInput.disabled = false;
+      this.setState({feedback: ""});
     }
   },
 
@@ -100,6 +109,7 @@ export const UploadForm = React.createClass({
         tags.push(newTag);
         this.setState({tags: tags});
         if (this.state.tags.length >= 5) {
+          this.setState({feedback: MAX_TAGS_FEEDBACK});
           this.tagInput.disabled = true;
         }
       }
@@ -108,7 +118,7 @@ export const UploadForm = React.createClass({
 
   handleTagInputChange: function(value) {
     if (!doesNotUseOffensiveLanguage(value)) {
-      this.setState({feedback: "stop typing bad words"});
+      this.setState({feedback: TAGS_LANGUAGE_FEEDBACK});
     } else {
       this.setState({feedback: ""});
     }
@@ -162,15 +172,17 @@ export const UploadForm = React.createClass({
               handleDelete={this.handleTagDeletion}
               handleAddition={this.handleTagAddition}
               handleInputChange={this.handleTagInputChange}
+              allowDeleteFromEmptyInput={false}
               ref={(reactTagsNode) => reactTagsNode ?
                 this.tagInput = reactTagsNode.refs.child.refs.input : null}
-                />
-            <span className="feedback">{this.state.feedback}</span>
-          </div>
-        </form>
-      )
-    }
-  });
+              />
+              <span className="feedback">{this.state.feedback}</span>
+            </div>
+          <input className="button button__submit" type="submit" class="submit-button" disabled={!this.state.readyToSubmit} />
+      </form>
+    )
+  }
+});
 
 function mapStateToProps(state) {
   return {

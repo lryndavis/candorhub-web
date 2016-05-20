@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {
   renderIntoDocument,
   scryRenderedDOMComponentsWithClass,
@@ -14,12 +16,14 @@ describe('ImageModal', () => {
 
   it('displays an image from a url from an image prop', () => {
     const image = {
-      url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
+      image: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
       title: 'Airplane Lolcat',
       description: 'This kitty thinks it is an airplane!'
     };
     const component = renderIntoDocument(
-      <ImageModal image={image}/>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <ImageModal image={image} />
+      </MuiThemeProvider>
     );
     const critiqueImage = scryRenderedDOMComponentsWithTag(component, "img");
     expect(critiqueImage[0].hasAttribute('src')).to.be.true;
@@ -33,12 +37,14 @@ describe('ImageModal', () => {
       description: 'This kitty thinks it is an airplane!'
     };
     const component = renderIntoDocument(
-      <ImageModal image={image}/>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <ImageModal image={image} />
+      </MuiThemeProvider>
     );
-    const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "critique-image__image-title");
-    const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "critique-image__image-desc");
-    expect(critiqueImageTitle[0].textContent).to.equal("Airplane Lolcat");
-    expect(critiqueImageDescription[0].textContent).to.equal("This kitty thinks it is an airplane!");
+    const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "form__image-title");
+    const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "form__image-description");
+    expect(critiqueImageTitle[0].textContent).to.contain("Airplane Lolcat");
+    expect(critiqueImageDescription[0].textContent).to.contain("This kitty thinks it is an airplane!");
   })
 
 });

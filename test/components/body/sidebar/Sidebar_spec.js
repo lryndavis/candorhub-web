@@ -29,8 +29,8 @@ describe("Sidebar", () => {
     expect(tree.subTree("ImageDehaze")).to.be.ok;
   });
 
-  it("renders menu items", () => {
-    expect(tree.subTree("MenuItem")).to.be.ok;
+  it("renders links", () => {
+    expect(tree.subTree("Link")).to.be.ok;
   });
 
   it("opens the Drawer when the hamburger menu is clicked", () => {
@@ -38,7 +38,7 @@ describe("Sidebar", () => {
     let drawer = tree.subTree("Drawer");
     expect(drawer.props.open).to.be.true;
     expect(drawer.subTree("ContentClear")).to.be.ok;
-    expect(drawer.everySubTree("MenuItem").length).to.equal(2);
+    expect(drawer.everySubTree("Link").length).to.equal(2);
   });
 
   it("closes the Drawer when the ContentClear component is clicked", () => {

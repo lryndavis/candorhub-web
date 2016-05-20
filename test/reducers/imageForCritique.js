@@ -4,11 +4,7 @@ import reducer from '../../src/reducers/index';
 
 describe("imagesForCritique reducer", () => {
   it('handles SET_IMAGE_TO_CRITIQUE with an array of images', () => {
-    const initialState = {
-      signIn: {
-        signedIn: true
-      }
-    };
+    const initialState = {}
     const action = {
       type: 'SET_IMAGE_TO_CRITIQUE',
       state: {
@@ -37,11 +33,7 @@ describe("imagesForCritique reducer", () => {
   });
 
   it('handles SET_IMAGE_TO_CRITIQUE with an image object', () => {
-    const initialState = {
-      signIn: {
-        signedIn: true
-      }
-    };
+    const initialState = {};
     const action = {
       type: 'SET_IMAGE_TO_CRITIQUE',
       state: {

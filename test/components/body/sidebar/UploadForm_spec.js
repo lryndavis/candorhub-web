@@ -63,5 +63,21 @@ describe("UploadForm", () => {
     }]);
     expect(instance.state.files[0].content).to.equal("Test Content");
     expect(tree.subTree("img").props.src).to.equal(imagePreview);
-  })
+  });
+
+  it("renders a ReactTags component", () => {
+    expect(tree.subTree('DragDropContext(ReactTags)')).to.be.ok;
+  });
+
+  it("modifies state on tag input", () => {
+    const tagInput = tree.subTree('DragDropContext(ReactTags)');
+    tagInput.props.handleAddition("artwork");
+    expect(instance.state.tags.length).to.equal(1);
+    expect(instance.state.tags[0].text).to.equal("artwork");
+  });
+
+  it("validates tag input", () => {
+    instance.handleTagInputChange("scumbag");
+    expect(tree.subTree(".feedback").text()).to.contain("offensive");
+  });
 });
