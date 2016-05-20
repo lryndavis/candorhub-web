@@ -21,17 +21,17 @@ export const GalleryView = React.createClass({
 
   render: function() {
     return (
-      <div className="container">
+      <div className="gallery__view-container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Sidebar />
         </MuiThemeProvider>
         <div className="dashboard">
-          <div className="dashboard__image-container col-md-8">
+          <div className="dashboard__image-container col-md-6">
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-6">
             <GalleryQuestionList imageById={this.props.imageById} />
           </div>
         </div>

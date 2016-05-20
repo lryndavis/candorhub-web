@@ -5,8 +5,11 @@
 }
 
 .gallery__main-container {
-  width: 75%;
-  margin: 0 auto;
+  @extend %main-container;
+}
+
+.gallery__view-container {
+  @extend %main-container;
 }
 
 .gallery__header {
