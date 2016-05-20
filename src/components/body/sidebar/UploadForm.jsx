@@ -5,7 +5,9 @@ import Dropzone from 'react-dropzone';
 import {connect} from 'react-redux';
 
 import * as actionCreators from '../../../action_creators';
+import {doesNotUseOffensiveLanguage} from '../../../lib/CommentValidation';
 
+const ReactTags = require('react-tag-input').WithContext;
 
 const MAX_FILE_SIZE = 150000000000;
 const ALLOWED_FILE_TYPES = [
@@ -21,14 +23,24 @@ const customContentStyle = {
   margin: 'auto'
 }
 
-
 export const UploadForm = React.createClass({
   getInitialState() {
-    return {imageURL: '', title: '', description: '', files: []};
+    return {
+      imageURL: '',
+      title: '',
+      description: '',
+      files: [],
+      tags: [],
+      suggestions: ["Art"]
+    }
   },
 
   componentDidMount() {
     this.props.setState({uploadedImage: false});
+  },
+
+  componentWillUpdate(nextProps) {
+    console.log(this.state.tags);
   },
 
   handleImageURLChange(e) {
@@ -57,13 +69,45 @@ export const UploadForm = React.createClass({
     const title = this.state.title;
     const description = this.state.description;
     const image = this.state.files[0];
-    if (this.state.files[0].size > MAX_FILE_SIZE) {
+    if (image.size > MAX_FILE_SIZE) {
       alert("This file is too big!");
-    } else if (!ALLOWED_FILE_TYPES.includes(this.state.files[0].type)) {
+    } else if (!ALLOWED_FILE_TYPES.includes(image.type)) {
       alert("This file type is not allowed!");
     } else {
       this.props.startImageUpload(this.state.image, title, description);
       this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true});
+    }
+  },
+
+  handleTagDeletion: function(index) {
+    var tags = this.state.tags;
+    tags.splice(index, 1);
+    this.setState({tags: tags});
+    if (this.state.tags.length <= 5) {
+      this.tagInput.disabled = false;
+    }
+  },
+
+
+  handleTagAddition: function(tag) {
+    if (doesNotUseOffensiveLanguage(tag)) {
+      var tags = this.state.tags;
+      tags.push({
+          id: tags.length + 1,
+          text: tag
+      });
+      this.setState({tags: tags});
+      if (this.state.tags.length >= 5) {
+        this.tagInput.disabled = true;
+      }      
+    }
+  },
+
+  handleTagInputChange: function(value) {
+    if (!doesNotUseOffensiveLanguage(value)) {
+      this.setState({feedback: "stop typing bad words"});
+    } else {
+      this.setState({feedback: ""});
     }
   },
 
@@ -106,6 +150,17 @@ export const UploadForm = React.createClass({
             /><br />
             <br />
             <input className="button button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
+          <ReactTags
+            tags={this.state.tags}
+            suggestions={this.state.suggestions}
+            handleDelete={this.handleTagDeletion}
+            handleAddition={this.handleTagAddition}
+            autocomplete={1}
+            handleInputChange={this.handleTagInputChange}
+            ref={(reactTagsNode) => reactTagsNode ?
+              this.tagInput = reactTagsNode.refs.child.refs.input : null}
+            />
+          <span className="feedback">{this.state.feedback}</span>
       </form>
     )
   }

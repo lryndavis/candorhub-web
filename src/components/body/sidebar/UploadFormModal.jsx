@@ -9,7 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 
  const customContentStyle = {
-   maxWidth: '450px',
+   maxWidth: '600px',
  };
 
 export default class DialogExampleModal extends React.Component {
