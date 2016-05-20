@@ -4,6 +4,11 @@
   text-align: left;
 }
 
+.gallery__main-container {
+  width: 75%;
+  margin: 0 auto;
+}
+
 .gallery__header {
   margin: 25px 15px;
   font-size: 2em;
@@ -37,4 +42,5 @@
 
 .image-gallery {
   margin-top: 10px;
+  padding-left: 0;
 }
