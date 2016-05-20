@@ -3,12 +3,13 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 
+import ContentClear from 'material-ui/svg-icons/content/clear';
 import {UploadFormContainer} from './UploadForm';
 import MenuItem from 'material-ui/MenuItem';
 
 
  const customContentStyle = {
-   maxWidth: '900px',
+   maxWidth: '600px',
  };
 
 export default class DialogExampleModal extends React.Component {
@@ -26,12 +27,12 @@ export default class DialogExampleModal extends React.Component {
 
   render() {
     const actions = [
-      <button
-        className="button"
+      <ContentClear
+        className="upload__submit-button"
         label="CLOSE"
         primary={true}
-        onClick={this.handleClose}>CLOSE
-      </button>
+        onClick={this.handleClose}
+      />
     ];
 
     return (
