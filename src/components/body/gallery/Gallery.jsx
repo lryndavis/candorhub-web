@@ -27,11 +27,11 @@ export const Gallery = React.createClass({
   render: function() {
     return <div>
       { this.props.signedIn ?
-        <div className="container">
+        <div className="gallery__main-container">
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <Sidebar />
           </MuiThemeProvider>
-        <div className="image-gallery container">
+        <div className="image-gallery">
           <GalleryList imagesForGallery={this.props.imagesForGallery} />
         </div>
       </div> :

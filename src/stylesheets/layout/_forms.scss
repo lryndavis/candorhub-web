@@ -2,7 +2,7 @@
 
 .form__question {
   padding-left: 10px;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 .form__textfield {
@@ -49,6 +49,9 @@ input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
   background-color: #fff;
+  &:focus {
+    background-color: #fff;
+  }
 }
 
 input:focus {
@@ -75,4 +78,31 @@ form.redux-auth.email-sign-in-form {
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
+}
+
+input.email-sign-in-email:-webkit-autofill,
+input.email-sign-in-password:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+
+//upload form styling
+
+.upload-form {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.drop-zone {
+  text-align: center;
+  margin: 0 auto;
+  margin-left: 60px;
+}
+
+.upload-title {
+  text-transform: uppercase;
+  font-family: 'Coves-Light';
+  margin-top: 0;
+  margin-bottom: 25px;
 }
