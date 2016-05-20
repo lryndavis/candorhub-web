@@ -204,7 +204,7 @@ export const CommentForm = React.createClass ({
           <div>
             <QuestionList imageForCritique={this.props.imageForCritique}/>
           </div>
-      }
+        }
       </div>
     );
   }

@@ -44,15 +44,15 @@ export default class Sidebar extends React.Component {
           onRequestChange={open => this.setState({open})}
         >
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
-          <Link ref="home"
-            className="home-link"
+          <Link className="sidebar__menu-link" ref="home"
+            className="sidebar__menu-link"
             to={'dashboard'} >
-            <MenuItem>Home</MenuItem>
+            Home
           </Link>
           <Link ref="gallery"
-            className="gallery-link"
+            className="sidebar__menu-link"
             to={'gallery'} >
-            <MenuItem>Gallery</MenuItem>
+            Gallery
           </Link>
           <UploadFormModal />
         </Drawer>

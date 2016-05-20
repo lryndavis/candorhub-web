@@ -35,7 +35,7 @@ export default class DialogExampleModal extends React.Component {
     ];
 
     return (
-      <MenuItem onClick={this.handleOpen}>Upload
+      <p className="sidebar__menu-link" onClick={this.handleOpen}>Upload
         <Dialog
           title="Upload Your Work!"
           actions={actions}
@@ -46,7 +46,7 @@ export default class DialogExampleModal extends React.Component {
         >
           <UploadFormContainer />
         </Dialog>
-      </MenuItem>
+      </p>
     );
   }
 }
