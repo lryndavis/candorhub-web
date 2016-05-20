@@ -15,8 +15,8 @@ const ALLOWED_FILE_TYPES = [
   'image/jpeg'];
 
 const customContentStyle = {
-  width: '150px',
-  height: '150px',
+  maxWidth: '90%',
+  maxHeight: '150px',
   display: 'block',
   margin: 'auto'
 }
