@@ -113,18 +113,26 @@ input.email-sign-in-password:-webkit-autofill {
   list-style: none;
 }
 
-div.ReactTags__suggestions ul {
-  list-style: none;
-  background-color: white;
+div.ReactTags__selected a.ReactTags__remove {
+    color: #aaa;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
-div.ReactTags__suggestions li mark {
-    background-color: white;
-    letter-spacing: .8em;
+div.ReactTags__selected span.ReactTags__tag {
+  padding-right: 5px;
+  font-size: 1.2em;
+  display: block;
+  font-family: 'coves-light';
 }
 
-div.ReactTags__suggestions li {
-  background-color: white;
-  padding-bottom: 2px;
-  padding-top: 2px;
+.tags-header {
+  font-size: 1.3em;
+}
+
+div.ReactTags__tagInput input,
+div.ReactTags__tagInput input:focus,
+input.upload-form__image-title,
+input.upload-form__image-desc {
+  @extend %upload-material-text-fields;
 }
