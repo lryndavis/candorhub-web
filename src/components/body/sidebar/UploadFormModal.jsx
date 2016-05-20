@@ -9,7 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 
  const customContentStyle = {
-   maxWidth: '600px',
+   maxWidth: '450px',
  };
 
 export default class DialogExampleModal extends React.Component {
@@ -38,7 +38,6 @@ export default class DialogExampleModal extends React.Component {
     return (
       <p className="sidebar__menu-link" onClick={this.handleOpen}>Upload
         <Dialog
-          title="Upload Your Work!"
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}

@@ -70,12 +70,14 @@ export const UploadForm = React.createClass({
   render() {
     return (
       <form className='upload-form' onSubmit={this.handleSubmit}>
+        <h3 className="upload-title">Upload Your Work</h3>
         {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
           <div>
             <CircularProgress size={2} />
             <p>Uploading your masterpiece...</p>
           </div> :
           <p>All done with your upload!</p>) :
+          <div className="drop-zone">
             <Dropzone
               onDrop={this.onDrop}
               accept="image/*">
@@ -84,6 +86,7 @@ export const UploadForm = React.createClass({
                   {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
                 : null }
             </Dropzone>
+          </div>
           }
 
           <br />

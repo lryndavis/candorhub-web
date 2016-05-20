@@ -84,3 +84,25 @@ input.email-sign-in-email:-webkit-autofill,
 input.email-sign-in-password:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
+
+
+//upload form styling
+
+.upload-form {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.drop-zone {
+  text-align: center;
+  margin: 0 auto;
+  margin-left: 60px;
+}
+
+.upload-title {
+  text-transform: uppercase;
+  font-family: 'Coves-Light';
+  margin-top: 0;
+  margin-bottom: 25px;
+}
