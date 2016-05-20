@@ -39,16 +39,16 @@ export const UploadForm = React.createClass({
     }
   },
 
+  componentDidMount() {
+    this.props.setState({uploadedImage: false});
+  },
+
   checkReadiness() {
     if (this.state.description && this.state.image && this.state.title) {
       this.setState({readyToSubmit: true});
     } else {
       this.setState({readyToSubmit: false});
     }
-  },
-
-  componentDidMount() {
-    this.props.setState({uploadedImage: false});
   },
 
   handleTitleChange(e) {
