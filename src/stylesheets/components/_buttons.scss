@@ -1,40 +1,20 @@
 // styling for all button elements
 
 .button__submit {
-  width: 200px;
-  background-color: #666;
-  text-transform: uppercase;
-  border: 1px solid #666;
-  color: #fff;
-  font-family: 'Coves-Light';
-  font-size: 1.2em;
-  padding: 5px;
-  margin-top: 20px;
+@extend %splash-buttons;
 }
 
 .sign-up-button {
-  margin-top: 7px;
-  background-color: #f6f6f6;
-  text-transform: uppercase;
-  border: 1px solid black;
-  width: 250px;
-  padding: 5px 0 5px 0;
+  @extend %splash-buttons;
 }
 
 button.email-sign-in-submit {
   @extend %splash-buttons;
-  background-color: #fff;
+  padding-left: 0;
 }
 
 button.form__sign-in-button {
-  font-family: 'Coves-Light';
-  width: 300px;
-  border: 1px solid #2957C3;
-  color: #2957C3;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  margin-top: 25px;
-  padding: 5px;
+  @extend %splash-buttons;
 }
 
 button:focus {outline:0;}
@@ -42,7 +22,6 @@ button:focus {outline:0;}
 button.email-sign-up-submit,
 button.form__sign-in-button {
   @extend %splash-buttons;
-  background-color: #f6f6f6;
 }
 
 button.sign-out-submit {
