@@ -46,7 +46,7 @@ button.sign-out-submit {
   }
 }
 
-// error modal buttons
+// buttons in redux-auth sign in/up modal
 button.email-sign-up-error-modal-close.btn.btn-default {
-  @extend %error-modal-buttons
+  @extend %modal-buttons;
 }
