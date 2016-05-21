@@ -178,11 +178,10 @@ export const UploadForm = React.createClass({
               />
               <span className="feedback">{this.state.feedback}</span>
             </div>
-          <input className="button button__submit" type="submit" class="submit-button" disabled={!this.state.readyToSubmit} />
-      </form>
-    )
-  }
-});
+        </form>
+      )
+    }
+  });
 
 function mapStateToProps(state) {
   return {
