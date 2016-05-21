@@ -1,4 +1,4 @@
-// styling for all button elements
+//////// styling for all button elements ////////
 
 .button__submit {
 @extend %splash-buttons;
@@ -28,4 +28,25 @@ button.sign-out-submit {
   background-color: #f6f6f6;
   font-style: italic;
   border: none;
+}
+
+.button__sign-in {
+  text-align: center;
+  margin: 20px auto 0 auto;
+  text-transform: uppercase;
+  border: 1px solid #1309F2;
+  width: 250px;
+  padding: 5px 0 5px 0;
+}
+
+.button__sign-in a {
+  color: #1309F2;
+  &:hover {
+    color: #1309F2;
+  }
+}
+
+// error modal buttons
+button.email-sign-up-error-modal-close.btn.btn-default {
+  @extend %error-modal-buttons
 }

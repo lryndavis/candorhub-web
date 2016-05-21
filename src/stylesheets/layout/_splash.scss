@@ -1,4 +1,4 @@
-// custom styles for splash page, including sign in and sign up forms
+////////// custom styles for splash page////////
 
 .splash__tagline {
   font-size: 1em;
@@ -13,24 +13,20 @@
   text-align: center;
 }
 
-.button__sign-in {
-  text-align: center;
-  margin: 20px auto 0 auto;
-  text-transform: uppercase;
-  border: 1px solid #1309F2;
-  width: 250px;
-  padding: 5px 0 5px 0;
-}
-
-.button__sign-in a {
-  color: #1309F2;
-  &:hover {
-    color: #1309F2;
-  }
-}
-
 .splash {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+}
+
+//Styling for Redux-auth error modals
+
+h4.modal-title {
+  font-family: 'Coves-Light';
+  font-size: 1.7em;
+}
+
+.modal-body p {
+  font-family: 'Coves-Light';
+  font-size: 1.3em;
 }

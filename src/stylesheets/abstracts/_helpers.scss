@@ -34,6 +34,17 @@
   background-color: #f6f6f6
 }
 
+%error-modal-buttons {
+  font-family: 'Coves-Light';
+  width: 100px;
+  border: 1px solid #949191;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin-top: 25px;
+  padding: 5px;
+  background-color: #fff;
+}
+
 %splash-form-centering {
   width: 300px;
   margin: 0 auto;
