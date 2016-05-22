@@ -1,6 +1,7 @@
 import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
 import NavigationArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import GalleryCommentBox from './GalleryCommentBox';
 import GalleryQuestionList from './GalleryQuestionList';
