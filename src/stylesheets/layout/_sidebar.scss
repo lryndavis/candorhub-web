@@ -47,12 +47,12 @@
 
 
 
-@media screen and (max-width: 990px) {
-  .dashboard-header__logout{
+@media screen and (max-width: 550px) {
+  button.sign-out-submit {
     display: none;
   }
-  .dashboard-header__logo{
-    order: -1;
-    margin-left: 0;
+
+  div.dashboard-header {
+    text-align: right;
   }
 }
