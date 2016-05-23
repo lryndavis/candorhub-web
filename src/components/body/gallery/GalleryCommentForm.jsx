@@ -1,17 +1,12 @@
 import $ from 'jquery';
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 
 import * as actionCreators from '../../../action_creators';
 import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../../lib/CommentValidation';
-import Dashboard from './Dashboard';
-import DashboardNotSignedIn from './DashboardNotSignedIn';
-import ImageModal from './ImageModal';
-import QuestionList from './QuestionList';
-import {grey800, indigoA400} from 'material-ui/styles/colors';
-
+import ImageModal from '../dashboard/ImageModal';
+import GalleryQuestionList from './GalleryQuestionList';
 
 //Status codes for comment status
 const WRONG_LENGTH = 11;
@@ -25,16 +20,7 @@ const feedbackWrongLength = "Comments must be between 10 and 100 characters.";
 const feedbackOffensive = "This comment does not appear constructive due to its use of offensive language.";
 const feedbackNotConstructive = "This comment does not appear constructive due to its extreme negativity.";
 
-const styles = {
-  underlineStyle: {
-    borderColor: grey800,
-  },
-  underlineAccentStyle: {
-    color: indigoA400,
-  }
-};
-
-export const CommentForm = React.createClass ({
+export const GalleryCommentForm = React.createClass({
 
   getInitialState: function() {
     return {username: '',
@@ -137,7 +123,7 @@ export const CommentForm = React.createClass ({
     }
     //server request
     var body = {
-      "image_id": this.props.imageForCritique.id,
+      "image_id": this.props.imageById.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
           "body": firstResponse.toString()
@@ -167,8 +153,6 @@ export const CommentForm = React.createClass ({
               onChange={this.handleFirstResponseChange}
               fullWidth={true}
               multiLine={true}
-              underlineStyle={styles.underlineStyle}
-              underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
             <p  className="form__question">{this.props.secondQuestion.body}?</p>
@@ -179,8 +163,6 @@ export const CommentForm = React.createClass ({
               onChange={this.handleSecondResponseChange}
               fullWidth={true}
               multiLine={true}
-              underlineStyle={styles.underlineStyle}
-              underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
             <p  className="form__question">{this.props.thirdQuestion.body}?</p>
@@ -191,8 +173,6 @@ export const CommentForm = React.createClass ({
               onChange={this.handleThirdResponseChange}
               fullWidth={true}
               multiLine={true}
-              underlineStyle={styles.underlineStyle}
-              underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
             <button type="submit"
@@ -201,7 +181,7 @@ export const CommentForm = React.createClass ({
             </div>
           </form> :
           <div>
-            <QuestionList imageForCritique={this.props.imageForCritique}/>
+            <GalleryQuestionList imageById={this.props.imageById}/>
           </div>
         }
       </div>
@@ -211,8 +191,7 @@ export const CommentForm = React.createClass ({
 
 function mapStateToProps(state) {
   return {
-    signedIn: state.auth.getIn(["user", "isSignedIn"]),
-    imageForCritique: state.imageForCritique,
+    imageById: state.imageForCritique,
     firstQuestion: state.comments.questionsForComment[0],
     secondQuestion: state.comments.questionsForComment[1],
     thirdQuestion: state.comments.questionsForComment[2],
@@ -221,7 +200,7 @@ function mapStateToProps(state) {
   };
 }
 
-export const CommentFormContainer = connect(
+export const GalleryCommentFormContainer = connect(
   mapStateToProps,
   actionCreators
-)(CommentForm);
+)(GalleryCommentForm);

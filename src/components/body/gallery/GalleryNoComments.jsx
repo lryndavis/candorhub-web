@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   render: function() {
     return <div className="gallery__no-comments">
-      <p>Hey There, Partner! There are no comments here.</p>
+      <h2 className="gallery__no-comments">This image has not yet been commented upon</h2>
     </div>;
   }
 })

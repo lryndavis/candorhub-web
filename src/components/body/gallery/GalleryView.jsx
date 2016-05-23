@@ -11,7 +11,7 @@ import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from './GalleryQuestionList';
 import Sidebar from '../sidebar/Sidebar';
 import GalleryNoComments from './GalleryNoComments';
-
+import { GalleryCommentFormContainer } from './GalleryCommentForm';
 
 export const GalleryView = React.createClass({
 
@@ -36,8 +36,12 @@ export const GalleryView = React.createClass({
           <div className="col-md-6">
             <GalleryQuestionList imageById={this.props.imageById} />
           </div> :
-      <GalleryNoComments />
-      }
+          <div className="dashboard__comment-form-container col-md-6">
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+              <GalleryCommentFormContainer questionsForComment={this.props.questionsForComment} />
+            </MuiThemeProvider>
+          </div>
+        }
     </div>
   </div>
     );
@@ -46,7 +50,8 @@ export const GalleryView = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    imageById: state.imageGallery.imageById
+    imageById: state.imageGallery.imageById,
+    questionsForComment: state.comments.questionsForComment
   };
 }
 
