@@ -11,7 +11,7 @@ const customContentStyle = {
 };
 
 const getUsername = function(image) {
-  return image.user || "unknown user";
+  return image.user.username || "unknown user";
 }
 
 
