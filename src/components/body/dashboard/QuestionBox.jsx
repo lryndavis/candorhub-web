@@ -14,7 +14,7 @@ export default React.createClass({
   },
 
   onClick: function() {
-    this.setState({ commentShow: !this.state.commentShow });
+    this.setStonate({ commentShow: !this.state.commentShow });
     this.setState({ navArrowChange: !this.state.navArrowChange });
   },
 

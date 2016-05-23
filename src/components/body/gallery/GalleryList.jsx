@@ -6,11 +6,10 @@ import { Router, Route, Link } from 'react-router';
 
 
 const masonryOptions = {
-    transitionDuration: 0,
-    columnWidth: '.grid-sizer',
-    itemSelector: '.grid-item',
-    gutter: '.gutter-sizer'
-};
+    transitionDuration: 700,
+    gutter: 15,
+    fitWidth: true,
+  };
 
   export default React.createClass({
 
@@ -25,7 +24,7 @@ const masonryOptions = {
     buildElements: function(start, end) {
         var elements = [];
         for (var i = start; i < end; i++) {
-            elements.push(<div className="grid-sizer" />)
+            elements.push(<div className="gallery-link" />)
         }
         return elements;
     },
@@ -50,39 +49,38 @@ const masonryOptions = {
             Loading...
         </div>;
     },
+
     // -----------
 
   render: function() {
     var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
     return (
-      <div key={image.id} className="grid-sizer">
-        <div className="gutter-sizer">
+        <div key={image.id} className="gallery-link">
           <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
             <img className="grid-item" src={image.image}></img>
           </Link>
         </div>
-      </div>
-    );
-  });
-  return (
-    <div className="image-gallery container">
-      <Infinite elementHeight={1000}
-                         infiniteLoadBeginEdgeOffset={7000}
-                         onInfiniteLoad={this.handleInfiniteLoad}
-                         loadingSpinnerDelegate={this.elementInfiniteLoad()}
-                         isInfiniteLoading={this.state.isInfiniteLoading}
-                         timeScrollStateLastsForAfterUserScrolls={1000}
-                         useWindowAsScrollContainer
-                         >
-        <Masonry
-                options={masonryOptions}
-                disableImagesLoaded={false}
-                className={"image-gallery"}
-          >
-          {imageGalleryRender}
-        </Masonry>
-      </Infinite>
-    </div>
-    );
-  }
-});
+        );
+      });
+      return (
+        <div className="image-gallery">
+          <Infinite elementHeight={2000}
+                             infiniteLoadBeginEdgeOffset={10000}
+                             onInfiniteLoad={this.handleInfiniteLoad}
+                             loadingSpinnerDelegate={this.elementInfiniteLoad()}
+                             isInfiniteLoading={this.state.isInfiniteLoading}
+                             timeScrollStateLastsForAfterUserScrolls={1000}
+                             useWindowAsScrollContainer
+                             >
+            <Masonry
+                    options={masonryOptions}
+                    disableImagesLoaded={false}
+                    className={"image-gallery"}
+              >
+              {imageGalleryRender}
+            </Masonry>
+          </Infinite>
+        </div>
+        );
+      }
+    });

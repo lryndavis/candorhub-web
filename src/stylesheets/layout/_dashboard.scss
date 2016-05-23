@@ -1,4 +1,4 @@
-//Main dashboard component styles and containers.
+////////Main dashboard component styles and containers/////////
 
 .form__image-title {
   font-size: 2.2em;
@@ -22,8 +22,9 @@
 .form__artist-notes {
   font-weight: bold;
   font-style: italic;
-  font-size: 1.1em;
+  font-size: 1.3em;
   margin-top: 0;
+  text-decoration: underline;
 }
 
 .form__comment-header {
@@ -48,6 +49,34 @@
   margin: 0 auto;
 }
 
+.critique-image__image {
+  max-height: 450px;
+  max-width: 90%;
+  padding-right: 50px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-right: 1px solid #bbbdc3;
+}
+
+.critique-image__image-title {
+  font-size: 1.8em;
+}
+
+.modal-image {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.critique-image__header {
+  margin-top: 0;
+  font-size: 1.3em;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+
+
+
 //media queries
 
 @media screen and (max-width: 990px) {
@@ -55,6 +84,34 @@
     text-align: center;
     padding: 0;
     margin-bottom: 15px;
-    border-bottom: 1px solid #696969;
+  }
+
+  .critique-image__image{
+    max-width: 100%;
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .dashboard__main-container {
+    width: 85%;
+  }
+
+  .dashboard__image-container {
+    text-align: center;
+  }
+
+  .form__image-header {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  p.form__image-description {
+    margin-bottom: 0;
+    margin-right: 0;
+    font-size:  1em;
+    padding-bottom: 15px;
+    text-align: center;
+    width: 100%;
   }
 }
