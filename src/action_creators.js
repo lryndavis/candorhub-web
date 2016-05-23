@@ -101,6 +101,25 @@ export function postSubmitComment(body) {
   }
 }
 
+export function postSubmitCommentGallery(body) {
+  return function (dispatch, getState) {
+    const state = getState();
+    return fetch(submitCommentEndpoint, {
+      method: 'POST',
+      headers: {
+        'ACCEPT': 'application/json',
+        'CONTENT_TYPE': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+    .then(response => response.json())
+    .then(responseJSON => {
+      dispatch(commentSubmitted(state, responseJSON)),
+      dispatch(getImageFromServerById(state.imageGallery.imageById.id))
+    });
+  }
+}
+
 export function getRandomImageFromServer(state) {
   return function (dispatch) {
     return fetch(randomImageEndpoint)
@@ -133,6 +152,7 @@ export function getSpecificImageFromServer(state, id) {
 
 //get specific image for gallery view
 export function getImageFromServerById(id) {
+  console.log("getting image by id: " + id);
   return function(dispatch, getState) {
     const state = getState();
     return fetch (specificImageEndpoint + id)

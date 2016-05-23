@@ -20,7 +20,25 @@ export const GalleryView = React.createClass({
     this.props.getImageFromServerById(id);
   },
 
+  getInitialState: function() {
+    console.log("getting initial state:");
+    return { commentFormShow: false};
+  },
+
+  onClick: function() {
+    if (this.state.commentFormShow) {
+      this.setState({commentFormShow: false});
+      console.log("setting state to false");
+      console.log(this.state.commentFormShow);
+    } else {
+      this.setState({commentFormShow: true});
+      console.log("setting state to true");
+      console.log(this.state.commentFormShow);
+    }
+  },
+
   render: function() {
+
     return (
       <div className="gallery__view-container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -31,22 +49,23 @@ export const GalleryView = React.createClass({
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
+            <h2 onClick={this.onClick}>Would you like to comment on this?</h2>
           </div>
-          { this.props.imageById.questions.length > 0 ?
-          <div className="col-md-6">
-            <GalleryQuestionList imageById={this.props.imageById} />
-          </div> :
           <div className="dashboard__comment-form-container col-md-6">
+            { this.state.commentFormShow ?
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <GalleryCommentFormContainer questionsForComment={this.props.questionsForComment} />
-            </MuiThemeProvider>
+            </MuiThemeProvider> :
+            <GalleryQuestionList imageById={this.props.imageById} />
+            }
           </div>
-        }
     </div>
   </div>
     );
   }
 });
+
+// { this.props.imageById.questions.length > 0 ?
 
 function mapStateToProps(state) {
   return {

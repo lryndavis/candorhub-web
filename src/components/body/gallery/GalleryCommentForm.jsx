@@ -135,13 +135,11 @@ export const GalleryCommentForm = React.createClass({
           "body": thirdResponse.toString()
         }]
     };
-    this.props.postSubmitComment(body);
+    this.props.postSubmitCommentGallery(body);
   },
 
   render: function() {
     return (<div>
-      {
-        this.props.showForm ?
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
             <p className="form__comment-header">Your Daily Candor</p>
@@ -179,11 +177,7 @@ export const GalleryCommentForm = React.createClass({
               className="button button__submit"
               disabled={!this.state.readyToSubmit}>Post</button>
             </div>
-          </form> :
-          <div>
-            <GalleryQuestionList imageById={this.props.imageById}/>
-          </div>
-        }
+          </form>
       </div>
     );
   }
@@ -191,12 +185,10 @@ export const GalleryCommentForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    imageById: state.imageForCritique,
+    imageById: state.imageGallery.imageById,
     firstQuestion: state.comments.questionsForComment[0],
     secondQuestion: state.comments.questionsForComment[1],
     thirdQuestion: state.comments.questionsForComment[2],
-    showForm: state.comments.showCommentForm,
-    displayComments: state.comments.displayComments
   };
 }
 
