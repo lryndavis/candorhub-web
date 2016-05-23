@@ -162,7 +162,6 @@ export function startImageUpload(image, title, description, tags, userId) {
         user_id: userId
       }
     }
-    console.log(JSON.stringify(imageForUpload));
     return fetch(imageUploadEndpoint, {
       method: 'POST',
       headers: {
