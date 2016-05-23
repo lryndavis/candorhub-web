@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, browserHistory} from 'react-router';
-import {EmailSignInForm} from 'redux-auth';
+import {EmailSignInForm} from 'redux-auth-candorhub';
 
 import * as actionCreators from '../../../action_creators';
 
