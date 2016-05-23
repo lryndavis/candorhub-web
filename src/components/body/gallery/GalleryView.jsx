@@ -10,6 +10,7 @@ import * as actionCreators from '../../../action_creators';
 import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from './GalleryQuestionList';
 import Sidebar from '../sidebar/Sidebar';
+import GalleryNoComments from './GalleryNoComments';
 
 
 export const GalleryView = React.createClass({
@@ -31,11 +32,14 @@ export const GalleryView = React.createClass({
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
           </div>
+          { this.props.imageById.questions.length > 0 ?
           <div className="col-md-6">
             <GalleryQuestionList imageById={this.props.imageById} />
-          </div>
-        </div>
-      </div>
+          </div> :
+      <GalleryNoComments />
+      }
+    </div>
+  </div>
     );
   }
 });
