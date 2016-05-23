@@ -23,27 +23,29 @@
 }
 
 .dashboard-header {
-  border-bottom: 1px solid #696969;
+  border-bottom: 1px solid #bbbdc3;
   padding-bottom: 15px;
 }
 
-.grid-sizer {
-  width: 20%;
-}
-
 .grid-item {
-  width: 20%;
-  margin-bottom: 1%;
+  width: 180px;
+  margin-bottom: 10px;
   &:hover {
     opacity: 0.7;
   }
 }
 
-.gutter-sizer {
-  width: 4%;
-}
 
 .image-gallery {
-  margin-top: 10px;
+  padding-top: 10px;
   padding-left: 0;
+  margin: 0 auto;
+}
+
+//media queries
+
+@media screen and (max-width: 1100px) {
+  .gallery__main-container {
+    width: 95%;
+  }
 }

@@ -2,7 +2,8 @@
 
 .form__question {
   padding-left: 10px;
-  font-size: 1em;
+  font-size: 1.1em;
+  color: #807E7E;
 }
 
 .form__textfield {
@@ -27,6 +28,15 @@
   margin-bottom: 0;
   margin-top: 40px;
   color: #2957C3;
+  cursor: pointer;
+}
+
+.form__splash-header {
+  font-family: 'Coves-Light';
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 40px;
+  font-size: 1.8em;
 }
 
 .form__sign-in-header {
@@ -42,15 +52,15 @@ input.email-sign-up-email,
 input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
-  background-color: #f6f6f6;
+  background-color: #f5f5f5;
 }
 
 input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
-  background-color: #fff;
+  background-color: #f5f5f5;
   &:focus {
-    background-color: #fff;
+  background-color: #f5f5f5;
   }
 }
 
@@ -62,12 +72,7 @@ label {
   display: none;
 }
 
-.form__sign-in-container,
-.form__sign-in-email {
-  @extend %splash-form-centering;
-}
-
-.form__sign-up-container {
+form.redux-auth.email-sign-up-form {
   @extend %splash-form-centering;
 }
 
@@ -75,14 +80,50 @@ form.redux-auth.email-sign-in-form {
   @extend %splash-form-centering;
 }
 
+.centering {
+  @extend %splash-form-centering;
+}
+
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset;
 }
 
 input.email-sign-in-email:-webkit-autofill,
 input.email-sign-in-password:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset;
+}
+
+//Sign In Form Transition Animation
+
+.formTransition-enter {
+  opacity: 0;
+  transform: translate(-250px,0);
+  transform: translate3d(-250px,0,0);
+}
+
+.formTransition-enter.formTransition-enter-active {
+  opacity: 1;
+  transform:   translate(0,0);
+  transform: translate3d(0,0,0);
+  transition-property: transform, opacity;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+
+.formTransition-leave {
+  opacity: 1;
+	transform:   translate(0,0,0);
+	transform: translate3d(0,0,0);
+	transition-property: transform, opacity;
+	transition-duration: 10ms;
+	transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+
+.formTransition-leave.formTransition-leave-active {
+  opacity: 0;
+	transform:   translate(250px,0);
+	transform: translate3d(250px,0,0);
 }
 
 //Custom styling for upload form
@@ -108,9 +149,10 @@ input.upload-form__image-desc {
 }
 
 div.ReactTags__selected a.ReactTags__remove {
-    color: #aaa;
-    margin-left: 5px;
-    cursor: pointer;
+  color: #2957C3;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: .8em;
 }
 
 div.ReactTags__selected span.ReactTags__tag {
@@ -133,4 +175,11 @@ div.ReactTags__selected span.ReactTags__tag {
 .dropzone-copy {
   font-family: 'Coves-Light';
   margin-top: 5px;
+}
+
+.feedback {
+  font-family: 'Coves-Light';
+  margin-top: 15px;
+  display: block;
+  color: #2957C3;
 }

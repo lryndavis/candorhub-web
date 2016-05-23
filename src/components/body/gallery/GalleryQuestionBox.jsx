@@ -1,6 +1,7 @@
 import NavigationArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
 import NavigationArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import GalleryCommentBox from './GalleryCommentBox';
 import GalleryQuestionList from './GalleryQuestionList';
@@ -9,7 +10,7 @@ import GalleryQuestionList from './GalleryQuestionList';
 export default React.createClass({
 
   getInitialState: function() {
-    return { commentShow: false };
+    return { commentShow: true };
     return { navArrowChange: false };
   },
 
@@ -22,11 +23,15 @@ export default React.createClass({
     return (
       <div className="individual-question-box">
         <p className="question" key={this.props.question.id} onClick={ this.onClick }>
-          { this.state.navArrowChange ? <NavigationArrowDropUp /> : <NavigationArrowDropDown /> }
+          { this.state.navArrowChange ?
+            <NavigationArrowDropUp /> :
+            <NavigationArrowDropDown /> }
           {this.props.question.body}
         </p>
         <div>
-          { this.state.commentShow ? <GalleryCommentBox question={this.props.question} /> : null }
+          { this.state.commentShow ?
+            <GalleryCommentBox question={this.props.question} /> :
+            null }
         </div>
       </div>
       );

@@ -11,6 +11,7 @@ import GalleryList from './GalleryList';
 import Sidebar from '../sidebar/Sidebar';
 
 
+
 export const Gallery = React.createClass({
 
   componentDidMount: function() {
@@ -31,10 +32,8 @@ export const Gallery = React.createClass({
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <Sidebar />
           </MuiThemeProvider>
-        <div className="image-gallery">
           <GalleryList imagesForGallery={this.props.imagesForGallery} />
-        </div>
-      </div> :
+        </div> :
       <DashboardNotSignedIn />
       }
     </div>;

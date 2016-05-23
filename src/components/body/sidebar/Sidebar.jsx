@@ -18,7 +18,6 @@ const contentClearStyles = {
   marginTop: 10,
 };
 
-
 export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -47,12 +46,12 @@ export default class Sidebar extends React.Component {
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
           <Link className="sidebar__menu-link" ref="home"
             className="sidebar__menu-link"
-            to={'dashboard'} >
+            to={'/dashboard'} >
             Home
           </Link>
           <Link ref="gallery"
             className="sidebar__menu-link"
-            to={'gallery'} >
+            to={'/gallery'} >
             Gallery
           </Link>
           <UploadFormModal />

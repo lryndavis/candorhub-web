@@ -105,7 +105,10 @@ export function getRandomImageFromServer(state) {
   return function (dispatch) {
     return fetch(randomImageEndpoint)
     .then(response => response.json())
-    .then(responseJSON => dispatch(setImageToCritique(state, responseJSON)));
+    .then(responseJSON => {
+      dispatch(setImageToCritique(state, responseJSON)),
+      console.log(responseJSON)
+    });
   }
 }
 
