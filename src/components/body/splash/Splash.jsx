@@ -36,7 +36,10 @@ export const Splash = React.createClass({
         <p className="splash__tagline">Thought Provoking Critique</p>
           { this.state.signUpShow ? <SignUp /> : null }
           { this.state.signUpShow ? <h3 className="form__member-header" onClick={ this.onHandleClick }>Already a member?</h3> : null }
-        <ReactCSSTransitionGroup transitionName="formTransition" transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
+        <ReactCSSTransitionGroup
+          transitionName="formTransition"
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}>
           { this.state.signInShow ? <SignInContainer /> : null }
         </ReactCSSTransitionGroup>
       </div>
