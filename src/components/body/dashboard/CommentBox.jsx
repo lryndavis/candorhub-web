@@ -11,11 +11,15 @@ const avatarStyles = {
 };
 
 const getTimestamp = function(comment) {
-  return moment(comment.timestamp).fromNow();
+  if (comment.updated_at) {
+    return moment(comment.updated_at).fromNow();
+  } else {
+    return "unknown date";
+  }
 }
 
 const getUsername = function(comment) {
-  return comment.username || "Unknown User";
+  return comment.user.username || "Unknown User";
 }
 
 export default React.createClass({
