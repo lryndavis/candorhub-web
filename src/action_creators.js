@@ -149,7 +149,7 @@ export function getQuestionsForComment(state) {
   }
 }
 
-export function startImageUpload(image, title, description, tags) {
+export function startImageUpload(image, title, description, tags, userId) {
   return (dispatch, getState) => {
     const state = getState();
     dispatch({type: 'IS_UPLOADING_IMAGE', state})
@@ -158,9 +158,11 @@ export function startImageUpload(image, title, description, tags) {
         image: image,
         title: title,
         description: description,
-        tags: tags
+        tags: tags,
+        user_id: userId
       }
     }
+    console.log(JSON.stringify(imageForUpload));
     return fetch(imageUploadEndpoint, {
       method: 'POST',
       headers: {
