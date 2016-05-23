@@ -12,8 +12,8 @@ const avatarStyles = {
 };
 
 const getTimestamp = function(comment) {
-  if (comment.timestamp) {
-    return moment(comment.timestamp).fromNow();
+  if (comment.updated_at) {
+    return moment(comment.updated_at).fromNow();
   } else {
     return "unknown date";
   }

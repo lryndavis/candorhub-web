@@ -2,12 +2,24 @@ const initialState = {
   title: '',
   description: '',
   image: '',
-  questions: [],
   user: {
     id: "",
     username: "",
     email: ""
-  }
+  },
+  questions: [{
+    id: '',
+    body: '',
+    comments: [{
+      id: '',
+      body: '',
+      user: {
+        username: "",
+        id: "",
+        email: ""
+      }
+    }],
+  }],
 }
 
 function setImageToCritique(state, responseJSON) {
