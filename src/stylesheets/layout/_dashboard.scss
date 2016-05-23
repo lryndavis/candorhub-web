@@ -22,8 +22,9 @@
 .form__artist-notes {
   font-weight: bold;
   font-style: italic;
-  font-size: 1.1em;
+  font-size: 1.3em;
   margin-top: 0;
+  text-decoration: underline;
 }
 
 .form__comment-header {
@@ -54,7 +55,7 @@
   padding-right: 50px;
   margin-bottom: 20px;
   cursor: pointer;
-  border-right: 1px solid black;
+  border-right: 1px solid #bbbdc3;
 }
 
 .critique-image__image-title {
@@ -72,6 +73,8 @@
   font-weight: lighter;
   font-style: italic;
 }
+
+
 
 
 //media queries

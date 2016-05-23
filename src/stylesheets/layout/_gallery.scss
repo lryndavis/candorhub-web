@@ -23,17 +23,18 @@
 }
 
 .dashboard-header {
-  border-bottom: 1px solid #696969;
+  border-bottom: 1px solid #bbbdc3;
   padding-bottom: 15px;
 }
 
 .grid-item {
-  width: 200px;
-  margin-bottom: 20px;
+  width: 180px;
+  margin-bottom: 10px;
   &:hover {
     opacity: 0.7;
   }
 }
+
 
 .image-gallery {
   padding-top: 10px;

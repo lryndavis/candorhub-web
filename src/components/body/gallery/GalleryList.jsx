@@ -7,7 +7,7 @@ import { Router, Route, Link } from 'react-router';
 
 const masonryOptions = {
     transitionDuration: 700,
-    gutter: 20,
+    gutter: 15,
     fitWidth: true,
   };
 
