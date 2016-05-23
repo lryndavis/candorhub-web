@@ -12,6 +12,9 @@ import ImageModal from './ImageModal';
 import QuestionList from './QuestionList';
 import {grey800, indigoA400} from 'material-ui/styles/colors';
 
+//Copy for critique instructions
+
+const critiqueTips = "Now's your chance to share a candid critique of this artwork! Respond to the questions below. Here are some tips: start positive and end positive, focus on what stands out to you, and share both factual statements about the work and your personal reactions."
 
 //Status codes for comment status
 const WRONG_LENGTH = 11;
@@ -160,6 +163,7 @@ export const CommentForm = React.createClass ({
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
             <p className="form__comment-header">Your Daily Candor</p>
+            <p className="form__comment-instructions">{critiqueTips}</p><br></br>
             <p className="form__question">{this.props.firstQuestion.body}?</p>
             <TextField
               id="firstResponse"
