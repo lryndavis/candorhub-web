@@ -23,11 +23,15 @@ export default React.createClass({
     return (
       <div className="individual-question-box">
         <p className="question" key={this.props.question.id} onClick={ this.onClick }>
-          { this.state.navArrowChange ? <NavigationArrowDropUp /> : <NavigationArrowDropDown /> }
+          { this.state.navArrowChange ?
+            <NavigationArrowDropUp /> :
+            <NavigationArrowDropDown /> }
           {this.props.question.body}
         </p>
         <div>
-          { this.state.commentShow ? <GalleryCommentBox question={this.props.question} /> : null }
+          { this.state.commentShow ?
+            <GalleryCommentBox question={this.props.question} /> :
+            null }
         </div>
       </div>
       );
