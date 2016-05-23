@@ -23,7 +23,7 @@ export const GalleryView = React.createClass({
     return (
       <div className="gallery__view-container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>
-          <Sidebar />
+          <Sidebar username={this.props.username} />
         </MuiThemeProvider>
         <div className="dashboard">
           <div className="dashboard__image-container col-md-6">
@@ -42,7 +42,8 @@ export const GalleryView = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    imageById: state.imageGallery.imageById
+    imageById: state.imageGallery.imageById,
+    username: state.auth.getIn(["user", "attributes", "username"])
   };
 }
 

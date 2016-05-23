@@ -2,7 +2,12 @@ const initialState = {
   title: '',
   description: '',
   image: '',
-  questions: []
+  questions: [],
+  user: {
+    id: "",
+    username: "",
+    email: ""
+  }
 }
 
 function setImageToCritique(state, responseJSON) {
