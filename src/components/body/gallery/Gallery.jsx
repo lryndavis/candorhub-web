@@ -30,7 +30,7 @@ export const Gallery = React.createClass({
       { this.props.signedIn ?
         <div className="gallery__main-container">
           <MuiThemeProvider muiTheme={getMuiTheme()}>
-            <Sidebar />
+            <Sidebar username={this.props.username} />
           </MuiThemeProvider>
           <GalleryList imagesForGallery={this.props.imagesForGallery} />
         </div> :
@@ -43,7 +43,8 @@ export const Gallery = React.createClass({
 function mapStateToProps(state) {
   return {
     signedIn: state.auth.getIn(["user", "isSignedIn"]),
-    imagesForGallery: state.imageGallery.imagesForGallery
+    imagesForGallery: state.imageGallery.imagesForGallery,
+    username: state.auth.getIn(["user", "attributes", "username"])
   };
 }
 

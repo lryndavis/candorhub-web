@@ -15,10 +15,10 @@ const masonryOptions = {
 
   //infinite scroll functions
     getInitialState: function() {
-        return {
-            elements: this.buildElements(0, 15),
-            isInfiniteLoading: false
-        }
+      return {
+        elements: this.buildElements(0, 15),
+        isInfiniteLoading: false
+      }
     },
 
     buildElements: function(start, end) {

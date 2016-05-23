@@ -33,7 +33,7 @@ export const Dashboard = React.createClass({
             <div className="dashboard__main-container">
 
               <MuiThemeProvider muiTheme={getMuiTheme()}>
-                <Sidebar />
+                <Sidebar username={this.props.username}/>
               </MuiThemeProvider>
 
               <div className="dashboard">
@@ -63,7 +63,8 @@ function mapStateToProps(state) {
   return {
     signedIn: state.auth.getIn(["user", "isSignedIn"]),
     imageForCritique: state.imageForCritique,
-    questionsForComment: state.comments.questionsForComment
+    questionsForComment: state.comments.questionsForComment,
+    username: state.auth.getIn(["user", "attributes", "username"])
   };
 }
 

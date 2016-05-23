@@ -81,7 +81,7 @@ export const UploadForm = React.createClass({
     } else if (!ALLOWED_FILE_TYPES.includes(image.type)) {
       alert("This file type is not allowed!");
     } else {
-      this.props.startImageUpload(this.state.image, title, description, tags);
+      this.props.startImageUpload(this.state.image, title, description, tags, this.props.userId);
       this.setState({imageURL: '', title: '', description: '', files: [], isUploadingImage: true, tags: [], readyToSubmit: false});
     }
   },
@@ -186,7 +186,8 @@ export const UploadForm = React.createClass({
 function mapStateToProps(state) {
   return {
     isUploadingImage: state.imageUpload.isUploadingImage,
-    finishedImageUpload: state.imageUpload.finishedImageUpload
+    finishedImageUpload: state.imageUpload.finishedImageUpload,
+    userId: state.auth.getIn(["user", "attributes", "id"])
   };
 }
 

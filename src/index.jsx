@@ -14,7 +14,7 @@ import reducer from './reducers/index';
 import styles from './stylesheets/main.scss';
 import {SignInContainer} from './components/body/splash/SignIn';
 import {SplashContainer} from './components/body/splash/Splash';
-import {configure} from 'redux-auth';
+import {configure} from 'redux-auth-candorhub';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -29,7 +29,8 @@ const routes = (
 );
 
 store.dispatch(configure(
-  {apiUrl: 'https://candorhub-api.herokuapp.com'}
+  {apiUrl: 'https://candorhub-api.herokuapp.com'},
+  {serverSideRendering: false, cleanSession: true, clientOnly: true}
 )).then(() => {
   ReactDOM.render(
     <Provider store={store}>

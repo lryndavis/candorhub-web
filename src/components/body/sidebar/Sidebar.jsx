@@ -3,7 +3,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageDehaze from 'material-ui/svg-icons/image/dehaze';
 import React from 'react';
-import {SignOutButton} from 'redux-auth';
+import {SignOutButton} from 'redux-auth-candorhub';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -35,6 +35,7 @@ export default class Sidebar extends React.Component {
           <ImageDehaze onClick={this.handleToggle} />
           <span className="dashboard-header__logo">candorhub</span>
           <SignOutButton icon={''}/>
+          {this.props.username}
         </div>
         <Drawer
           docked={false}

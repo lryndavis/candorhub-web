@@ -8,6 +8,11 @@ const initialState = {
     title: '',
     description: '',
     image: '',
+    user: {
+      id: "",
+      username: "",
+      email: ""
+    },
     questions: [{
       id: '',
       body: '',
@@ -37,5 +42,5 @@ export default function(state = initialState, action) {
       return setImageById(state, action.responseJSON);
     default:
       return state;
-  }  
+  }
 }

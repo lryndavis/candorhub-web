@@ -1,7 +1,7 @@
 import TextField from 'material-ui/TextField';
 import React from 'react';
 import {connect} from 'react-redux';
-import {EmailSignUpForm} from 'redux-auth';
+import {EmailSignUpForm} from 'redux-auth-candorhub';
 
 
 export default React.createClass({
