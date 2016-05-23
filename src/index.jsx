@@ -29,7 +29,8 @@ const routes = (
 );
 
 store.dispatch(configure(
-  {apiUrl: 'https://candorhub-api.herokuapp.com'}
+  {apiUrl: 'https://candorhub-api.herokuapp.com'},
+  {serverSideRendering: false, cleanSession: true, clientOnly: true}
 )).then(() => {
   ReactDOM.render(
     <Provider store={store}>
