@@ -21,19 +21,14 @@ export const GalleryView = React.createClass({
   },
 
   getInitialState: function() {
-    console.log("getting initial state:");
     return { commentFormShow: false};
   },
 
   onClick: function() {
     if (this.state.commentFormShow) {
       this.setState({commentFormShow: false});
-      console.log("setting state to false");
-      console.log(this.state.commentFormShow);
     } else {
       this.setState({commentFormShow: true});
-      console.log("setting state to true");
-      console.log(this.state.commentFormShow);
     }
   },
 
@@ -65,7 +60,7 @@ export const GalleryView = React.createClass({
   }
 });
 
-// { this.props.imageById.questions.length > 0 ?
+
 
 function mapStateToProps(state) {
   return {
