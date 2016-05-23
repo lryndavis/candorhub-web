@@ -2,13 +2,21 @@ import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import React from 'react';
-
+import moment from 'moment';
 
 import QuestionBox from './QuestionBox';
 
 const avatarStyles = {
   marginBottom: 5,
 };
+
+const getTimestamp = function(comment) {
+  return moment(comment.timestamp).fromNow();
+}
+
+const getUsername = function(comment) {
+  return comment.username || "Unknown User";
+}
 
 export default React.createClass({
 
@@ -22,8 +30,8 @@ export default React.createClass({
           {comment.body}
         </span>
         <p className="comments__meta">
-          <span className="comments__date">Date: 5/11/2016</span>
-          <span className="comments__user">By: User</span>
+          <span className="comments__date">{getTimestamp(comment)}</span>
+          <span className="comments__user">{getUsername(comment)}</span>
         </p>
       </div>
       );

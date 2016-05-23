@@ -57,6 +57,7 @@
     "jquery": "^2.2.3",
     "masonry-layout": "^4.1.0",
     "material-ui": "^0.15.0",
+    "moment": "^2.13.0",
     "node-sass": "^3.7.0",
     "pui-react-collapse": "^5.1.1",
     "pui-react-expander": "^5.1.1",
