@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import * as actionCreators from '../../../action_creators';
 
-import ImageModal from './ImageModal';
+import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from '../gallery/GalleryQuestionList';
 import Sidebar from '../sidebar/Sidebar';
 import GalleryNoComments from '../gallery/GalleryNoComments';
