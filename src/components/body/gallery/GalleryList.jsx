@@ -6,7 +6,7 @@ import { Router, Route, Link } from 'react-router';
 
 
 const masonryOptions = {
-    transitionDuration: 700,
+    transitionDuration: 500,
     gutter: 15,
     fitWidth: true,
   };
@@ -55,11 +55,17 @@ const masonryOptions = {
   render: function() {
     var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
     return (
-        <div key={image.id} className="gallery-link">
-          <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
-            <img className="grid-item" src={image.image}></img>
-          </Link>
-        </div>
+      <figure>
+          <div key={image.id} className="gallery-link">
+            <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
+              <img className="grid-item" src={image.image}></img>
+              <figcaption>
+                <h3 className="hover-title">{image.title}</h3>
+                <p className="hover-caption">{image.user.username}</p>
+              </figcaption>
+            </Link>
+          </div>
+        </figure>
         );
       });
       return (
