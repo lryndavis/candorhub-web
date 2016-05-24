@@ -14,7 +14,9 @@ export default React.createClass({
     var userGalleryRender = this.props.imagesByUser.map(function(image){
       return (
         <div key={image.id} className="gallery-link">
-          <img className="grid-item" src={image.image}></img>
+          <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
+            <img className="grid-item" src={image.image}></img>
+          </Link>
         </div>
       );
     });
@@ -25,7 +27,8 @@ export default React.createClass({
                 disableImagesLoaded={false}
                 className={"image-gallery"}
           >
-        {userGalleryRender}
+          <h1>Your Gallery</h1>
+          {userGalleryRender}
         </Masonry>
       </div>
     );
