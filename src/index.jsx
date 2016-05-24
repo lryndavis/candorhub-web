@@ -16,6 +16,7 @@ import {SignInContainer} from './components/body/splash/SignIn';
 import {SplashContainer} from './components/body/splash/Splash';
 import {configure} from 'redux-auth-candorhub';
 import {UserGalleryContainer} from './components/body/dashboard/UserGallery';
+import {UserGalleryViewContainer} from './components/body/dashboard/UserGalleryView';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -27,6 +28,7 @@ const routes = (
     <Route path='gallery' component={GalleryContainer} />
     <Route path="usergallery" component={UserGalleryContainer} />
     <Route path="gallery/:id" component={GalleryViewContainer} />
+    <Route path="usergallery/:id" component={UserGalleryViewContainer} />
   </Route>
 );
 
