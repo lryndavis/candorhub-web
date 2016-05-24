@@ -20,7 +20,11 @@ const getTimestamp = function(comment) {
 }
 
 const getUsername = function(comment) {
-  return "unknown user";
+  if (comment.user) {
+    return comment.user.username;
+  } else {
+    return "unknown user";
+  }
 }
 
 export default React.createClass({
