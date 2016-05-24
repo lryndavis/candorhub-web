@@ -18,7 +18,10 @@ describe('ImageModal', () => {
     const image = {
       image: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
       title: 'Airplane Lolcat',
-      description: 'This kitty thinks it is an airplane!'
+      description: 'This kitty thinks it is an airplane!',
+      user: {
+        username: "aa123"
+      }
     };
     const component = renderIntoDocument(
       <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -34,7 +37,10 @@ describe('ImageModal', () => {
     const image = {
       url: 'http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg',
       title: 'Airplane Lolcat',
-      description: 'This kitty thinks it is an airplane!'
+      description: 'This kitty thinks it is an airplane!',
+      user: {
+        username: "aa123"
+      }
     };
     const component = renderIntoDocument(
       <MuiThemeProvider muiTheme={getMuiTheme()}>

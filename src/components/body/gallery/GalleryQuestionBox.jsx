@@ -10,7 +10,7 @@ import GalleryQuestionList from './GalleryQuestionList';
 export default React.createClass({
 
   getInitialState: function() {
-    return { commentShow: true };
+    return { commentShow: false };
     return { navArrowChange: false };
   },
 

@@ -14,7 +14,6 @@ export default React.createClass({
 
   render: function() {
     var allQuestionsList = this.props.imageById.questions;
-    console.log(this.props.imageById);
     var questionListRender = allQuestionsList.map(function(question) {
       return (
         <div key={question.id}>

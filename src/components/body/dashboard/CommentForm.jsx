@@ -143,13 +143,16 @@ export const CommentForm = React.createClass ({
       "image_id": this.props.imageForCritique.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
-          "body": firstResponse.toString()
+          "body": firstResponse.toString(),
+          "user_id": this.props.currentUserId
         }, {
           "question_id": this.props.questionsForComment[1].id,
-          "body": secondResponse.toString()
+          "body": secondResponse.toString(),
+          "user_id": this.props.currentUserId
         }, {
           "question_id": this.props.questionsForComment[2].id,
-          "body": thirdResponse.toString()
+          "body": thirdResponse.toString(),
+          "user_id": this.props.currentUserId
         }]
     };
     this.props.postSubmitComment(body);
@@ -219,6 +222,7 @@ export const CommentForm = React.createClass ({
 function mapStateToProps(state) {
   return {
     signedIn: state.auth.getIn(["user", "isSignedIn"]),
+    currentUserId: state.auth.getIn(["user", "attributes", "id"]),
     imageForCritique: state.imageForCritique,
     firstQuestion: state.comments.questionsForComment[0],
     secondQuestion: state.comments.questionsForComment[1],

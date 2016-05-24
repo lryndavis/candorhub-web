@@ -18,6 +18,11 @@ describe("imagesForCritique reducer", () => {
           description: "an image",
           body: "",
           image: "",
+          user: {
+            id: "",
+            username: "",
+            email: ""
+          },
           questions: []
         }
       ]
@@ -28,6 +33,11 @@ describe("imagesForCritique reducer", () => {
       description: "an image",
       body: "",
       image: "",
+      user: {
+        id: "",
+        username: "",
+        email: ""
+      },
       questions: []
     });
   });
@@ -46,6 +56,11 @@ describe("imagesForCritique reducer", () => {
         description: "an image",
         body: "",
         image: "",
+        user: {
+          id: "",
+          username: "",
+          email: ""
+        },
         questions: []
       }
     };
@@ -55,6 +70,11 @@ describe("imagesForCritique reducer", () => {
       description: "an image",
       body: "",
       image: "",
+      user: {
+        id: "",
+        username: "",
+        email: ""
+      },
       questions: []
     });
   });
