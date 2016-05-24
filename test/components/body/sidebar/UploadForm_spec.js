@@ -19,8 +19,8 @@ describe("UploadForm", () => {
     expect(tree.subTree("Dropzone")).to.be.ok;
   });
 
-  it("renders two TextFields for title and description", () => {
-    expect(tree.everySubTree("TextField").length).to.equal(2);
+  it("renders a form to input title and description", () => {
+    expect(tree.everySubTree("input").length).to.equal(3);
   });
 
   it("renders a submit button", () => {
@@ -33,7 +33,7 @@ describe("UploadForm", () => {
   });
 
   it("updates state on title change", () => {
-    const textField = tree.subTree("TextField",
+    const textField = tree.subTree("input",
       (node) => node.props.className === "upload-form__image-title");
     textField.props.onChange({
       target: {
@@ -44,7 +44,7 @@ describe("UploadForm", () => {
   });
 
   it("updates state on description change", () => {
-    const textField = tree.subTree("TextField",
+    const textField = tree.subTree("input",
       (node) => node.props.className === "upload-form__image-desc");
     textField.props.onChange({
       target: {
