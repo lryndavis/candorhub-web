@@ -48,7 +48,7 @@ export const GalleryView = React.createClass({
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
-            <h2 onClick={this.onClick}>Would you like to comment on this?</h2>
+            <p onClick={this.onClick}>Critique {this.props.imageById.title}</p>
           </div>
 
           <div className="dashboard__comment-form-container col-md-6">
