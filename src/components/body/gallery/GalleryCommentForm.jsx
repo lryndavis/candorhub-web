@@ -136,6 +136,7 @@ export const GalleryCommentForm = React.createClass({
         }]
     };
     this.props.postSubmitCommentGallery(body);
+    this.props.callbackParent(false);
   },
 
   render: function() {

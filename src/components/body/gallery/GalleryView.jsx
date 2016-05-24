@@ -32,6 +32,10 @@ export const GalleryView = React.createClass({
     }
   },
 
+  onChildChanged: function(newState) {
+    this.setState({ commentFormShow: newState });
+  },
+
   render: function() {
 
     return (
@@ -49,7 +53,7 @@ export const GalleryView = React.createClass({
           <div className="dashboard__comment-form-container col-md-6">
             { this.state.commentFormShow ?
             <MuiThemeProvider muiTheme={getMuiTheme()}>
-              <GalleryCommentFormContainer questionsForComment={this.props.questionsForComment} />
+              <GalleryCommentFormContainer callbackParent={this.onChildChanged} commentFormShow ={this.state.commentFormShow} questionsForComment={this.props.questionsForComment} />
             </MuiThemeProvider> :
             <GalleryQuestionList imageById={this.props.imageById} />
             }
