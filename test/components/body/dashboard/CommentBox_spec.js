@@ -10,11 +10,17 @@ const testQuestion = {
   comments: [
     {
       id: 0,
-      body: "I don't know."
+      body: "I don't know.",
+      user: {
+        username: "firstTestUser"
+      }
     },
     {
       id: 1,
-      body: "Third base."
+      body: "Third base.",
+      user: {
+        username: "secondTestUser"
+      }
     }
   ]
 };
