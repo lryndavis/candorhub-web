@@ -28,8 +28,21 @@
 
 .form__comment-header {
   font-family: 'Coves-Light';
-  font-size: 5.2em;
+  font-size: 2.2em;
   text-align: center;
+}
+
+.form__instructions-header {
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.form__comment-instructions {
+  line-height: 1.5em;
+}
+
+.form__tips-header {
+  font-weight: 500;
 }
 
 .form__member-header {
