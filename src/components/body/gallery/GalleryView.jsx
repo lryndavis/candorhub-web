@@ -5,12 +5,14 @@ import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import * as actionCreators from '../../../action_creators';
 import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from './GalleryQuestionList';
 import Sidebar from '../sidebar/Sidebar';
-
+import GalleryNoComments from './GalleryNoComments';
+import { GalleryCommentFormContainer } from './GalleryCommentForm';
 
 export const GalleryView = React.createClass({
 
@@ -19,35 +21,63 @@ export const GalleryView = React.createClass({
     this.props.getImageFromServerById(id);
   },
 
+  getInitialState: function() {
+    return { commentFormShow: false};
+  },
+
+  onClick: function() {
+    if (this.state.commentFormShow) {
+      this.setState({commentFormShow: false});
+    } else {
+      this.setState({commentFormShow: true});
+    }
+  },
+
+  onChildChanged: function(newState) {
+    this.setState({ commentFormShow: newState });
+  },
+
   render: function() {
     return (
-      <div className="gallery__view-container">
+      <div className="dashboard__main-container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Sidebar username={this.props.username} />
         </MuiThemeProvider>
+
         <div className="dashboard">
+
           <div className="dashboard__image-container col-md-6">
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
+            <p onClick={this.onClick}>Critique {this.props.imageById.title}</p>
           </div>
-          <div className="col-md-6">
+
+          <div className="dashboard__comment-form-container col-md-6">
+            { this.state.commentFormShow ?
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+              <GalleryCommentFormContainer callbackParent={this.onChildChanged} commentFormShow ={this.state.commentFormShow} questionsForComment={this.props.questionsForComment} />
+            </MuiThemeProvider>
+            :
             <GalleryQuestionList imageById={this.props.imageById} />
+            }
           </div>
+
         </div>
       </div>
-    );
+      );
+    }
+  });
+
+  function mapStateToProps(state) {
+    return {
+      imageById: state.imageGallery.imageById,
+      questionsForComment: state.comments.questionsForComment,
+      username: state.auth.getIn(["user", "attributes", "username"])
+    };
   }
-});
 
-function mapStateToProps(state) {
-  return {
-    imageById: state.imageGallery.imageById,
-    username: state.auth.getIn(["user", "attributes", "username"])
-  };
-}
-
-export const GalleryViewContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(GalleryView);
+  export const GalleryViewContainer = connect(
+    mapStateToProps,
+    actionCreators
+  )(GalleryView);
