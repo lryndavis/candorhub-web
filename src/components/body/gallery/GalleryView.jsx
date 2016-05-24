@@ -38,7 +38,6 @@ export const GalleryView = React.createClass({
   },
 
   render: function() {
-    console.log(this.props.imageById);
     return (
       <div className="dashboard__main-container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>

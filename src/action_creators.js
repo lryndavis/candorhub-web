@@ -92,7 +92,6 @@ export function setQuestionsForComment(state, responseJSON) {
 export function postSubmitComment(body) {
   return function (dispatch, getState) {
     const state = getState();
-    console.log(body);
     return fetch(submitCommentEndpoint, {
       method: 'POST',
       headers: {
@@ -174,7 +173,6 @@ export function getImagesByUser() {
   return function(dispatch, getState) {
     const state = getState();
     const url = apiRoot + "/users/" + state.auth.getIn(["user", "attributes", "id"]) + "/images";
-    console.log(url);
     return fetch (url)
     .then(response => response.json())
     .then(responseJSON => dispatch(setUserGallery(state, responseJSON)));
