@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {GalleryView} from '../../../../src/components/body/gallery/GalleryView';
+import {UserGalleryView} from '../../../../src/components/body/usergallery/UserGalleryView';
 import {expect} from 'chai';
 import sd from 'skin-deep';
 
 //dummy version of the class without componentDidMount
-class GalleryViewTest extends GalleryView {
+class UserGalleryViewTest extends UserGalleryView {
   componentDidMount() {
     return false;
   }
@@ -46,11 +46,11 @@ const testImage = {
 };
 
 
-describe("GalleryView", () => {
+describe("UserGalleryView", () => {
   let tree, instance, vdom;
 
   beforeEach(() => {
-    tree = sd.shallowRender(<GalleryViewTest imageById={testImage.imageById} />);
+    tree = sd.shallowRender(<UserGalleryViewTest imageById={testImage.imageById} />);
     instance = tree.getMountedInstance();
     vdom = tree.getRenderOutput();
   });
