@@ -15,8 +15,8 @@ import styles from './stylesheets/main.scss';
 import {SignInContainer} from './components/body/splash/SignIn';
 import {SplashContainer} from './components/body/splash/Splash';
 import {configure} from 'redux-auth-candorhub';
-import {UserGalleryContainer} from './components/body/dashboard/UserGallery';
-import {UserGalleryViewContainer} from './components/body/dashboard/UserGalleryView';
+import {UserGalleryContainer} from './components/body/usergallery/UserGallery';
+import {UserGalleryViewContainer} from './components/body/usergallery/UserGalleryView';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

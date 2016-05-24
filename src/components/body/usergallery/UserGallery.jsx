@@ -8,6 +8,7 @@ import * as actionCreators from '../../../action_creators';
 import ImageModal from '../dashboard/ImageModal';
 import Sidebar from '../sidebar/Sidebar';
 import UserGalleryList from './UserGalleryList';
+import DashboardNotSignedIn from '../../../../src/components/body/dashboard/DashboardNotSignedIn';
 
 export const UserGallery = React.createClass({
 
