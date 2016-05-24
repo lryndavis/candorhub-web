@@ -5,6 +5,7 @@ import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import * as actionCreators from '../../../action_creators';
 import ImageModal from '../dashboard/ImageModal';
@@ -38,12 +39,13 @@ export const GalleryView = React.createClass({
 
   render: function() {
     return (
-      <div className="gallery__view-container">
+      <div className="dashboard__main-container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Sidebar username={this.props.username} />
         </MuiThemeProvider>
 
         <div className="dashboard">
+
           <div className="dashboard__image-container col-md-6">
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <ImageModal image={this.props.imageById} />
@@ -55,7 +57,8 @@ export const GalleryView = React.createClass({
             { this.state.commentFormShow ?
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <GalleryCommentFormContainer callbackParent={this.onChildChanged} commentFormShow ={this.state.commentFormShow} questionsForComment={this.props.questionsForComment} />
-            </MuiThemeProvider> :
+            </MuiThemeProvider>
+            :
             <GalleryQuestionList imageById={this.props.imageById} />
             }
           </div>
