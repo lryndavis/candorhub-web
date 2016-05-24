@@ -52,7 +52,12 @@ export default class Sidebar extends React.Component {
           <Link ref="gallery"
             className="sidebar__menu-link"
             to={'/gallery'} >
-            Gallery
+            Browse Artwork
+          </Link>
+          <Link ref="usergallery"
+            className="sidebar__menu-link"
+            to={'/usergallery'}>
+            Your Personal Gallery
           </Link>
           <UploadFormModal />
         </Drawer>

@@ -8,6 +8,9 @@ import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} 
 import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from './GalleryQuestionList';
 
+//Copy for critique instructions
+const critiqueTips = "Respond to the questions below. Here are some tips: start positive and end positive, focus on what stands out to you, and share both factual statements about the work and your personal reactions."
+
 //Status codes for comment status
 const WRONG_LENGTH = 11;
 const OFFENSIVE = 22;
@@ -144,6 +147,8 @@ export const GalleryCommentForm = React.createClass({
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
             <p className="form__comment-header">Your Daily Candor</p>
+            <p className="form__instructions-header">Now's your chance to share a candid critique of this artwork!</p>
+            <p className="form__comment-instructions">{critiqueTips}</p><br></br>
             <p className="form__question">{this.props.firstQuestion.body}?</p>
             <TextField
               className="form__textfield"

@@ -9,6 +9,7 @@ const uploadImageEndpoint = "";
 const multipleRandomImagesEndpoint = apiRoot + "/images";
 const imageUploadEndpoint = apiRoot + "images";
 
+
 export function setState(state) {
   return {
     type: 'SET_STATE',
@@ -66,6 +67,14 @@ export function setQuestionsForComment(state, responseJSON) {
 export function setImageGallery(state, responseJSON) {
   return {
     type: 'SET_IMAGE_GALLERY',
+    state,
+    responseJSON
+  }
+}
+
+export function setUserGallery(state, responseJSON) {
+  return {
+    type: 'SET_USER_GALLERY',
     state,
     responseJSON
   }
@@ -157,6 +166,18 @@ export function getImageFromServerById(id) {
     return fetch (specificImageEndpoint + id)
     .then(response => response.json())
     .then(responseJSON => dispatch(setImageById(state, responseJSON)));
+  }
+}
+
+//get images associated with a particular user
+export function getImagesByUser() {
+  return function(dispatch, getState) {
+    const state = getState();
+    const url = apiRoot + "/users/" + state.auth.getIn(["user", "attributes", "id"]) + "/images";
+    console.log(url);
+    return fetch (url)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setUserGallery(state, responseJSON)));
   }
 }
 
