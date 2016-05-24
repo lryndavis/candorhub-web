@@ -121,7 +121,7 @@ export const GalleryCommentForm = React.createClass({
     if (!firstResponse || !secondResponse || !thirdResponse) {
       return;
     }
-    //server request
+
     var body = {
       "image_id": this.props.imageById.id,
       "comments": [{

@@ -152,7 +152,6 @@ export function getSpecificImageFromServer(state, id) {
 
 //get specific image for gallery view
 export function getImageFromServerById(id) {
-  console.log("getting image by id: " + id);
   return function(dispatch, getState) {
     const state = getState();
     return fetch (specificImageEndpoint + id)

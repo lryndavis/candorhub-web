@@ -37,12 +37,12 @@ export const GalleryView = React.createClass({
   },
 
   render: function() {
-
     return (
       <div className="gallery__view-container">
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Sidebar username={this.props.username} />
         </MuiThemeProvider>
+
         <div className="dashboard">
           <div className="dashboard__image-container col-md-6">
             <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -50,6 +50,7 @@ export const GalleryView = React.createClass({
             </MuiThemeProvider>
             <h2 onClick={this.onClick}>Would you like to comment on this?</h2>
           </div>
+
           <div className="dashboard__comment-form-container col-md-6">
             { this.state.commentFormShow ?
             <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -58,23 +59,22 @@ export const GalleryView = React.createClass({
             <GalleryQuestionList imageById={this.props.imageById} />
             }
           </div>
-    </div>
-  </div>
-    );
+
+        </div>
+      </div>
+      );
+    }
+  });
+
+  function mapStateToProps(state) {
+    return {
+      imageById: state.imageGallery.imageById,
+      questionsForComment: state.comments.questionsForComment,
+      username: state.auth.getIn(["user", "attributes", "username"])
+    };
   }
-});
 
-
-
-function mapStateToProps(state) {
-  return {
-    imageById: state.imageGallery.imageById,
-    questionsForComment: state.comments.questionsForComment,
-    username: state.auth.getIn(["user", "attributes", "username"])
-  };
-}
-
-export const GalleryViewContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(GalleryView);
+  export const GalleryViewContainer = connect(
+    mapStateToProps,
+    actionCreators
+  )(GalleryView);
