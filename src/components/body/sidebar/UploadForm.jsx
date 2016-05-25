@@ -138,7 +138,8 @@ export const UploadForm = React.createClass({
           <div className="drop-zone">
             <Dropzone
               onDrop={this.onDrop}
-              accept="image/*">
+              accept="image/*"
+              multiple={false}>
               <div className="dropzone-copy">Select a file to upload</div>
                 {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
                   {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
