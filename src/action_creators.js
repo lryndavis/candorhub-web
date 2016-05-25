@@ -86,7 +86,6 @@ export function setQuestionsForComment(state, responseJSON) {
   }
 }
 
-
 export function postSubmitComment(body) {
   return function (dispatch, getState) {
     const state = getState();
@@ -128,8 +127,11 @@ export function postSubmitCommentGallery(body) {
 }
 
 export function getRandomImageFromServer(state) {
-  return function (dispatch) {
-    return fetch(randomImageEndpoint)
+  return function (dispatch, getState) {
+    const state = getState();
+    const url = randomImageEndpoint + "&id=" + state.auth.getIn(["user", "attributes", "id"]);
+    console.log(url);
+    return fetch(url)
     .then(response => response.json())
     .then(responseJSON => {
       dispatch(setImageToCritique(state, responseJSON))
