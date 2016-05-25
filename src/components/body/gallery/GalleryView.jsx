@@ -13,6 +13,7 @@ import GalleryQuestionList from './GalleryQuestionList';
 import Sidebar from '../sidebar/Sidebar';
 import GalleryNoComments from './GalleryNoComments';
 import { GalleryCommentFormContainer } from './GalleryCommentForm';
+import {authorInComments} from '../../../lib/CommentAuthorCheck';
 
 export const GalleryView = React.createClass({
 
@@ -51,11 +52,11 @@ export const GalleryView = React.createClass({
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
 
-            {this.props.imageById.user.id === this.props.currentUserId ? null :
+            {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ? null :
               <p className="gallery__critique-this" onClick={this.onClick}>Critique This Work</p> }
           </div>
 
-          {this.props.imageById.user.id === this.props.currentUserId ? <GalleryQuestionList imageById={this.props.imageById} /> :
+          {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ? <GalleryQuestionList imageById={this.props.imageById} /> :
             <div className="dashboard__comment-form-container col-md-6">
               { this.state.commentFormShow ?
               <MuiThemeProvider muiTheme={getMuiTheme()}>
