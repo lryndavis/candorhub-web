@@ -44,7 +44,8 @@ export default class DialogExampleModal extends React.Component {
           autoScrollBodyContent={true}
           open={this.state.open}
         >
-          <UploadFormContainer />
+          <UploadFormContainer
+            close={this.handleClose} />
         </Dialog>
       </p>
     );

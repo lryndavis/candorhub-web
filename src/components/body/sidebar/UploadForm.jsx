@@ -42,6 +42,12 @@ export const UploadForm = React.createClass({
     this.props.setState({uploadedImage: false});
   },
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.finishedImageUpload) {
+      this.props.close();
+    }
+  },
+
   checkReadiness() {
     if (this.state.description && this.state.image && this.state.title) {
       this.setState({readyToSubmit: true});
