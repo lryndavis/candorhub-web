@@ -26,13 +26,23 @@
   margin-top: 60px;
 }
 
-.form__member-header {
+.form__comment-header {
   font-family: 'Coves-Light';
+  font-size: 2.2em;
   text-align: center;
-  margin-bottom: 0;
-  margin-top: 40px;
-  color: #6F1C46;
-  cursor: pointer;
+}
+
+.form__instructions-header {
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.form__comment-instructions {
+  line-height: 1.5em;
+}
+
+.form__tips-header {
+  font-weight: 500;
 }
 
 .form__splash-header {

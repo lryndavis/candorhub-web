@@ -54,11 +54,17 @@ export default React.createClass({
   render: function() {
     var userGalleryRender = this.props.imagesByUser.map(function(image){
       return (
-        <div key={image.id} className="gallery-link">
-          <Link to={`/usergallery/${image.id}`} params={{id: image.id}}>
-            <img className="grid-item" src={image.image}></img>
-          </Link>
-        </div>
+        <figure>
+            <div key={image.id} className="gallery-link">
+              <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
+                <img className="grid-item" src={image.image}></img>
+                <figcaption>
+                  <h3 className="hover-title">{image.title}</h3>
+                  <span className="hover-comments">{image.comment_count} Critiques</span>
+                </figcaption>
+              </Link>
+            </div>
+          </figure>
       );
     });
     return (
