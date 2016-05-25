@@ -72,6 +72,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
     "react-router-redux": "^4.0.4",
+    "react-search-input": "^0.8.1",
     "react-tag-input": "2.2.5",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.5.2",

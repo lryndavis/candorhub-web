@@ -168,6 +168,8 @@ export function getImageFromServerById(id) {
   }
 }
 
+
+
 //get images associated with a particular user
 export function getImagesByUser() {
   console.log("getting images by user");

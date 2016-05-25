@@ -9,7 +9,7 @@ import ImageModal from '../dashboard/ImageModal';
 import DashboardNotSignedIn from '../dashboard/DashboardNotSignedIn';
 import GalleryList from './GalleryList';
 import Sidebar from '../sidebar/Sidebar';
-
+import SearchBar from './SearchBar';
 
 
 export const Gallery = React.createClass({
@@ -32,6 +32,7 @@ export const Gallery = React.createClass({
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <Sidebar username={this.props.username} />
           </MuiThemeProvider>
+          <SearchBar imagesForGallery={this.props.imagesForGallery} />
           <GalleryList imagesForGallery={this.props.imagesForGallery} />
         </div> :
       <DashboardNotSignedIn />
