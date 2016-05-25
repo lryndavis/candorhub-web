@@ -50,18 +50,22 @@ export const GalleryView = React.createClass({
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
-            <p className="gallery__critique-this" onClick={this.onClick}>Critique This Work</p>
+
+            {this.props.imageById.user.id === this.props.currentUserId ? null :
+              <p className="gallery__critique-this" onClick={this.onClick}>Critique This Work</p> }
           </div>
 
-          <div className="dashboard__comment-form-container col-md-6">
-            { this.state.commentFormShow ?
-            <MuiThemeProvider muiTheme={getMuiTheme()}>
-              <GalleryCommentFormContainer callbackParent={this.onChildChanged} commentFormShow ={this.state.commentFormShow} questionsForComment={this.props.questionsForComment} />
-            </MuiThemeProvider>
-            :
-            <GalleryQuestionList imageById={this.props.imageById} />
-            }
-          </div>
+          {this.props.imageById.user.id === this.props.currentUserId ? <GalleryQuestionList imageById={this.props.imageById} /> :
+            <div className="dashboard__comment-form-container col-md-6">
+              { this.state.commentFormShow ?
+              <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <GalleryCommentFormContainer callbackParent={this.onChildChanged} commentFormShow ={this.state.commentFormShow} questionsForComment={this.props.questionsForComment} />
+              </MuiThemeProvider>
+              :
+              <GalleryQuestionList imageById={this.props.imageById} />
+              }
+            </div>
+          }
 
         </div>
       </div>
@@ -73,7 +77,8 @@ export const GalleryView = React.createClass({
     return {
       imageById: state.imageGallery.imageById,
       questionsForComment: state.comments.questionsForComment,
-      username: state.auth.getIn(["user", "attributes", "username"])
+      username: state.auth.getIn(["user", "attributes", "username"]),
+      currentUserId: state.auth.getIn(["user", "attributes", "id"])
     };
   }
 
