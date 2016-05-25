@@ -5,10 +5,8 @@ const randomImageEndpoint = apiRoot + "images?count=1";
 const specificImageEndpoint = apiRoot + "images/";
 const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
-const uploadImageEndpoint = "";
-const multipleRandomImagesEndpoint = apiRoot + "/images";
+const multipleRandomImagesEndpoint = apiRoot + "images";
 const imageUploadEndpoint = apiRoot + "images";
-
 
 export function setState(state) {
   return {
@@ -141,6 +139,8 @@ export function getRandomImageFromServer(state) {
 
 //image gallery
 export function getMultipleImagesFromServer(state) {
+  console.log("getting images for gallery");
+  console.log(multipleRandomImagesEndpoint)
   return function (dispatch) {
     return fetch(multipleRandomImagesEndpoint)
     .then(response => response.json())
@@ -170,9 +170,11 @@ export function getImageFromServerById(id) {
 
 //get images associated with a particular user
 export function getImagesByUser() {
+  console.log("getting images by user");
   return function(dispatch, getState) {
     const state = getState();
     const url = apiRoot + "/users/" + state.auth.getIn(["user", "attributes", "id"]) + "/images";
+    console.log(url);
     return fetch (url)
     .then(response => response.json())
     .then(responseJSON => dispatch(setUserGallery(state, responseJSON)));
@@ -200,6 +202,7 @@ export function startImageUpload(image, title, description, tags, userId) {
         user_id: userId
       }
     }
+    console.log(imageForUpload);
     return fetch(imageUploadEndpoint, {
       method: 'POST',
       headers: {
@@ -209,15 +212,25 @@ export function startImageUpload(image, title, description, tags, userId) {
       body: JSON.stringify(imageForUpload)
     })
     .then(response => response.json())
-    .then(responseJSON => dispatch(onFinishedImageUpload(state, responseJSON)),
+    .then(responseJSON => dispatch(updateGalleriesOnUploadCompletion(responseJSON)),
                           dispatch({type: 'DONE_UPLOADING_IMAGE', state}));
   }
 }
 
-export function onFinishedImageUpload(state, responseJSON) {
+export function updateGalleriesOnUploadCompletion(responseJSON) {
+  console.log(responseJSON);
+  return (dispatch, getState) => {
+    const state = getState();
+    dispatch(getMultipleImagesFromServer(state));
+    dispatch(getImagesByUser());
+    dispatch(finishUpload(state));
+  }
+}
+
+
+export function finishUpload(state) {
   return {
     type: "ON_FINISHED_IMAGE_UPLOAD",
-    state,
-    responseJSON
+    state
   }
 }
