@@ -60,13 +60,13 @@ export default React.createClass({
     const filteredImages = this.props.imagesForGallery.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     var filteredImageRender = filteredImages.map(function(image){
       return (
-        <figure>
-            <div key={image.id} className="gallery-link">
+        <figure key={image.id} >
+            <div className="gallery-link">
               <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
                 <img className="grid-item" src={image.image}></img>
                 <figcaption>
                   <h3 className="hover-title">{image.title}</h3>
-                  <span className="hover-caption">by {image.user.username}</span>
+                  {image.user ? <span className="hover-caption">by {image.user.username}</span> : null}                  
                   <span className="hover-comments">{image.comment_count} Critiques</span>
                 </figcaption>
               </Link>

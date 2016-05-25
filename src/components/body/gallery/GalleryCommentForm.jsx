@@ -151,6 +151,7 @@ export const GalleryCommentForm = React.createClass({
             <p className="form__comment-instructions"><span className="form__tips-header">Tips: </span>{critiqueTips}</p><br></br>
             <p className="form__question">{this.props.firstQuestion.body}?</p>
             <TextField
+              id="firstResponse"
               className="form__textfield"
               errorText={this.getErrorHint(this.state.firstResponseStatus)}
               value={this.state.firstResponse}
@@ -161,6 +162,7 @@ export const GalleryCommentForm = React.createClass({
             <br />
             <p  className="form__question">{this.props.secondQuestion.body}?</p>
             <TextField
+              id="secondResponse"
               className="form__textfield"
               errorText={this.getErrorHint(this.state.secondResponseStatus)}
               value={this.state.secondResponse}
@@ -171,6 +173,7 @@ export const GalleryCommentForm = React.createClass({
             <br />
             <p  className="form__question">{this.props.thirdQuestion.body}?</p>
             <TextField
+              id="thirdResponse"
               className="form__textfield"
               errorText={this.getErrorHint(this.state.thirdResponseStatus)}
               value={this.state.thirdResponse}

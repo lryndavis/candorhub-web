@@ -47,7 +47,7 @@ export default class Sidebar extends React.Component {
           <Link className="sidebar__menu-link" ref="home"
             className="sidebar__menu-link"
             to={'/dashboard'} >
-            Home
+            Critique
           </Link>
           <Link ref="gallery"
             className="sidebar__menu-link"

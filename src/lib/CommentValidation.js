@@ -10,7 +10,7 @@ const maximumCommentLength = 100;
 function tokenize(text) {
   return text
     .replace(/[^a-zA-Z ]+/g, ' ')
-    .replace('/ {2,}/',' ')
+    .replace(/\ {2,}/g, ' ')
     .toLowerCase()
     .split(' ');
 }
