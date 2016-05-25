@@ -54,6 +54,7 @@ const masonryOptions = {
 
   render: function() {
     var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
+    console.log(image);
     return (
       <figure>
           <div key={image.id} className="gallery-link">
@@ -61,7 +62,8 @@ const masonryOptions = {
               <img className="grid-item" src={image.image}></img>
               <figcaption>
                 <h3 className="hover-title">{image.title}</h3>
-                <p className="hover-caption">{image.user.username}</p>
+                <span className="hover-caption">by {image.user.username}</span>
+                <span className="hover-comments">{image.comment_count} Critiques</span>
               </figcaption>
             </Link>
           </div>

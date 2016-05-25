@@ -61,16 +61,24 @@ figure figcaption {
 }
 
 .hover-title {
+  padding-top: 5px;
   color: #000;
-  font-size: .9em;
+  font-size: 1em;
   line-height: 1.2;
   font-weight: 700;
   font-family: 'Coves-Light';
   text-transform: uppercase;
-  padding: 0;
+  padding-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .hover-caption {
+  font-size: .9em;
+  font-family: 'Coves-Light';
+  display: block;
+}
+
+.hover-comments {
   font-size: .8em;
   font-family: 'Coves-Light';
   padding: 0;
