@@ -54,8 +54,8 @@ export default React.createClass({
   render: function() {
     var userGalleryRender = this.props.imagesByUser.map(function(image){
       return (
-        <figure>
-            <div key={image.id} className="gallery-link">
+        <figure key={image.id}>
+            <div className="gallery-link">
               <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
                 <img className="grid-item" src={image.image}></img>
                 <figcaption>

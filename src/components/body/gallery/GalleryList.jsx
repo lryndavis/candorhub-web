@@ -53,10 +53,13 @@ const masonryOptions = {
     // -----------
 
   render: function() {
+    console.log("images for gallery");
+    console.log(this.props.imagesForGallery);
+    console.log(this.props.imagesForGallery.length);
     var imageGalleryRender = this.props.imagesForGallery.map(function(image) {
     return (
-      <figure>
-          <div key={image.id} className="gallery-link">
+      <figure key={image.id}>
+          <div className="gallery-link">
             <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
               <img className="grid-item" src={image.image}></img>
               <figcaption>
