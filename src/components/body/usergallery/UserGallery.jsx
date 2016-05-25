@@ -7,7 +7,7 @@ import {browserHistory, Link} from 'react-router';
 import * as actionCreators from '../../../action_creators';
 import ImageModal from '../dashboard/ImageModal';
 import Sidebar from '../sidebar/Sidebar';
-import UserGalleryList from './UserGalleryList';
+import UserSearchBar from './UserSearchBar';
 import DashboardNotSignedIn from '../../../../src/components/body/dashboard/DashboardNotSignedIn';
 
 export const UserGallery = React.createClass({
@@ -29,7 +29,7 @@ export const UserGallery = React.createClass({
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <Sidebar username={this.props.username} />
           </MuiThemeProvider>
-          <UserGalleryList imagesByUser={this.props.imagesByUser} />
+          <UserSearchBar imagesByUser={this.props.imagesByUser} />
         </div> :
         <DashboardNotSignedIn />
       }
