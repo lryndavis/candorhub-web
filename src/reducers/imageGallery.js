@@ -2,7 +2,12 @@ const initialState = {
   imagesForGallery: [{
     title: '',
     image: '',
-    description: ''
+    description: '',
+    user: {
+      id: "",
+      username:"",
+      email:""
+    }
   }],
 
   imagesByUser: [{

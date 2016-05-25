@@ -3,19 +3,22 @@
 .form__image-title {
   font-size: 2.2em;
   font-family: 'Coves-Light';
+  display: block;
+  margin: 0;;
 }
 
 .form__user-name {
-  font-size: 1.6em;
+  font-size: 1.3em;
   font-family: 'Coves-Light';
   padding-left: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .form__image-description {
   margin-bottom: 20px;
-  font-size:  .9em;
+  font-size:  .8em;
   line-height: 1.7em;
-  padding-bottom: 30px;
   width: 80%;
 }
 
@@ -25,13 +28,6 @@
   font-size: 1.3em;
   margin-top: 0;
   text-decoration: underline;
-}
-
-.form__comment-header {
-  font-family: 'Coves-Light';
-  font-size: 2.2em;
-  text-align: center;
-  margin-bottom: 15px;
 }
 
 .dashboard{

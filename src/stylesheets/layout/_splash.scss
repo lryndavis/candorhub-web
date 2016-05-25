@@ -19,6 +19,15 @@
   overflow: hidden;
 }
 
+.form__member-header {
+  font-family: 'Coves-Light';
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 40px;
+  color: #6F1C46;
+  cursor: pointer;
+}
+
 //Styling for Redux-auth error modals
 
 h4.modal-title {

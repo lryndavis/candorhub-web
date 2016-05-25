@@ -3,7 +3,8 @@ import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
+import {connect} from 'react-redux';
+import { Router, Route, Link } from 'react-router';
 
 const customContentStyle = {
  width: '80%',
