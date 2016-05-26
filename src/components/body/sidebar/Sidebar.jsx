@@ -44,6 +44,7 @@ export default class Sidebar extends React.Component {
           onRequestChange={open => this.setState({open})}
         >
           <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
+          <h2 className="sidebar-welcome">Welcome, <span className="sidebar-username">{this.props.username}</span></h2>
           <Link className="sidebar__menu-link" ref="home"
             className="sidebar__menu-link"
             to={'/dashboard'} >

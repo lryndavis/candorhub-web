@@ -1,5 +1,18 @@
 //custom styles for the sidebar
 
+.sidebar-welcome {
+  font-family: 'Merriweather';
+  font-weight: lighter;
+  font-size: 1.2em;
+  margin-bottom: 50px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.sidebar-username {
+  font-style: italic;
+}
+
 .dashboard-header {
   display: flex;
   justify-content: space-between;
