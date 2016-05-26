@@ -63,6 +63,8 @@ export const Splash = React.createClass({
         <h5>grow</h5>
         <img src={growImage} alt="Astrolabe Diagram" />
         <p>{growCopy}</p>
+        <h5>about</h5>
+        <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. <a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
       </div>
     )
   }
