@@ -9,6 +9,17 @@ import * as actionCreators from '../../../action_creators';
 import {SignInContainer} from './SignIn';
 import SignUp from './SignUp';
 
+const critiqueCopy = "Share your insights and opinions about works of art, guided by thought-provoking questions. Good candorhub karma means sharing a critique before expecting others to critique your work.";
+
+const critiqueImage = require("./gear.png")
+
+const learnCopy = "Upload your own images and get meaningful, constructive feedback from fellow artists, who will always be able to see your work at full size and full resolution.";
+
+const learnImage = require('./antikythera.png');
+
+const growCopy = "Share works in progress, sketches, and drafts and get feedback that will enhance the finished project.";
+
+const growImage = require('./astrolabe.png');
 
 export const Splash = React.createClass({
 
@@ -42,6 +53,16 @@ export const Splash = React.createClass({
           transitionLeaveTimeout={1000}>
           { this.state.signInShow ? <SignInContainer /> : null }
         </ReactCSSTransitionGroup>
+        <h4>how candorhub works</h4>
+        <h5>critique</h5>
+        <img src={critiqueImage} alt="Gear Diagram" />
+        <p>{critiqueCopy}</p>
+        <h5>learn</h5>
+        <p>{learnCopy}</p>
+        <img src={learnImage} alt="Antikythera Mechanism Diagram"/>
+        <h5>grow</h5>
+        <img src={growImage} alt="Astrolabe Diagram" />
+        <p>{growCopy}</p>
       </div>
     )
   }

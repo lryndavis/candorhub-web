@@ -30,6 +30,11 @@ module.exports = {
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
        loader: 'file?name=stylesheets/fonts/Coves-Light/[name].[ext]'
+     },
+     {
+        //IMAGE LOADER
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader:'url?limit=8192' // inline base64 URLs for <=8k images, direct URLs for the rest
       }
     ],
   },
