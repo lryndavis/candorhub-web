@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+.splash__login-container {
+  height: 100vh;
+}
+
 .splash__logo {
   font: 3em 'Coves-Light';
   font-size: 5em;
@@ -26,6 +30,61 @@
   color: #6F1C46;
   cursor: pointer;
 }
+
+
+//styling for splash page tour
+
+.splash__tour-container{
+  height: 100vh;
+}
+
+.splash__tour-header {
+  font-family: 'Coves-Light';
+  font-size: 2.7em;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.splash__tour-container {
+  text-align: center;
+}
+
+.splash__tour-container h5 {
+  padding-bottom: 15px;
+  font-family: 'Merriweather';
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.splash__tour-copy {
+  font-family: 'Coves-Light';
+  font-size: 1.3em;
+  margin-bottom: 40px;
+  padding-top: 15px;
+}
+
+.splash__tour-image {
+  width: 30%;
+}
+
+.splash__column-content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.splash__about-header {
+  font-family: 'Coves-Light';
+  margin-top: 0;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.splash__about-us p {
+  font-family: 'Coves-Light';
+  font-size: 1.3em;
+}
+
 
 //Styling for Redux-auth error modals
 
