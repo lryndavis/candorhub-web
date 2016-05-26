@@ -10,6 +10,17 @@ const initialState = {
     }
   }],
 
+  imagesBySpecificUser: [{
+    title: '',
+    image: '',
+    description: '',
+    user: {
+      id: "",
+      username: "",
+      email: ""
+    }
+  }],
+
   imagesByUser: [{
     title: '',
     image: '',
@@ -63,9 +74,14 @@ function setImageGallery(state, responseJSON) {
   return { ...state, imagesForGallery: responseJSON};
 }
 
-//user specific image gallery
+//currently logged in user gallery
 function setUserGallery(state, responseJSON) {
   return { ...state, imagesByUser: responseJSON};
+}
+
+//specific user image gallery
+function setSpecificUserGallery(state, responseJSON) {
+  return { ...state, imagesBySpecificUser: responseJSON};
 }
 
 export default function(state = initialState, action) {
@@ -76,6 +92,8 @@ export default function(state = initialState, action) {
       return setImageById(state, action.responseJSON);
     case 'SET_USER_GALLERY':
       return setUserGallery(state, action.responseJSON);
+    case 'SET_SPECIFIC_USER_GALLERY':
+      return setSpecificUserGallery(state, action.responseJSON);
     default:
       return state;
   }

@@ -1,11 +1,11 @@
 import Infinite from 'react-infinite';
-import Masonry from 'react-masonry-component';
 import React from 'react';
-import SearchInput, {createFilter} from 'react-search-input';
 import { Router, Route, Link } from 'react-router';
+import SearchInput, {createFilter} from 'react-search-input';
+import Masonry from 'react-masonry-component';
 
 
-// gallery/search for viewing works by currently logged in user
+// gallery for viewing works by a specific user
 
 const keysToFilters = ['user.username', 'tags.body', 'title']
 
@@ -60,10 +60,10 @@ const masonryOptions = {
     },
 
     render: function() {
-      const filteredImages = this.props.imagesByUser.filter(createFilter(this.state.searchTerm, keysToFilters))
-      var filteredImageRender = filteredImages.map(function(image){
+      const filteredImages = this.props.imagesBySpecificUser.filter(createFilter(this.state.searchTerm, keysToFilters))
+      var filteredImageGallery = filteredImages.map(function(image){
         return (
-          <figure key={image.id}>
+          <figure key={image.id} >
               <div className="gallery-link">
                 <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
                   <img className="grid-item" src={image.image}></img>
@@ -80,8 +80,8 @@ const masonryOptions = {
         return (
           <div className="image-gallery">
             <div className="search-header">
-              <SearchInput className="search-input" placeholder="Search your gallery" onChange={this.searchUpdated} />
-              <h2 className="gallery-header">Your Gallery</h2>
+              <SearchInput className="search-input" placeholder="Search Works by this Artist" onChange={this.searchUpdated} />
+              <h2 className="gallery-header">Browse Artwork</h2>
             </div>
             <Infinite elementHeight={2000}
                                infiniteLoadBeginEdgeOffset={10000}
@@ -96,7 +96,7 @@ const masonryOptions = {
                       disableImagesLoaded={false}
                       className={"image-gallery"}
                 >
-              {filteredImageRender}
+              {filteredImageGallery}
             </Masonry>
           </Infinite>
         </div>

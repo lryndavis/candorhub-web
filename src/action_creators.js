@@ -86,6 +86,14 @@ export function setQuestionsForComment(state, responseJSON) {
   }
 }
 
+export function setSpecificUserGallery(state, responseJSON) {
+  return {
+    type: 'SET_SPECIFIC_USER_GALLERY',
+    state,
+    responseJSON
+  }
+}
+
 export function postSubmitComment(body) {
   return function (dispatch, getState) {
     const state = getState();
@@ -170,9 +178,19 @@ export function getImageFromServerById(id) {
   }
 }
 
+//get images associated with a specific user
+export function getImagesBySpecificUser(id) {
+  return function(dispatch, getState) {
+    const state = getState();
+    const url = apiRoot + "/users/" + id + "/images";
+    return fetch (url)
+    .then(response => response.json())
+    .then(responseJSON => dispatch(setSpecificUserGallery(state, responseJSON)));
+  }
+}
 
 
-//get images associated with a particular user
+//get images associated with currently logged in user
 export function getImagesByUser() {
   console.log("getting images by user");
   return function(dispatch, getState) {

@@ -1,16 +1,19 @@
+import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import $ from 'jquery';
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import * as actionCreators from '../../../action_creators';
 
+import * as actionCreators from '../../../action_creators';
 import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from '../gallery/GalleryQuestionList';
 import Sidebar from '../sidebar/Sidebar';
 import GalleryNoComments from '../gallery/GalleryNoComments';
+
+
+// gallery/works for viewing works by currently logged in user
 
 export const UserGalleryView = React.createClass({
 

@@ -4,7 +4,7 @@ import Infinite from 'react-infinite';
 import Masonry from 'react-masonry-component';
 import { Router, Route, Link } from 'react-router';
 
-const KEYS_TO_FILTERS = ['user.username', 'tags.body', 'title']
+const keysToFilters = ['user.username', 'tags.body', 'title']
 
 const masonryOptions = {
     transitionDuration: 500,
@@ -57,7 +57,7 @@ export default React.createClass({
   },
 
   render: function() {
-    const filteredImages = this.props.imagesForGallery.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    const filteredImages = this.props.imagesForGallery.filter(createFilter(this.state.searchTerm, keysToFilters))
     var filteredImageRender = filteredImages.map(function(image){
       return (
         <figure key={image.id} >
@@ -66,7 +66,7 @@ export default React.createClass({
                 <img className="grid-item" src={image.image}></img>
                 <figcaption>
                   <h3 className="hover-title">{image.title}</h3>
-                  {image.user ? <span className="hover-caption">by {image.user.username}</span> : null}                  
+                  {image.user ? <span className="hover-caption">by {image.user.username}</span> : null}
                   <span className="hover-comments">{image.comment_count} Critiques</span>
                 </figcaption>
               </Link>
@@ -76,7 +76,10 @@ export default React.createClass({
       });
       return (
         <div className="image-gallery">
-        <SearchInput className="search-input" placeholder="Search" onChange={this.searchUpdated} />
+          <div className="search-header">
+            <SearchInput className="search-input" placeholder="Search candorhub" onChange={this.searchUpdated} />
+            <h2 className="gallery-header">Browse Artwork</h2>
+          </div>
           <Infinite elementHeight={2000}
                              infiniteLoadBeginEdgeOffset={10000}
                              onInfiniteLoad={this.handleInfiniteLoad}
