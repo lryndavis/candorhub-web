@@ -1,8 +1,11 @@
-import React from 'react';
-import SearchInput, {createFilter} from 'react-search-input';
 import Infinite from 'react-infinite';
-import Masonry from 'react-masonry-component';
+import React from 'react';
 import { Router, Route, Link } from 'react-router';
+import SearchInput, {createFilter} from 'react-search-input';
+import Masonry from 'react-masonry-component';
+
+
+// gallery for viewing works by a specific user
 
 const keysToFilters = ['user.username', 'tags.body', 'title']
 

@@ -1,11 +1,15 @@
-import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import React from 'react';
 import {connect} from 'react-redux';
 import {browserHistory, Link} from 'react-router';
+
 import * as actionCreators from '../../../action_creators';
-import Sidebar from '../sidebar/Sidebar';
 import ProfileSearchBar from './ProfileSearchBar';
+import Sidebar from '../sidebar/Sidebar';
+
+
+// gallery for viewing works by a specific user
 
 export const ProfileGallery = React.createClass({
 

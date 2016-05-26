@@ -1,8 +1,11 @@
-import React from 'react';
-import SearchInput, {createFilter} from 'react-search-input';
 import Infinite from 'react-infinite';
 import Masonry from 'react-masonry-component';
+import React from 'react';
+import SearchInput, {createFilter} from 'react-search-input';
 import { Router, Route, Link } from 'react-router';
+
+
+// gallery/search for viewing works by currently logged in user
 
 const keysToFilters = ['user.username', 'tags.body', 'title']
 

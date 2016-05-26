@@ -10,6 +10,9 @@ import Sidebar from '../sidebar/Sidebar';
 import UserSearchBar from './UserSearchBar';
 import DashboardNotSignedIn from '../../../../src/components/body/dashboard/DashboardNotSignedIn';
 
+
+// gallery for viewing works by currently logged in user
+
 export const UserGallery = React.createClass({
 
   componentDidMount: function() {
