@@ -27,6 +27,17 @@
   padding-bottom: 15px;
 }
 
+.search-header{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.gallery-header {
+  font-family: 'Coves-Light';
+  font-size: 1.8em;
+}
+
 .gallery__critique-this {
   font-family: 'Coves-Light';
   text-transform: uppercase;
