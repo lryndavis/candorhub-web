@@ -38,7 +38,9 @@ export default class ImageModal extends React.Component {
       <div>
         <span className="form__image-header">
           <span className="form__image-title">{this.props.image.title} /</span>
-          <span className="form__user-name">By {getUsername(this.props.image)}</span>
+          <Link to={`/profilegallery/${this.props.image.user.id}`} params={{id: this.props.image.user.id}}>
+            link to gallery
+          </Link>
         </span>
         <img className="critique-image__image" src={this.props.image.image} alt={this.props.image.title} onClick={this.handleOpen} />
         <p className="form__artist-notes">Artist's Notes: </p>
