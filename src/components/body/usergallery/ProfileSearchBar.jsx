@@ -58,7 +58,7 @@ const masonryOptions = {
 
     render: function() {
       const filteredImages = this.props.imagesBySpecificUser.filter(createFilter(this.state.searchTerm, keysToFilters))
-      var filteredImageRender = filteredImages.map(function(image){
+      var filteredImageGallery = filteredImages.map(function(image){
         return (
           <figure key={image.id} >
               <div className="gallery-link">
@@ -77,7 +77,7 @@ const masonryOptions = {
         return (
           <div className="image-gallery">
             <div className="search-header">
-              <SearchInput className="search-input" placeholder="Search candorhub" onChange={this.searchUpdated} />
+              <SearchInput className="search-input" placeholder="Search Works by this Artist" onChange={this.searchUpdated} />
               <h2 className="gallery-header">Browse Artwork</h2>
             </div>
             <Infinite elementHeight={2000}
@@ -93,7 +93,7 @@ const masonryOptions = {
                       disableImagesLoaded={false}
                       className={"image-gallery"}
                 >
-              {filteredImageRender}
+              {filteredImageGallery}
             </Masonry>
           </Infinite>
         </div>
