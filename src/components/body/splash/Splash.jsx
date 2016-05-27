@@ -4,6 +4,7 @@ import React from 'react';
 import {Link, browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Scroll from 'react-scroll';
 
 import * as actionCreators from '../../../action_creators';
 import {SignInContainer} from './SignIn';
@@ -21,8 +22,16 @@ const growCopy = "Share works in progress, sketches, and drafts and get feedback
 
 const growImage = require('./astrolabe.png');
 
+const Element = Scroll.Element;
+
+const Events  = Scroll.Events;
+
+const scroll  = Scroll.animateScroll;
+
+
 export const Splash = React.createClass({
 
+//toggle log in form show
   getInitialState:function() {
     return { signUpShow: true };
     return { signInShow: false };
@@ -33,6 +42,7 @@ export const Splash = React.createClass({
     this.setState({ signInShow: !this.state.signInShow });
   },
 
+//toggle log in form show
   componentWillUpdate(nextProps) {
     //redirect to dashboard on successful sign-in
     if (nextProps.signedIn) {
@@ -40,31 +50,77 @@ export const Splash = React.createClass({
     }
   },
 
+//react scroll functions
+  componentDidMount: function() {
+    Events.scrollEvent.register('begin', function(to, element) {
+    });
+
+    Events.scrollEvent.register('end', function(to, element) {
+    });
+  },
+
+  componentWillUnmount: function() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  },
+
+  scrollToTop: function() {
+    scroll.scrollToTop();
+  },
+
+  scrollToBottom: function() {
+    scroll.scrollToBottom();
+  },
+
+
   render: function() {
     return (
       <div className="splash">
-        <h1 className="splash__logo">candorhub</h1>
-        <p className="splash__tagline">Thought Provoking Critique</p>
-          { this.state.signUpShow ? <SignUp /> : null }
-          { this.state.signUpShow ? <h3 className="form__member-header" onClick={ this.onHandleClick }>Already a member?</h3> : null }
-        <ReactCSSTransitionGroup
-          transitionName="formTransition"
-          transitionEnterTimeout={1000}
-          transitionLeaveTimeout={1000}>
-          { this.state.signInShow ? <SignInContainer /> : null }
-        </ReactCSSTransitionGroup>
-        <h4>how candorhub works</h4>
-        <h5>critique</h5>
-        <img src={critiqueImage} alt="Gear Diagram" />
-        <p>{critiqueCopy}</p>
-        <h5>learn</h5>
-        <p>{learnCopy}</p>
-        <img src={learnImage} alt="Antikythera Mechanism Diagram"/>
-        <h5>grow</h5>
-        <img src={growImage} alt="Astrolabe Diagram" />
-        <p>{growCopy}</p>
-        <h5>about</h5>
-        <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. <a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
+        <a onClick={this.scrollToBottom}>To the bottom!</a>
+          <div className="splash__login-container">
+            <h1 className="splash__logo">candorhub</h1>
+            <p className="splash__tagline">Thought Provoking Critique</p>
+              { this.state.signUpShow ? <SignUp /> : null }
+              { this.state.signUpShow ? <h3 className="form__member-header" onClick={ this.onHandleClick }>Already a member?</h3> : null }
+            <ReactCSSTransitionGroup
+              transitionName="formTransition"
+              transitionEnterTimeout={1000}
+              transitionLeaveTimeout={1000}>
+              { this.state.signInShow ? <SignInContainer /> : null }
+            </ReactCSSTransitionGroup>
+          </div>
+          <div className="splash__tour-container">
+            <h4 className="splash__tour-header">how candorhub works</h4>
+            <div className="splash__column-container container">
+              <div className="splash__tour-column col-md-4">
+                <h5>critique</h5>
+                <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+                <div className="splash__column-content">
+                  <p className="splash__tour-copy">{critiqueCopy}</p>
+                </div>
+              </div>
+              <div className="splash__tour-column col-md-4">
+                <h5>learn</h5>
+                <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+                <div className="splash__column-content">
+                  <p className="splash__tour-copy">{learnCopy}</p>
+                </div>
+              </div>
+              <div className="splash__tour-column col-md-4">
+                <h5>grow</h5>
+                <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+                <div className="splash__column-content">
+                  <p className="splash__tour-copy">{growCopy}</p>
+                </div>
+              </div>
+              <a onClick={this.scrollToTop}>To the top!</a>
+            </div>
+            <h4 className="splash__about-header">about</h4>
+            <div className="splash__about-us">
+              <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. </p>
+              <p><a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
+            </div>
+        </div>
       </div>
     )
   }

@@ -63,7 +63,7 @@ export default React.createClass({
         <figure key={image.id} >
             <div className="gallery-link">
               <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
-                <img className="grid-item" src={image.image}></img>
+                <img className="grid-item" src={image.image_small}></img>
                 <figcaption>
                   <h3 className="hover-title">{image.title}</h3>
                   {image.user ? <span className="hover-caption">by {image.user.username}</span> : null}
