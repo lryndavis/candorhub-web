@@ -29,7 +29,6 @@ const routes = (
     <Route path='gallery' component={GalleryContainer} />
     <Route path="usergallery" component={UserGalleryContainer} />
     <Route path="gallery/:id" component={GalleryViewContainer} />
-    <Route path="usergallery/:id" component={UserGalleryViewContainer} />
     <Route path="profilegallery/:id" component={ProfileGalleryContainer} />
   </Route>
 );

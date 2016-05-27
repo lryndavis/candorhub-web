@@ -3,7 +3,7 @@ var retext = require('retext');
 var sentiment = require('retext-sentiment');
 
 const offensiveWordThreshold = -4;
-const nonConstructiveLanguageThreshold = -0.5;
+const nonConstructiveLanguageThreshold = -0.55;
 const minimumCommentLength = 10;
 const maximumCommentLength = 100;
 

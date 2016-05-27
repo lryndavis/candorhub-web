@@ -3,15 +3,18 @@ import thunk from 'redux-thunk';
 import * as actions from '../src/action_creators';
 import nock from 'nock';
 import {expect} from 'chai';
+import {AuthGlobals} from 'redux-auth-candorhub/bootstrap-theme';
+import Immutable from "immutable";
 
 const middlewares = [thunk];
 const mockStore   = configureMockStore(middlewares);
 
+const initialAuth = Immutable.fromJS({});
+
 const apiRoot = "http://candorhub-api.herokuapp.com"
-const randomImage = "/v1/images?count=1";
+const randomImage = "/v1/images?count=1&id=undefined";
 const submitComment = "/v1/comments";
 const getQuestions = "/v1/questions?count=3";
-const uploadImage = "";
 
 describe('action_creators', () => {
 
@@ -29,7 +32,8 @@ describe('action_creators', () => {
           description: '',
           id: 0
         }
-      }
+      },
+      auth: initialAuth
     });
   });
 
@@ -57,12 +61,12 @@ describe('action_creators', () => {
             description: 'a short description'
           }
         },
-        state: undefined
       }
     ]
     return store.dispatch(actions.getRandomImageFromServer())
       .then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()[0].type)
+          .to.deep.equal(expectedActions[0].type)
       });
   });
 
