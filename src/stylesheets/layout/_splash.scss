@@ -9,6 +9,9 @@
 
 .splash__login-container {
   height: 100vh;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .splash__logo {
@@ -75,16 +78,30 @@
 
 .splash__about-header {
   font-family: 'Coves-Light';
-  margin-top: 0;
-  font-size: 2em;
-  margin-bottom: 15px;
+  margin-top: 60px;
+  font-size: 1.8em;
+  margin-bottom: 10px;
 }
 
 .splash__about-us p {
   font-family: 'Coves-Light';
   font-size: 1.3em;
+  margin-bottom: 0;
 }
 
+.splash__scroll-link {
+  font-family: 'Coves-Light';
+  font-size: 2em;
+  color: #6F1C46;
+  cursor: pointer;
+  border: 1px solid #6F1C46;
+  padding: 15px;
+}
+
+.splash__tour-scroll {
+  font-family: 'Coves-Light';
+  font-size: 2em;
+}
 
 //Styling for Redux-auth error modals
 
