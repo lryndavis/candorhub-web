@@ -45,7 +45,7 @@ describe("Gallery", () => {
     expect(tree.subTree("DashboardNotSignedIn")).to.not.be.ok;
   });
 
-  it("renders a sidebar when signed in", () => {
+  it("renders a Sidebar when signed in", () => {
     let signedIn = true;
     let tree = sd.shallowRender(<GalleryTest
       signedIn={signedIn}
@@ -53,17 +53,19 @@ describe("Gallery", () => {
       imagesForGallery={testImages}
     />);
     expect(tree.subTree("Sidebar")).to.be.ok;
+    expect(tree.subTree("Sidebar").props.username)
+      .to.equal("testUser")
   });
 
-  it("renders a GalleryList with the correct props", () => {
+  it("renders a SearchBar with the correct props", () => {
     let signedIn = true;
     let tree = sd.shallowRender(<GalleryTest
       signedIn={signedIn}
       username="testUser"
       imagesForGallery={testImages}
     />);
-    expect(tree.subTree("GalleryList")).to.be.ok;
-    expect(tree.subTree("GalleryList").props.imagesForGallery)
+    expect(tree.subTree("SearchBar")).to.be.ok;
+    expect(tree.subTree("SearchBar").props.imagesForGallery)
       .to.deep.equal(testImages);
   });
 });

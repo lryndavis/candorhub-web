@@ -18,7 +18,7 @@ import {authorInComments} from '../../../lib/CommentAuthorCheck';
 export const GalleryView = React.createClass({
 
   componentDidMount: function() {
-    var id = this.props.params.id;
+    let id = this.props.params.id;
     this.props.getImageFromServerById(id);
   },
 

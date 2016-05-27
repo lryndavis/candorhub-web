@@ -68,15 +68,15 @@ describe("UserGallery", () => {
     expect(tree.subTree(".gallery__main-container")).to.not.be.ok;
   });
 
-  it("renders a UserGalleryList with correct props", () => {
+  it("renders a UserSearchBar with correct props", () => {
     let signedIn = true;
     let tree = sd.shallowRender(<UserGalleryTest
       signedIn={signedIn}
       username="testUser"
       imagesByUser={testImages}
     />);
-    expect(tree.subTree("UserGalleryList")).to.be.ok;
-    expect(tree.subTree("UserGalleryList").props.imagesByUser)
+    expect(tree.subTree("UserSearchBar")).to.be.ok;
+    expect(tree.subTree("UserSearchBar").props.imagesByUser)
       .to.deep.equal(testImages);
   });
 });

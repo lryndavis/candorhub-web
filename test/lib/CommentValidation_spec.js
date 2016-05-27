@@ -55,7 +55,7 @@ describe("CommentValidation", () => {
     });
 
     it("allows comments that are harsh but fair", () => {
-      let commentText = "This art has bad lines and a ugly, garish color scheme.";
+      let commentText = "This art has bad lines and an ugly, garish color scheme.";
       expect(usesConstructiveLanguage(commentText)).to.be.true;
       expect(isValidComment(commentText)).to.be.true;
     });
