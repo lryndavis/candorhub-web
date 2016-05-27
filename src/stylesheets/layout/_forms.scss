@@ -48,9 +48,12 @@
 .form__splash-header {
   font-family: 'Coves-Light';
   text-align: center;
-  margin-bottom: 0;
-  margin-top: 40px;
   font-size: 1.8em;
+  margin-top: 0;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 25px;
+  font-weight: lighter;
 }
 
 .form__sign-in-header {
@@ -66,15 +69,18 @@ input.email-sign-up-email,
 input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
-  background-color: #f5f5f5;
+  background-color: #27202F;
+  color: #fff;
 }
 
 input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
-  background-color: #f5f5f5;
+  background-color: #27202F;
+  color: #fff;
   &:focus {
-  background-color: #f5f5f5;
+  background-color: #27202F;
+  color: #fff;
   }
 }
 
