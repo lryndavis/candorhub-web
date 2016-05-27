@@ -7,8 +7,10 @@
   display: block;
   width: 300px;
   border: none;
-  border-bottom: 1px solid #949191;
+  border-bottom: 1px solid #fff;
   margin-bottom:  20px;
+  color: #fff;
+  background-color: #0d0d0d;
 }
 
 %upload-material-text-fields {
@@ -26,12 +28,13 @@
 %splash-buttons {
   font-family: 'Coves-Light';
   width: 300px;
-  border: 1px solid #949191;
+  border: 1px solid #F79E80;
   text-transform: uppercase;
   font-size: 1.2em;
   margin-top: 25px;
   padding: 5px;
-  background-color: #f5f5f5;
+  background-color: #0d0d0d;
+  color: rgb(247,158,128) !important;
 }
 
 %modal-buttons {
@@ -42,7 +45,7 @@
   font-size: 1.2em;
   margin-top: 25px;
   padding: 5px;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 %splash-form-centering {

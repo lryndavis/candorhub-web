@@ -76,12 +76,14 @@ export const Splash = React.createClass({
   render: function() {
     return (
       <div className="splash">
-        <a onClick={this.scrollToBottom}>To the bottom!</a>
-          <div className="splash__login-container">
-            <h1 className="splash__logo">candorhub</h1>
-            <p className="splash__tagline">Thought Provoking Critique</p>
-              { this.state.signUpShow ? <SignUp /> : null }
-              { this.state.signUpShow ? <h3 className="form__member-header" onClick={ this.onHandleClick }>Already a member?</h3> : null }
+        <div className="splash__header">
+          <h1 className="splash__logo">candorhub</h1>
+          { this.state.signUpShow ? <h3 className="form__member-header" onClick={ this.onHandleClick }>LOG IN</h3> : null }
+        </div>
+        <div className="splash__login-container">
+          <div className="splash__main-container">
+            { this.state.signUpShow ? <SignUp /> : null }
+            { this.state.signUpShow ? <a className="splash__tour-scroll" onClick={this.scrollToBottom}>What is candorhub?</a> : null }
             <ReactCSSTransitionGroup
               transitionName="formTransition"
               transitionEnterTimeout={1000}
@@ -89,39 +91,40 @@ export const Splash = React.createClass({
               { this.state.signInShow ? <SignInContainer /> : null }
             </ReactCSSTransitionGroup>
           </div>
-          <div className="splash__tour-container">
-            <h4 className="splash__tour-header">how candorhub works</h4>
-            <div className="splash__column-container container">
-              <div className="splash__tour-column col-md-4">
-                <h5>critique</h5>
-                <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
-                <div className="splash__column-content">
-                  <p className="splash__tour-copy">{critiqueCopy}</p>
-                </div>
-              </div>
-              <div className="splash__tour-column col-md-4">
-                <h5>learn</h5>
-                <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
-                <div className="splash__column-content">
-                  <p className="splash__tour-copy">{learnCopy}</p>
-                </div>
-              </div>
-              <div className="splash__tour-column col-md-4">
-                <h5>grow</h5>
-                <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
-                <div className="splash__column-content">
-                  <p className="splash__tour-copy">{growCopy}</p>
-                </div>
-              </div>
-              <a onClick={this.scrollToTop}>To the top!</a>
-            </div>
-            <h4 className="splash__about-header">about</h4>
-            <div className="splash__about-us">
-              <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. </p>
-              <p><a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
-            </div>
         </div>
-      </div>
+        <div className="splash__tour-container">
+          <h4 className="splash__tour-header">how candorhub works</h4>
+          <div className="splash__column-container container">
+            <div className="splash__tour-column col-md-4">
+              <h5>critique</h5>
+              <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+              <div className="splash__column-content">
+                <p className="splash__tour-copy">{critiqueCopy}</p>
+              </div>
+            </div>
+            <div className="splash__tour-column col-md-4">
+              <h5>learn</h5>
+              <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+              <div className="splash__column-content">
+                <p className="splash__tour-copy">{learnCopy}</p>
+              </div>
+            </div>
+            <div className="splash__tour-column col-md-4">
+              <h5>grow</h5>
+              <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+              <div className="splash__column-content">
+                <p className="splash__tour-copy">{growCopy}</p>
+            </div>
+          </div>
+        </div>
+        <a className="splash__scroll-link" onClick={this.scrollToTop}>Ready to Join?</a>
+        <h4 className="splash__about-header">about</h4>
+        <div className="splash__about-us">
+          <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. </p>
+          <p><a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
+        </div>
+    </div>
+  </div>
     )
   }
 });

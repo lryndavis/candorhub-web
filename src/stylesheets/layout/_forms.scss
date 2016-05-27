@@ -48,9 +48,14 @@
 .form__splash-header {
   font-family: 'Coves-Light';
   text-align: center;
-  margin-bottom: 0;
-  margin-top: 40px;
   font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #fff;
+  padding-top: 25px;
+  font-weight: lighter;
+  letter-spacing: .01em;
+  text-transform: uppercase;
 }
 
 .form__sign-in-header {
@@ -66,15 +71,18 @@ input.email-sign-up-email,
 input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
-  background-color: #f5f5f5;
+  background-color: #0d0d0d;
+  color: #fff;
 }
 
 input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
-  background-color: #f5f5f5;
+  color: #fff;
+  background-color: #0d0d0d;
   &:focus {
-  background-color: #f5f5f5;
+  color: #fff;
+  background-color: #0d0d0d;
   }
 }
 
@@ -94,18 +102,18 @@ form.redux-auth.email-sign-in-form {
   @extend %splash-form-centering;
 }
 
-.centering {
-  @extend %splash-form-centering;
-}
+// .centering {
+//   @extend %splash-form-centering;
+// }
 
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
 input.email-sign-in-email:-webkit-autofill,
 input.email-sign-in-password:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
 //Sign In Form Transition Animation
