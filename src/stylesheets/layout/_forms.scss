@@ -46,15 +46,16 @@
 }
 
 .form__splash-header {
-  font-family: 'Merriweather';
+  font-family: 'Coves-Light';
   text-align: center;
   font-size: 1.8em;
   margin-top: 0;
+  margin-bottom: 20px;
   color: #fff;
-  font-style: italic;
   padding-top: 25px;
   font-weight: lighter;
   letter-spacing: .01em;
+  text-transform: uppercase;
 }
 
 .form__sign-in-header {
@@ -107,12 +108,12 @@ form.redux-auth.email-sign-in-form {
 
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
 input.email-sign-in-email:-webkit-autofill,
 input.email-sign-in-password:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f5f5f5 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
 //Sign In Form Transition Animation

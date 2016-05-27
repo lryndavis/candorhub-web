@@ -53,19 +53,19 @@
   padding-right: 40px;
 }
 
-::-webkit-input-placeholder {
+.splash ::-webkit-input-placeholder {
   color: #fff;
 }
 
-:-moz-placeholder {
+.splash :-moz-placeholder {
   color: #fff;
 }
 
-::-moz-placeholder {
+.splash ::-moz-placeholder {
   color: #fff;
 }
 
-:-ms-input-placeholder {
+.splash :-ms-input-placeholder {
   color: #fff;
 }
 
@@ -91,7 +91,6 @@
   padding-bottom: 15px;
   font-family: 'Merriweather';
   font-size: 1.4em;
-  font-style: italic;
   font-weight: lighter;
 }
 
