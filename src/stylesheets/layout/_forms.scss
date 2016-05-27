@@ -46,14 +46,15 @@
 }
 
 .form__splash-header {
-  font-family: 'Coves-Light';
+  font-family: 'Merriweather';
   text-align: center;
   font-size: 1.8em;
   margin-top: 0;
   color: #fff;
-  text-transform: uppercase;
+  font-style: italic;
   padding-top: 25px;
   font-weight: lighter;
+  letter-spacing: .01em;
 }
 
 .form__sign-in-header {
@@ -69,18 +70,18 @@ input.email-sign-up-email,
 input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
-  background-color: #27202F;
+  background-color: #0d0d0d;
   color: #fff;
 }
 
 input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
-  background-color: #27202F;
   color: #fff;
+  background-color: #0d0d0d;
   &:focus {
-  background-color: #27202F;
   color: #fff;
+  background-color: #0d0d0d;
   }
 }
 
@@ -100,9 +101,9 @@ form.redux-auth.email-sign-in-form {
   @extend %splash-form-centering;
 }
 
-.centering {
-  @extend %splash-form-centering;
-}
+// .centering {
+//   @extend %splash-form-centering;
+// }
 
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
