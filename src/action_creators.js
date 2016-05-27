@@ -189,10 +189,8 @@ export function getImagesBySpecificUser(id) {
   }
 }
 
-
 //get images associated with currently logged in user
 export function getImagesByUser() {
-  console.log("getting images by user");
   return function(dispatch, getState) {
     const state = getState();
     const url = apiRoot + "/users/" + state.auth.getIn(["user", "attributes", "id"]) + "/images";
@@ -224,7 +222,6 @@ export function startImageUpload(image, title, description, tags, userId) {
         user_id: userId
       }
     }
-    console.log(imageForUpload);
     return fetch(imageUploadEndpoint, {
       method: 'POST',
       headers: {
@@ -240,7 +237,6 @@ export function startImageUpload(image, title, description, tags, userId) {
 }
 
 export function updateGalleriesOnUploadCompletion(responseJSON) {
-  console.log(responseJSON);
   return (dispatch, getState) => {
     const state = getState();
     dispatch(getMultipleImagesFromServer(state));

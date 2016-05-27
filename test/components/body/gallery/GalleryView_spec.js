@@ -16,6 +16,9 @@ const testImage = {
     id: 0,
     image: "www.google.com",
     title: "test image",
+    user: {
+      id: 0
+    },
     questions: [
       {
         id: 0,
