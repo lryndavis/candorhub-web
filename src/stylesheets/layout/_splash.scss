@@ -15,6 +15,13 @@
   background-color: #fff;
 }
 
+.tagline {
+  display: block;
+  font-style: italic;
+  font-size: 1.1em;
+  letter-spacing: .01em;
+}
+
 .splash__header {
   display: flex;
   justify-content: space-between;
@@ -114,7 +121,7 @@
 
 .splash__scroll-link {
   font-family: 'Coves-Light';
-  font-size: 1.5em;
+  font-size: 1.8em;
   color: #fff;
   cursor: pointer;
   padding: 15px;
@@ -122,22 +129,19 @@
 }
 
 .splash__tour-scroll {
-  font-family: 'Coves-Light';
-  font-size: 1.5em;
+  font-family: 'Playfair Display';
+  font-size: 1.8em;
   color: #000;
   display: block;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .02em;
 }
 
 .splash__arrow-down {
   width: 75px;
   cursor: pointer;
 }
-
-.splash-tagline {
-  font-style: italic;
-  letter-spacing: .02em;
-}
-
 
 .splash__copy {
   font-family: 'Coves-Light';
@@ -160,9 +164,6 @@
   cursor: pointer;
 }
 
-header {
-  height: 100px;
-}
 //Styling for Redux-auth error modals
 
 h4.modal-title {

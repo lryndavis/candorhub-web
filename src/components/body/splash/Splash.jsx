@@ -100,6 +100,7 @@ export const Splash = React.createClass({
         <div className="splash__tour-container">
           <h4 className="splash__tour-header">how candorhub works</h4>
           <div className="splash__column-container container">
+
             <div className="splash__tour-column col-md-4">
               <h5>critique</h5>
               <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
@@ -107,6 +108,7 @@ export const Splash = React.createClass({
                 <p className="splash__tour-copy">{critiqueCopy}</p>
               </div>
             </div>
+
             <div className="splash__tour-column col-md-4">
               <h5>learn</h5>
               <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
@@ -114,6 +116,7 @@ export const Splash = React.createClass({
                 <p className="splash__tour-copy">{learnCopy}</p>
               </div>
             </div>
+
             <div className="splash__tour-column col-md-4">
               <h5>grow</h5>
               <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
@@ -121,6 +124,7 @@ export const Splash = React.createClass({
                 <p className="splash__tour-copy">{growCopy}</p>
               </div>
             </div>
+
           </div>
           <a className="splash__scroll-link" onClick={this.scrollToTop}>Ready to Join?</a>
           <h4 className="splash__about-header">about</h4>
@@ -134,13 +138,13 @@ export const Splash = React.createClass({
     }
   });
 
-function mapStateToProps(state) {
-  return {
-    signedIn: state.auth.getIn(["user", "isSignedIn"])
-  };
-}
+  function mapStateToProps(state) {
+    return {
+      signedIn: state.auth.getIn(["user", "isSignedIn"])
+    };
+  }
 
-export const SplashContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(Splash);
+  export const SplashContainer = connect(
+    mapStateToProps,
+    actionCreators
+  )(Splash);
