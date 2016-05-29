@@ -72,16 +72,16 @@ input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
   background-color: #f6f6f6;
-  color: #fff;
+  color: #000;
 }
 
 input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
-  color: #fff;
+  color: #000;
   background-color: #f6f6f6;
   &:focus {
-  color: #fff;
+  color: #000;
   background-color: #f6f6f6;
   }
 }
@@ -102,9 +102,6 @@ form.redux-auth.email-sign-in-form {
   @extend %splash-form-centering;
 }
 
-// .centering {
-//   @extend %splash-form-centering;
-// }
 
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {

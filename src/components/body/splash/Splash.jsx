@@ -22,6 +22,8 @@ const growCopy = "Share works in progress, sketches, and drafts and get feedback
 
 const growImage = require('./astrolabe.png');
 
+const arrowDown = require('./arrowDown.png');
+
 const Element = Scroll.Element;
 
 const Events  = Scroll.Events;
@@ -84,7 +86,8 @@ export const Splash = React.createClass({
         <div className="splash__login-container">
           <div className="splash__main-container">
             { this.state.signUpShow ? <SignUp /> : null }
-            { this.state.signUpShow ? <a className="splash__tour-scroll" onClick={this.scrollToBottom}>What is candorhub?</a> : null }
+            { this.state.signUpShow ? <a className="splash__tour-scroll" onClick={this.scrollToBottom}>Learn More</a> : null }
+            { this.state.signUpShow ? <img className="splash__arrow-down" src={arrowDown} alt="arrow down" onClick={this.scrollToBottom} /> : null }
             <ReactCSSTransitionGroup
               transitionName="formTransition"
               transitionEnterTimeout={1000}
