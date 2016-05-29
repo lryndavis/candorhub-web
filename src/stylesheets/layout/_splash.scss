@@ -5,18 +5,12 @@
   font-style: italic;
 }
 
-// .splash__logo {
-//   font-family:'Coves-Light';
-//   font-size: 4em;
-//   padding-top: 7px;
-// }
-
 .splash__login-container {
   height: 90vh;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  background-color: #0d0d0d;
+  background-color: #f6f6f6;
   color: #fff;
 }
 
@@ -47,26 +41,26 @@
   color: #000;
   cursor: pointer;
   flex-basis: 1;
-  color: #F79E80;
+  color: #000;
   margin-top: 0;
   padding-top: 10px;
   padding-right: 40px;
 }
 
 .splash ::-webkit-input-placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .splash :-moz-placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .splash ::-moz-placeholder {
-  color: #fff;
+  color: #000;
 }
 
-.splash :-ms-input-placeholder {
-  color: #fff;
+:-ms-input-placeholder {
+  color: #000;
 }
 
 
@@ -135,7 +129,7 @@
 .splash__tour-scroll {
   font-family: 'Coves-Light';
   font-size: 2.8em;
-  color: #fff;
+  color: #000;
 }
 
 .splash__main-container {
@@ -144,7 +138,7 @@
 }
 
 .splash a:hover {
-  color: #F79E80;
+  color: #000;
   cursor: pointer;
 }
 
