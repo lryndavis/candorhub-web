@@ -59,7 +59,7 @@
   width: 30%;
 }
 
-
+//media queries
 @media screen and (max-width: 550px) {
   button.sign-out-submit {
     display: none;
@@ -68,5 +68,9 @@
   div.dashboard-header {
     text-align: right;
     font-size: .7em;
+  }
+
+  .sidebar-user {
+    display: none;
   }
 }

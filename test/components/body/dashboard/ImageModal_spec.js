@@ -47,8 +47,8 @@ describe('ImageModal', () => {
         <ImageModal image={image} />
       </MuiThemeProvider>
     );
-    const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "form__image-title");
-    const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "form__image-description");
+    const critiqueImageTitle = scryRenderedDOMComponentsWithClass(component, "dashboard__image-title");
+    const critiqueImageDescription = scryRenderedDOMComponentsWithClass(component, "dashboard__image-description");
     expect(critiqueImageTitle[0].textContent).to.contain("Airplane Lolcat");
     expect(critiqueImageDescription[0].textContent).to.contain("This kitty thinks it is an airplane!");
   })

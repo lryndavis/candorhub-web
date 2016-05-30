@@ -1,6 +1,6 @@
 ////////Main dashboard component styles and containers/////////
 
-.form__image-title {
+.dashboard__image-title {
   font-size: 2.2em;
   font-family: 'Coves-Light';
   display: block;
@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.form__user-name {
+.dashboard__user-name {
   font-size: 1.3em;
   font-family: 'Coves-Light';
   padding-left: 5px;
@@ -24,12 +24,12 @@
   margin: 0 auto;
 }
 
-.image-info-container {
+.dashboard__image-info-container {
   width: 50%;
   margin: 0 auto;
 }
 
-.critique-image__image {
+.dashboard__image-main {
   max-height: 450px;
   max-width: 90%;
   padding-right: 50px;
@@ -60,7 +60,7 @@
   width: 33%;
 }
 
-.form__image-description {
+.dashboard__image-description {
   margin-bottom: 10px;
   padding-bottom: 10px;
   font-size:  1.1em;
@@ -69,7 +69,7 @@
   font-family: 'Coves-Light';
 }
 
-.form__artist-notes {
+.dashboard__artist-notes {
   font-style: italic;
   font-size: 1.3em;
   margin-top: 0;
@@ -92,11 +92,11 @@
 }
 
 
-.critique-image__image-title {
+.dashboard__image-main-title {
   font-size: 1.8em;
 }
 
-.modal-image {
+.dashboard__modal-image {
   margin: 0 auto;
   width: 100%;
 }
@@ -141,7 +141,7 @@
     margin-bottom: 50px
   }
 
-  .critique-image__image{
+  .dashboard__image-main{
     max-width: 100%;
     border-right: none;
     padding-right: 0;
@@ -155,13 +155,13 @@
     text-align: center;
   }
 
-  .form__image-header {
+  .dashboard__image-header {
     display: block;
     text-align: center;
     margin-bottom: 10px;
   }
 
-  p.form__image-description {
+  p.dashboard__image-description {
     margin-bottom: 0;
     margin-right: 0;
     font-size:  1em;
@@ -189,7 +189,7 @@
     display: none;
   }
 
-  .image-info {
+  .dashboard__image-info {
     background-color: #f6f6f6;
     max-width: 100%;
     padding: 20px;

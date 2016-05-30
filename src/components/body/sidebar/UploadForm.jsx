@@ -157,7 +157,7 @@ export const UploadForm = React.createClass({
           <br />
 
           <input
-            className="upload-form__image-title"
+            className="upload-dashboard__image-title"
             placeholder="Title"
             value={this.state.title}
             onChange={this.handleTitleChange}

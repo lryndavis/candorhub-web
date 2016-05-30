@@ -20,7 +20,7 @@ export default React.createClass({
 
   render: function() {
     return (
-      <div className="individual-question-box">
+      <div className="dashboard__question-box">
         <h3 className="question" key={this.props.question.id} onClick={ this.onClick }>
           { this.state.navArrowChange ? <NavigationArrowDropUp /> : <NavigationArrowDropDown /> }
           {this.props.question.body}
