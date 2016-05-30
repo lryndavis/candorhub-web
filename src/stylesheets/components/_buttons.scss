@@ -1,32 +1,45 @@
 //////// styling for all button elements ////////
 
-.button__submit {
-  @extend %splash-buttons;
-  margin-bottom: 20px;
-}
-
 .sign-up-button {
   @extend %splash-buttons;
 }
 
+//buttons for post critique form 
+.button__submit {
+  @extend %splash-buttons;
+  @extend %button-hover-fade;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.button__submit:hover {
+  @extend %button-hover-pseudo;
+  cursor: pointer;
+}
+
+//buttons for main log in form
 button.email-sign-in-submit {
   @extend %splash-buttons;
+  @extend %button-hover-fade;
   padding-left: 0;
   color: #fff;
 }
 
-button.form__sign-in-button {
-  @extend %splash-buttons;
+button.email-sign-in-submit:hover {
+  @extend %button-hover-pseudo;
 }
 
-button:focus {outline:0;}
-
-
-button.form__sign-in-button {
-  @extend %splash-buttons;
+button.email-sign-in-submit:active {
+  @extend %button-hover-pseudo;
 }
 
+button.email-sign-in-submit:focus {
+  @extend %button-hover-pseudo;
+}
+
+//buttons for join candorhub main form
 button.email-sign-up-submit {
+  @extend %button-hover-fade;
   font-family: 'Coves-Light';
   width: 300px;
   text-transform: uppercase;
@@ -36,34 +49,28 @@ button.email-sign-up-submit {
   color: #fff !important;
   margin-bottom: 50px;
   border: none;
-  display: inline-block;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: color, background-color;
-  transition-property: color, background-color;
-  background-color: #696969;
 }
 
 button.email-sign-up-submit:hover {
-  background-color: #000;
-  color: white;
+  @extend %button-hover-pseudo;
 }
 
 button.email-sign-up-submit:focus {
-  background-color: #000;
-  color: white;
+  @extend %button-hover-pseudo;
 }
 
-button.email-sign-up-submit:focus {
-  background-color: #000;
-  color: white;
+button.email-sign-up-submit:active {
+  @extend %button-hover-pseudo;
+}
+
+button.form__sign-in-button {
+  @extend %splash-buttons;
+}
+
+button:focus {outline:0;}
+
+button.form__sign-in-button {
+  @extend %splash-buttons;
 }
 
 button.sign-out-submit {
@@ -71,7 +78,6 @@ button.sign-out-submit {
   font-style: italic;
   border: none;
 }
-
 
 // buttons in redux-auth sign in/up modal
 button.email-sign-up-error-modal-close.btn.btn-default {
