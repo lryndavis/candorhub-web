@@ -7,6 +7,10 @@
   margin: 0;;
 }
 
+.form__form-text-center {
+  text-align: center;
+}
+
 .form__user-name {
   font-size: 1.3em;
   font-family: 'Coves-Light';
@@ -15,19 +19,61 @@
   margin-bottom: 5px;
 }
 
-.form__image-description {
+.image-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.image-info-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.critique-image__image {
+  max-height: 450px;
+  max-width: 90%;
+  padding-right: 50px;
   margin-bottom: 20px;
-  font-size:  .8em;
-  line-height: 1.7em;
-  width: 80%;
+  cursor: pointer;
+  border-right: 1px solid #e6e6e6;
+}
+
+.gallery__critique-this {
+  text-transform: uppercase;
+  font-family: 'Coves-Light';
+  font-size: 1.4em;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery__critique-this:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 1px solid black;
+  transition: 0.4s;
+}
+
+.gallery__critique-this:hover:after {
+  width: 33%;
+}
+
+.form__image-description {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-size:  1.1em;
+  line-height: 1.4em;
+  width: 75%;
+  font-family: 'Coves-Light';
 }
 
 .form__artist-notes {
-  font-weight: bold;
   font-style: italic;
   font-size: 1.3em;
   margin-top: 0;
-  text-decoration: underline;
+  font-family: 'Merriweather';
 }
 
 .dashboard{
@@ -45,14 +91,6 @@
   margin: 0 auto;
 }
 
-.critique-image__image {
-  max-height: 450px;
-  max-width: 90%;
-  padding-right: 50px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  border-right: 1px solid #bbbdc3;
-}
 
 .critique-image__image-title {
   font-size: 1.8em;
@@ -85,15 +123,22 @@
 
 
 
-
-
 //media queries
 
 @media screen and (max-width: 990px) {
+
+  .form__form-text-center {
+    margin-top: 50px;
+  }
+
   .dashboard__image-container {
     text-align: center;
     padding: 0;
     margin-bottom: 15px;
+  }
+
+  .dashboard__comment-form-container {
+    margin-bottom: 50px
   }
 
   .critique-image__image{
@@ -120,8 +165,38 @@
     margin-bottom: 0;
     margin-right: 0;
     font-size:  1em;
-    padding-bottom: 15px;
     text-align: center;
     width: 100%;
+  }
+
+  .gallery__critique-this {
+    padding-bottom: 10px;
+    margin-top: 15px;
+    font-family: 'Coves-Light';
+    width: 300px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #696969;
+    color: #fff !important;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .gallery__critique-this:after {
+    display: none;
+  }
+
+  .image-info {
+    background-color: #f6f6f6;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .comments__header {
+    margin-top: 50px;
+    font-size: 2.5em;
   }
 }

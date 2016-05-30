@@ -15,7 +15,6 @@ const getUsername = function(image) {
   return image.user.username || "unknown user";
 }
 
-
 export default class ImageModal extends React.Component {
 
   constructor(props) {
@@ -42,9 +41,13 @@ export default class ImageModal extends React.Component {
             <span className="form__user-name">By {this.props.image.user.username}</span>
           </Link>
         </span>
-        <img className="critique-image__image" src={this.props.image.image} alt={this.props.image.title} onClick={this.handleOpen} />
-        <p className="form__artist-notes">Artist's Notes: </p>
-        <p className="form__image-description">{this.props.image.description}</p>
+        <div className="image-container">
+          <img className="critique-image__image" src={this.props.image.image} alt={this.props.image.title} onClick={this.handleOpen} />
+          <div className="image-info">
+            <p className="form__artist-notes">Artist's Notes: </p>
+            <p className="form__image-description">{this.props.image.description}</p>
+          </div>
+        </div>
         <Dialog
           actions={actions}
           modal={true}

@@ -2,11 +2,7 @@
 
 
 .gallery__comment-box {
-  border-bottom: 1px solid grey;
-}
-
-.dashboard__comment-form-container{
-  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .form__header {
@@ -24,13 +20,24 @@
   text-align: center;
 }
 
+.critique-question {
+  font-size: 1.4em;
+  cursor: pointer;
+  margin-top: 5px;
+  font-family: 'Merriweather';
+  font-weight: lighter;
+}
+
 .comments {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .comments__body {
   padding-left: 10px;
-  font-size: 1.1em;
+  font-size: 1.3em;
+  font-family: 'Coves-Light';
+  font-weight: lighter;
 }
 
 .comments__meta {

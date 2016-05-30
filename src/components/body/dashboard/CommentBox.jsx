@@ -45,7 +45,7 @@ export default React.createClass({
       );
     });
     return (
-      <div className="comments__comment-list">
+      <div className="comments__comment-container">
         {commentRender}
       </div>
     );

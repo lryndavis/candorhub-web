@@ -44,7 +44,7 @@ export const Dashboard = React.createClass({
                   </MuiThemeProvider>
                 </div>
 
-                <div className="dashboard__comment-form-container col-md-6">
+                <div className="col-md-6">
                   <MuiThemeProvider muiTheme={getMuiTheme()}>
                     <CommentFormContainer questionsForComment={this.props.questionsForComment} />
                   </MuiThemeProvider>

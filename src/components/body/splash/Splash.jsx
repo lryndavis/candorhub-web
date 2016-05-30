@@ -80,7 +80,7 @@ export const Splash = React.createClass({
       <div className="splash">
         <div className="splash__header">
           <h1 className="splash__logo">candorhub</h1>
-          { this.state.signUpShow ? <h3 className="form__member-header" onClick={ this.onHandleClick }>LOG IN</h3> : null }
+          { this.state.signUpShow ? <h3 className="splash__member-header" onClick={ this.onHandleClick }>LOG IN</h3> : null }
         </div>
 
         <div className="splash__login-container">

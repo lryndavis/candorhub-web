@@ -31,7 +31,7 @@
   flex-grow: 2;
 }
 
-.form__member-header {
+.splash__member-header {
   font-family: 'Coves-Light';
   color: #000;
   cursor: pointer;
@@ -128,6 +128,13 @@
 
 .splash__about-us a {
   font-family: 'Coves-Bold';
+}
+
+.splash__about-us {
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #d9d9d9;
+  padding-top: 15px;
 }
 
 .splash__tour-scroll {

@@ -8,6 +8,7 @@ import * as actionCreators from '../../../action_creators';
 
 export const SignIn = React.createClass({
 
+//redux auth form component
   render: function() {
     return (
       <div className="form__sign-in-container">
