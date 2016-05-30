@@ -124,9 +124,9 @@ export const Splash = React.createClass({
                 <p className="splash__tour-copy">{growCopy}</p>
               </div>
             </div>
-
           </div>
-          <a className="splash__scroll-link" onClick={this.scrollToTop}>Ready to Join?</a>
+
+          <a className="splash__scroll-link" onClick={this.scrollToTop}>Join Now</a>
           <h4 className="splash__about-header">about</h4>
           <div className="splash__about-us">
             <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. </p>
