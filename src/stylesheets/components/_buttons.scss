@@ -1,10 +1,6 @@
 //////// styling for all button elements ////////
 
-.sign-up-button {
-  @extend %splash-buttons;
-}
-
-//buttons for post critique form 
+//buttons for post critique form
 .button__submit {
   @extend %splash-buttons;
   @extend %button-hover-fade;
@@ -63,6 +59,24 @@ button.email-sign-up-submit:active {
   @extend %button-hover-pseudo;
 }
 
+//faux button link in splash tour
+.splash__faux-button {
+  @extend %button-hover-fade;
+  font-family: 'Coves-Light';
+  width: 300px;
+  margin: 0 auto;
+  background-color: #696969;
+  padding: 5px;
+  font-size: 1.2em;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.splash__faux-button:hover {
+  @extend %button-hover-pseudo;
+}
+
 button.form__sign-in-button {
   @extend %splash-buttons;
 }
@@ -73,6 +87,7 @@ button.form__sign-in-button {
   @extend %splash-buttons;
 }
 
+//log out user link
 button.sign-out-submit {
   background-color: #fff;
   font-style: italic;

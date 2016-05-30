@@ -68,13 +68,18 @@
 .splash__column-container {
   background-color: #f6f6f6;
   margin-bottom: 30px;
+  height: 375px;
+}
+
+.splash__tour-column {
+  height: 375px;
 }
 
 .splash__tour-header {
   font-family: 'Coves-Light';
-  font-size: 2.7em;
+  font-size: 3em;
   margin-top: 50px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   margin-top: 15px;
 }
 
@@ -109,25 +114,19 @@
 
 .splash__about-header {
   font-family: 'Coves-Light';
-  margin-top: 30px;
+  margin-top: 45px;
   font-size: 1.8em;
   margin-bottom: 10px;
 }
 
 .splash__about-us p {
   font-family: 'Coves-Light';
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin-bottom: 0;
 }
 
-.splash__scroll-link {
-  font-family: 'Coves-Light';
-  font-size: 1.2em;
-  color: #fff;
-  cursor: pointer;
-  text-transform: uppercase;
-  padding: 10px;
-  background-color: #696969;
+.splash__about-us a {
+  font-family: 'Coves-Bold';
 }
 
 .splash__tour-scroll {
@@ -176,4 +175,34 @@ h4.modal-title {
 .modal-body p {
   font-family: 'Coves-Light';
   font-size: 1.3em;
+}
+
+
+//media queries
+
+
+//at mobile
+@media screen and (max-width: 575px) {
+
+  .form__member-header {
+    font-size: 1.2em;
+  }
+
+  .splash__main-container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .splash__login-container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .form__splash-header {
+    padding-top: 50px;
+  }
+
+  .form__sign-in-container {
+    width: 100%;
+  }
 }
