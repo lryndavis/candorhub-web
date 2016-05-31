@@ -47,7 +47,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    publicPath: '',
+    publicPath: 'http://jeffreyruder.github.io/ch-test/',
     filename: 'bundle.js'
   },
   devServer: {
