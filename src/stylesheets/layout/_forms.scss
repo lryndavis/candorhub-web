@@ -79,7 +79,7 @@ input.email-sign-up-email,
 input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
-  background-color: $light-grey;
+  background-color: $lightest-grey;
   color: #000;
 }
 
@@ -87,10 +87,10 @@ input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
   color: #000;
-  background-color: $light-grey;
+  background-color: $lightest-grey;
   &:focus {
   color: #000;
-  background-color: $light-grey;
+  background-color: $lightest-grey;
   }
 }
 
@@ -113,12 +113,12 @@ form.redux-auth.email-sign-in-form {
 
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px $light-grey inset;
+  -webkit-box-shadow: 0 0 0px 1000px $lightest-grey inset;
 }
 
 input.email-sign-in-email:-webkit-autofill,
 input.email-sign-in-password:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px $light-grey inset;
+  -webkit-box-shadow: 0 0 0px 1000px $lightest-grey inset;
 }
 
 //Sign In Form Transition Animation

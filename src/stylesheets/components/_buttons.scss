@@ -18,7 +18,7 @@ button.email-sign-in-submit {
   @extend %button-hover-fade;
   @extend %button-hover-fade;
   padding-left: 0;
-  background-color: $light-grey;
+  background-color: $lightest-grey;
   margin-top: 25px;
 }
 
@@ -37,7 +37,7 @@ button.email-sign-in-submit:focus {
 //buttons for join candorhub main form
 button.email-sign-up-submit {
   @extend %button-hover-fade;
-  background-color: $light-grey;
+  background-color: $lightest-grey;
   margin-bottom: 50px;
   margin-top: 25px;
 }

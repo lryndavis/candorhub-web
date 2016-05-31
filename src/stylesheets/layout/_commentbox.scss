@@ -1,7 +1,7 @@
 ////// custom styles for the comments section ///////
 
 .comments_comment-box {
-  border-bottom: 1px solid $light-grey;
+  border-bottom: 1px solid $lightest-grey;
 }
 
 .form__header {
@@ -67,4 +67,12 @@
   font-family: 'Coves-Light';
   text-align: center;
   padding-top: 10px;
+}
+
+//media queries
+@media screen and (max-width: 990px) {
+  .gallery__no-comments {
+    margin-bottom: 40px;
+    font-size: 1.3em;
+  }
 }
