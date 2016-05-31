@@ -1,5 +1,4 @@
-// custom styles for the comments
-
+////// custom styles for the comments section ///////
 
 .comments_comment-box {
   border-bottom: 1px solid #e6e6e6;
@@ -7,7 +6,6 @@
 
 .form__header {
   padding-bottom: 25px;
-  font-family: 'Merriweather';
   font-weight: 300;
   font-style: italic;
   font-size: 2em;
@@ -18,13 +16,15 @@
   font-size: 2.2em;
   font-family: 'Coves-Light';
   text-align: center;
+  font-weight: lighter;
 }
 
 .critique-question {
-  font-size: 1.4em;
+  font-size: 1.2em;
   cursor: pointer;
   margin-top: 5px;
   font-family: 'Merriweather';
+  letter-spacing: .01em;
   font-weight: lighter;
 }
 
@@ -35,8 +35,8 @@
 
 .comments__body {
   padding-left: 10px;
-  font-size: 1.3em;
-  font-family: 'Coves-Light';
+  font-size: 1.1em;
+  font-family: 'Open Sans';
   font-weight: lighter;
 }
 
@@ -47,11 +47,15 @@
 
 .comments__user {
   padding-left: 7px;
+  font-family: 'Open Sans';
+  font-weight: lighter;
 }
 
 .comments__date {
   border-right: 1px solid black;
   padding-right: 7px;
+  font-family: 'Open Sans';
+  font-weight: lighter;
 }
 
 .gallery__no-comments {

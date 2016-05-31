@@ -16,6 +16,7 @@ import UploadFormModal from './UploadFormModal';
 const contentClearStyles = {
   marginLeft: 250,
   marginTop: 10,
+  fill: '#fff'
 };
 
 export default class Sidebar extends React.Component {
@@ -41,26 +42,29 @@ export default class Sidebar extends React.Component {
           docked={false}
           width={300}
           open={this.state.open}
-          onRequestChange={open => this.setState({open})}
-        >
-          <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
-          <h2 className="sidebar-welcome">Welcome, <span className="sidebar-username">{this.props.username}</span></h2>
-          <Link className="sidebar__menu-link" ref="home"
-            className="sidebar__menu-link"
-            to={'/dashboard'} >
-            Critique
-          </Link>
-          <Link ref="gallery"
-            className="sidebar__menu-link"
-            to={'/gallery'} >
-            Browse Artwork
-          </Link>
-          <Link ref="usergallery"
-            className="sidebar__menu-link"
-            to={'/usergallery'}>
-            Your Artwork
-          </Link>
-          <UploadFormModal />
+          onRequestChange={open => this.setState({open})}>
+
+          <div className="sidebar__main-container">
+            <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
+            <h2 className="sidebar-welcome">Welcome, <span className="sidebar-username">{this.props.username}</span></h2>
+            <Link className="sidebar__menu-link" ref="home"
+              className="sidebar__menu-link"
+              to={'/dashboard'} >
+              Critique
+            </Link>
+            <Link ref="gallery"
+              className="sidebar__menu-link"
+              to={'/gallery'} >
+              Browse Artwork
+            </Link>
+            <Link ref="usergallery"
+              className="sidebar__menu-link"
+              to={'/usergallery'}>
+              Your Artwork
+            </Link>
+            <UploadFormModal />
+          </div>
+
         </Drawer>
       </div>
     );

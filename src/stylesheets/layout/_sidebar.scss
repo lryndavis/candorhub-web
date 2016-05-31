@@ -1,5 +1,10 @@
 //custom styles for the sidebar
 
+.sidebar__main-container {
+  background-color: #262626;
+  height: 100vh;
+}
+
 .sidebar-welcome {
   font-family: 'Merriweather';
   font-weight: lighter;
@@ -7,10 +12,12 @@
   margin-bottom: 50px;
   margin-left: 15px;
   margin-top: 10px;
+  color: #fff;
 }
 
 .sidebar-username {
   font-style: italic;
+  color: #fff;
 }
 
 .dashboard-header {
@@ -43,6 +50,11 @@
   padding-bottom: 5px;
   cursor: pointer;
   position: relative;
+  color: #fff;
+}
+
+.sidebar__menu-link:hover {
+  color: #fff;
 }
 
 .sidebar__menu-link:after {
@@ -51,7 +63,7 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #fff;
   transition: 0.4s;
 }
 

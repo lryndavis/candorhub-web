@@ -3,7 +3,8 @@
 .form__question {
   padding-left: 10px;
   font-size: 1.1em;
-  color: #807E7E;
+  color: #696969;
+  font-weight: lighter;
 }
 
 .form__comment-instructions {
@@ -35,10 +36,13 @@
 .form__instructions-header {
   font-style: italic;
   font-size: 1.1em;
+  font-family: 'Merriweather';
+  font-weight: lighter;
 }
 
 .form__comment-instructions {
   line-height: 1.5em;
+  font-weight: lighter;
 }
 
 .form__tips-header {

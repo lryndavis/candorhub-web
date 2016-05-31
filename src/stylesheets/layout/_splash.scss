@@ -29,6 +29,7 @@
   padding-top: 10px;
   padding-left: 40px;
   flex-grow: 2;
+  margin-top: 0
 }
 
 .splash__member-header {
@@ -90,7 +91,7 @@
 
 .splash__tour-container h5 {
   padding-bottom: 15px;
-  font-family: 'Playfair Display';
+  font-family: 'Merriweather';
   font-style: italic;
   letter-spacing: .02em;
   font-size: 1.4em;
@@ -138,12 +139,12 @@
 }
 
 .splash__tour-scroll {
-  font-family: 'Playfair Display';
+  font-family: 'Merriweather';
   font-size: 1.8em;
   color: #000;
   display: block;
   font-style: italic;
-  font-weight: 400;
+  font-weight: lighter;
   letter-spacing: .02em;
 }
 
