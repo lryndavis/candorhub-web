@@ -5,7 +5,7 @@
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  background-color: #f6f6f6;
+  background-color: $lightest-grey;
   color: #fff;
 }
 
@@ -41,7 +41,7 @@
   margin-top: 0;
   padding-top: 10px;
   padding-right: 40px;
-  color: $eggplant;
+  color: $mustard;
 }
 
 //changes the font color for placeholder text
@@ -69,7 +69,7 @@
 }
 
 .splash__column-container {
-  background-color: #f6f6f6;
+  background-color: $lightest-grey;
   margin-bottom: 30px;
   height: 375px;
 }
@@ -141,7 +141,7 @@
 }
 
 .splash__tour-scroll {
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-size: 1.8em;
   color: #000;
   display: block;
@@ -202,7 +202,7 @@ h4.modal-title {
   .splash__tour-column {
     height: 90%;
     margin-bottom: 40px;
-    background-color: #f6f6f6;
+    background-color: $lightest-grey;
   }
 
   .splash__tour-header {

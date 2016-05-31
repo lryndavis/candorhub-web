@@ -36,9 +36,9 @@ export default class ImageModal extends React.Component {
     return (
       <div>
         <span className="dashboard__image-header">
-          <span className="dashboard__image-title">{this.props.image.title} /</span>
+          <span className="dashboard__image-title">{this.props.image.title} <span className="title-border"></span></span>
           <Link to={`/profilegallery/${this.props.image.user.id}`} params={{id: this.props.image.user.id}}>
-            <span className="dashboard__user-name">By {this.props.image.user.username}</span>
+            <span>By<span className="dashboard__user-name">{this.props.image.user.username}</span></span>
           </Link>
         </span>
         <div className="image-container">

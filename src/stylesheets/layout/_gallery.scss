@@ -32,6 +32,7 @@
   font-family: 'Coves-Light';
   font-size: 1.5em;
   text-transform: uppercase;
+  border-bottom: 1px solid $mustard;
 }
 
 .grid-item {
@@ -95,6 +96,7 @@ figure figcaption {
   font-size: .8em;
   font-family: 'Coves-Light';
   padding: 0;
+  color: $mustard;
 }
 
 figure {

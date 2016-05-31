@@ -6,18 +6,19 @@
 }
 
 .sidebar-welcome {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--primary;
   font-weight: lighter;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-bottom: 50px;
   margin-left: 15px;
   margin-top: 10px;
-  color: #fff;
+  color: $pale-blue;
 }
 
 .sidebar-username {
-  font-family: 'Coves-Light';
-  color: #fff;
+  font-family: $font-stack--primary;
+  font-weight: lighter;
+  color: $pale-blue;
 }
 
 span.sidebar-user {
@@ -63,17 +64,12 @@ span.sidebar-user {
 }
 
 .sidebar__menu-link:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  border-bottom: 1px solid #fff;
-  transition: 0.4s;
+  @extend %animate-links-after;
+  border-bottom: 1px solid $pale-blue;
 }
 
 .sidebar__menu-link:hover:after {
-  width: 30%;
+  @extend %animate-links-hover;
 }
 
 //media queries
