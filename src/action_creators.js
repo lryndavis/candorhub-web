@@ -1,4 +1,6 @@
 import fetch from 'isomorphic-fetch';
+import {browserHistory} from 'react-router';
+
 
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
@@ -111,6 +113,25 @@ export function postSubmitComment(body) {
       dispatch(hideForm(state)),
       dispatch(displayComments(state)),
       dispatch(getSpecificImageFromServer(state, state.imageForCritique.id))
+    });
+  }
+}
+
+export function postDeleteImage(id) {
+  return function (dispatch, getState) {
+    const state = getState();
+    const url = specificImageEndpoint + id;
+    return fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'ACCEPT': 'application/json',
+        'CONTENT_TYPE': 'application/json'
+      },
+    })
+    //redirect to user gallery on successful delete
+    .then(() => {
+      dispatch(getImagesByUser()),
+      browserHistory.push("/usergallery")
     });
   }
 }
