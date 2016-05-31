@@ -29,10 +29,12 @@
 
 .form__comment-header {
   font-family: 'Coves-Light';
-  font-size: 1.8em;
+  font-size: 1.9em;
   text-align: center;
   text-transform: uppercase;
-  padding-bottom: 10px;
+  border-bottom: 1px solid $mustard;
+  width: 250px;
+  margin: 0 auto 25px auto;
 }
 
 .form__instructions-header {

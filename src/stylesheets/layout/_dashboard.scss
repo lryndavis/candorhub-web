@@ -1,11 +1,12 @@
 ////////Main dashboard component styles and containers/////////
 
 .dashboard__image-title {
-  font-size: 1.8em;
+  font-size: 1.9em;
   font-family: 'Coves-Light';
   text-transform: uppercase;
   display: block;
-  margin: 0;;
+  margin: 0;
+  max-width: 350px;
 }
 
 .form__form-text-center {
@@ -16,8 +17,12 @@
   font-size: 1.3em;
   font-family: 'Coves-Light';
   padding-left: 5px;
-  display: block;
-  margin-bottom: 5px;
+  color: $mustard;
+}
+
+.title-border {
+  border-right: 1px solid $mustard;
+  padding-left: 10px;
 }
 
 .image-container {
@@ -35,8 +40,9 @@
   max-width: 90%;
   padding-right: 50px;
   margin-bottom: 20px;
+  margin-top: 10px;
   cursor: pointer;
-  border-right: 1px solid #e6e6e6;
+  border-right: 1px solid $light-grey;
 }
 
 .gallery__critique-this {
@@ -133,6 +139,10 @@
 //media queries
 
 @media screen and (max-width: 990px) {
+
+  .dashboard__image-title {
+    margin: 0 auto;
+  }
 
   .form__form-text-center {
     margin-top: 50px;
