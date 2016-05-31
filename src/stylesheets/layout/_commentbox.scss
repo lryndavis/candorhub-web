@@ -1,7 +1,7 @@
 ////// custom styles for the comments section ///////
 
 .comments_comment-box {
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid $lightest-grey;
 }
 
 .form__header {
@@ -17,15 +17,17 @@
   text-align: center;
   font-weight: lighter;
   text-transform: uppercase;
-  padding-bottom: 10px;
   margin-top: 0;
+  border-bottom: 1px solid $mustard;
+  width: 110px;
+  margin: 0 auto 25px auto;
 }
 
 .critique-question {
   font-size: 1.1em;
   cursor: pointer;
   margin-top: 5px;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   letter-spacing: .01em;
   font-weight: 400;
 }
@@ -38,7 +40,7 @@
 .comments__body {
   padding-left: 10px;
   font-size: .9em;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-weight: lighter;
 }
 
@@ -50,14 +52,14 @@
 
 .comments__user {
   padding-left: 7px;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-weight: lighter;
 }
 
 .comments__date {
-  border-right: 1px solid black;
+  border-right: 1px solid $mustard;
   padding-right: 7px;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-weight: lighter;
 }
 
@@ -65,4 +67,12 @@
   font-family: 'Coves-Light';
   text-align: center;
   padding-top: 10px;
+}
+
+//media queries
+@media screen and (max-width: 990px) {
+  .gallery__no-comments {
+    margin-bottom: 40px;
+    font-size: 1.3em;
+  }
 }
