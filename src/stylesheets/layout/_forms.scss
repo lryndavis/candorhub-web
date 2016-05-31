@@ -29,15 +29,17 @@
 
 .form__comment-header {
   font-family: 'Coves-Light';
-  font-size: 2.2em;
+  font-size: 1.8em;
   text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 10px;
 }
 
 .form__instructions-header {
-  font-style: italic;
   font-size: 1.1em;
-  font-family: 'Merriweather';
-  font-weight: lighter;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  padding-bottom: 5px;
 }
 
 .form__comment-instructions {

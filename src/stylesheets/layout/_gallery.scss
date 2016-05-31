@@ -12,11 +12,6 @@
   @extend %main-container;
 }
 
-.gallery__header {
-  margin: 25px 15px;
-  font-size: 2em;
-}
-
 .gallery-thumbnail__title {
   font-size: 1.5em;
   margin: 15px 0;
@@ -35,7 +30,8 @@
 
 .gallery-header {
   font-family: 'Coves-Light';
-  font-size: 1.8em;
+  font-size: 1.5em;
+  text-transform: uppercase;
 }
 
 .grid-item {

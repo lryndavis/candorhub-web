@@ -41,6 +41,7 @@
   margin-top: 0;
   padding-top: 10px;
   padding-right: 40px;
+  color: $eggplant;
 }
 
 //changes the font color for placeholder text
@@ -91,11 +92,12 @@
 
 .splash__tour-container h5 {
   padding-bottom: 15px;
-  font-family: 'Merriweather';
-  font-style: italic;
+  padding-top: 10px;
+  font-family: 'Coves-Light';
   letter-spacing: .02em;
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-weight: lighter;
+  text-transform: uppercase;
 }
 
 .splash__tour-copy {
@@ -139,7 +141,7 @@
 }
 
 .splash__tour-scroll {
-  font-family: 'Merriweather';
+  font-family: 'Open Sans';
   font-size: 1.8em;
   color: #000;
   display: block;

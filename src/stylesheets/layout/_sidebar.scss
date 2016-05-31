@@ -6,9 +6,9 @@
 }
 
 .sidebar-welcome {
-  font-family: 'Merriweather';
+  font-family: 'Coves-Light';
   font-weight: lighter;
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 50px;
   margin-left: 15px;
   margin-top: 10px;
@@ -16,8 +16,13 @@
 }
 
 .sidebar-username {
-  font-style: italic;
+  font-family: 'Coves-Light';
   color: #fff;
+}
+
+span.sidebar-user {
+  font-family: 'Coves-Light';
+  font-size: 1.3em;
 }
 
 .dashboard-header {
