@@ -36,16 +36,16 @@ button.email-sign-in-submit:focus {
 //buttons for join candorhub main form
 button.email-sign-up-submit {
   @extend %button-hover-fade;
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   width: 300px;
   text-transform: uppercase;
   font-size: 1.2em;
   margin-top: 25px;
   padding: 5px;
-  color: #fff !important;
-  background-color: $eggplant;
+  color: $mustard !important;
+  border: 1px solid $mustard;
+  background-color: #f6f6f6;
   margin-bottom: 50px;
-  border: none;
 }
 
 button.email-sign-up-submit:hover {
@@ -63,13 +63,14 @@ button.email-sign-up-submit:active {
 //faux button link in splash tour
 .splash__faux-button {
   @extend %button-hover-fade;
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   width: 300px;
   margin: 0 auto;
-  background-color: #696969;
+  background-color: #fff;
+  border: 1px solid  $mustard;
   padding: 5px;
   font-size: 1.2em;
-  color: #fff;
+  color: $mustard;
   cursor: pointer;
   text-transform: uppercase;
 }

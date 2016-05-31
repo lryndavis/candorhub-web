@@ -21,14 +21,14 @@
 }
 
 .form__join-header {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   text-transform: uppercase;
   text-align: center;
   margin-top: 60px;
 }
 
 .form__comment-header {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 1.8em;
   text-align: center;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
 
 .form__instructions-header {
   font-size: 1.1em;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-weight: 400;
   padding-bottom: 5px;
 }
@@ -52,7 +52,7 @@
 }
 
 .form__splash-header {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   text-align: center;
   font-size: 1.8em;
   margin-top: 0;
@@ -65,7 +65,7 @@
 }
 
 .form__sign-in-header {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   text-align: center;
   color: #000;
   margin-bottom: 15px;
@@ -162,7 +162,7 @@ input.upload-form__image-desc {
 
 .upload-title {
   text-transform: uppercase;
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   margin-top: 0;
   margin-bottom: 25px;
   text-align: center;
@@ -183,14 +183,14 @@ div.ReactTags__selected a.ReactTags__remove {
 div.ReactTags__selected span.ReactTags__tag {
   padding-right: 5px;
   font-size: 1.2em;
-  font-family: 'coves-light';
+  font-family: $font-stack--secondary;
   display: block;
   margin-bottom: 5px;
 }
 
 .tags-header {
   font-size: 1.3em;
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
 }
 
 .upload-text-fields {
@@ -198,12 +198,12 @@ div.ReactTags__selected span.ReactTags__tag {
 }
 
 .dropzone-copy {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   margin-top: 5px;
 }
 
 .feedback {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   margin-top: 15px;
   display: block;
   color: #2957C3;

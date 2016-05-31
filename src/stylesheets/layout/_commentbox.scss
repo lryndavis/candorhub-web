@@ -13,7 +13,7 @@
 
 .comments__header {
   font-size: 1.8em;
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   text-align: center;
   font-weight: lighter;
   text-transform: uppercase;
@@ -25,7 +25,7 @@
   font-size: 1.1em;
   cursor: pointer;
   margin-top: 5px;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   letter-spacing: .01em;
   font-weight: 400;
 }
@@ -38,7 +38,7 @@
 .comments__body {
   padding-left: 10px;
   font-size: .9em;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-weight: lighter;
 }
 
@@ -50,19 +50,19 @@
 
 .comments__user {
   padding-left: 7px;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-weight: lighter;
 }
 
 .comments__date {
   border-right: 1px solid black;
   padding-right: 7px;
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-weight: lighter;
 }
 
 .gallery__no-comments {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   text-align: center;
   padding-top: 10px;
 }

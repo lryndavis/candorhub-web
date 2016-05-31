@@ -23,7 +23,7 @@
 }
 
 .splash__logo {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 3.2em;
   color: #000;
   padding-top: 10px;
@@ -33,7 +33,7 @@
 }
 
 .splash__member-header {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   color: #000;
   cursor: pointer;
   flex-basis: 1;
@@ -41,7 +41,7 @@
   margin-top: 0;
   padding-top: 10px;
   padding-right: 40px;
-  color: $eggplant;
+  color: $mustard;
 }
 
 //changes the font color for placeholder text
@@ -79,7 +79,7 @@
 }
 
 .splash__tour-header {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 3em;
   margin-top: 50px;
   margin-bottom: 20px;
@@ -93,7 +93,7 @@
 .splash__tour-container h5 {
   padding-bottom: 15px;
   padding-top: 10px;
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   letter-spacing: .02em;
   font-size: 1.5em;
   font-weight: lighter;
@@ -101,7 +101,7 @@
 }
 
 .splash__tour-copy {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 1.3em;
   margin-bottom: 40px;
   padding-top: 15px;
@@ -117,14 +117,14 @@
 }
 
 .splash__about-header {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   margin-top: 45px;
   font-size: 1.8em;
   margin-bottom: 10px;
 }
 
 .splash__about-us p {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 1.2em;
   margin-bottom: 0;
 }
@@ -141,7 +141,7 @@
 }
 
 .splash__tour-scroll {
-  font-family: 'Open Sans';
+  font-family: $font-stack--primary;
   font-size: 1.8em;
   color: #000;
   display: block;
@@ -156,7 +156,7 @@
 }
 
 .splash__copy {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 2.5em;
   margin-bottom: 0;
 }
@@ -179,12 +179,12 @@
 //Styling for Redux-auth error modals
 
 h4.modal-title {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 1.7em;
 }
 
 .modal-body p {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 1.3em;
 }
 

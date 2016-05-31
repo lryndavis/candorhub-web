@@ -6,7 +6,7 @@
 }
 
 .sidebar-welcome {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-weight: lighter;
   font-size: 1.5em;
   margin-bottom: 50px;
@@ -16,12 +16,12 @@
 }
 
 .sidebar-username {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   color: #fff;
 }
 
 span.sidebar-user {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 1.3em;
 }
 
@@ -34,7 +34,7 @@ span.sidebar-user {
 }
 
 .dashboard-header__logo {
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 3.2em;
   margin-left: 20px;
   flex-grow: 2;
@@ -47,7 +47,7 @@ span.sidebar-user {
 
 .sidebar__menu-link {
   text-transform: uppercase;
-  font-family: 'Coves-Light';
+  font-family: $font-stack--secondary;
   font-size: 1.5em;
   display: block;
   margin-left: 15px;
