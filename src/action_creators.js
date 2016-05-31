@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 
 
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
@@ -131,7 +131,7 @@ export function postDeleteImage(id) {
     //redirect to user gallery on successful delete
     .then(() => {
       dispatch(getImagesByUser()),
-      browserHistory.push("/usergallery")
+      hashHistory.push("/usergallery")
     });
   }
 }

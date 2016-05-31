@@ -1,7 +1,7 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import React from 'react';
-import {Link, browserHistory} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import {connect} from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Scroll from 'react-scroll';
@@ -48,7 +48,7 @@ export const Splash = React.createClass({
   componentWillUpdate(nextProps) {
     //redirect to dashboard on successful sign-in
     if (nextProps.signedIn) {
-      browserHistory.push("/dashboard");
+      hashHistory.push("/dashboard");
     }
   },
 
