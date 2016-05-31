@@ -38,6 +38,11 @@ export const GalleryView = React.createClass({
     this.setState({ commentFormShow: newState });
   },
 
+  deleteImage: function() {
+    console.log(this.props.imageById);
+    this.props.postDeleteImage(this.props.imageById.id);
+  },
+
   render: function() {
     return (
       <div className="dashboard__main-container">
@@ -52,7 +57,9 @@ export const GalleryView = React.createClass({
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
 
-            {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ? null :
+            {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ?
+              <p className="critique-this"
+                onClick={this.deleteImage}>Delete This Work</p> :
               <p className="gallery__critique-this" onClick={this.onClick}>Critique This Work</p>
               }
           </div>
