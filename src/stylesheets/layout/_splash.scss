@@ -5,7 +5,7 @@
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  background-color: #f6f6f6;
+  background-color: $light-grey;
   color: #fff;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .splash__logo {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 3.2em;
   color: #000;
   padding-top: 10px;
@@ -33,7 +33,7 @@
 }
 
 .splash__member-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   color: #000;
   cursor: pointer;
   flex-basis: 1;
@@ -69,7 +69,7 @@
 }
 
 .splash__column-container {
-  background-color: #f6f6f6;
+  background-color: $light-grey;
   margin-bottom: 30px;
   height: 375px;
 }
@@ -79,7 +79,7 @@
 }
 
 .splash__tour-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 3em;
   margin-top: 50px;
   margin-bottom: 20px;
@@ -93,7 +93,7 @@
 .splash__tour-container h5 {
   padding-bottom: 15px;
   padding-top: 10px;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   letter-spacing: .02em;
   font-size: 1.5em;
   font-weight: lighter;
@@ -101,7 +101,7 @@
 }
 
 .splash__tour-copy {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.3em;
   margin-bottom: 40px;
   padding-top: 15px;
@@ -117,14 +117,14 @@
 }
 
 .splash__about-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   margin-top: 45px;
   font-size: 1.8em;
   margin-bottom: 10px;
 }
 
 .splash__about-us p {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.2em;
   margin-bottom: 0;
 }
@@ -156,7 +156,7 @@
 }
 
 .splash__copy {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 2.5em;
   margin-bottom: 0;
 }
@@ -179,12 +179,12 @@
 //Styling for Redux-auth error modals
 
 h4.modal-title {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.7em;
 }
 
 .modal-body p {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.3em;
 }
 
@@ -202,7 +202,7 @@ h4.modal-title {
   .splash__tour-column {
     height: 90%;
     margin-bottom: 40px;
-    background-color: #f6f6f6;
+    background-color: $light-grey;
   }
 
   .splash__tour-header {

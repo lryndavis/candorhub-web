@@ -1,8 +1,10 @@
 ///////// Placeholders ///////
 
+
+//material-esque text fields
 %material-text-fields {
   font-size: 16px;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   padding: 10px 10px 10px 5px;
   display: block;
   width: 300px;
@@ -10,47 +12,31 @@
   border-bottom: 1px solid #000;
   margin-bottom:  20px;
   color: #000;
-  background-color: #f6f6f6;
+  background-color: $light-grey;
 }
 
 %upload-material-text-fields {
   font-size: 16px;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   padding: 0 10px 10px 5px;
   display: block;
   border: none;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid $medium-grey;
   outline: none;
   width: 250px;
   font-weight: 300;
 }
 
-%splash-buttons {
-  font-family: $font-stack--secondary;
-  width: 300px;
-  border: none;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  margin-top: 25px;
-  padding: 5px;
-  color: #fff !important;
-}
-
-%modal-buttons {
-  font-family: $font-stack--secondary;
-  width: 100px;
-  border: 1px solid #949191;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  margin-top: 25px;
-  padding: 5px;
-  background-color: #fff;
-}
-
+//main button styling
 %button-hover-fade {
+  padding: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: 'Coves-Light';
+  width: 300px;
   border: 1px solid  $mustard;
   color: $mustard !important;
-  background-color: #f6f6f6;
   display: inline-block;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -66,10 +52,25 @@
 }
 
 %button-hover-pseudo {
-  background-color:  $mustard;
+  background-color:  $mustard !important;
   color: white !important;
 }
 
+//link underline animations
+%animate-links-after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  transition: 0.4s;
+}
+
+%animate-links-hover {
+  width: 30%;
+}
+
+//main containers
 %splash-form-centering {
   width: 300px;
   margin: 0 auto;

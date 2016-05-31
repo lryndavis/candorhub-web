@@ -21,14 +21,14 @@
 }
 
 .form__join-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   text-transform: uppercase;
   text-align: center;
   margin-top: 60px;
 }
 
 .form__comment-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.8em;
   text-align: center;
   text-transform: uppercase;
@@ -52,7 +52,7 @@
 }
 
 .form__splash-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   text-align: center;
   font-size: 1.8em;
   margin-top: 0;
@@ -65,7 +65,7 @@
 }
 
 .form__sign-in-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   text-align: center;
   color: #000;
   margin-bottom: 15px;
@@ -77,7 +77,7 @@ input.email-sign-up-email,
 input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
-  background-color: #f6f6f6;
+  background-color: $light-grey;
   color: #000;
 }
 
@@ -85,10 +85,10 @@ input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
   color: #000;
-  background-color: #f6f6f6;
+  background-color: $light-grey;
   &:focus {
   color: #000;
-  background-color: #f6f6f6;
+  background-color: $light-grey;
   }
 }
 
@@ -111,12 +111,12 @@ form.redux-auth.email-sign-in-form {
 
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
+  -webkit-box-shadow: 0 0 0px 1000px $light-grey inset;
 }
 
 input.email-sign-in-email:-webkit-autofill,
 input.email-sign-in-password:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
+  -webkit-box-shadow: 0 0 0px 1000px $light-grey inset;
 }
 
 //Sign In Form Transition Animation
@@ -162,7 +162,7 @@ input.upload-form__image-desc {
 
 .upload-title {
   text-transform: uppercase;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   margin-top: 0;
   margin-bottom: 25px;
   text-align: center;
@@ -183,14 +183,14 @@ div.ReactTags__selected a.ReactTags__remove {
 div.ReactTags__selected span.ReactTags__tag {
   padding-right: 5px;
   font-size: 1.2em;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   display: block;
   margin-bottom: 5px;
 }
 
 .tags-header {
   font-size: 1.3em;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
 }
 
 .upload-text-fields {
@@ -198,12 +198,12 @@ div.ReactTags__selected span.ReactTags__tag {
 }
 
 .dropzone-copy {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   margin-top: 5px;
 }
 
 .feedback {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   margin-top: 15px;
   display: block;
   color: #2957C3;

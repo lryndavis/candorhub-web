@@ -2,7 +2,7 @@
 
 .dashboard__image-title {
   font-size: 1.8em;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   text-transform: uppercase;
   display: block;
   margin: 0;;
@@ -14,7 +14,7 @@
 
 .dashboard__user-name {
   font-size: 1.3em;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   padding-left: 5px;
   display: block;
   margin-bottom: 5px;
@@ -41,7 +41,7 @@
 
 .gallery__critique-this {
   text-transform: uppercase;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.4em;
   cursor: pointer;
   position: relative;
@@ -63,7 +63,7 @@
 
 .gallery__delete-this {
   text-transform: uppercase;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.4em;
   cursor: pointer;
   position: relative;
@@ -74,17 +74,13 @@
 }
 
 .gallery__delete-this:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
+  @extend %animate-links-after;
   border-bottom: 1px solid $orange-sunset;
-  transition: 0.4s;
   color: $orange-sunset;
 }
 
 .gallery__delete-this:hover:after {
+  @extend %animate-links-hover;
   width: 33%;
 }
 
@@ -94,7 +90,7 @@
   font-size:  1.1em;
   line-height: 1.4em;
   width: 75%;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
 }
 
 .dashboard__artist-notes {
@@ -184,7 +180,7 @@
   .gallery__critique-this {
     padding-bottom: 10px;
     margin-top: 15px;
-    font-family: $font-stack--secondary;
+    font-family: 'Coves-Light';
     width: 300px;
     border: none;
     text-transform: uppercase;
@@ -202,7 +198,7 @@
   }
 
   .dashboard__image-info {
-    background-color: #f6f6f6;
+    background-color: $light-grey;
     max-width: 100%;
     padding: 20px;
   }

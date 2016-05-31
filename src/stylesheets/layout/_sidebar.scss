@@ -6,7 +6,7 @@
 }
 
 .sidebar-welcome {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-weight: lighter;
   font-size: 1.5em;
   margin-bottom: 50px;
@@ -16,12 +16,12 @@
 }
 
 .sidebar-username {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   color: #fff;
 }
 
 span.sidebar-user {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.3em;
 }
 
@@ -34,7 +34,7 @@ span.sidebar-user {
 }
 
 .dashboard-header__logo {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 3.2em;
   margin-left: 20px;
   flex-grow: 2;
@@ -47,7 +47,7 @@ span.sidebar-user {
 
 .sidebar__menu-link {
   text-transform: uppercase;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.5em;
   display: block;
   margin-left: 15px;
@@ -63,17 +63,12 @@ span.sidebar-user {
 }
 
 .sidebar__menu-link:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
+  @extend %animate-links-after;
   border-bottom: 1px solid #fff;
-  transition: 0.4s;
 }
 
 .sidebar__menu-link:hover:after {
-  width: 30%;
+  @extend %animate-links-hover;
 }
 
 //media queries

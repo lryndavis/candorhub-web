@@ -29,7 +29,7 @@
 }
 
 .gallery-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   font-size: 1.5em;
   text-transform: uppercase;
 }
@@ -44,7 +44,7 @@
   background-color: #fff !important;
   color: #000 !important;
   font-size: 16px;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   padding: 10px 10px 10px 5px;
   display: block;
   width: 300px;
@@ -79,7 +79,7 @@ figure figcaption {
   font-size: 1em;
   line-height: 1.2;
   font-weight: 700;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   text-transform: uppercase;
   padding-bottom: 0;
   margin-bottom: 5px;
@@ -87,13 +87,13 @@ figure figcaption {
 
 .hover-caption {
   font-size: .9em;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   display: block;
 }
 
 .hover-comments {
   font-size: .8em;
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
   padding: 0;
 }
 
@@ -128,7 +128,7 @@ figure.hover img {
 }
 
 .gallery__user-header {
-  font-family: $font-stack--secondary;
+  font-family: 'Coves-Light';
 }
 
 //media queries

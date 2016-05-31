@@ -1,11 +1,11 @@
 //////// styling for all button elements ////////
 
 //buttons for post critique form
-.button__submit {
-  @extend %splash-buttons;
+button.button__submit {
   @extend %button-hover-fade;
   margin-bottom: 20px;
   cursor: pointer;
+  background-color: #fff !important;
 }
 
 .button__submit:hover {
@@ -15,10 +15,11 @@
 
 //buttons for main log in form
 button.email-sign-in-submit {
-  @extend %splash-buttons;
+  @extend %button-hover-fade;
   @extend %button-hover-fade;
   padding-left: 0;
-  color: #fff;
+  background-color: $light-grey;
+  margin-top: 25px;
 }
 
 button.email-sign-in-submit:hover {
@@ -36,16 +37,9 @@ button.email-sign-in-submit:focus {
 //buttons for join candorhub main form
 button.email-sign-up-submit {
   @extend %button-hover-fade;
-  font-family: $font-stack--secondary;
-  width: 300px;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  margin-top: 25px;
-  padding: 5px;
-  color: $mustard !important;
-  border: 1px solid $mustard;
-  background-color: #f6f6f6;
+  background-color: $light-grey;
   margin-bottom: 50px;
+  margin-top: 25px;
 }
 
 button.email-sign-up-submit:hover {
@@ -63,16 +57,8 @@ button.email-sign-up-submit:active {
 //faux button link in splash tour
 .splash__faux-button {
   @extend %button-hover-fade;
-  font-family: $font-stack--secondary;
-  width: 300px;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid  $mustard;
-  padding: 5px;
-  font-size: 1.2em;
-  color: $mustard;
-  cursor: pointer;
-  text-transform: uppercase;
 }
 
 .splash__faux-button:hover {
@@ -80,13 +66,13 @@ button.email-sign-up-submit:active {
 }
 
 button.form__sign-in-button {
-  @extend %splash-buttons;
+  @extend %button-hover-fade;
 }
 
 button:focus {outline:0;}
 
 button.form__sign-in-button {
-  @extend %splash-buttons;
+  @extend %button-hover-fade;
 }
 
 //log out user link
@@ -94,9 +80,4 @@ button.sign-out-submit {
   background-color: #fff;
   font-style: italic;
   border: none;
-}
-
-// buttons in redux-auth sign in/up modal
-button.email-sign-up-error-modal-close.btn.btn-default {
-  @extend %modal-buttons;
 }
