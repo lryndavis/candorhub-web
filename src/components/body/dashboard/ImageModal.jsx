@@ -15,7 +15,6 @@ const getUsername = function(image) {
   return image.user.username || "unknown user";
 }
 
-
 export default class ImageModal extends React.Component {
 
   constructor(props) {
@@ -36,15 +35,19 @@ export default class ImageModal extends React.Component {
 
     return (
       <div>
-        <span className="form__image-header">
-          <span className="form__image-title">{this.props.image.title} /</span>
+        <span className="dashboard__image-header">
+          <span className="dashboard__image-title">{this.props.image.title} /</span>
           <Link to={`/profilegallery/${this.props.image.user.id}`} params={{id: this.props.image.user.id}}>
-            <span className="form__user-name">By {this.props.image.user.username}</span>
+            <span className="dashboard__user-name">By {this.props.image.user.username}</span>
           </Link>
         </span>
-        <img className="critique-image__image" src={this.props.image.image} alt={this.props.image.title} onClick={this.handleOpen} />
-        <p className="form__artist-notes">Artist's Notes: </p>
-        <p className="form__image-description">{this.props.image.description}</p>
+        <div className="image-container">
+          <img className="dashboard__image-main" src={this.props.image.image} alt={this.props.image.title} onClick={this.handleOpen} />
+          <div className="dashboard__image-info">
+            <p className="dashboard__artist-notes">Artist's Notes: </p>
+            <p className="dashboard__image-description">{this.props.image.description}</p>
+          </div>
+        </div>
         <Dialog
           actions={actions}
           modal={true}
@@ -52,7 +55,7 @@ export default class ImageModal extends React.Component {
           autoScrollBodyContent={true}
           open={this.state.open}
         >
-          <img className="modal-image" src={this.props.image.image} />
+          <img className="dashboard__modal-image" src={this.props.image.image} />
         </Dialog>
       </div>
     );

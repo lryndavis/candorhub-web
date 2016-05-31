@@ -22,6 +22,8 @@ const growCopy = "Share works in progress, sketches, and drafts and get feedback
 
 const growImage = require('./astrolabe.png');
 
+const arrowDown = require('./arrowDown.png');
+
 const Element = Scroll.Element;
 
 const Events  = Scroll.Events;
@@ -78,12 +80,14 @@ export const Splash = React.createClass({
       <div className="splash">
         <div className="splash__header">
           <h1 className="splash__logo">candorhub</h1>
-          { this.state.signUpShow ? <h3 className="form__member-header" onClick={ this.onHandleClick }>LOG IN</h3> : null }
+          { this.state.signUpShow ? <h3 className="splash__member-header" onClick={ this.onHandleClick }>LOG IN</h3> : null }
         </div>
+
         <div className="splash__login-container">
           <div className="splash__main-container">
             { this.state.signUpShow ? <SignUp /> : null }
-            { this.state.signUpShow ? <a className="splash__tour-scroll" onClick={this.scrollToBottom}>What is candorhub?</a> : null }
+            { this.state.signUpShow ? <a className="splash__tour-scroll" onClick={this.scrollToBottom}>Learn More</a> : null }
+            { this.state.signUpShow ? <img className="splash__arrow-down" src={arrowDown} alt="arrow down" onClick={this.scrollToBottom} /> : null }
             <ReactCSSTransitionGroup
               transitionName="formTransition"
               transitionEnterTimeout={1000}
@@ -92,9 +96,11 @@ export const Splash = React.createClass({
             </ReactCSSTransitionGroup>
           </div>
         </div>
+
         <div className="splash__tour-container">
           <h4 className="splash__tour-header">how candorhub works</h4>
           <div className="splash__column-container container">
+
             <div className="splash__tour-column col-md-4">
               <h5>critique</h5>
               <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
@@ -102,6 +108,7 @@ export const Splash = React.createClass({
                 <p className="splash__tour-copy">{critiqueCopy}</p>
               </div>
             </div>
+
             <div className="splash__tour-column col-md-4">
               <h5>learn</h5>
               <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
@@ -109,33 +116,39 @@ export const Splash = React.createClass({
                 <p className="splash__tour-copy">{learnCopy}</p>
               </div>
             </div>
+
             <div className="splash__tour-column col-md-4">
               <h5>grow</h5>
               <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
               <div className="splash__column-content">
                 <p className="splash__tour-copy">{growCopy}</p>
+              </div>
             </div>
           </div>
+
+          <a onClick={this.scrollToTop}>
+            <div className="splash__faux-button">
+              Join Now
+            </div>
+          </a>
+          <h4 className="splash__about-header">about</h4>
+          <div className="splash__about-us">
+            <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. </p>
+            <p><a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
+          </div>
         </div>
-        <a className="splash__scroll-link" onClick={this.scrollToTop}>Ready to Join?</a>
-        <h4 className="splash__about-header">about</h4>
-        <div className="splash__about-us">
-          <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. </p>
-          <p><a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
-        </div>
-    </div>
-  </div>
-    )
+      </div>
+      )
+    }
+  });
+
+  function mapStateToProps(state) {
+    return {
+      signedIn: state.auth.getIn(["user", "isSignedIn"])
+    };
   }
-});
 
-function mapStateToProps(state) {
-  return {
-    signedIn: state.auth.getIn(["user", "isSignedIn"])
-  };
-}
-
-export const SplashContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(Splash);
+  export const SplashContainer = connect(
+    mapStateToProps,
+    actionCreators
+  )(Splash);

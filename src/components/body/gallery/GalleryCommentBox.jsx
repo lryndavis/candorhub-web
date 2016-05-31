@@ -45,8 +45,9 @@ export default React.createClass({
       </div>
       );
     });
+
     return (
-      <div className="gallery__comment-box">
+      <div className="comments_comment-box">
         {commentRender}
       </div>
     );

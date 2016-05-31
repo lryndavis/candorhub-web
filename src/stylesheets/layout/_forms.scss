@@ -3,7 +3,8 @@
 .form__question {
   padding-left: 10px;
   font-size: 1.1em;
-  color: #807E7E;
+  color: #696969;
+  font-weight: lighter;
 }
 
 .form__comment-instructions {
@@ -28,17 +29,22 @@
 
 .form__comment-header {
   font-family: 'Coves-Light';
-  font-size: 2.2em;
+  font-size: 1.8em;
   text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 10px;
 }
 
 .form__instructions-header {
-  font-style: italic;
   font-size: 1.1em;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  padding-bottom: 5px;
 }
 
 .form__comment-instructions {
   line-height: 1.5em;
+  font-weight: lighter;
 }
 
 .form__tips-header {
@@ -51,7 +57,7 @@
   font-size: 1.8em;
   margin-top: 0;
   margin-bottom: 20px;
-  color: #fff;
+  color: #000;
   padding-top: 25px;
   font-weight: lighter;
   letter-spacing: .01em;
@@ -71,18 +77,18 @@ input.email-sign-up-email,
 input.email-sign-up-password,
 input.email-sign-up-password-confirmation {
   @extend %material-text-fields;
-  background-color: #0d0d0d;
-  color: #fff;
+  background-color: #f6f6f6;
+  color: #000;
 }
 
 input.email-sign-in-email,
 input.email-sign-in-password {
   @extend %material-text-fields;
-  color: #fff;
-  background-color: #0d0d0d;
+  color: #000;
+  background-color: #f6f6f6;
   &:focus {
-  color: #fff;
-  background-color: #0d0d0d;
+  color: #000;
+  background-color: #f6f6f6;
   }
 }
 
@@ -102,18 +108,15 @@ form.redux-auth.email-sign-in-form {
   @extend %splash-form-centering;
 }
 
-// .centering {
-//   @extend %splash-form-centering;
-// }
 
 //removes ugly yellow input field highlight in chrome browsers
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
 }
 
 input.email-sign-in-email:-webkit-autofill,
 input.email-sign-in-password:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
 }
 
 //Sign In Form Transition Animation
@@ -152,7 +155,7 @@ input.email-sign-in-password:-webkit-autofill {
 
 div.ReactTags__tagInput input,
 div.ReactTags__tagInput input:focus,
-input.upload-form__image-title,
+input.upload-dashboard__image-title,
 input.upload-form__image-desc {
   @extend %upload-material-text-fields;
 }

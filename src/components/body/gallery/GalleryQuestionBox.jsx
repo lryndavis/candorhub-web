@@ -10,7 +10,7 @@ import GalleryQuestionList from './GalleryQuestionList';
 export default React.createClass({
 
   getInitialState: function() {
-    return { commentShow: false };
+    return { commentShow: true };
     return { navArrowChange: false };
   },
 
@@ -21,8 +21,8 @@ export default React.createClass({
 
   render: function() {
     return (
-      <div className="individual-question-box">
-        <p className="question" key={this.props.question.id} onClick={ this.onClick }>
+      <div className="dashboard__question-box">
+        <p className="critique-question" key={this.props.question.id} onClick={ this.onClick }>
           { this.state.navArrowChange ?
             <NavigationArrowDropUp /> :
             <NavigationArrowDropDown /> }

@@ -1,16 +1,28 @@
 //custom styles for the sidebar
 
+.sidebar__main-container {
+  background-color: #262626;
+  height: 100vh;
+}
+
 .sidebar-welcome {
-  font-family: 'Merriweather';
+  font-family: 'Coves-Light';
   font-weight: lighter;
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 50px;
   margin-left: 15px;
   margin-top: 10px;
+  color: #fff;
 }
 
 .sidebar-username {
-  font-style: italic;
+  font-family: 'Coves-Light';
+  color: #fff;
+}
+
+span.sidebar-user {
+  font-family: 'Coves-Light';
+  font-size: 1.3em;
 }
 
 .dashboard-header {
@@ -43,6 +55,11 @@
   padding-bottom: 5px;
   cursor: pointer;
   position: relative;
+  color: #fff;
+}
+
+.sidebar__menu-link:hover {
+  color: #fff;
 }
 
 .sidebar__menu-link:after {
@@ -51,7 +68,7 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #fff;
   transition: 0.4s;
 }
 
@@ -59,8 +76,7 @@
   width: 30%;
 }
 
-
-
+//media queries
 @media screen and (max-width: 550px) {
   button.sign-out-submit {
     display: none;
@@ -69,5 +85,9 @@
   div.dashboard-header {
     text-align: right;
     font-size: .7em;
+  }
+
+  .sidebar-user {
+    display: none;
   }
 }

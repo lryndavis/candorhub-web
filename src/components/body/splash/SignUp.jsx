@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {EmailSignUpForm} from 'redux-auth-candorhub';
 
 
+//redux auth form component
 export default React.createClass({
   render: function() {
     return (

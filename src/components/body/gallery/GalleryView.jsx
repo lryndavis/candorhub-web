@@ -53,7 +53,8 @@ export const GalleryView = React.createClass({
             </MuiThemeProvider>
 
             {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ? null :
-              <p className="gallery__critique-this" onClick={this.onClick}>Critique This Work</p> }
+              <p className="gallery__critique-this" onClick={this.onClick}>Critique This Work</p>
+              }
           </div>
 
           {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ? <GalleryQuestionList imageById={this.props.imageById} /> :

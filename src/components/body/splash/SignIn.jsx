@@ -8,9 +8,10 @@ import * as actionCreators from '../../../action_creators';
 
 export const SignIn = React.createClass({
 
+//redux auth form component
   render: function() {
     return (
-      <div>
+      <div className="form__sign-in-container">
         <h3 className="form__splash-header">Log In</h3>
         <EmailSignInForm icon={''} />
       </div>

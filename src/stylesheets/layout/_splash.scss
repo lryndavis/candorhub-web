@@ -1,22 +1,11 @@
 ////////// custom styles for splash page////////
 
-.splash__tagline {
-  font-size: 1em;
-  font-style: italic;
-}
-
-// .splash__logo {
-//   font-family:'Coves-Light';
-//   font-size: 4em;
-//   padding-top: 7px;
-// }
-
 .splash__login-container {
   height: 90vh;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  background-color: #0d0d0d;
+  background-color: #f6f6f6;
   color: #fff;
 }
 
@@ -36,37 +25,40 @@
 .splash__logo {
   font-family: 'Coves-Light';
   font-size: 3.2em;
-  flex-grow: 2;
   color: #000;
   padding-top: 10px;
-  padding-left: 40px
+  padding-left: 40px;
+  flex-grow: 2;
+  margin-top: 0
 }
 
-.form__member-header {
+.splash__member-header {
   font-family: 'Coves-Light';
   color: #000;
   cursor: pointer;
   flex-basis: 1;
-  color: #F79E80;
+  color: #000;
   margin-top: 0;
   padding-top: 10px;
   padding-right: 40px;
+  color: $eggplant;
 }
 
+//changes the font color for placeholder text
 .splash ::-webkit-input-placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .splash :-moz-placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .splash ::-moz-placeholder {
-  color: #fff;
+  color: #000;
 }
 
-.splash :-ms-input-placeholder {
-  color: #fff;
+:-ms-input-placeholder {
+  color: #000;
 }
 
 
@@ -76,11 +68,22 @@
   height: 100vh;
 }
 
+.splash__column-container {
+  background-color: #f6f6f6;
+  margin-bottom: 30px;
+  height: 375px;
+}
+
+.splash__tour-column {
+  height: 375px;
+}
+
 .splash__tour-header {
   font-family: 'Coves-Light';
-  font-size: 2.7em;
+  font-size: 3em;
   margin-top: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 .splash__tour-container {
@@ -89,9 +92,12 @@
 
 .splash__tour-container h5 {
   padding-bottom: 15px;
-  font-family: 'Merriweather';
-  font-size: 1.4em;
+  padding-top: 10px;
+  font-family: 'Coves-Light';
+  letter-spacing: .02em;
+  font-size: 1.5em;
   font-weight: lighter;
+  text-transform: uppercase;
 }
 
 .splash__tour-copy {
@@ -112,30 +118,52 @@
 
 .splash__about-header {
   font-family: 'Coves-Light';
-  margin-top: 60px;
+  margin-top: 45px;
   font-size: 1.8em;
   margin-bottom: 10px;
 }
 
 .splash__about-us p {
   font-family: 'Coves-Light';
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin-bottom: 0;
 }
 
-.splash__scroll-link {
-  font-family: 'Coves-Light';
-  font-size: 2em;
-  color: #000;
-  cursor: pointer;
-  border: 1px solid #000;
-  padding: 15px;
+.splash__about-us a {
+  font-family: 'Coves-Bold';
+}
+
+.splash__about-us {
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #d9d9d9;
+  padding-top: 15px;
 }
 
 .splash__tour-scroll {
+  font-family: 'Open Sans';
+  font-size: 1.8em;
+  color: #000;
+  display: block;
+  font-style: italic;
+  font-weight: lighter;
+  letter-spacing: .02em;
+}
+
+.splash__arrow-down {
+  width: 75px;
+  cursor: pointer;
+}
+
+.splash__copy {
   font-family: 'Coves-Light';
-  font-size: 2.8em;
-  color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+.splash__secondary-copy {
+  font-style: italic;
+  font-size: 1.5em;
 }
 
 .splash__main-container {
@@ -144,13 +172,10 @@
 }
 
 .splash a:hover {
-  color: #F79E80;
+  color: #000;
   cursor: pointer;
 }
 
-header {
-  height: 100px;
-}
 //Styling for Redux-auth error modals
 
 h4.modal-title {
@@ -161,4 +186,75 @@ h4.modal-title {
 .modal-body p {
   font-family: 'Coves-Light';
   font-size: 1.3em;
+}
+
+
+//media queries
+
+//at tablet
+@media screen and (max-width: 990px) {
+
+  .splash__column-container {
+    height: auto;
+    background-color: #fff;
+  }
+
+  .splash__tour-column {
+    height: 90%;
+    margin-bottom: 40px;
+    background-color: #f6f6f6;
+  }
+
+  .splash__tour-header {
+    margin-top: 30px;
+  }
+
+  .splash__tour-container h5 {
+    padding-top: 15px;
+    font-size: 1.8em;
+  }
+
+  .splash__column-container {
+    margin-bottom: 0;
+  }
+
+  .splash__about-header {
+    margin-top: 50px;
+  }
+
+  .splash__about-us {
+    margin-bottom: 40px;
+  }
+}
+
+
+//at mobile
+@media screen and (max-width: 575px) {
+
+  .form__member-header {
+    font-size: 1.2em;
+  }
+
+  .splash__main-container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .splash__login-container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .form__splash-header {
+    padding-top: 50px;
+  }
+
+  .form__sign-in-container {
+    width: 100%;
+  }
+
+  .splash__about-us {
+    width: 80%;
+    margin: 0 auto 30px auto;
+  }
 }
