@@ -3,6 +3,7 @@ import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import React from 'react';
 import moment from 'moment';
+import { Router, Route, Link } from 'react-router';
 
 import GalleryQuestionBox from './GalleryQuestionBox';
 
@@ -53,7 +54,9 @@ export default React.createClass({
         </span>
         <p className="comments__meta">
           <span className="comments__date">{getTimestamp(comment)}</span>
-          <span className="comments__user">{getUsername(comment)}</span>
+          <Link to={`/profilegallery/${comment.user.id}`} params={{id: comment.user.id}}>
+            <span className="comments__user">{getUsername(comment)}</span>
+          </Link>
         </p>
       </div>
       );
