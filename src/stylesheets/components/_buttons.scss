@@ -1,21 +1,20 @@
 //////// styling for all button elements ////////
 
 //buttons for post critique form
-button.button__submit {
-  @extend %button-hover-fade;
+.form__submit-form {
+  @extend %button-hover-opaque;
   margin-bottom: 20px;
   cursor: pointer;
-  background-color: #fff !important;
 }
 
-.button__submit:hover {
-  @extend %button-hover-pseudo;
+.form__submit-form:hover {
+  @extend %button-hover-opaque-pseudo;
   cursor: pointer;
+  background-color: #fff;
 }
 
 //buttons for main log in form
 button.email-sign-in-submit {
-  @extend %button-hover-fade;
   @extend %button-hover-fade;
   padding-left: 0;
   background-color: $lightest-grey;
