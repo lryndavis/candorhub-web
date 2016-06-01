@@ -1,6 +1,5 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import $ from 'jquery';
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import {connect} from 'react-redux';
