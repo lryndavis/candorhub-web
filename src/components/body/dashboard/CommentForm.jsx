@@ -37,6 +37,17 @@ const styles = {
   }
 };
 
+const formatQuestion = function(question) {
+  let formattedQuestion = question;
+  if (question.charAt(question.length - 1) !== '?') {
+    formattedQuestion = formattedQuestion + "?";
+  }
+  console.log("Formatting " + formattedQuestion);
+  let result = formattedQuestion.replace("painting", "artwork");
+  console.log(result);
+  return result;
+}
+
 export const CommentForm = React.createClass ({
 
   getInitialState: function() {
@@ -167,7 +178,7 @@ export const CommentForm = React.createClass ({
             <p className="form__comment-header">Your Daily Candor</p>
             <p className="form__instructions-header">Now's your chance to share a candid critique of this artwork!</p>
             <p className="form__comment-instructions"><span className="form__tips-header">Tips: </span>{critiqueTips}</p><br></br>
-            <p className="form__question">{this.props.firstQuestion.body}</p>
+            <p className="form__question">{formatQuestion(this.props.firstQuestion.body)}</p>
             <TextField
               id="firstResponse"
               className="form__textfield"
@@ -180,7 +191,7 @@ export const CommentForm = React.createClass ({
               underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
-            <p  className="form__question">{this.props.secondQuestion.body}</p>
+            <p  className="form__question">{formatQuestion(this.props.secondQuestion.body)}</p>
             <TextField
               id="secondResponse"
               className="form__textfield"
@@ -193,7 +204,7 @@ export const CommentForm = React.createClass ({
               underlineFocusStyle={styles.underlineAccentStyle}
             /><br />
             <br />
-            <p  className="form__question">{this.props.thirdQuestion.body}</p>
+            <p  className="form__question">{formatQuestion(this.props.thirdQuestion.body)}</p>
             <TextField
               id="thirdResponse"
               className="form__textfield"

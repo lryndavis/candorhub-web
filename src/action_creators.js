@@ -10,6 +10,8 @@ const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const multipleRandomImagesEndpoint = apiRoot + "images";
 const imageUploadEndpoint = apiRoot + "images";
 
+let randomImageAttempts = 0;
+
 export function setState(state) {
   return {
     type: 'SET_STATE',
@@ -158,15 +160,27 @@ export function postSubmitCommentGallery(body) {
 export function getRandomImageFromServer(state) {
   return function (dispatch, getState) {
     const state = getState();
-    const url = randomImageEndpoint + "&id=" + state.auth.getIn(["user", "attributes", "id"]);
-    console.log(url);
+    const url = randomImageEndpoint + "&id=" +
+    state.auth.getIn(["user", "attributes", "id"]);
     return fetch(url)
     .then(response => response.json())
-    .then(responseJSON => {
-      dispatch(setImageToCritique(state, responseJSON))
-    });
+    .then(function(responseJSON) {
+      console.log(responseJSON);
+      if (authorInComments(responseJSON)) {
+        if (randomImageAttempts < 3) {
+          randomImageAttempts++;
+          getRandomImageFromServer(state);
+        } else {
+          hashHistory.push("/usergallery");
+          randomImageAttempts = 0;
+        }
+      } else {
+        dispatch(setImageToCritique(state, responseJSON))
+      }
+    })
   }
 }
+
 
 //image gallery
 export function getMultipleImagesFromServer(state) {
