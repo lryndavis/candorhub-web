@@ -51,9 +51,7 @@ export default React.createClass({
         </span>
         <p className="comments__meta">
           <span className="comments__date">{getTimestamp(comment)}</span>
-          <Link to={`/profilegallery/${this.props.image.user.id}`} params={{id: this.props.image.user.id}}>
-            <span className="comments__user">{getUsername(comment)}</span>
-          </Link>
+          <span className="comments__user">{getUsername(comment)}</span>
         </p>
       </div>
       );

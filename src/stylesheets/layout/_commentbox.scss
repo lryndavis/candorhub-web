@@ -56,6 +56,10 @@
   font-weight: lighter;
 }
 
+.comments__user:hover {
+  color: $mustard;
+}
+
 .comments__date {
   border-right: 1px solid $mustard;
   padding-right: 7px;
