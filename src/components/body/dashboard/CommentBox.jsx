@@ -25,6 +25,14 @@ const getUsername = function(comment) {
     return "unknown user";
   }
 }
+//get first letter of username for avatar 
+const getAvatar = function(comment) {
+  if (comment.user) {
+    return (comment.user.username.charAt(0)).toUpperCase();
+  } else {
+    return "U";
+  }
+}
 
 export default React.createClass({
 
@@ -33,7 +41,7 @@ export default React.createClass({
     var commentRender = comments.map(function(comment) {
     return (
       <div className="comments" key={comment.id}>
-        <Avatar style={avatarStyles}>U</Avatar>
+        <Avatar style={avatarStyles}>{getAvatar(comment)}</Avatar>
         <span className="comments__body">
           {comment.body}
         </span>
