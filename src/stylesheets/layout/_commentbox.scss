@@ -1,7 +1,7 @@
 ////// custom styles for the comments section ///////
 
-.comments_comment-box {
-  border-bottom: 1px solid $lightest-grey;
+.comments__comment-box {
+  border-bottom: 1px solid $light-grey;
 }
 
 .form__header {
@@ -54,6 +54,10 @@
   padding-left: 7px;
   font-family: $font-stack--primary;
   font-weight: lighter;
+}
+
+.comments__user:hover {
+  color: $mustard;
 }
 
 .comments__date {

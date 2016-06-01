@@ -22,20 +22,20 @@
   padding-bottom: 15px;
 }
 
-.search-header{
+.gallery__header-search{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
 
-.gallery-header {
+.gallery__header {
   font-family: 'Coves-Light';
   font-size: 1.5em;
   text-transform: uppercase;
   border-bottom: 1px solid $mustard;
 }
 
-.grid-item {
+.gallery__item {
   width: 180px;
   margin-bottom: 10px;
   position: relative;
@@ -74,7 +74,7 @@ figure figcaption {
   z-index: 5;
 }
 
-.hover-title {
+.gallery__title-hover {
   padding-top: 5px;
   color: #000;
   font-size: 1em;
@@ -86,13 +86,13 @@ figure figcaption {
   margin-bottom: 5px;
 }
 
-.hover-caption {
+.gallery__caption-hover {
   font-size: .9em;
   font-family: 'Coves-Light';
   display: block;
 }
 
-.hover-comments {
+.gallery__comments-hover {
   font-size: .8em;
   font-family: 'Coves-Light';
   padding: 0;
@@ -123,7 +123,7 @@ figure.hover img {
     transform: translateY(-90px);
 }
 
-.image-gallery {
+.gallery__images {
   padding-top: 10px;
   padding-left: 0;
   margin: 0 auto;
@@ -142,7 +142,7 @@ figure.hover img {
 }
 
 @media screen and (max-width: 900px) {
-  .gallery-header {
+  .gallery__header {
     display: none;
   }
 }

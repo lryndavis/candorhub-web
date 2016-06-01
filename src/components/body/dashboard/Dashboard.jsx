@@ -28,7 +28,7 @@ export const Dashboard = React.createClass({
   },
 
   render: function() {
-    return <div className="dashboard-component-div">
+    return <div>
         { this.props.signedIn ?
             <div className="dashboard__main-container">
 

@@ -57,15 +57,17 @@ export const GalleryView = React.createClass({
               <ImageModal image={this.props.imageById} />
             </MuiThemeProvider>
 
-            {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ?
-              <p className="gallery__delete-this"
-                onClick={this.deleteImage}>Delete This Work</p> :
-              <p className="gallery__critique-this" onClick={this.onClick}>Critique This Work</p>
-              }
+            {(this.props.imageById.user.id === this.props.currentUserId) ?
+              <p className="gallery__link-delete" onClick={this.deleteImage}>Delete This Work</p>
+              : authorInComments(this.props.imageById, this.props.currentUserId) ?
+              <p className="gallery__commented">You've already commented on this artwork!</p>
+              : <p className="gallery__link-critique" onClick={this.onClick}>Critique This Work</p>
+            }
           </div>
 
-          {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ? <GalleryQuestionList imageById={this.props.imageById} /> :
-            <div className="dashboard__comment-form-container col-md-6">
+          {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId))
+            ? <GalleryQuestionList imageById={this.props.imageById} /> :
+            <div className="dashboard__container-form">
               { this.state.commentFormShow ?
               <MuiThemeProvider muiTheme={getMuiTheme()}>
                 <GalleryCommentFormContainer callbackParent={this.onChildChanged} commentFormShow ={this.state.commentFormShow} questionsForComment={this.props.questionsForComment} />
