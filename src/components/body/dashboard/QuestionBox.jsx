@@ -9,7 +9,7 @@ import QuestionList from './QuestionList';
 export default React.createClass({
 
   getInitialState: function() {
-    return { commentShow: false };
+    return { commentShow: true };
     return { navArrowChange: false };
   },
 
