@@ -42,9 +42,7 @@ const formatQuestion = function(question) {
   if (question.charAt(question.length - 1) !== '?') {
     formattedQuestion = formattedQuestion + "?";
   }
-  console.log("Formatting " + formattedQuestion);
   let result = formattedQuestion.replace("painting", "artwork");
-  console.log(result);
   return result;
 }
 

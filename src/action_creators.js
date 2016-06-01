@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import {hashHistory} from 'react-router';
+import {authorInComments} from './lib/CommentAuthorCheck';
 
 
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
@@ -159,7 +160,6 @@ export function getRandomImageFromServer(state) {
   return function (dispatch, getState) {
     const state = getState();
     const url = randomImageEndpoint + "&id=" + state.auth.getIn(["user", "attributes", "id"]);
-    console.log(url);
     return fetch(url)
     .then(response => response.json())
     .then(responseJSON => {
