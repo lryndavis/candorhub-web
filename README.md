@@ -14,4 +14,4 @@ Clone this repository then `npm install`.
 
 ## Build Distribution Files
 
-`webpack`
+`npm run build`
