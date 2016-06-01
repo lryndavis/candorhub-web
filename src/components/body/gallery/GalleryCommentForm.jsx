@@ -143,7 +143,7 @@ export const GalleryCommentForm = React.createClass({
   },
 
   render: function() {
-    return (<div>
+    return (<div className="col-md-6">
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
             <p className="form__comment-header">Your Daily Candor</p>
