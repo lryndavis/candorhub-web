@@ -14,4 +14,5 @@ Clone this repository then `npm install`.
 
 ## Build Distribution Files
 
+`sudo npm install --global trash-cli`
 `npm run build`
