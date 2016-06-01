@@ -9,8 +9,9 @@
   max-width: 350px;
 }
 
-.form__form-text-center {
-  text-align: center;
+.image-container {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .dashboard__user-name {
@@ -29,11 +30,6 @@
   padding-left: 10px;
 }
 
-.image-container {
-  width: 100%;
-  margin: 0 auto;
-}
-
 .dashboard__image-info-container {
   width: 50%;
   margin: 0 auto;
@@ -47,56 +43,6 @@
   margin-top: 10px;
   cursor: pointer;
   border-right: 1px solid $light-grey;
-}
-
-.gallery__link-critique {
-  text-transform: uppercase;
-  font-family: 'Coves-Light';
-  font-size: 1.4em;
-  cursor: pointer;
-  position: relative;
-}
-
-.gallery__link-critique:hover:after {
-  width: 33%;
-}
-
-.gallery__link-critique:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  border-bottom: 1px solid black;
-  transition: 0.4s;
-}
-
-.gallery__link-delete {
-  text-transform: uppercase;
-  font-family: 'Coves-Light';
-  font-size: 1.4em;
-  cursor: pointer;
-  position: relative;
-}
-
-.gallery__link-delete:hover {
-  color: $orange-sunset;
-}
-
-.gallery__link-delete:after {
-  @extend %animate-links-after;
-  border-bottom: 1px solid $orange-sunset;
-  color: $orange-sunset;
-}
-
-.gallery__link-delete:hover:after {
-  @extend %animate-links-hover;
-  width: 33%;
-}
-
-.gallery__commented {
-  font-size: 1.2em;
-  font-weight: 300;
 }
 
 .dashboard__image-description {
@@ -196,61 +142,9 @@
     width: 100%;
   }
 
-  .gallery__link-critique {
-    padding: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 1.2em;
-    font-family: 'Coves-Light';
-    width: 300px;
-    border: 1px solid  $mustard;
-    color: $mustard !important;
-    display: inline-block;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: color, background-color;
-    transition-property: color, background-color;
-    background-color: #fff;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 30px;
-  }
-
-  .gallery__link-critique:hover {
-    background-color:  $mustard !important;
-    color: white !important;
-  }
-
-  .gallery__link-critique:after {
-    display: none;
-  }
-
-  .gallery__link-delete:after {
-    display: none;
-  }
-
-  .gallery__link-delete {
-    margin-top: 20px;
-  }
-
-  .gallery__commented {
-    margin-top: 20px;
-  }
-
   .dashboard__image-info {
     background-color: $lightest-grey;
     max-width: 100%;
     padding: 20px;
-  }
-
-  .comments__header {
-    margin-top: 50px;
   }
 }

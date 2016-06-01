@@ -1,6 +1,6 @@
 ////////// custom styles for splash page////////
 
-.splash__login-container {
+.splash__container-login {
   height: 90vh;
   width: 100%;
   margin: 0 auto;
@@ -32,7 +32,7 @@
   margin-top: 0
 }
 
-.splash__member-header {
+.splash__header-member {
   font-family: 'Coves-Light';
   color: #000;
   cursor: pointer;
@@ -63,21 +63,21 @@
 
 //styling for splash page tour
 
-.splash__tour-container{
+.splash__container-tour{
   height: 100vh;
 }
 
-.splash__column-container {
+.splash__container-columns {
   background-color: $lightest-grey;
   margin-bottom: 30px;
   height: 375px;
 }
 
-.splash__tour-column {
+.splash__column-tour {
   height: 375px;
 }
 
-.splash__tour-header {
+.splash__header-tour {
   font-family: 'Coves-Light';
   font-size: 3em;
   margin-top: 50px;
@@ -85,11 +85,11 @@
   margin-top: 15px;
 }
 
-.splash__tour-container {
+.splash__container-tour {
   text-align: center;
 }
 
-.splash__tour-container h5 {
+.splash__container-tour h5 {
   padding-bottom: 15px;
   padding-top: 10px;
   font-family: 'Coves-Light';
@@ -99,14 +99,14 @@
   text-transform: uppercase;
 }
 
-.splash__tour-copy {
+.splash__copy-tour {
   font-family: 'Coves-Light';
   font-size: 1.3em;
   margin-bottom: 40px;
   padding-top: 15px;
 }
 
-.splash__tour-image {
+.splash__image-tour {
   width: 30%;
 }
 
@@ -115,31 +115,31 @@
   margin: 0 auto;
 }
 
-.splash__about-header {
+.splash__header-about {
   font-family: 'Coves-Light';
   margin-top: 45px;
   font-size: 1.8em;
   margin-bottom: 10px;
 }
 
-.splash__about-us p {
+.splash___container-about p {
   font-family: 'Coves-Light';
   font-size: 1.2em;
   margin-bottom: 0;
 }
 
-.splash__about-us a {
+.splash___container-about a {
   font-family: 'Coves-Bold';
 }
 
-.splash__about-us {
+.splash___container-about {
   width: 80%;
   margin: 0 auto;
   border-top: 1px solid #d9d9d9;
   padding-top: 15px;
 }
 
-.splash__tour-scroll {
+.splash__link-scroll {
   font-family: $font-stack--primary;
   font-size: 1.8em;
   color: #000;
@@ -149,7 +149,7 @@
   letter-spacing: .02em;
 }
 
-.splash__arrow-down {
+.splash__image-arrow {
   width: 75px;
   cursor: pointer;
 }
@@ -165,7 +165,7 @@
   font-size: 1.5em;
 }
 
-.splash__main-container {
+.splash__container-main {
   width: 60%;
   margin: 0 auto;
 }
@@ -193,35 +193,35 @@ h4.modal-title {
 //at tablet
 @media screen and (max-width: 990px) {
 
-  .splash__column-container {
+  .splash__container-columns {
     height: auto;
     background-color: #fff;
   }
 
-  .splash__tour-column {
+  .splash__column-tour {
     height: 90%;
     margin-bottom: 40px;
     background-color: $lightest-grey;
   }
 
-  .splash__tour-header {
+  .splash__header-tour {
     margin-top: 30px;
   }
 
-  .splash__tour-container h5 {
+  .splash__container-tour h5 {
     padding-top: 15px;
     font-size: 1.8em;
   }
 
-  .splash__column-container {
+  .splash__container-columns {
     margin-bottom: 0;
   }
 
-  .splash__about-header {
+  .splash__header-about {
     margin-top: 50px;
   }
 
-  .splash__about-us {
+  .splash___container-about {
     margin-bottom: 40px;
   }
 }
@@ -234,12 +234,12 @@ h4.modal-title {
     font-size: 1.2em;
   }
 
-  .splash__main-container {
+  .splash__container-main {
     margin: 0 auto;
     width: 100%;
   }
 
-  .splash__login-container {
+  .splash__container-login {
     margin: 0 auto;
     width: 100%;
   }
@@ -252,7 +252,7 @@ h4.modal-title {
     width: 100%;
   }
 
-  .splash__about-us {
+  .splash___container-about {
     width: 80%;
     margin: 0 auto 30px auto;
   }
