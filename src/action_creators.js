@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import {hashHistory} from 'react-router';
-
+import { authorInComments } from './lib/CommentAuthorCheck';
 
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
@@ -9,6 +9,8 @@ const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const multipleRandomImagesEndpoint = apiRoot + "images";
 const imageUploadEndpoint = apiRoot + "images";
+
+let randomImageAttempts = 0;
 
 export function setState(state) {
   return {
