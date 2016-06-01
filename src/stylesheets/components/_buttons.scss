@@ -80,3 +80,16 @@ button.sign-out-submit {
   font-style: italic;
   border: none;
 }
+
+//uoload form button
+
+input.button__submit {
+  @extend %button-hover-fade;
+  background-color: #fff;
+  width: 250px;
+  margin-top: 25px;
+}
+
+input.button__submit:hover {
+  @extend %button-hover-pseudo;
+}
