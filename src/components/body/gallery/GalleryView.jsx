@@ -64,8 +64,9 @@ export const GalleryView = React.createClass({
               }
           </div>
 
-          {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ? <GalleryQuestionList imageById={this.props.imageById} /> :
-            <div className="dashboard__comment-form-container col-md-6">
+          {((this.props.imageById.user.id === this.props.currentUserId) || authorInComments(this.props.imageById, this.props.currentUserId)) ?
+            <GalleryQuestionList imageById={this.props.imageById} /> :
+            <div className="dashboard__comment-form-container">
               { this.state.commentFormShow ?
               <MuiThemeProvider muiTheme={getMuiTheme()}>
                 <GalleryCommentFormContainer callbackParent={this.onChildChanged} commentFormShow ={this.state.commentFormShow} questionsForComment={this.props.questionsForComment} />
