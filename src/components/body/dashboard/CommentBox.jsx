@@ -3,6 +3,7 @@ import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import React from 'react';
 import moment from 'moment';
+import { Router, Route, Link } from 'react-router';
 
 import QuestionBox from './QuestionBox';
 
@@ -34,6 +35,14 @@ const getAvatar = function(comment) {
   }
 }
 
+const getUserId = function(comment) {
+  if (comment.user) {
+    return comment.user.id;
+  } else {
+    return "0";
+  }
+}
+
 export default React.createClass({
 
   render: function() {
@@ -51,7 +60,9 @@ export default React.createClass({
         </span>
         <p className="comments__meta">
           <span className="comments__date">{getTimestamp(comment)}</span>
-          <span className="comments__user">{getUsername(comment)}</span>
+          <Link to={`/profilegallery/${getUserId(comment)}`} params={{id: getUserId(comment)}}>
+            <span className="dashboard__user-name">{getUsername(comment)}</span>
+          </Link>
         </p>
       </div>
       );
