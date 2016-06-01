@@ -54,13 +54,13 @@ button.email-sign-up-submit:active {
 }
 
 //faux button link in splash tour
-.splash__faux-button {
+.splash__button-faux {
   @extend %button-hover-fade;
   margin: 0 auto;
   background-color: #fff;
 }
 
-.splash__faux-button:hover {
+.splash__button-faux:hover {
   @extend %button-hover-pseudo;
 }
 
