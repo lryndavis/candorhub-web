@@ -129,13 +129,16 @@ export const GalleryCommentForm = React.createClass({
       "image_id": this.props.imageById.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
-          "body": firstResponse.toString()
+          "body": firstResponse.toString(),
+          "user_id": this.props.currentUserId
         }, {
           "question_id": this.props.questionsForComment[1].id,
-          "body": secondResponse.toString()
+          "body": secondResponse.toString(),
+          "user_id": this.props.currentUserId
         }, {
           "question_id": this.props.questionsForComment[2].id,
-          "body": thirdResponse.toString()
+          "body": thirdResponse.toString(),
+          "user_id": this.props.currentUserId
         }]
     };
     this.props.postSubmitCommentGallery(body);
@@ -143,7 +146,7 @@ export const GalleryCommentForm = React.createClass({
   },
 
   render: function() {
-    return (<div>
+    return (<div className="col-md-6">
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
             <p className="form__comment-header">Your Daily Candor</p>
@@ -183,7 +186,7 @@ export const GalleryCommentForm = React.createClass({
             /><br />
             <br />
             <button type="submit"
-              className="button button__submit"
+              className="form__submit-form"
               disabled={!this.state.readyToSubmit}>Post</button>
             </div>
           </form>
@@ -194,6 +197,8 @@ export const GalleryCommentForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
+    signedIn: state.auth.getIn(["user", "isSignedIn"]),
+    currentUserId: state.auth.getIn(["user", "attributes", "id"]),
     imageById: state.imageGallery.imageById,
     firstQuestion: state.comments.questionsForComment[0],
     secondQuestion: state.comments.questionsForComment[1],

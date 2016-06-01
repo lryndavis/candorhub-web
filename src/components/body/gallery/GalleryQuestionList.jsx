@@ -29,7 +29,7 @@ export default React.createClass({
           <div>
             <GalleryNoComments />
           </div> :
-          <div>
+          <div className="col-md-6">
             <h2 className="comments__header">Critique</h2>
             {questionListRender}
           </div>

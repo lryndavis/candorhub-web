@@ -20,6 +20,10 @@
   color: $mustard;
 }
 
+.dashboard__user-name:hover {
+  color: $orange-sunset;
+}
+
 .title-border {
   border-right: 1px solid $mustard;
   padding-left: 10px;
@@ -42,10 +46,10 @@
   margin-bottom: 20px;
   margin-top: 10px;
   cursor: pointer;
-  border-right: 1px solid $lightest-grey;
+  border-right: 1px solid $light-grey;
 }
 
-.gallery__critique-this {
+.gallery__link-critique {
   text-transform: uppercase;
   font-family: 'Coves-Light';
   font-size: 1.4em;
@@ -53,11 +57,11 @@
   position: relative;
 }
 
-.gallery__critique-this:hover:after {
+.gallery__link-critique:hover:after {
   width: 33%;
 }
 
-.gallery__critique-this:after {
+.gallery__link-critique:after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -67,7 +71,7 @@
   transition: 0.4s;
 }
 
-.gallery__delete-this {
+.gallery__link-delete {
   text-transform: uppercase;
   font-family: 'Coves-Light';
   font-size: 1.4em;
@@ -75,19 +79,24 @@
   position: relative;
 }
 
-.gallery__delete-this:hover {
+.gallery__link-delete:hover {
   color: $orange-sunset;
 }
 
-.gallery__delete-this:after {
+.gallery__link-delete:after {
   @extend %animate-links-after;
   border-bottom: 1px solid $orange-sunset;
   color: $orange-sunset;
 }
 
-.gallery__delete-this:hover:after {
+.gallery__link-delete:hover:after {
   @extend %animate-links-hover;
   width: 33%;
+}
+
+.gallery__commented {
+  font-size: 1.2em;
+  font-weight: 300;
 }
 
 .dashboard__image-description {
@@ -154,8 +163,9 @@
     margin-bottom: 15px;
   }
 
-  .dashboard__comment-form-container {
-    margin-bottom: 50px
+  .dashboard__container-form {
+    margin-bottom: 50px;
+    height: 100%;
   }
 
   .dashboard__image-main{
@@ -186,7 +196,7 @@
     width: 100%;
   }
 
-  .gallery__critique-this {
+  .gallery__link-critique {
     padding: 5px;
     cursor: pointer;
     text-transform: uppercase;
@@ -213,20 +223,24 @@
     margin-top: 30px;
   }
 
-  .gallery__critique-this:hover {
+  .gallery__link-critique:hover {
     background-color:  $mustard !important;
     color: white !important;
   }
 
-  .gallery__critique-this:after {
+  .gallery__link-critique:after {
     display: none;
   }
 
-  .gallery__delete-this:after {
+  .gallery__link-delete:after {
     display: none;
   }
 
-  .gallery__delete-this {
+  .gallery__link-delete {
+    margin-top: 20px;
+  }
+
+  .gallery__commented {
     margin-top: 20px;
   }
 

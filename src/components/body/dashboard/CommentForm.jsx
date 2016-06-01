@@ -207,7 +207,7 @@ export const CommentForm = React.createClass ({
             /><br />
             <br />
             <button type="submit"
-              className="button button__submit"
+              className="form__submit-form"
               disabled={!this.state.readyToSubmit}>Post</button>
             </div>
           </form> :

@@ -29,7 +29,7 @@ describe("GalleryQuestionBox", () => {
   });
 
   it("renders an individual question box", () => {
-    expect(tree.props.className).to.contain("dashboard__question-box");
+    expect(tree.props.className).to.contain("question__question-box");
   });
 
   it("renders a navigation arrow", () => {

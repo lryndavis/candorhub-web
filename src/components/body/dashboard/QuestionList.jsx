@@ -15,6 +15,7 @@ export default React.createClass({
         </div>
       );
     });
+    
     return (
       <div>
         <h2 className="comments__header">Critique</h2>
