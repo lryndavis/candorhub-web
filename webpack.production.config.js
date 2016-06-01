@@ -50,12 +50,13 @@ module.exports = {
   },
   plugins: [
 
+    // use production version of React
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    
+
     new webpack.optimize.UglifyJsPlugin({
       compress: {
           warnings: false
