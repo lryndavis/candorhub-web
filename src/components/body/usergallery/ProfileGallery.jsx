@@ -2,7 +2,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import React from 'react';
 import {connect} from 'react-redux';
-import {browserHistory, Link} from 'react-router';
+import {hashHistory, Link} from 'react-router';
 
 import * as actionCreators from '../../../action_creators';
 import ProfileSearchBar from './ProfileSearchBar';

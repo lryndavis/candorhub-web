@@ -3,8 +3,6 @@ var path = require('path');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
   module: {
@@ -50,12 +48,20 @@ module.exports = {
     publicPath: 'http://jeffreyruder.github.io/ch-test/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+
+    // use production version of React
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+          warnings: false
+      }
+    }),
     new webpack.NoErrorsPlugin()
   ]
 };

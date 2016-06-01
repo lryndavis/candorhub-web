@@ -1,7 +1,7 @@
 import {Map} from 'immutable';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Router, IndexRoute, Route, browserHistory} from 'react-router';
+import {Router, IndexRoute, Route, hashHistory} from 'react-router';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
@@ -38,7 +38,7 @@ store.dispatch(configure(
 )).then(() => {
   ReactDOM.render(
     <Provider store={store}>
-      <Router history={browserHistory}>{routes}</Router>
+      <Router history={hashHistory}>{routes}</Router>
     </Provider>,
     document.getElementById('app')
   );
