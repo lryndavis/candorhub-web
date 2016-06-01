@@ -25,7 +25,7 @@ describe("SearchBar", () => {
   });
 
   it("renders an image gallery", () => {
-    expect(tree.props.className).to.contain("image-gallery");
+    expect(tree.props.className).to.contain("gallery__images");
   });
 
   it("renders images", () => {

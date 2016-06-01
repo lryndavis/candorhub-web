@@ -1,9 +1,9 @@
 import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
+import { Router, Route, Link } from 'react-router';
 import React from 'react';
 import moment from 'moment';
-import { Router, Route, Link } from 'react-router';
 
 import QuestionBox from './QuestionBox';
 
@@ -61,14 +61,14 @@ export default React.createClass({
         <p className="comments__meta">
           <span className="comments__date">{getTimestamp(comment)}</span>
           <Link to={`/profilegallery/${getUserId(comment)}`} params={{id: getUserId(comment)}}>
-            <span className="dashboard__user-name">{getUsername(comment)}</span>
+            <span className="comments__user">{getUsername(comment)}</span>
           </Link>
         </p>
       </div>
       );
     });
     return (
-      <div className="comments_comment-box">
+      <div className="comments__comment-box">
         {commentRender}
       </div>
     );

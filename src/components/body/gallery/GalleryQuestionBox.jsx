@@ -21,7 +21,7 @@ export default React.createClass({
 
   render: function() {
     return (
-      <div className="dashboard__question-box">
+      <div className="question__question-box">
         <p className="question" key={this.props.question.id} onClick={ this.onClick }>
           { this.state.navArrowChange ?
             <NavigationArrowDropUp /> :

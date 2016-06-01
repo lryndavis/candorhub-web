@@ -63,7 +63,7 @@ export default React.createClass({
         <p className="comments__meta">
           <span className="comments__date">{getTimestamp(comment)}</span>
           <Link to={`/profilegallery/${getUserId(comment)}`} params={{id: getUserId(comment)}}>
-            <span className="dashboard__user-name">{getUsername(comment)}</span>
+            <span className="comments__user">{getUsername(comment)}</span>
           </Link>
         </p>
       </div>
@@ -71,7 +71,7 @@ export default React.createClass({
     });
 
     return (
-      <div className="comments_comment-box">
+      <div className="comments__comment-box">
         {commentRender}
       </div>
     );

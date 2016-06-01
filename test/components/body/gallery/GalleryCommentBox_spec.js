@@ -35,7 +35,7 @@ describe("GalleryCommentBox", () => {
   });
 
   it("renders a comment list", () => {
-    expect(tree.props.className).to.contain("comments_comment-box");
+    expect(tree.props.className).to.contain("comments__comment-box");
   });
 
   it("renders a comment box for each comment", () => {
