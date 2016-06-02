@@ -82,7 +82,6 @@ button.sign-out-submit {
 }
 
 //upload form button
-
 input.button__submit {
   @extend %button-hover-fade;
   background-color: #fff;
@@ -93,4 +92,13 @@ input.button__submit {
 
 input.button__submit:hover {
   @extend %button-hover-pseudo;
+}
+
+//media queries
+
+@media screen and (max-width: 575px) {
+
+  button.email-sign-up-submit {
+    margin-bottom: 25px;
+  }
 }
