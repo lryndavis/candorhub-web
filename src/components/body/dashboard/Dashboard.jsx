@@ -22,25 +22,6 @@ export const Dashboard = React.createClass({
     this.props.getRandomImageFromServer();
   },
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.imageForCritique) {
-      if (authorInComments(nextProps.imageForCritique, this.props.userId)) {
-        if (randomImageAttempts < 5) {
-          randomImageAttempts++;
-          console.log(randomImageAttempts);
-          this.props.getRandomImageFromServer();
-          return false;
-        } else {
-          randomImageAttempts = 0;
-          hashHistory.push("/usergallery");
-          return false;
-        }
-      } else {
-        return true;
-      }
-    }
-  },
-
   componentWillUpdate(nextProps) {
     //redirect to splash on sign-out
     if (!nextProps.signedIn) {
@@ -49,8 +30,6 @@ export const Dashboard = React.createClass({
   },
 
   render: function() {
-    console.log("state auth info");
-    console.log(this.props.username);
     return <div>
         { this.props.signedIn ?
             <div className="dashboard__main-container">
@@ -65,6 +44,14 @@ export const Dashboard = React.createClass({
                   <MuiThemeProvider muiTheme={getMuiTheme()}>
                     <ImageModal image={this.props.imageForCritique} />
                   </MuiThemeProvider>
+                  {this.props.didSubmitComment ?
+                    <div className="gallery__commented">
+                      <p>Thanks for sharing some candor!</p>
+                      <Link to={'/gallery'}><p>Browse the gallery to see more artwork.</p></Link>
+                    </div>
+
+                    : null
+                  }
                 </div>
 
                 <div className="col-md-6">
@@ -88,7 +75,8 @@ function mapStateToProps(state) {
     imageForCritique: state.imageForCritique,
     questionsForComment: state.comments.questionsForComment,
     username: state.auth.getIn(["user", "attributes", "username"]),
-    userId: state.auth.getIn(["user", "attributes", "id"])
+    userId: state.auth.getIn(["user", "attributes", "id"]),
+    didSubmitComment: state.comments.commentSubmitted,
   };
 }
 
