@@ -1,4 +1,15 @@
-//comment form styling
+///////comment/critique form custom styling /////////
+
+.form__header {
+  padding-bottom: 25px;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2em;
+}
+
+.form__form-text-center {
+  text-align: center;
+}
 
 .form__question {
   padding-left: 10px;
@@ -157,20 +168,21 @@ input.email-sign-in-password:-webkit-autofill {
 
 div.ReactTags__tagInput input,
 div.ReactTags__tagInput input:focus,
-input.upload-dashboard__image-title,
-input.upload-form__image-desc {
+input.form__title-upload,
+input.form__description-upload {
   @extend %upload-material-text-fields;
 }
 
-.upload-title {
+.form__header-upload {
   text-transform: uppercase;
   font-family: 'Coves-Light';
-  margin-top: 0;
-  margin-bottom: 25px;
   text-align: center;
+  border-bottom: 1px solid $mustard;
+  width: 225px;
+  margin: 0 auto 25px auto;
 }
 
-.tags-container {
+.form__container-tags {
   text-align: center;
   list-style: none;
 }
@@ -190,16 +202,16 @@ div.ReactTags__selected span.ReactTags__tag {
   margin-bottom: 5px;
 }
 
-.tags-header {
+.form__header-tags {
   font-size: 1.3em;
   font-family: 'Coves-Light';
 }
 
-.upload-text-fields {
+.form__container-form {
   text-align: center;
 }
 
-.dropzone-copy {
+.form__copy-dropzone {
   font-family: 'Coves-Light';
   margin-top: 5px;
 }

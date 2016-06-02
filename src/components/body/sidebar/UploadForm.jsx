@@ -133,20 +133,20 @@ export const UploadForm = React.createClass({
   render() {
     return (
       <form className='upload-form' onSubmit={this.handleSubmit}>
-        <h3 className="upload-title">Upload Your Work</h3>
-        <div className="col-md-6 upload-text-fields">
+        <h3 className="form__header-upload">Upload Your Work</h3>
+        <div className="col-md-6 form__container-form">
         {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
           <div>
             <CircularProgress size={2} />
             <p>Uploading your masterpiece...</p>
           </div> :
           <p>All done with your upload!</p>) :
-          <div className="drop-zone">
+          <div className="form__drop-zone">
             <Dropzone
               onDrop={this.onDrop}
               accept="image/*"
               multiple={false}>
-              <div className="dropzone-copy">Select a file to upload</div>
+              <div className="form__copy-dropzone">Select a file to upload</div>
                 {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
                   {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
                 : null }
@@ -157,14 +157,14 @@ export const UploadForm = React.createClass({
           <br />
 
           <input
-            className="upload-dashboard__image-title"
+            className="form__title-upload"
             placeholder="Title"
             value={this.state.title}
             onChange={this.handleTitleChange}
             /><br />
             <br />
           <input
-            className="upload-form__image-desc"
+            className="form__description-upload"
             placeholder="Artist's Notes"
             value={this.state.description}
             onChange={this.handleDescChange}
@@ -172,8 +172,8 @@ export const UploadForm = React.createClass({
             <input className="button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
           </div>
 
-          <div className="col-md-6 tags-container">
-            <p className="tags-header">Add Tags</p>
+          <div className="col-md-6 form__container-tags">
+            <p className="form__header-tags">Add Tags</p>
             <ReactTags
               tags={this.state.tags}
               handleDelete={this.handleTagDeletion}

@@ -34,7 +34,7 @@ describe("UploadForm", () => {
 
   it("updates state on title change", () => {
     const textField = tree.subTree("input",
-      (node) => node.props.className === "upload-dashboard__image-title");
+      (node) => node.props.className === "form__title-upload");
     textField.props.onChange({
       target: {
         value: "My Image"
@@ -45,7 +45,7 @@ describe("UploadForm", () => {
 
   it("updates state on description change", () => {
     const textField = tree.subTree("input",
-      (node) => node.props.className === "upload-form__image-desc");
+      (node) => node.props.className === "form__description-upload");
     textField.props.onChange({
       target: {
         value: "My Description"

@@ -1,21 +1,13 @@
 ////// custom styles for the comments section ///////
 
-.comments_comment-box {
-  border-bottom: 1px solid $lightest-grey;
-}
-
-.form__header {
-  padding-bottom: 25px;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 2em;
+.comments__comment-box {
+  border-bottom: 1px solid $light-grey;
 }
 
 .comments__header {
   font-size: 1.8em;
   font-family: 'Coves-Light';
   text-align: center;
-  font-weight: lighter;
   text-transform: uppercase;
   margin-top: 0;
   border-bottom: 1px solid $mustard;
@@ -29,7 +21,7 @@
   margin-top: 5px;
   font-family: $font-stack--primary;
   letter-spacing: .01em;
-  font-weight: 400;
+  font-weight: $font-weight--light;
 }
 
 .comments {
@@ -41,7 +33,7 @@
   padding-left: 10px;
   font-size: .9em;
   font-family: $font-stack--primary;
-  font-weight: lighter;
+  font-weight: $font-weight--ultralight;
 }
 
 .comments__meta {
@@ -53,26 +45,23 @@
 .comments__user {
   padding-left: 7px;
   font-family: $font-stack--primary;
-  font-weight: lighter;
+  font-weight: $font-weight--ultralight;
+}
+
+.comments__user:hover {
+  color: $mustard;
 }
 
 .comments__date {
   border-right: 1px solid $mustard;
   padding-right: 7px;
   font-family: $font-stack--primary;
-  font-weight: lighter;
+  font-weight: $font-weight--ultralight;
 }
 
-.gallery__no-comments {
-  font-family: 'Coves-Light';
-  text-align: center;
-  padding-top: 10px;
-}
-
-//media queries
 @media screen and (max-width: 990px) {
-  .gallery__no-comments {
-    margin-bottom: 40px;
-    font-size: 1.3em;
+
+  .comments__header {
+    margin-top: 50px;
   }
 }

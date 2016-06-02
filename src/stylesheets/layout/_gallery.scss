@@ -3,6 +3,61 @@
 .gallery {
   text-align: left;
 }
+.gallery__link-critique {
+  text-transform: uppercase;
+  font-family: 'Coves-Light';
+  font-size: 1.4em;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery__link-critique:hover:after {
+  width: 33%;
+}
+
+.gallery__link-critique:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 1px solid black;
+  transition: 0.4s;
+}
+
+.gallery__link-delete {
+  text-transform: uppercase;
+  font-family: 'Coves-Light';
+  font-size: 1.4em;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery__link-delete:hover {
+  color: $orange-sunset;
+}
+
+.gallery__link-delete:after {
+  @extend %animate-links-after;
+  border-bottom: 1px solid $orange-sunset;
+  color: $orange-sunset;
+}
+
+.gallery__link-delete:hover:after {
+  @extend %animate-links-hover;
+  width: 33%;
+}
+
+.gallery__commented {
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.gallery__no-comments {
+  font-family: 'Coves-Light';
+  text-align: center;
+  padding-top: 10px;
+}
 
 .gallery__main-container {
   @extend %main-container;
@@ -22,20 +77,20 @@
   padding-bottom: 15px;
 }
 
-.search-header{
+.gallery__header-search{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
 
-.gallery-header {
+.gallery__header {
   font-family: 'Coves-Light';
   font-size: 1.5em;
   text-transform: uppercase;
   border-bottom: 1px solid $mustard;
 }
 
-.grid-item {
+.gallery__item {
   width: 180px;
   margin-bottom: 10px;
   position: relative;
@@ -74,7 +129,7 @@ figure figcaption {
   z-index: 5;
 }
 
-.hover-title {
+.gallery__title-hover {
   padding-top: 5px;
   color: #000;
   font-size: 1em;
@@ -86,13 +141,13 @@ figure figcaption {
   margin-bottom: 5px;
 }
 
-.hover-caption {
+.gallery__caption-hover {
   font-size: .9em;
   font-family: 'Coves-Light';
   display: block;
 }
 
-.hover-comments {
+.gallery__comments-hover {
   font-size: .8em;
   font-family: 'Coves-Light';
   padding: 0;
@@ -123,7 +178,7 @@ figure.hover img {
     transform: translateY(-90px);
 }
 
-.image-gallery {
+.gallery__images {
   padding-top: 10px;
   padding-left: 0;
   margin: 0 auto;
@@ -139,10 +194,63 @@ figure.hover img {
   .gallery__main-container {
     width: 95%;
   }
+
+  .gallery__no-comments {
+    margin-bottom: 40px;
+    font-size: 1.3em;
+  }
+
+  .gallery__link-critique {
+    padding: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-family: 'Coves-Light';
+    width: 300px;
+    border: 1px solid  $mustard;
+    color: $mustard !important;
+    display: inline-block;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+    background-color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+  }
+
+  .gallery__link-critique:hover {
+    background-color:  $mustard !important;
+    color: white !important;
+  }
+
+  .gallery__link-critique:after {
+    display: none;
+  }
+
+  .gallery__link-delete:after {
+    display: none;
+  }
+
+  .gallery__link-delete {
+    margin-top: 20px;
+  }
+
+  .gallery__commented {
+    margin-top: 20px;
+  }
 }
 
 @media screen and (max-width: 900px) {
-  .gallery-header {
+  .gallery__header {
     display: none;
   }
 }

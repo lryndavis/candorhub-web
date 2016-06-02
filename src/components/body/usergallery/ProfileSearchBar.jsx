@@ -33,7 +33,7 @@ const masonryOptions = {
     buildElements: function(start, end) {
         var elements = [];
         for (var i = start; i < end; i++) {
-            elements.push(<div className="gallery-link" />)
+            elements.push(<div className="gallery__link" />)
         }
         return elements;
     },
@@ -64,13 +64,13 @@ const masonryOptions = {
       var filteredImageGallery = filteredImages.map(function(image){
         return (
           <figure key={image.id} >
-              <div className="gallery-link">
+              <div className="gallery__link">
                 <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
-                  <img className="grid-item" src={image.image_small}></img>
+                  <img className="gallery__item" src={image.image_small}></img>
                   <figcaption>
-                    <h3 className="hover-title">{image.title}</h3>
-                    {image.user ? <span className="hover-caption">by {image.user.username}</span> : null}
-                    <span className="hover-comments">{image.comment_count} Critiques</span>
+                    <h3 className="gallery__title-hover">{image.title}</h3>
+                    {image.user ? <span className="gallery__caption-hover">by {image.user.username}</span> : null}
+                    <span className="gallery__comments-hover">{image.comment_count} Critiques</span>
                   </figcaption>
                 </Link>
               </div>
@@ -78,10 +78,10 @@ const masonryOptions = {
           );
         });
         return (
-          <div className="image-gallery">
-            <div className="search-header">
+          <div className="gallery__images">
+            <div className="gallery__header-search">
               <SearchInput className="search-input" placeholder="Search Works by this Artist" onChange={this.searchUpdated} />
-              <h2 className="gallery-header">Browse Artwork</h2>
+              <h2 className="gallery__header">Browse Artwork</h2>
             </div>
             <Infinite elementHeight={2000}
                                infiniteLoadBeginEdgeOffset={10000}
@@ -94,7 +94,7 @@ const masonryOptions = {
               <Masonry
                       options={masonryOptions}
                       disableImagesLoaded={false}
-                      className={"image-gallery"}
+                      className={"gallery__images"}
                 >
               {filteredImageGallery}
             </Masonry>

@@ -23,6 +23,15 @@ const feedbackWrongLength = "Comments must be between 10 and 100 characters.";
 const feedbackOffensive = "This comment does not appear constructive due to its use of offensive language.";
 const feedbackNotConstructive = "This comment does not appear constructive due to its extreme negativity.";
 
+const formatQuestion = function(question) {
+  let formattedQuestion = question;
+  if (question.charAt(question.length - 1) !== '?') {
+    formattedQuestion = formattedQuestion + "?";
+  }
+  let result = formattedQuestion.replace("painting", "artwork");
+  return result;
+}
+
 export const GalleryCommentForm = React.createClass({
 
   getInitialState: function() {
@@ -129,13 +138,16 @@ export const GalleryCommentForm = React.createClass({
       "image_id": this.props.imageById.id,
       "comments": [{
           "question_id": this.props.questionsForComment[0].id,
-          "body": firstResponse.toString()
+          "body": firstResponse.toString(),
+          "user_id": this.props.currentUserId
         }, {
           "question_id": this.props.questionsForComment[1].id,
-          "body": secondResponse.toString()
+          "body": secondResponse.toString(),
+          "user_id": this.props.currentUserId
         }, {
           "question_id": this.props.questionsForComment[2].id,
-          "body": thirdResponse.toString()
+          "body": thirdResponse.toString(),
+          "user_id": this.props.currentUserId
         }]
     };
     this.props.postSubmitCommentGallery(body);
@@ -143,13 +155,13 @@ export const GalleryCommentForm = React.createClass({
   },
 
   render: function() {
-    return (<div>
+    return (<div className="col-md-6">
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
             <p className="form__comment-header">Your Daily Candor</p>
             <p className="form__instructions-header">Now's your chance to share a candid critique of this artwork!</p>
             <p className="form__comment-instructions"><span className="form__tips-header">Tips: </span>{critiqueTips}</p><br></br>
-            <p className="form__question">{this.props.firstQuestion.body}</p>
+            <p className="form__question">{formatQuestion(this.props.firstQuestion.body)}</p>
             <TextField
               id="firstResponse"
               className="form__textfield"
@@ -160,7 +172,7 @@ export const GalleryCommentForm = React.createClass({
               multiLine={true}
             /><br />
             <br />
-            <p  className="form__question">{this.props.secondQuestion.body}</p>
+            <p  className="form__question">{formatQuestion(this.props.secondQuestion.body)}</p>
             <TextField
               id="secondResponse"
               className="form__textfield"
@@ -171,7 +183,7 @@ export const GalleryCommentForm = React.createClass({
               multiLine={true}
             /><br />
             <br />
-            <p  className="form__question">{this.props.thirdQuestion.body}</p>
+            <p  className="form__question">{formatQuestion(this.props.thirdQuestion.body)}</p>
             <TextField
               id="thirdResponse"
               className="form__textfield"
@@ -183,7 +195,7 @@ export const GalleryCommentForm = React.createClass({
             /><br />
             <br />
             <button type="submit"
-              className="button button__submit"
+              className="form__submit-form"
               disabled={!this.state.readyToSubmit}>Post</button>
             </div>
           </form>
@@ -194,6 +206,8 @@ export const GalleryCommentForm = React.createClass({
 
 function mapStateToProps(state) {
   return {
+    signedIn: state.auth.getIn(["user", "isSignedIn"]),
+    currentUserId: state.auth.getIn(["user", "attributes", "id"]),
     imageById: state.imageGallery.imageById,
     firstQuestion: state.comments.questionsForComment[0],
     secondQuestion: state.comments.questionsForComment[1],

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:./test/custom_compiler.js --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "build": "trash dist/* '!dist/index.html' && NODE_ENV=production && webpack --config ./webpack.production.config.js --progress --profile --colors"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +19,9 @@
     "babel-preset-stage-1": "^6.5.0",
     "chai": "^3.5.0",
     "chai-immutable": "^1.5.4",
+    "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "jsdom": "^8.5.0",
     "json-loader": "^0.5.4",
@@ -31,6 +34,7 @@
     "redux-mock-store": "^1.0.2",
     "sass-loader": "^3.2.0",
     "skin-deep": "^0.16.0",
+    "strip-loader": "^0.1.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
@@ -85,6 +89,7 @@
     "retext-sentiment": "^1.0.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack-isomorphic-tools": "^2.3.0"
   }
 }

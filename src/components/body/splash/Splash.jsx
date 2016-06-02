@@ -1,7 +1,7 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import React from 'react';
-import {Link, browserHistory} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import {connect} from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Scroll from 'react-scroll';
@@ -48,7 +48,7 @@ export const Splash = React.createClass({
   componentWillUpdate(nextProps) {
     //redirect to dashboard on successful sign-in
     if (nextProps.signedIn) {
-      browserHistory.push("/dashboard");
+      hashHistory.push("/dashboard");
     }
   },
 
@@ -80,14 +80,14 @@ export const Splash = React.createClass({
       <div className="splash">
         <div className="splash__header">
           <h1 className="splash__logo">candorhub</h1>
-          { this.state.signUpShow ? <h3 className="splash__member-header" onClick={ this.onHandleClick }>LOG IN</h3> : null }
+          { this.state.signUpShow ? <h3 className="splash__header-member" onClick={ this.onHandleClick }>LOG IN</h3> : null }
         </div>
 
-        <div className="splash__login-container">
-          <div className="splash__main-container">
+        <div className="splash__container-login">
+          <div className="splash__container-main">
             { this.state.signUpShow ? <SignUp /> : null }
-            { this.state.signUpShow ? <a className="splash__tour-scroll" onClick={this.scrollToBottom}>Learn More</a> : null }
-            { this.state.signUpShow ? <img className="splash__arrow-down" src={arrowDown} alt="arrow down" onClick={this.scrollToBottom} /> : null }
+            { this.state.signUpShow ? <a className="splash__link-scroll" onClick={this.scrollToBottom}>Learn More</a> : null }
+            { this.state.signUpShow ? <img className="splash__image-arrow" src={arrowDown} alt="arrow down" onClick={this.scrollToBottom} /> : null }
             <ReactCSSTransitionGroup
               transitionName="formTransition"
               transitionEnterTimeout={1000}
@@ -97,42 +97,42 @@ export const Splash = React.createClass({
           </div>
         </div>
 
-        <div className="splash__tour-container">
-          <h4 className="splash__tour-header">how candorhub works</h4>
-          <div className="splash__column-container container">
+        <div className="splash__container-tour">
+          <h4 className="splash__header-tour">how candorhub works</h4>
+          <div className="splash__container-columns container">
 
-            <div className="splash__tour-column col-md-4">
+            <div className="splash__column-tour col-md-4">
               <h5>critique</h5>
-              <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+              <img className="splash__image-tour" src={growImage} alt="Astrolabe Diagram" />
               <div className="splash__column-content">
-                <p className="splash__tour-copy">{critiqueCopy}</p>
+                <p className="splash__copy-tour">{critiqueCopy}</p>
               </div>
             </div>
 
-            <div className="splash__tour-column col-md-4">
+            <div className="splash__column-tour col-md-4">
               <h5>learn</h5>
-              <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+              <img className="splash__image-tour" src={growImage} alt="Astrolabe Diagram" />
               <div className="splash__column-content">
-                <p className="splash__tour-copy">{learnCopy}</p>
+                <p className="splash__copy-tour">{learnCopy}</p>
               </div>
             </div>
 
-            <div className="splash__tour-column col-md-4">
+            <div className="splash__column-tour col-md-4">
               <h5>grow</h5>
-              <img className="splash__tour-image" src={growImage} alt="Astrolabe Diagram" />
+              <img className="splash__image-tour" src={growImage} alt="Astrolabe Diagram" />
               <div className="splash__column-content">
-                <p className="splash__tour-copy">{growCopy}</p>
+                <p className="splash__copy-tour">{growCopy}</p>
               </div>
             </div>
           </div>
 
           <a onClick={this.scrollToTop}>
-            <div className="splash__faux-button">
+            <div className="splash__button-faux">
               Join Now
             </div>
           </a>
-          <h4 className="splash__about-header">about</h4>
-          <div className="splash__about-us">
+          <h4 className="splash__header-about">about</h4>
+          <div className="splash___container-about">
             <p>Candorhub is a creation of Lauryn Davis, Jeffrey Ruder, Riley Starnes, and Patrick Sullivan, interns at DevelopmentNow. </p>
             <p><a href="https://developmentnow.com/" target="_blank">DevelopmentNow</a> is an award-winning digital product solutions agency located in the Pacific Northwest.</p>
           </div>

@@ -1,6 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import {browserHistory} from 'react-router';
-
+import {hashHistory} from 'react-router';
 
 const apiRoot = "http://candorhub-api.herokuapp.com/v1/"
 const randomImageEndpoint = apiRoot + "images?count=1";
@@ -9,6 +8,8 @@ const submitCommentEndpoint = apiRoot + "comments";
 const getQuestionsEndpoint = apiRoot + "questions?count=3";
 const multipleRandomImagesEndpoint = apiRoot + "images";
 const imageUploadEndpoint = apiRoot + "images";
+
+let randomImageAttempts = 0;
 
 export function setState(state) {
   return {
@@ -131,7 +132,7 @@ export function postDeleteImage(id) {
     //redirect to user gallery on successful delete
     .then(() => {
       dispatch(getImagesByUser()),
-      browserHistory.push("/usergallery")
+      hashHistory.push("/usergallery")
     });
   }
 }
@@ -159,7 +160,6 @@ export function getRandomImageFromServer(state) {
   return function (dispatch, getState) {
     const state = getState();
     const url = randomImageEndpoint + "&id=" + state.auth.getIn(["user", "attributes", "id"]);
-    console.log(url);
     return fetch(url)
     .then(response => response.json())
     .then(responseJSON => {
