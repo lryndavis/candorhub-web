@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import * as actionCreators from '../../../action_creators';
 import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../../lib/CommentValidation';
+import {formatQuestion} from '../../../lib/FormatQuestion';
 import Dashboard from './Dashboard';
 import DashboardNotSignedIn from './DashboardNotSignedIn';
 import ImageModal from './ImageModal';
@@ -36,15 +37,6 @@ const styles = {
     color: indigoA400,
   }
 };
-
-const formatQuestion = function(question) {
-  let formattedQuestion = question;
-  if (question.charAt(question.length - 1) !== '?') {
-    formattedQuestion = formattedQuestion + "?";
-  }
-  let result = formattedQuestion.replace("painting", "artwork");
-  return result;
-}
 
 export const CommentForm = React.createClass ({
 

@@ -34,8 +34,8 @@ describe("CommentBox", () => {
     vdom = tree.getRenderOutput();
   });
 
-  it("renders a comment list", () => {
-    expect(tree.props.className).to.equal("comments__comment-list");
+  it("renders a comment box", () => {
+    expect(tree.props.className).to.equal("comments__comment-box");
   });
 
   it("renders a comment box for each comment", () => {

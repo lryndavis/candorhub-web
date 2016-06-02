@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField';
 
 import * as actionCreators from '../../../action_creators';
 import {doesNotUseOffensiveLanguage, usesConstructiveLanguage, isCorrectLength} from '../../../lib/CommentValidation';
+import {formatQuestion} from '../../../lib/FormatQuestion';
 import ImageModal from '../dashboard/ImageModal';
 import GalleryQuestionList from './GalleryQuestionList';
 
@@ -22,15 +23,6 @@ const NOT_STARTED = 55;
 const feedbackWrongLength = "Comments must be between 10 and 100 characters.";
 const feedbackOffensive = "This comment does not appear constructive due to its use of offensive language.";
 const feedbackNotConstructive = "This comment does not appear constructive due to its extreme negativity.";
-
-const formatQuestion = function(question) {
-  let formattedQuestion = question;
-  if (question.charAt(question.length - 1) !== '?') {
-    formattedQuestion = formattedQuestion + "?";
-  }
-  let result = formattedQuestion.replace("painting", "artwork");
-  return result;
-}
 
 export const GalleryCommentForm = React.createClass({
 

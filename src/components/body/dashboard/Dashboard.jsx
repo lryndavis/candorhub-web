@@ -49,6 +49,8 @@ export const Dashboard = React.createClass({
   },
 
   render: function() {
+    console.log("state auth info");
+    console.log(this.props.username);
     return <div>
         { this.props.signedIn ?
             <div className="dashboard__main-container">

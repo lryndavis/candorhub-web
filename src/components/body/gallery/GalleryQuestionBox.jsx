@@ -5,6 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import GalleryCommentBox from './GalleryCommentBox';
 import GalleryQuestionList from './GalleryQuestionList';
+import {formatQuestion} from '../../../lib/FormatQuestion';
 
 
 export default React.createClass({
@@ -26,7 +27,7 @@ export default React.createClass({
           { this.state.navArrowChange ?
             <NavigationArrowDropUp /> :
             <NavigationArrowDropDown /> }
-          {this.props.question.body}
+          {formatQuestion(this.props.question.body)}
         </p>
         <div>
           { this.state.commentShow ?
