@@ -63,8 +63,11 @@ export default class Sidebar extends React.Component {
               Your Artwork
             </Link>
             <UploadFormModal />
-          </div>
 
+          </div>
+          <div className="sidebar__link-container">
+            <a className="sidebar__menu-signout" href="/">Sign Out</a>
+          </div>
         </Drawer>
       </div>
     );
