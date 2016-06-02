@@ -45,7 +45,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    publicPath: 'http://candorhub.com',
+    publicPath: 'http://candorhub.com/',
     filename: 'bundle.js'
   },
   plugins: [
