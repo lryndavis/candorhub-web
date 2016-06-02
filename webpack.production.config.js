@@ -7,16 +7,16 @@ module.exports = {
   ],
   module: {
     loaders: [
-    {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'react-hot!babel'
-    },
-    {
-       test: /\.scss$/,
-       loaders: ['style-loader', 'css-loader', 'sass-loader']
-     },
-     {
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'react-hot!babel'
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader']
       },
@@ -27,9 +27,9 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-       loader: 'file?name=stylesheets/fonts/Coves-Light/[name].[ext]'
-     },
-     {
+        loader: 'file?name=stylesheets/fonts/Coves-Light/[name].[ext]'
+      },
+      {
         //IMAGE LOADER
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader:'url?limit=8192' // inline base64 URLs for <=8k images, direct URLs for the rest
@@ -45,7 +45,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    publicPath: 'http://jeffreyruder.github.io/ch-test/',
+    publicPath: 'http://candorhub.com',
     filename: 'bundle.js'
   },
   plugins: [
