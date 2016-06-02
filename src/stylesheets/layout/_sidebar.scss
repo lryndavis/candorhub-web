@@ -5,6 +5,13 @@
   height: 100vh;
 }
 
+a.sidebar__link-signout {
+  font-family: 'Coves-Light';
+  font-size: 1.2em;
+  padding-right: 5px;
+  color: $mustard;
+}
+
 .sidebar-welcome {
   font-family: $font-stack--primary;
   font-weight: lighter;
@@ -74,9 +81,6 @@ span.sidebar-user {
 
 //media queries
 @media screen and (max-width: 550px) {
-  button.sign-out-submit {
-    display: none;
-  }
 
   div.dashboard-header {
     text-align: right;
@@ -84,6 +88,10 @@ span.sidebar-user {
   }
 
   .sidebar-user {
+    display: none;
+  }
+
+  a.sidebar__link-signout {
     display: none;
   }
 }

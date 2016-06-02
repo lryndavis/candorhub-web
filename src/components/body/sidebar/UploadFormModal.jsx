@@ -37,7 +37,7 @@ export default class DialogExampleModal extends React.Component {
     ];
 
     return (
-      <p className="sidebar__menu-link" onClick={this.handleOpen}>Upload
+      <p className="sidebar__menu-link" onClick={this.handleOpen}>Upload Artwork
         <Dialog
           actions={actions}
           modal={true}
