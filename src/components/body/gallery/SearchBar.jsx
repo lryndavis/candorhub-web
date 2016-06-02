@@ -12,14 +12,41 @@ const masonryOptions = {
     fitWidth: true,
   };
 
+function imagesLoaded(parentNode) {
+  const imgElements = parentNode.querySelectorAll('img');
+  for (var i = 0; i < imgElements.length; i++) {
+    if (!(imgElements[i].complete)) {
+      return false;
+    }
+  }
+  return true;
+}
+
 export default React.createClass({
 
   getInitialState() {
     return {
       searchTerm: '',
       elements: this.buildElements(0, 15),
-      isInfiniteLoading: false
+      isInfiniteLoading: false,
+      loading: true
     }
+  },
+
+  handleImageChange() {
+    const galleryElement = this.refs.gallery;
+    this.setState({
+      loading: !imagesLoaded(galleryElement),
+    });
+  },
+
+  renderSpinner() {
+    if(!this.state.loading) {
+      return null;
+    }
+    return (
+      <span>Loading</span>
+    );
   },
 
   searchUpdated(term) {
@@ -38,7 +65,7 @@ export default React.createClass({
   handleInfiniteLoad: function() {
       var that = this;
       this.setState({
-          isInfiniteLoading: true
+        isInfiniteLoading: true
       });
       setTimeout(function() {
           var elemLength = that.state.elements.length,
@@ -57,13 +84,18 @@ export default React.createClass({
   },
 
   render: function() {
+    const self = this;
     const filteredImages = this.props.imagesForGallery.filter(createFilter(this.state.searchTerm, keysToFilters))
     var filteredImageRender = filteredImages.map(function(image){
       return (
         <figure key={image.id} >
             <div className="gallery__link">
               <Link to={`/gallery/${image.id}`} params={{id: image.id}}>
-                <img className="gallery__item" src={image.image_small}></img>
+                <img className="gallery__item" src={image.image_small}
+                  onLoad={self.handleImageChange}
+                  onError={self.handleImageChange}
+                  >
+                </img>
                 <figcaption>
                   <h3 className="gallery__title-hover">{image.title}</h3>
                   {image.user ? <span className="gallery__caption-hover">by {image.user.username}</span> : null}
@@ -75,10 +107,11 @@ export default React.createClass({
         );
       });
       return (
-        <div className="gallery__images">
+        <div className="gallery__images" ref="gallery">
           <div className="gallery__header-search">
             <SearchInput className="search-input" placeholder="Search candorhub" onChange={this.searchUpdated} />
             <h2 className="gallery__header">Browse Artwork</h2>
+            {this.renderSpinner()}
           </div>
           <Infinite elementHeight={2000}
                              infiniteLoadBeginEdgeOffset={10000}
