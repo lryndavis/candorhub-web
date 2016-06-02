@@ -165,7 +165,7 @@ export const CommentForm = React.createClass ({
         this.props.showForm ?
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
-            <p className="form__comment-header">Your Daily Candor</p>
+            <p className="form__comment-header">Share Some Candor</p>
             <p className="form__instructions-header">Now's your chance to share a candid critique of this artwork!</p>
             <p className="form__comment-instructions"><span className="form__tips-header">Tips: </span>{critiqueTips}</p><br></br>
             <p className="form__question">{formatQuestion(this.props.firstQuestion.body)}</p>
