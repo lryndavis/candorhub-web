@@ -22,6 +22,7 @@ export const Dashboard = React.createClass({
     this.props.getRandomImageFromServer();
   },
 
+//checks thru a specified number of images to see iff current user has commented on them previously
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps.imageForCritique) {
       if (authorInComments(nextProps.imageForCritique, this.props.userId)) {

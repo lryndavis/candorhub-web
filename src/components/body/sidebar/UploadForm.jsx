@@ -20,7 +20,7 @@ const MAX_TAGS_FEEDBACK = "Only five tags may be added to an image."
 const TAGS_LANGUAGE_FEEDBACK = "Tags must not use offensive language."
 
 const customContentStyle = {
-  maxWidth: '90%',
+  maxWidth: '60%',
   maxHeight: '150px',
   display: 'block',
   margin: 'auto'
@@ -132,60 +132,60 @@ export const UploadForm = React.createClass({
 
   render() {
     return (
-      <form className='upload-form' onSubmit={this.handleSubmit}>
-        <h3 className="form__header-upload">Upload Your Work</h3>
-        <div className="col-md-6 form__container-form">
-        {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
-          <div>
-            <CircularProgress size={2} />
-            <p>Uploading your masterpiece...</p>
-          </div> :
-          <p>All done with your upload!</p>) :
-          <div className="form__drop-zone">
-            <Dropzone
-              onDrop={this.onDrop}
-              accept="image/*"
-              multiple={false}>
-              <div className="form__copy-dropzone">Select a file to upload</div>
-                {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
-                  {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
-                : null }
-            </Dropzone>
-          </div>
-          }
-          <br />
-          <br />
-
-          <input
-            className="form__title-upload"
-            placeholder="Title"
-            value={this.state.title}
-            onChange={this.handleTitleChange}
-            /><br />
-            <br />
-          <input
-            className="form__description-upload"
-            placeholder="Artist's Notes"
-            value={this.state.description}
-            onChange={this.handleDescChange}
-            />
-            <input className="button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
-          </div>
-
-          <div className="col-md-6 form__container-tags">
-            <p className="form__header-tags">Add Tags</p>
-            <ReactTags
-              tags={this.state.tags}
-              handleDelete={this.handleTagDeletion}
-              handleAddition={this.handleTagAddition}
-              handleInputChange={this.handleTagInputChange}
-              allowDeleteFromEmptyInput={false}
-              ref={(reactTagsNode) => reactTagsNode ?
-                this.tagInput = reactTagsNode.refs.child.refs.input : null}
-              />
-              <span className="feedback">{this.state.feedback}</span>
+      <div className="form__container-upload">
+        <form className='upload-form' onSubmit={this.handleSubmit}>
+          <h3 className="form__header-upload">Upload Your Work</h3>
+          <div className="form__container-form">
+          {this.state.isUploadingImage ? (!this.props.finishedImageUpload ?
+            <div>
+              <CircularProgress size={2} />
+              <p>Uploading your masterpiece...</p>
+            </div> :
+            <p>All done with your upload!</p>) :
+            <div className="form__drop-zone">
+              <Dropzone
+                onDrop={this.onDrop}
+                accept="image/*"
+                multiple={false}>
+                <div className="form__copy-dropzone">Select a file to upload</div>
+                  {(this.state.files.length > 0 && !this.props.isUploadingImage) ? <div>
+                    {this.state.files.map((file) => <img src={this.state.files[0].preview} key={file.name} style={customContentStyle}/>)}</div>
+                  : null }
+              </Dropzone>
             </div>
-        </form>
+            }
+            <br />
+            <br />
+            <div className="form__container-tags">
+              <p className="form__header-tags">Add Tags</p>
+              <ReactTags
+                tags={this.state.tags}
+                handleDelete={this.handleTagDeletion}
+                handleAddition={this.handleTagAddition}
+                handleInputChange={this.handleTagInputChange}
+                allowDeleteFromEmptyInput={false}
+                ref={(reactTagsNode) => reactTagsNode ?
+                  this.tagInput = reactTagsNode.refs.child.refs.input : null}
+                />
+                <span className="feedback">{this.state.feedback}</span>
+              </div>
+              <input
+                className="form__title-upload"
+                placeholder="Title"
+                value={this.state.title}
+                onChange={this.handleTitleChange}
+                /><br />
+                <br />
+              <input
+                className="form__description-upload"
+                placeholder="Artist's Notes"
+                value={this.state.description}
+                onChange={this.handleDescChange}
+                />
+            </div>
+            <input className="button__submit" type="submit" class="submit-button" disabled={this.props.isUploadingImage} />
+          </form>
+        </div>
       )
     }
   });

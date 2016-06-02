@@ -171,20 +171,24 @@ div.ReactTags__tagInput input:focus,
 input.form__title-upload,
 input.form__description-upload {
   @extend %upload-material-text-fields;
+  margin-right: none !important;
 }
 
 .form__header-upload {
   text-transform: uppercase;
   font-family: 'Coves-Light';
-  text-align: center;
   border-bottom: 1px solid $mustard;
   width: 225px;
   margin: 0 auto 25px auto;
 }
 
 .form__container-tags {
-  text-align: center;
   list-style: none;
+  padding-bottom: 15px;
+}
+
+.upload-form {
+  margin: 0 auto;
 }
 
 div.ReactTags__selected a.ReactTags__remove {
@@ -205,10 +209,12 @@ div.ReactTags__selected span.ReactTags__tag {
 .form__header-tags {
   font-size: 1.3em;
   font-family: 'Coves-Light';
+  margin-bottom: 15px;
 }
 
 .form__container-form {
-  text-align: center;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .form__copy-dropzone {
@@ -220,5 +226,5 @@ div.ReactTags__selected span.ReactTags__tag {
   font-family: 'Coves-Light';
   margin-top: 15px;
   display: block;
-  color: #2957C3;
+  color: $orange-sunset;
 }

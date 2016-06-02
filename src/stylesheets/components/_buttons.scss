@@ -87,7 +87,8 @@ input.button__submit {
   @extend %button-hover-fade;
   background-color: #fff;
   width: 250px;
-  margin-top: 25px;
+  display: block;
+  margin: 25px auto 0 auto;
 }
 
 input.button__submit:hover {
