@@ -4,7 +4,7 @@ import React from 'react';
 
 import CommentBox from './CommentBox';
 import QuestionList from './QuestionList';
-
+import {formatQuestion} from '../../../lib/FormatQuestion';
 
 export default React.createClass({
 
@@ -23,7 +23,7 @@ export default React.createClass({
       <div className="question__question-box">
         <h3 className="question" key={this.props.question.id} onClick={ this.onClick }>
           { this.state.navArrowChange ? <NavigationArrowDropUp /> : <NavigationArrowDropDown /> }
-          {this.props.question.body}
+          {formatQuestion(this.props.question.body)}
         </h3>
         <div className="comment-list">
           { this.state.commentShow ? <CommentBox question={this.props.question} /> : null }
