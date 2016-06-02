@@ -1,3 +1,4 @@
+import CircularProgress from 'material-ui/CircularProgress';
 import React from 'react';
 import SearchInput, {createFilter} from 'react-search-input';
 import Infinite from 'react-infinite';
@@ -12,6 +13,7 @@ const masonryOptions = {
     fitWidth: true,
   };
 
+//checks to see if images have been fully loaded
 function imagesLoaded(parentNode) {
   const imgElements = parentNode.querySelectorAll('img');
   for (var i = 0; i < imgElements.length; i++) {
@@ -45,7 +47,9 @@ export default React.createClass({
       return null;
     }
     return (
-      <span>Loading</span>
+      <div className="gallery__container-spinner">
+        <CircularProgress size={2} />
+      </div>
     );
   },
 
@@ -111,7 +115,6 @@ export default React.createClass({
           <div className="gallery__header-search">
             <SearchInput className="search-input" placeholder="Search candorhub" onChange={this.searchUpdated} />
             <h2 className="gallery__header">Browse Artwork</h2>
-            {this.renderSpinner()}
           </div>
           <Infinite elementHeight={2000}
                              infiniteLoadBeginEdgeOffset={10000}
@@ -126,6 +129,7 @@ export default React.createClass({
                     disableImagesLoaded={false}
                     className={"gallery__images"}
               >
+            {this.renderSpinner()}
             {filteredImageRender}
           </Masonry>
         </Infinite>

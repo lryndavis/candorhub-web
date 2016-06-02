@@ -32,7 +32,9 @@ export const UserGallery = React.createClass({
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <Sidebar username={this.props.username} />
           </MuiThemeProvider>
-          <UserSearchBar imagesByUser={this.props.imagesByUser} />
+          <MuiThemeProvider muiTheme={getMuiTheme()}>
+            <UserSearchBar imagesByUser={this.props.imagesByUser} />
+          </MuiThemeProvider>
         </div> :
         <DashboardNotSignedIn />
       }
