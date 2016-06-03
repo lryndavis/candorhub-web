@@ -86,7 +86,7 @@ const masonryOptions = {
 
     elementInfiniteLoad: function() {
         return <div className="infinite-list-item">
-          <CircularProgress size={} />
+          <CircularProgress size={1} />
         </div>;
     },
 

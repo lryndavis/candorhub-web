@@ -16,16 +16,17 @@ const masonryOptions = {
     fitWidth: true,
   };
 
+
   //checks to see if images have been fully loaded
   function imagesLoaded(parentNode) {
-    const imgElements = parentNode.querySelectorAll('img');
-    for (var i = 0; i < imgElements.length; i++) {
-      if (!(imgElements[i].complete)) {
-        return false;
+      const imgElements = parentNode.querySelectorAll('img');
+        for (var i = 0; i < imgElements.length; i++) {
+          if (!(imgElements[i].complete)) {
+            return false;
+          }
+        }
+        return true;
       }
-    }
-    return true;
-  }
 
   export default React.createClass({
 
@@ -86,7 +87,7 @@ const masonryOptions = {
 
     elementInfiniteLoad: function() {
         return <div className="infinite-list-item">
-            <CircularProgress size={} />
+            <CircularProgress size={1} />
         </div>;
     },
 
@@ -132,7 +133,8 @@ const masonryOptions = {
                       disableImagesLoaded={false}
                       className={"gallery__images"}
                 >
-              {this.renderSpinner()}
+              { (filteredImages.length > 0 && this.state.loading) ? <CircularProgress size={1} /> : null }
+              { filteredImages.length === 0 ? <p>Theres Nothing here</p> : null}
               {filteredImageRender}
             </Masonry>
           </Infinite>
