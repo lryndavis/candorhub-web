@@ -25,7 +25,8 @@ const OKAY = 44;
 const NOT_STARTED = 55;
 
 //Feedback for comment error hints
-const feedbackWrongLength = "Comments must be between 10 and 350 characters.";
+
+const feedbackWrongLength = "Comments must be between 10 and 400 characters.";
 const feedbackOffensive = "This comment does not appear constructive due to its use of offensive language.";
 const feedbackNotConstructive = "This comment does not appear constructive due to its extreme negativity.";
 

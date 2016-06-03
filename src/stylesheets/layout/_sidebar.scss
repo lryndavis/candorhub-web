@@ -2,7 +2,36 @@
 
 .sidebar__main-container {
   background-color: #262626;
-  height: 100vh;
+  height: 90vh;
+}
+
+.sidebar__link-container {
+  height: 10vh;
+  background-color: #262626;
+}
+
+a.sidebar__link-signout {
+  font-family: 'Coves-Light';
+  font-size: 1.2em;
+  padding-right: 5px;
+  color: $mustard;
+}
+
+a.sidebar__menu-signout {
+  color: $pale-blue;
+  text-transform: uppercase;
+  font-family: 'Coves-Light';
+  font-size: 1.5em;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  display: block;
+  padding-top: 10px;
+  border-top: 1px solid $pale-blue;
+  width: 90%;
+}
+
+a.sidebar__menu-signout:hover {
+  color: #fff;
 }
 
 .sidebar-welcome {
@@ -74,9 +103,6 @@ span.sidebar-user {
 
 //media queries
 @media screen and (max-width: 550px) {
-  button.sign-out-submit {
-    display: none;
-  }
 
   div.dashboard-header {
     text-align: right;
@@ -84,6 +110,10 @@ span.sidebar-user {
   }
 
   .sidebar-user {
+    display: none;
+  }
+
+  a.sidebar__link-signout {
     display: none;
   }
 }

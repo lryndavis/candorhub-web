@@ -24,7 +24,9 @@ export const ProfileGallery = React.createClass({
               <MuiThemeProvider muiTheme={getMuiTheme()}>
                 <Sidebar username={this.props.username} />
               </MuiThemeProvider>
-              <ProfileSearchBar imagesBySpecificUser={this.props.imagesBySpecificUser} />
+              <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <ProfileSearchBar imagesBySpecificUser={this.props.imagesBySpecificUser} />
+              </MuiThemeProvider>
             </div>
           </div>;
         }

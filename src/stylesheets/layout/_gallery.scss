@@ -3,12 +3,18 @@
 .gallery {
   text-align: left;
 }
+
 .gallery__link-critique {
   text-transform: uppercase;
   font-family: 'Coves-Light';
   font-size: 1.4em;
   cursor: pointer;
   position: relative;
+}
+
+.gallery__container-spinner {
+  width: 80%;
+  margin-right: 200px !important;
 }
 
 .gallery__link-critique:hover:after {
@@ -250,14 +256,23 @@ figure.hover img {
 }
 
 @media screen and (max-width: 900px) {
+
   .gallery__header {
     display: none;
   }
 }
 
 @media screen and (max-width: 550px) {
+
   .search-input {
     margin-right: auto;
     margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+
+  .gallery__item {
+    width: 120px;
   }
 }
