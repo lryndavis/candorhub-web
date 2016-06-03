@@ -13,7 +13,7 @@ const masonryOptions = {
     fitWidth: true,
   };
 
-//checks to see if images have been fully loaded
+//check to see if images have been fully loaded
 function imagesLoaded(parentNode) {
   const imgElements = parentNode.querySelectorAll('img');
   for (var i = 0; i < imgElements.length; i++) {
@@ -83,7 +83,7 @@ export default React.createClass({
 
   elementInfiniteLoad: function() {
       return <div className="infinite-list-item">
-          Loading...
+        <CircularProgress size={1} />
       </div>;
   },
 

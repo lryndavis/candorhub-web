@@ -101,6 +101,10 @@ span.sidebar-user {
   @extend %animate-links-hover;
 }
 
+.sidebar__menu-link:active {
+  color: #fff;
+}
+
 //media queries
 @media screen and (max-width: 550px) {
 

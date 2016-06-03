@@ -46,8 +46,8 @@ export const Dashboard = React.createClass({
                   </MuiThemeProvider>
                   {this.props.didSubmitComment ?
                     <div className="gallery__commented">
-                      <p>Thanks for sharing some candor!</p>
-                      <Link to={'/gallery'}><p>Browse the gallery to see more artwork.</p></Link>
+                      <p className="gallery__feedback">Thanks for sharing some candor!</p>
+                      <Link to={'/gallery'}><p className="gallery__link-gallery">Browse the gallery to see more artwork</p></Link>
                     </div>
 
                     : null

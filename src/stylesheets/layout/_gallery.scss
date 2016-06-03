@@ -21,6 +21,21 @@
   width: 33%;
 }
 
+.gallery__feedback {
+  font-weight: $font-weight--ultralight;
+  font-size: 1.1em;
+}
+
+.gallery__link-gallery {
+  font-weight: $font-weight--ultralight;
+  text-decoration: underline;
+  font-size: 1.1em;
+}
+
+.gallery__link-gallery:hover {
+  color: $mustard;
+}
+
 .gallery__link-critique:after {
   content: '';
   position: absolute;
