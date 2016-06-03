@@ -9,14 +9,13 @@ import UploadFormModal from '../sidebar/UploadFormModal';
 
 // gallery/search for viewing works by currently logged in user
 
-const keysToFilters = ['user.username', 'tags.body', 'title']
+  const keysToFilters = ['user.username', 'tags.body', 'title']
 
-const masonryOptions = {
-    transitionDuration: 500,
-    gutter: 15,
-    fitWidth: true,
-  };
-
+  const masonryOptions = {
+      transitionDuration: 500,
+      gutter: 15,
+      fitWidth: true,
+    };
 
   //checks to see if images have been fully loaded
   function imagesLoaded(parentNode) {
@@ -87,9 +86,9 @@ const masonryOptions = {
     },
 
     elementInfiniteLoad: function() {
-        return <div className="infinite-list-item">
-            <CircularProgress size={1} />
-        </div>;
+      return <div className="infinite-list-item">
+          <CircularProgress size={1} />
+      </div>;
     },
 
     render: function() {
