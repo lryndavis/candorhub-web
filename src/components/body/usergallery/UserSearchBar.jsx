@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-component';
 import React from 'react';
 import SearchInput, {createFilter} from 'react-search-input';
 import { Router, Route, Link } from 'react-router';
+import UploadFormModal from '../sidebar/UploadFormModal';
 
 
 // gallery/search for viewing works by currently logged in user
@@ -133,8 +134,19 @@ const masonryOptions = {
                       disableImagesLoaded={false}
                       className={"gallery__images"}
                 >
-              { (filteredImages.length > 0 && this.state.loading) ? <CircularProgress size={2} /> : null }
-              { filteredImages.length === 0 ? <span>This Gallery is Empty!</span> : null }
+              {
+                (filteredImages.length > 0 && this.state.loading) ?
+                <CircularProgress size={2} />
+                : null
+              }
+              {
+                filteredImages.length === 0 ?
+                <div className="gallery__container-empty">
+                  <span className="gallery__empty">This Gallery is Empty!</span>
+                  <UploadFormModal />
+                </div>
+                : null
+              }
               {filteredImageRender}
             </Masonry>
           </Infinite>

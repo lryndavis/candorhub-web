@@ -12,6 +12,18 @@
   position: relative;
 }
 
+.gallery__empty {
+  font-family: 'Coves-Light';
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.gallery__container-empty {
+  text-align: center;
+}
+
 .gallery__container-spinner {
   width: 80%;
   margin-right: 200px !important;
