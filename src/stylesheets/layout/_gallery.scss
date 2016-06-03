@@ -233,6 +233,25 @@ figure.hover img {
     font-size: 1.3em;
   }
 
+  .gallery__link-delete:after {
+    display: none;
+  }
+
+  .gallery__link-delete {
+    margin-top: 20px;
+  }
+
+  .gallery__commented {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .gallery__header {
+    display: none;
+  }
+
   .gallery__link-critique {
     padding: 5px;
     cursor: pointer;
@@ -266,25 +285,6 @@ figure.hover img {
   }
 
   .gallery__link-critique:after {
-    display: none;
-  }
-
-  .gallery__link-delete:after {
-    display: none;
-  }
-
-  .gallery__link-delete {
-    margin-top: 20px;
-  }
-
-  .gallery__commented {
-    margin-top: 20px;
-  }
-}
-
-@media screen and (max-width: 900px) {
-
-  .gallery__header {
     display: none;
   }
 }

@@ -230,7 +230,7 @@ h4.modal-title {
 //at mobile
 @media screen and (max-width: 575px) {
 
-  .form__member-header {
+  .form__header-member {
     font-size: 1.2em;
   }
 
@@ -263,5 +263,9 @@ h4.modal-title {
 
   .splash__image-arrow {
     width: 50px;
+  }
+
+  h3.splash__header-member {
+    font-size: 1.4em !important;
   }
 }

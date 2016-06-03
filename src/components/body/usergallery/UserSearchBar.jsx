@@ -140,7 +140,7 @@ import UploadFormModal from '../sidebar/UploadFormModal';
               }
               {
                 filteredImages.length === 0 ?
-                <div className="gallery__container-empty">
+                <div>
                   <span className="gallery__empty">This Gallery is Empty!</span>
                   <UploadFormModal />
                 </div>
