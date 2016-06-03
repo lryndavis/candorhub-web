@@ -25,6 +25,7 @@ const OKAY = 44;
 const NOT_STARTED = 55;
 
 //Feedback for comment error hints
+
 const feedbackWrongLength = "Comments must be between 10 and 400 characters.";
 const feedbackOffensive = "This comment does not appear constructive due to its use of offensive language.";
 const feedbackNotConstructive = "This comment does not appear constructive due to its extreme negativity.";
@@ -165,7 +166,7 @@ export const CommentForm = React.createClass ({
         this.props.showForm ?
           <form className="form" onSubmit={this.handleSubmit}>
             <div className="form__form-text-center">
-            <p className="form__comment-header">Your Daily Candor</p>
+            <p className="form__comment-header">Share Some Candor</p>
             <p className="form__instructions-header">Now's your chance to share a candid critique of this artwork!</p>
             <p className="form__comment-instructions"><span className="form__tips-header">Tips: </span>{critiqueTips}</p><br></br>
             <p className="form__question">{formatQuestion(this.props.firstQuestion.body)}</p>
