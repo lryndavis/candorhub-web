@@ -133,8 +133,8 @@ const masonryOptions = {
                       disableImagesLoaded={false}
                       className={"gallery__images"}
                 >
-              { (filteredImages.length > 0 && this.state.loading) ? <CircularProgress size={1} /> : null }
-              { filteredImages.length === 0 ? <p>Theres Nothing here</p> : null}
+              { (filteredImages.length > 0 && this.state.loading) ? <CircularProgress size={2} /> : null }
+              { filteredImages.length === 0 ? <span>This Gallery is Empty!</span> : null }
               {filteredImageRender}
             </Masonry>
           </Infinite>

@@ -16,7 +16,6 @@ const masonryOptions = {
 //check to see if images have been fully loaded
 function imagesLoaded(parentNode) {
   const imgElements = parentNode.querySelectorAll('img');
-  console.log(imgElements);
   for (var i = 0; i < imgElements.length; i++) {
     if (!(imgElements[i].complete)) {
       return false;
