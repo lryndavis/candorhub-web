@@ -83,7 +83,7 @@ export default React.createClass({
 
   elementInfiniteLoad: function() {
       return <div className="infinite-list-item">
-        <CircularProgress size={1} />
+        <CircularProgress size={} />
       </div>;
   },
 
