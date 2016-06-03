@@ -86,7 +86,7 @@ const masonryOptions = {
 
     elementInfiniteLoad: function() {
         return <div className="infinite-list-item">
-            Loading...
+          <CircularProgress size={1} />
         </div>;
     },
 
@@ -132,7 +132,8 @@ const masonryOptions = {
                       disableImagesLoaded={false}
                       className={"gallery__images"}
                 >
-              {this.renderSpinner()}
+                { (filteredImages.length > 0 && this.state.loading) ? <CircularProgress size={2} /> : null }
+                { filteredImages.length === 0 ? <span className="gallery__empty">This Gallery is Empty!</span> : null }
               {filteredImageGallery}
             </Masonry>
           </Infinite>

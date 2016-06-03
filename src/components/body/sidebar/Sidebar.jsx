@@ -46,7 +46,7 @@ export default class Sidebar extends React.Component {
 
           <div className="sidebar__main-container">
             <ContentClear style={contentClearStyles} onClick={this.handleClose}/>
-            <h2 className="sidebar-welcome">Welcome, <span className="sidebar-username">{this.props.username}</span></h2>
+            <h2 className="sidebar-welcome">Welcome <span className="sidebar-username">{this.props.username}</span></h2>
             <Link ref="gallery"
               className="sidebar__menu-link"
               to={'/gallery'} >

@@ -4,28 +4,29 @@ import Masonry from 'react-masonry-component';
 import React from 'react';
 import SearchInput, {createFilter} from 'react-search-input';
 import { Router, Route, Link } from 'react-router';
+import UploadFormModal from '../sidebar/UploadFormModal';
 
 
 // gallery/search for viewing works by currently logged in user
 
-const keysToFilters = ['user.username', 'tags.body', 'title']
+  const keysToFilters = ['user.username', 'tags.body', 'title']
 
-const masonryOptions = {
-    transitionDuration: 500,
-    gutter: 15,
-    fitWidth: true,
-  };
+  const masonryOptions = {
+      transitionDuration: 500,
+      gutter: 15,
+      fitWidth: true,
+    };
 
   //checks to see if images have been fully loaded
   function imagesLoaded(parentNode) {
-    const imgElements = parentNode.querySelectorAll('img');
-    for (var i = 0; i < imgElements.length; i++) {
-      if (!(imgElements[i].complete)) {
-        return false;
+      const imgElements = parentNode.querySelectorAll('img');
+        for (var i = 0; i < imgElements.length; i++) {
+          if (!(imgElements[i].complete)) {
+            return false;
+          }
+        }
+        return true;
       }
-    }
-    return true;
-  }
 
   export default React.createClass({
 
@@ -85,9 +86,9 @@ const masonryOptions = {
     },
 
     elementInfiniteLoad: function() {
-        return <div className="infinite-list-item">
-            Loading...
-        </div>;
+      return <div className="infinite-list-item">
+          <CircularProgress size={1} />
+      </div>;
     },
 
     render: function() {
@@ -132,7 +133,19 @@ const masonryOptions = {
                       disableImagesLoaded={false}
                       className={"gallery__images"}
                 >
-              {this.renderSpinner()}
+              {
+                (filteredImages.length > 0 && this.state.loading) ?
+                <CircularProgress size={2} />
+                : null
+              }
+              {
+                filteredImages.length === 0 ?
+                <div>
+                  <span className="gallery__empty">This Gallery is Empty!</span>
+                  <UploadFormModal />
+                </div>
+                : null
+              }
               {filteredImageRender}
             </Masonry>
           </Infinite>

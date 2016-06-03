@@ -14,6 +14,10 @@ const critiqueCopy = "Share your insights and opinions about works of art, guide
 
 const critiqueImage = require("./gear.png")
 
+const mandelImage = require("./mandel.png")
+
+const trigImage = require("./trig.png")
+
 const learnCopy = "Upload your own images and get meaningful, constructive feedback from fellow artists, who will always be able to see your work at full size and full resolution.";
 
 const learnImage = require('./antikythera.png');
@@ -111,7 +115,7 @@ export const Splash = React.createClass({
 
             <div className="splash__column-tour col-md-4">
               <h5>learn</h5>
-              <img className="splash__image-tour" src={growImage} alt="Astrolabe Diagram" />
+              <img className="splash__image-tour" src={mandelImage} alt="Astrolabe Diagram" />
               <div className="splash__column-content">
                 <p className="splash__copy-tour">{learnCopy}</p>
               </div>
@@ -119,7 +123,7 @@ export const Splash = React.createClass({
 
             <div className="splash__column-tour col-md-4">
               <h5>grow</h5>
-              <img className="splash__image-tour" src={growImage} alt="Astrolabe Diagram" />
+              <img className="splash__image-tour" src={trigImage} alt="Astrolabe Diagram" />
               <div className="splash__column-content">
                 <p className="splash__copy-tour">{growCopy}</p>
               </div>

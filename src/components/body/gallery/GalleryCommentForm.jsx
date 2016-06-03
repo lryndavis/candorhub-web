@@ -190,7 +190,7 @@ export const GalleryCommentForm = React.createClass({
               className="form__submit-form"
               disabled={!this.state.readyToSubmit}>Post</button>
             </div>
-          </form>
+        </form>
       </div>
     );
   }
